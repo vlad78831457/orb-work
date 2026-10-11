@@ -10,7 +10,7 @@ for f in README.md STATUS.md GOALS.md CHANGELOG.md think/README.md raw/README.md
 done
 
 # Относительные ссылки.
-for md in $(find . -name '*.md' -not -path './.git/*'); do
+for md in $(find . -name '*.md' -not -path './.git/*' -not -path './raw/*/*'); do
   dir=$(dirname "$md")
   grep -o '](\([^)#]*\)[^)]*)' "$md" | sed 's/^](\([^)#]*\).*/\1/' | while read -r link; do
     case "$link" in ''|http://*|https://*|mailto:*) continue ;; esac
