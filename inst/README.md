@@ -25,14 +25,15 @@
 ## Сборка
 
 ```
-make inst            # части из inst/src → inst/dist (вид «репозиторий», в Git)
-make full F=raschet  # один полный md → inst/full-out (в Git не идёт)
+make inst            # части из inst/src → inst/md-out (вид «репозиторий», в Git)
+make full F=raschet  # один полный md → inst/md-full-out (в Git не идёт)
 make docx            # вручную: старые тексты из raw/ → inst/docx/*.docx
 ```
 
-Исходники — `inst/src/`, по разделам: `instruktsii`, `znaniya`, `umeniya`, `standarty`, `reestr`, `skripty`, `full`.
-Как устроена часть и как упоминать другую — [src/standarty/format](src/standarty/format/index.md).
-Что не написано и что проверить — [PLAN.md](PLAN.md). Собранное читать с [dist/README.md](dist/README.md).
+Исходники частей — `inst/src/md-kod/`: `tio` (инструкции), `zna` (знания), `um` (умения), `reg` (реестр).
+Рядом — `standarty`, `skripty`, `full`. Как устроена часть и как меняет вид упоминание —
+[src/standarty/format](src/standarty/format/index.md). Что не написано и что проверить — [PLAN.md](PLAN.md).
+Собранное читать с [md-out/README.md](md-out/README.md).
 
 В `.docx` автоматически ничего не переводится — только вручную после вычитки.
 
