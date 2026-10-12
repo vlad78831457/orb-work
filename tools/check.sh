@@ -10,16 +10,22 @@ for f in README.md STATUS.md GOALS.md CHANGELOG.md think/README.md raw/README.md
 done
 
 # Относительные ссылки.
-for md in $(find . -name '*.md' -not -path './.git/*' -not -path './raw/*/*'); do
+for md in $(find . -name '*.md' -not -path './.git/*' -not -path './raw/*/*' -not -path './inst/src/*' -not -path './inst/full-out/*'); do
   dir=$(dirname "$md")
   grep -o '](\([^)#]*\)[^)]*)' "$md" | sed 's/^](\([^)#]*\).*/\1/' | while read -r link; do
+    link=${link#<}; link=${link%>}
     case "$link" in ''|http://*|https://*|mailto:*) continue ;; esac
     [ -e "$dir/$link" ] || echo "FAIL: $md → $link"
   done
 done > /tmp/links
 [ ! -s /tmp/links ] || { cat /tmp/links; fail=1; }
 
-python3 tools/inst_compile.py --check || err "части инструкций (inst/src)"
+# Части инструкций: проверка и сверка inst/dist со свежей сборкой.
+if python3 inst/src/skripty/sobrat.py --out /tmp/dist > /tmp/sobrat 2>&1; then
+  diff -rq /tmp/dist inst/dist > /tmp/distdiff 2>&1 || { head -n 10 /tmp/distdiff; err "inst/dist устарел — запусти make inst"; }
+else
+  cat /tmp/sobrat; err "части инструкций (inst/src)"
+fi
 
 sh tools/secrets.sh . || err "секреты в файлах"
 
