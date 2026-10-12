@@ -2,15 +2,16 @@
 """Сборщик инструкций из частей.
 
 Часть — папка inst/src/md-kod/<раздел>/<часть>/ (стандарты — inst/src/standarty/<часть>/) с файлом index.md
-и шапкой YAML: title, short, description, status, tags, requires. Имя части — <раздел>.<часть>: zna.nmts.
+и шапкой YAML: title, kratko, polno, status, tags, nuzhno. Имя части — <раздел>.<часть>: zna.nmts.
 Реестр — inst/src/md-kod/reg/ter.yaml (термины) и res.yaml (рабочие ссылки).
 
 Упоминание в тексте меняет вид по месту:
   [[zna.nmts]] внутри предложения        короткое имя ссылкой
-  [[zna.nmts]] отдельной строкой/пунктом  карточка: название — краткое описание
+  [[zna.nmts]] отдельной строкой/пунктом  карточка: название — описание
   [[zna.nmts|свой текст]]                 ссылка со своим текстом
-  [[zna.nmts:kratko]]                     карточка, явно
-  [[zna.nmts:polno]] отдельной строкой    текст части целиком на этом месте
+  [[zna.nmts:kratko]]                     короткое имя ссылкой, явно
+  [[zna.nmts:polno]]                      карточка, явно
+  [[zna.nmts:tekst]] отдельной строкой    текст части целиком на этом месте
 
   sobrat.py --check                     только проверка
   sobrat.py [--out ПАПКА]               проверка и сборка вида «репозиторий» (по умолчанию inst/md-out)
@@ -29,7 +30,7 @@ SECTIONS = [('tio', 'Инструкции', 'md-kod/tio'), ('zna', 'Знания
             ('standarty', 'Стандарты', 'standarty')]
 REG = {'ter': 'Термины', 'res': 'Ресурсы'}
 STATUSES = ('готово', 'проверить', 'заглушка')
-FORMS = (None, 'kratko', 'polno')
+FORMS = (None, 'kratko', 'polno', 'tekst')
 STUB = '*Часть ещё не написана.*'
 
 MENTION = re.compile(r'\[\[([a-z0-9]+\.[a-z0-9-]+)(?::([a-z]+))?(?:\|([^\]]+))?\]\]')
@@ -95,9 +96,9 @@ def load():
             body = text[m.end():].strip('\n')
             parts[where] = {
                 'name': where, 'sec': sec, 'slug': slug, 'dir': f'{base}/{slug}',
-                'title': head['title'], 'short': head.get('short') or head['title'],
-                'description': head.get('description') or '', 'tags': head.get('tags') or [],
-                'status': head['status'], 'requires': head.get('requires') or [],
+                'title': head['title'], 'short': head.get('kratko') or head['title'],
+                'description': head.get('polno') or '', 'tags': head.get('tags') or [],
+                'status': head['status'], 'requires': head.get('nuzhno') or [],
                 'body': body or f'# {head["title"]}\n\n{STUB}'}
     reg = {}
     for kind in REG:
@@ -133,31 +134,31 @@ def check(parts, reg, fulls):
         text = prose(p['body'])
         for r in p['requires']:
             if r not in parts:
-                errors.append(f'{where}: в requires нет такой части — {r}')
+                errors.append(f'{where}: в nuzhno нет такой части — {r}')
         used = set()
         for name, form, own, alone in mentions(p['body']):
             kind, key = name.split('.', 1)
             if form not in FORMS:
-                errors.append(f'{where}: неизвестный вид упоминания — [[{name}:{form}]] (есть kratko и polno)')
+                errors.append(f'{where}: неизвестный вид упоминания — [[{name}:{form}]] (есть kratko, polno и tekst)')
             if kind in reg:
                 if key not in reg[kind]:
                     errors.append(f'{where}: в реестре {kind} нет записи — {key}')
-                elif form == 'polno':
-                    errors.append(f'{where}: polno работает только для частей — [[{name}:polno]]')
+                elif form == 'tekst':
+                    errors.append(f'{where}: tekst работает только для частей — [[{name}:tekst]]')
                 continue
             if name not in parts:
                 errors.append(f'{where}: упомянута часть, которой нет — {name}')
                 continue
             used.add(name)
             if name not in p['requires']:
-                errors.append(f'{where}: упомянута часть {name}, но её нет в requires')
-            if form == 'polno' and (not alone or own):
-                errors.append(f'{where}: [[{name}:polno]] ставится отдельной строкой и без своего текста')
-            if alone and not own and form != 'polno' and not parts[name]['description'] and parts[name]['status'] == 'готово':
-                warnings.append(f'{where}: карточка {name} без описания — нет description в шапке')
+                errors.append(f'{where}: упомянута часть {name}, но её нет в nuzhno')
+            if form == 'tekst' and (not alone or own):
+                errors.append(f'{where}: [[{name}:tekst]] ставится отдельной строкой и без своего текста')
+            if not own and (form == 'polno' or (alone and form is None)) and not parts[name]['description'] and parts[name]['status'] == 'готово':
+                warnings.append(f'{where}: карточка {name} без описания — нет polno в шапке')
         for r in p['requires']:
             if r in parts and r not in used:
-                warnings.append(f'{where}: {r} есть в requires, но в тексте не упомянута')
+                warnings.append(f'{where}: {r} есть в nuzhno, но в тексте не упомянута')
         for _, img in IMAGE.findall(text):
             if not re.match(r'[a-z]+:', img) and not os.path.isfile(f'{p["dir"]}/{img}'):
                 soft.append(f'{where}: нет снимка {img}')
@@ -208,14 +209,14 @@ class Builder:
 
     def render(self, name, form, own, alone):
         kind, key = name.split('.', 1)
-        card = form == 'kratko' or (alone and not own and form is None)
+        card = form == 'polno' or (alone and not own and form is None)
         if kind == 'ter':
             t = self.reg[kind][key]
-            return f'**{t["title"]}** — {t["text"]}' if card else f'[{own or t["title"]}]({self.term_link(key)})'
+            return f'**{t["title"]}** — {t["polno"]}' if card else f'[{own or t["title"]}]({self.term_link(key)})'
         if kind == 'res':
             r = self.reg[kind][key]
             link = f'[{own or r["title"]}]({r["url"]})' if r.get('url') else f'{own or r["title"]} *(ссылка не задана)*'
-            return f'{link} — {r["description"]}' if card and r.get('description') else link
+            return f'{link} — {r["polno"]}' if card and r.get('polno') else link
         t = self.parts[name]
         text = own or (t['title'] if card else t['short'])
         url = self.part_link(t)
@@ -223,7 +224,7 @@ class Builder:
         return f'{link} — {t["description"]}' if card and t['description'] else link
 
     def text(self, p, host=None, stack=(), body=None):
-        """Текст части p; host — часть, в чей текст он вставляется (для polno)."""
+        """Текст части p; host — часть, в чей текст он вставляется (для tekst)."""
         host = host or p
 
         def image(m):
@@ -237,7 +238,7 @@ class Builder:
         def line(ln):
             alone = ALONE.match(ln)
             m = MENTION.fullmatch(alone.group(2)) if alone else None
-            if m and m.group(2) == 'polno' and m.group(1) in self.parts:
+            if m and m.group(2) == 'tekst' and m.group(1) in self.parts:
                 t = self.parts[m.group(1)]
                 if t is p or t['name'] in stack:
                     return f'*[вставка по кругу: {t["name"]}]*'
@@ -300,7 +301,7 @@ def build_dist(parts, reg, out):
     lines = ['# Термины\n']
     for key, t in sorted(reg['ter'].items(), key=lambda kv: kv[1]['title'].lower()):
         mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
-        lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["text"]}{mark}\n')
+        lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
     open(f'{out}/reg/ter.md', 'w', encoding='utf-8').write('\n'.join(lines))
     lines = ['# Инструкции\n', 'Собрано из `inst/src` скриптом `skripty/sobrat.py`. Руками здесь не править.\n']
     for sec, title, _ in SECTIONS:
@@ -328,7 +329,7 @@ def build_full(name, parts, reg, fulls, out):
         chunks.append('\n---\n\n# Термины\n')
         for key in b.terms:
             t = reg['ter'][key]
-            chunks.append(f'[]{{#term-{key}}}**{t["title"]}** — {t["text"]}\n')
+            chunks.append(f'[]{{#term-{key}}}**{t["title"]}** — {t["polno"]}\n')
     text = '\n'.join(chunks)
     ids = ANCHOR.findall(prose(text))
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
