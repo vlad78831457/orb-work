@@ -25,18 +25,16 @@
 ## Сборка
 
 ```
-make inst      # все инструкции → inst/dist/*.docx
+make inst            # части из inst/src → inst/dist (вид «репозиторий», в Git)
+make full F=raschet  # один полный md → inst/full-out (в Git не идёт)
+make docx            # вручную: старые тексты из raw/ → inst/docx/*.docx
 ```
 
-Работает в Docker, Pandoc на компьютер ставить не нужно. Оформление берётся из шаблона
-`templates/custom-reference-c.docx`. Из каждой папки `src/` берётся `index.md`, а если его нет — единственный `.md`;
-папка «(Копия)» пропускается. Готовые `.docx` в Git не попадают.
+Исходники — `inst/src/`, по разделам: `instruktsii`, `znaniya`, `umeniya`, `standarty`, `reestr`, `skripty`, `full`.
+Как устроена часть и как упоминать другую — [src/standarty/format](src/standarty/format/index.md).
+Что не написано и что проверить — [PLAN.md](PLAN.md). Собранное читать с [dist/README.md](dist/README.md).
 
-Инструкции, переведённые в части (`inst/src/`, формат — [FORMAT.md](FORMAT.md)), собираются в `inst/dist/full/`:
-один файл на инструкцию вместе со всеми частями, от которых она зависит.
-
-Проверено 2026-10-12: собираются все восемь инструкций, у которых есть текст, без предупреждений о потерянных картинках.
-Глазами в Word или LibreOffice агент результат не смотрел.
+В `.docx` автоматически ничего не переводится — только вручную после вычитки.
 
 ## Что не так
 
