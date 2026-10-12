@@ -30,6 +30,8 @@ make full F=raschet  # один полный md → inst/md-full-out (в Git н�
 make docx            # вручную: старые тексты из raw/ → inst/docx/*.docx
 ```
 
+**Быстро вспомнить, как тут работать, — [памятка](md-out/standarty/pamyatka/index.md).**
+
 Исходники частей — `inst/src/md-kod/`: `tio` (инструкции), `zna` (знания), `um` (умения), `reg` (реестр).
 Рядом — `standarty`, `skripty`, `full`. Как устроена часть и как меняет вид упоминание —
 [src/standarty/format](src/standarty/format/index.md). Что не написано и что проверить — [PLAN.md](PLAN.md).
