@@ -29,7 +29,7 @@ inst/PLAN.md       что сделать и что проверить
 ```
 
 Название части даётся по-русски и коротко, имя папки получается скриптом:
-`sh inst/src/skripty/slugify.sh Цвета адресов` → `tsveta-adresov`.
+`bash inst/src/skripty/slugify.sh Цвета адресов` → `tsveta-adresov`.
 
 ## Часть
 
