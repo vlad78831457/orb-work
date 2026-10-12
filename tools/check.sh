@@ -1,5 +1,5 @@
 #!/bin/sh
-# Проверка orb-work: обязательные файлы, ссылки, секреты.
+# Проверка orb-work: обязательные файлы, ссылки, части инструкций, секреты.
 set -eu
 cd "$(dirname "$0")/.."
 fail=0
@@ -18,6 +18,8 @@ for md in $(find . -name '*.md' -not -path './.git/*' -not -path './raw/*/*'); d
   done
 done > /tmp/links
 [ ! -s /tmp/links ] || { cat /tmp/links; fail=1; }
+
+python3 tools/inst_compile.py --check || err "части инструкций (inst/src)"
 
 sh tools/secrets.sh . || err "секреты в файлах"
 
