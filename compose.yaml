@@ -13,7 +13,7 @@ services:
     working_dir: /orb
     volumes:
       - .:/orb:ro
-      - ${OUT:-./inst/dist}:/out
+      - ${OUT:-./inst/md-out}:/out
     entrypoint: ["python3", "inst/src/skripty/sobrat.py", "--out", "/out"]
   docx:
     image: pandoc/core:3.6
