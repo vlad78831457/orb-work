@@ -1,9 +1,9 @@
 # Полный документ: одна инструкция и части, которые в неё вставляются, по порядку.
 # Собирается только по команде: make full F=raschet. Чтобы добавить часть — допиши её в vklyuchit.
 title: "Инструкция по работе с таблицами для специалиста по расчёту"
-chast: instruktsii.raschet
+chast: tio.raschet
 vklyuchit:
-  - umeniya.tolko-znacheniya
-  - znaniya.nmts
-  - znaniya.tsveta-adresov
-  - instruktsii.gruppirovka
+  - um.tolko-znacheniya
+  - zna.nmts
+  - zna.tsveta-adresov
+  - tio.gruppirovka

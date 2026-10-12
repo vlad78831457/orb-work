@@ -1,0 +1,28 @@
+# Ресурсы: рабочие ссылки (таблицы, папки, CRM). Поменялась ссылка — правим только здесь.
+# Упоминание в тексте: [[res.shablon-tablitsy|шаблон таблицы]]. Ссылки взяты из второй попытки — каждую надо проверить.
+# Пустой url — ссылка не задана.
+
+shablon-tablitsy:
+  title: "Шаблон чистой таблицы расчёта"
+  description: "чистая таблица расчёта для копирования"
+  url: "https://docs.google.com/spreadsheets/d/1FCJJs6AUgq90yVyvy3RWEiuv17h1scgKM2kuBFbdt9w/edit"
+  status: проверить
+
+papka-vlozheniy:
+  title: "Папка почтовых вложений"
+  description: "папка для файлов, которые уходят с письмами поставщикам"
+  url: "https://drive.google.com/drive/folders/1LZ9dF6iXZrH8YC-Z6xX5T2zAABhUGTGr"
+  status: проверить
+
+bitrix24:
+  title: "Битрикс24, смарт-процесс «Расчёт»"
+  description: "сделки, файлы тендера и ссылки на таблицы расчёта"
+  url: "https://haiverk.bitrix24.ru"
+  status: проверить
+
+shablon-pisma:
+  title: "Шаблон письма поставщику"
+  description: "текст запроса поставщику"
+  url: ""
+  status: проверить
+
