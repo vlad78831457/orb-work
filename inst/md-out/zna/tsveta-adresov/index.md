@@ -9,11 +9,11 @@
 
 
 ###### Фото
-![alt text](imgs/2026-08-13_20-08.png)
-![alt text](imgs/2026-08-14_01-09.png) 
-![alt text](imgs/2026-08-14_01-10.png) 
-![alt text](imgs/2026-08-14_01-11.png) 
-![alt text](imgs/2026-08-14_01-12.png)
+![alt text](<imgs/2026-08-13_20-08.png>)
+![alt text](<imgs/2026-08-14_01-09.png>) 
+![alt text](<imgs/2026-08-14_01-10.png>) 
+![alt text](<imgs/2026-08-14_01-11.png>) 
+![alt text](<imgs/2026-08-14_01-12.png>)
 
 **Текст на фото**
 

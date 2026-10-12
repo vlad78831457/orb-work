@@ -175,7 +175,7 @@ rez
 | **`5453`** | Всё отправлено       | У всех есть дата.           |
 
 ###### Фото
-![alt text](imgs/2026-07-16_21-05.png)
+![alt text](<imgs/2026-07-16_21-05.png>)
 
 **Текст на фото**
 
@@ -199,7 +199,7 @@ rez
 
 ###### Фото
 
-![alt text](imgs/2026-07-21_14-41.png) ![alt text](imgs/2026-07-21_15-03.png) ![alt text](imgs/2026-07-21_15-12.png) ![alt text](imgs/2026-07-21_15-17.png) ![alt text](imgs/2026-07-21_16-31.png) ![alt text](imgs/2026-07-21_16-34.png)
+![alt text](<imgs/2026-07-21_14-41.png>) ![alt text](<imgs/2026-07-21_15-03.png>) ![alt text](<imgs/2026-07-21_15-12.png>) ![alt text](<imgs/2026-07-21_15-17.png>) ![alt text](<imgs/2026-07-21_16-31.png>) ![alt text](<imgs/2026-07-21_16-34.png>)
 
 **Текст на фото**
 
