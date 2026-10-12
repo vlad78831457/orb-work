@@ -7,3 +7,4 @@
 - каркас проекта: описание, статус, цели G-001…G-004, папка `raw/` для сырого, `make test` (`task/aa-skeleton`).
 - заготовки инструкций директора взяты в `raw/2026-10-11-inst/` (без собранных `dist/`), опись и следующий шаг — `inst/README.md`; проверка ссылок не заходит внутрь папок `raw/` (`task/ab-inst`).
 - `make inst` — сборка инструкций в `.docx` через Pandoc в Docker по шаблону оформления (`task/ac-inst-build`).
+- инструкции из частей: формат `inst/FORMAT.md`, сборщик `tools/inst_compile.py`, пять частей из первой попытки в `inst/src/`; `make inst` собирает полный вид в `inst/dist/full/`, `make test` проверяет части (`task/af-inst-modules`).

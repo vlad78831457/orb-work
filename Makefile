@@ -10,4 +10,5 @@ test: ## проверка репозитория (Docker)
 
 inst: ## собрать инструкции в inst/dist/*.docx (Docker, Pandoc)
 	mkdir -p inst/dist
-	docker compose run --rm inst
+	docker compose build -q inst
+	UID=$$(id -u) GID=$$(id -g) docker compose run --rm inst
