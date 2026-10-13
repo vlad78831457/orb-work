@@ -1,6 +1,6 @@
 ---
 title: "Лист. 6 Оплаты"
-kratko: "лист «6 Оплаты»"
+kratko: "6 Оплаты"
 status: проверить
 nuzhno:
   - zna.tab-kontury
