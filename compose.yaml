@@ -6,15 +6,6 @@ services:
     volumes:
       - .:/orb:ro
     command: ["sh", "tools/check.sh"]
-  inst:
-    build: tools
-    image: orb-work-tools
-    user: "${UID:-1000}:${GID:-1000}"
-    working_dir: /orb
-    volumes:
-      - .:/orb:ro
-      - ${OUT:-./inst/md-out}:/out
-    entrypoint: ["python3", "inst/src/skripty/sobrat.py", "--out", "/out"]
   docx:
     image: pandoc/core:3.6
     user: "${UID:-1000}:${GID:-1000}"

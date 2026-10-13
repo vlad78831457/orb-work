@@ -1,3 +1,4 @@
 # md-out хранится в Git (собранный вид «репозиторий»); полные md и docx — нет.
 /md-full-out/
 /docx/
+/note.md

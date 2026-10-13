@@ -1,25 +1,24 @@
-# orb-work. Проверки — в Docker.
-.PHONY: help test inst full docx
+# orb-work. Проверка и сборка идут прямо на стенде: нужны sh, git, python3 и PyYAML.
+.PHONY: help test test-docker inst full docx
+
+SOBRAT := python3 inst/src/skripty/sobrat.py
 
 help: ## список команд
 	@grep -E '^[a-z-]+:.*## ' Makefile | sed 's/:.*## /\t/'
 
-test: ## проверка репозитория (Docker)
+test: ## проверка репозитория
+	sh tools/check.sh
+
+test-docker: ## та же проверка в чистом окружении (Docker), по желанию
 	docker compose build -q test
 	docker compose run --rm test
 
-U := UID=$$(id -u) GID=$$(id -g)
-
 inst: ## собрать инструкции из частей в inst/md-out (другая папка: make inst OUT=путь)
-	mkdir -p $(or $(OUT),inst/md-out)
-	docker compose build -q inst
-	$(U) OUT=$(abspath $(or $(OUT),inst/md-out)) docker compose run --rm inst
+	$(SOBRAT) --out $(or $(OUT),inst/md-out)
 
 full: ## собрать один полный md: make full F=raschet → inst/md-full-out (другая папка: OUT=путь)
-	mkdir -p $(or $(OUT),inst/md-full-out)
-	docker compose build -q inst
-	$(U) OUT=$(abspath $(or $(OUT),inst/md-full-out)) docker compose run --rm inst --full $(F)
+	$(SOBRAT) --full $(F) --out $(or $(OUT),inst/md-full-out)
 
-docx: ## вручную: старые тексты из raw/ в inst/docx/*.docx (Pandoc)
+docx: ## вручную: старые тексты из raw/ в inst/docx/*.docx (Pandoc в Docker)
 	mkdir -p inst/docx
-	$(U) docker compose run --rm docx
+	UID=$$(id -u) GID=$$(id -g) docker compose run --rm docx
