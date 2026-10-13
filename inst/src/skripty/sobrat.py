@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Сборщик инструкций из частей.
 
-Часть — папка inst/src/md-kod/<раздел>/<часть>/ (стандарты — inst/src/standarty/<часть>/) с файлом index.md
+Часть — папка inst/src/md-kod/<раздел>/<часть>/ (разделы: tio, zna, um, lis) (стандарты — inst/src/standarty/<часть>/) с файлом index.md
 и шапкой YAML: title, kratko, polno, status, tags, nuzhno. Имя части — <раздел>.<часть>: zna.tab-nmts.
 Реестр — inst/src/md-kod/reg/ter.yaml (термины) и res.yaml (рабочие ссылки).
 
@@ -27,6 +27,7 @@ import yaml
 SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INST = os.path.dirname(SRC)
 SECTIONS = [('tio', 'Инструкции', 'md-kod/tio'), ('zna', 'Знания', 'md-kod/zna'), ('um', 'Умения', 'md-kod/um'),
+            ('lis', 'Листы', 'md-kod/lis'),
             ('standarty', 'Стандарты', 'standarty')]
 REG = {'ter': 'Термины', 'res': 'Ресурсы'}
 STATUSES = ('готово', 'проверить', 'заглушка')

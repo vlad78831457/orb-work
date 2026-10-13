@@ -32,7 +32,7 @@ make docx            # вручную: старые тексты из raw/ → i
 
 **Быстро вспомнить, как тут работать, — [памятка](md-out/standarty/pamyatka/index.md).**
 
-Исходники частей — `inst/src/md-kod/`: `tio` (инструкции), `zna` (знания), `um` (умения), `reg` (реестр).
+Исходники частей — `inst/src/md-kod/`: `tio` (инструкции), `zna` (знания), `um` (умения), `lis` (листы таблиц), `reg` (реестр).
 Рядом — `standarty`, `skripty`, `full`. Как устроена часть и как меняет вид упоминание —
 [src/standarty/format](src/standarty/format/index.md). Что не написано и что проверить — [PLAN.md](PLAN.md).
 Собранное читать с [md-out/README.md](md-out/README.md).
