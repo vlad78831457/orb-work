@@ -3,7 +3,7 @@
 
 Часть — папка inst/src/md-kod/<раздел>/<часть>/ (разделы: tio, zna, um, lis) (стандарты — inst/src/standarty/<часть>/) с файлом index.md
 и шапкой YAML: title, kratko, polno, status, tags, nuzhno. Имя части — <раздел>.<часть>: zna.tab-nmts.
-Реестр — inst/src/md-kod/reg/ter.yaml (термины) и res.yaml (рабочие ссылки).
+Реестр — inst/src/md-kod/reg/: ter.yaml (термины), rol.yaml (роли), res.yaml (рабочие ссылки).
 
 Упоминание в тексте меняет вид по месту:
   [[zna.tab-nmts]] внутри предложения        короткое имя ссылкой
@@ -29,7 +29,8 @@ INST = os.path.dirname(SRC)
 SECTIONS = [('tio', 'Инструкции', 'md-kod/tio'), ('zna', 'Знания', 'md-kod/zna'), ('um', 'Умения', 'md-kod/um'),
             ('lis', 'Листы', 'md-kod/lis'),
             ('standarty', 'Стандарты', 'standarty')]
-REG = {'ter': 'Термины', 'res': 'Ресурсы'}
+REG = {'ter': 'Термины', 'rol': 'Роли', 'res': 'Ресурсы'}
+GLOSS = ('ter', 'rol')   # реестры-словари: у каждого своя собранная страница
 STATUSES = ('готово', 'проверить', 'заглушка')
 FORMS = (None, 'kratko', 'polno', 'tekst')
 STUB = '*Часть ещё не написана.*'
@@ -202,7 +203,7 @@ class Builder:
     def part_link(self, t):            # ссылка на часть или None, если части нет в документе
         raise NotImplementedError
 
-    def term_link(self, key):
+    def term_link(self, kind, key):
         raise NotImplementedError
 
     def image_path(self, owner, host, img):   # путь к снимку части owner из текста части host
@@ -211,9 +212,9 @@ class Builder:
     def render(self, name, form, own, alone):
         kind, key = name.split('.', 1)
         card = form == 'polno' or (alone and not own and form is None)
-        if kind == 'ter':
+        if kind in GLOSS:
             t = self.reg[kind][key]
-            return f'**{t["title"]}** — {t["polno"]}' if card else f'[{own or t["title"]}]({self.term_link(key)})'
+            return f'**{t["title"]}** — {t["polno"]}' if card else f'[{own or t["title"]}]({self.term_link(kind, key)})'
         if kind == 'res':
             r = self.reg[kind][key]
             link = f'[{own or r["title"]}]({r["url"]})' if r.get('url') else f'{own or r["title"]} *(ссылка не задана)*'
@@ -260,8 +261,8 @@ class Dist(Builder):
     def part_link(self, t):
         return f'../../{t["sec"]}/{t["slug"]}/index.md'
 
-    def term_link(self, key):
-        return f'../../reg/ter.md#{key}'
+    def term_link(self, kind, key):
+        return f'../../reg/{kind}.md#{key}'
 
     def image_path(self, owner, host, img):
         dst = f'{self.out}/{owner["sec"]}/{owner["slug"]}/{img}'
@@ -278,10 +279,10 @@ class Full(Builder):
     def part_link(self, t):
         return f'#part-{t["name"].replace(".", "-")}' if t['name'] in self.names else None
 
-    def term_link(self, key):
-        if key not in self.terms:
-            self.terms.append(key)
-        return f'#term-{key}'
+    def term_link(self, kind, key):
+        if (kind, key) not in self.terms:
+            self.terms.append((kind, key))
+        return f'#{kind}-{key}'
 
     def image_path(self, owner, host, img):
         rel = f'{self.name}/{owner["sec"]}-{owner["slug"]}/{img}'
@@ -299,11 +300,12 @@ def build_dist(parts, reg, out):
         os.makedirs(dst, exist_ok=True)
         open(f'{dst}/index.md', 'w', encoding='utf-8').write(note(p) + map_lines(b.text(p), lambda ln: outside_inline(ln, strip_ids)) + '\n')
     os.makedirs(f'{out}/reg', exist_ok=True)
-    lines = ['# Термины\n']
-    for key, t in sorted(reg['ter'].items(), key=lambda kv: kv[1]['title'].lower()):
-        mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
-        lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
-    open(f'{out}/reg/ter.md', 'w', encoding='utf-8').write('\n'.join(lines))
+    for kind in GLOSS:
+        lines = [f'# {REG[kind]}\n']
+        for key, t in sorted(reg[kind].items(), key=lambda kv: kv[1]['title'].lower()):
+            mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
+            lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
+        open(f'{out}/reg/{kind}.md', 'w', encoding='utf-8').write('\n'.join(lines))
     lines = ['# Инструкции\n', 'Собрано из `inst/src` скриптом `skripty/sobrat.py`. Руками здесь не править.\n']
     for sec, title, _ in SECTIONS:
         lines.append(f'## {title}\n')
@@ -313,7 +315,7 @@ def build_dist(parts, reg, out):
                 mark = '' if p['status'] == 'готово' else f' — *{p["status"]}*'
                 lines.append(f'- [{p["title"]}]({sec}/{p["slug"]}/index.md){desc}{mark}')
         lines.append('')
-    lines.append('## Реестр\n\n- [Термины](reg/ter.md)\n')
+    lines.append('## Реестр\n\n' + '\n'.join(f'- [{REG[k]}](reg/{k}.md)' for k in GLOSS) + '\n')
     open(f'{out}/README.md', 'w', encoding='utf-8').write('\n'.join(lines))
     return len(parts)
 
@@ -327,10 +329,10 @@ def build_full(name, parts, reg, fulls, out):
     for i, p in enumerate(included):
         chunks.append(('\n---\n\n' if i else '') + f'[]{{#part-{p["name"].replace(".", "-")}}}\n\n' + note(p) + b.text(p) + '\n')
     if b.terms:
-        chunks.append('\n---\n\n# Термины\n')
-        for key in b.terms:
-            t = reg['ter'][key]
-            chunks.append(f'[]{{#term-{key}}}**{t["title"]}** — {t["polno"]}\n')
+        chunks.append('\n---\n\n# Термины и роли\n')
+        for kind, key in b.terms:
+            t = reg[kind][key]
+            chunks.append(f'[]{{#{kind}-{key}}}**{t["title"]}** — {t["polno"]}\n')
     text = '\n'.join(chunks)
     ids = ANCHOR.findall(prose(text))
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
