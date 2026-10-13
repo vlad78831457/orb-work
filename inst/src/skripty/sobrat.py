@@ -113,16 +113,14 @@ def load():
     return parts, reg, fulls, errors
 
 
-def closure(part, parts, seen=None, stack=()):
-    """Все зависимости части по порядку, каждая один раз."""
+def closure(part, parts, seen=None):
+    """Все зависимости части по порядку, каждая один раз. Взаимные упоминания допустимы."""
     seen = [] if seen is None else seen
-    if part['name'] in stack:
-        raise RecursionError
     for r in part['requires']:
         dep = parts.get(r)
-        if dep and dep not in seen:
+        if dep and dep is not part and dep not in seen:
             seen.append(dep)
-            closure(dep, parts, seen, stack + (part['name'],))
+            closure(dep, parts, seen)
     return seen
 
 
@@ -173,10 +171,6 @@ def check(parts, reg, fulls):
                 soft.append(f'{where}: ссылка на файл вместо упоминания [[…]] — {link}')
         if p['status'] != 'готово' and f'`{p["name"]}`' not in plan:
             errors.append(f'{where}: статус «{p["status"]}», но части нет в inst/PLAN.md')
-        try:
-            closure(p, parts)
-        except RecursionError:
-            errors.append(f'{where}: зависимости замкнуты в круг')
     for name, f in fulls.items():
         for n in [f.get('chast')] + (f.get('vklyuchit') or []):
             if n not in parts:
