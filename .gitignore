@@ -4,6 +4,6 @@
 *.pem
 *.key
 .DS_Store
-raw/2026-10-11-inst/dist/
-inst/dist/
-raw/2026-10-11-ai/
+# raw — сырое и рабочие данные: только на стенде, в Git — одно описание
+raw/*
+!raw/README.md
