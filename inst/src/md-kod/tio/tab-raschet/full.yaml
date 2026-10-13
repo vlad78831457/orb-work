@@ -1,0 +1,7 @@
+# Полный документ этой инструкции: какие части вставить после неё, по порядку.
+# Собирается только по команде: make full F=tio.tab-raschet → inst/md-full-out/tio/tab-raschet.md
+vklyuchit:
+  - um.tab-tolko-znacheniya
+  - zna.tab-nmts
+  - zna.ras-tsveta-adresov
+  - tio.tov-gruppirovka

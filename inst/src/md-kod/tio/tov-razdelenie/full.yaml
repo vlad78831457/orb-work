@@ -1,0 +1,7 @@
+# Полный документ этой инструкции: какие части вставить после неё, по порядку.
+# Умения, упомянутые как [[…:tekst]], вставляются прямо в шаги — здесь их перечислять не нужно.
+# Собирается только по команде: make full F=tio.tov-razdelenie → inst/md-full-out/tio/tov-razdelenie.md
+vklyuchit:
+  - lis.k2-5-4-izmeneniya
+  - lis.k2-5-3-vybor-postavshchikov
+  - lis.k2-5-0-peredacha
