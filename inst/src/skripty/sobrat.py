@@ -11,11 +11,14 @@
   [[zna.tab-nmts|свой текст]]                 ссылка со своим текстом
   [[zna.tab-nmts:kratko]]                     короткое имя ссылкой, явно
   [[zna.tab-nmts:polno]]                      карточка, явно
-  [[zna.tab-nmts:tekst]] отдельной строкой    текст части целиком на этом месте
+  [[zna.tab-nmts:tekst]] отдельной строкой    в полном документе — текст части целиком на этом месте,
+                                              в виде «репозиторий» — карточка со ссылкой
 
   sobrat.py --check                     только проверка
   sobrat.py [--out ПАПКА]               проверка и сборка вида «репозиторий» (по умолчанию inst/md-out)
-  sobrat.py --full ИМЯ [--out ПАПКА]    полный md по описанию inst/src/full/ИМЯ.yaml (по умолчанию inst/md-full-out)
+  sobrat.py --full ИМЯ [--out ПАПКА]    полный md (по умолчанию в inst/md-full-out):
+                                        ИМЯ = tio.tov-razdelenie — по описанию full.yaml в папке части,
+                                        ИМЯ = svod — по описанию inst/src/full/svod.yaml
 """
 import os
 import re
@@ -106,10 +109,16 @@ def load():
     for kind in REG:
         path = f'{SRC}/md-kod/reg/{kind}.yaml'
         reg[kind] = (yaml.safe_load(open(path, encoding='utf-8')) or {}) if os.path.isfile(path) else {}
-    fulls = {}
+    fulls = {}   # имя → описание полного документа; rel — куда класть относительно папки сборки
     for f in sorted(os.listdir(f'{SRC}/full')) if os.path.isdir(f'{SRC}/full') else []:
         if f.endswith('.yaml'):
-            fulls[f[:-5]] = yaml.safe_load(open(f'{SRC}/full/{f}', encoding='utf-8')) or {}
+            d = yaml.safe_load(open(f'{SRC}/full/{f}', encoding='utf-8')) or {}
+            fulls[f[:-5]] = {**d, 'rel': f'full/{f[:-5]}'}
+    for p in parts.values():
+        path = f'{p["dir"]}/full.yaml'
+        if os.path.isfile(path):
+            d = yaml.safe_load(open(path, encoding='utf-8')) or {}
+            fulls[p['name']] = {**d, 'chast': p['name'], 'rel': f'{p["sec"]}/{p["slug"]}'}
     return parts, reg, fulls, errors
 
 
@@ -174,7 +183,7 @@ def check(parts, reg, fulls):
     for name, f in fulls.items():
         for n in [f.get('chast')] + (f.get('vklyuchit') or []):
             if n not in parts:
-                errors.append(f'full/{name}.yaml: нет такой части — {n}')
+                errors.append(f'полный документ {name}: нет такой части — {n}')
     return errors, warnings
 
 
@@ -190,6 +199,8 @@ def note(p):
 
 class Builder:
     """Общая сборка текста части; наследники задают, куда ведут ссылки и где лежат снимки."""
+
+    inline_tekst = True   # вставлять ли текст части на месте [[…:tekst]]
 
     def __init__(self, parts, reg):
         self.parts, self.reg = parts, reg
@@ -216,7 +227,7 @@ class Builder:
         t = self.parts[name]
         text = own or (t['title'] if card else t['short'])
         url = self.part_link(t)
-        link = f'[{text}]({url})' if url else f'{text} *(нет в этом документе)*'
+        link = f'[{text}]({url})' if url else text   # части нет в полном документе — остаётся названием
         return f'{link} — {t["description"]}' if card and t['description'] else link
 
     def text(self, p, host=None, stack=(), body=None):
@@ -234,6 +245,8 @@ class Builder:
         def line(ln):
             alone = ALONE.match(ln)
             m = MENTION.fullmatch(alone.group(2)) if alone else None
+            if m and m.group(2) == 'tekst' and m.group(1) in self.parts and not self.inline_tekst:
+                return alone.group(1) + self.render(m.group(1), 'polno', None, True)
             if m and m.group(2) == 'tekst' and m.group(1) in self.parts:
                 t = self.parts[m.group(1)]
                 if t is p or t['name'] in stack:
@@ -248,6 +261,8 @@ class Builder:
 
 
 class Dist(Builder):
+    inline_tekst = False   # в виде «репозиторий» часть не дублируется: карточка со ссылкой
+
     def __init__(self, parts, reg, out):
         super().__init__(parts, reg)
         self.out = out
@@ -266,9 +281,9 @@ class Dist(Builder):
 
 
 class Full(Builder):
-    def __init__(self, parts, reg, out, name, names):
+    def __init__(self, parts, reg, out, rel, names):
         super().__init__(parts, reg)
-        self.out, self.name, self.names, self.terms = out, name, names, []
+        self.out, self.rel, self.names, self.terms = out, rel, names, []
 
     def part_link(self, t):
         return f'#part-{t["name"].replace(".", "-")}' if t['name'] in self.names else None
@@ -279,10 +294,11 @@ class Full(Builder):
         return f'#{kind}-{key}'
 
     def image_path(self, owner, host, img):
-        rel = f'{self.name}/{owner["sec"]}-{owner["slug"]}/{img}'
-        os.makedirs(os.path.dirname(f'{self.out}/{rel}'), exist_ok=True)
-        shutil.copyfile(f'{owner["dir"]}/{img}', f'{self.out}/{rel}')
-        return rel
+        sub = f'{owner["sec"]}-{owner["slug"]}/{img}'
+        dst = f'{self.out}/{self.rel}/{sub}'
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copyfile(f'{owner["dir"]}/{img}', dst)
+        return f'{os.path.basename(self.rel)}/{sub}'
 
 
 def build_dist(parts, reg, out):
@@ -316,9 +332,10 @@ def build_dist(parts, reg, out):
 
 def build_full(name, parts, reg, fulls, out):
     f = fulls[name]
-    included = [parts[f['chast']]] + [parts[n] for n in f.get('vklyuchit') or []]
-    shutil.rmtree(f'{out}/{name}', ignore_errors=True)
-    b = Full(parts, reg, out, name, {p['name'] for p in included})
+    included = [parts[f['chast']]] + [parts[n] for n in f.get('vklyuchit') or [] if n != f['chast']]
+    rel = f['rel']
+    shutil.rmtree(f'{out}/{rel}', ignore_errors=True)
+    b = Full(parts, reg, out, rel, {p['name'] for p in included})
     chunks = [f'---\ntitle: "{f.get("title") or included[0]["title"]}"\n---\n']
     for i, p in enumerate(included):
         chunks.append(('\n---\n\n' if i else '') + f'[]{{#part-{p["name"].replace(".", "-")}}}\n\n' + note(p) + b.text(p) + '\n')
@@ -331,9 +348,9 @@ def build_full(name, parts, reg, fulls, out):
     ids = ANCHOR.findall(prose(text))
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
         print(f'  внимание: метка #{dup} встречается в сборке несколько раз')
-    os.makedirs(out, exist_ok=True)
-    open(f'{out}/{name}.md', 'w', encoding='utf-8').write(text)
-    return len(included)
+    os.makedirs(os.path.dirname(f'{out}/{rel}'), exist_ok=True)
+    open(f'{out}/{rel}.md', 'w', encoding='utf-8').write(text)
+    return rel, len(included)
 
 
 def arg(flag):
@@ -355,9 +372,10 @@ def main():
     elif '--full' in sys.argv:
         name = arg('--full')
         if name not in fulls:
-            sys.exit(f'FAIL: нет описания inst/src/full/{name}.yaml')
+            sys.exit(f'FAIL: нет описания полного документа {name}. Есть: {", ".join(fulls) or "—"}')
         out = arg('--out') or f'{INST}/md-full-out'
-        print(f'собран полный документ {name}.md (частей: {build_full(name, parts, reg, fulls, out)})')
+        rel, n = build_full(name, parts, reg, fulls, out)
+        print(f'собран полный документ {rel}.md (частей: {n})')
     else:
         out = arg('--out') or f'{INST}/md-out'
         print(f'собран вид «репозиторий» (частей: {build_dist(parts, reg, out)})')
