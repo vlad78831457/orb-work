@@ -43,7 +43,7 @@ nuzhno:
 | `make inst OUT=папка` | собрать в другую папку (версия, выгрузка) |
 | `make docx` | вручную: старые тексты из `raw/` в `.docx` |
 
-Если Docker отвечает «permission denied» — запускать так: `sg docker -c "make test"`.
+Проверка и сборка идут без Docker, за секунды. Нужны `python3` и PyYAML. Docker нужен только для `make docx`.
 
 ## Как добавить часть
 
