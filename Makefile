@@ -16,9 +16,9 @@ test-docker: ## та же проверка в чистом окружении (D
 inst: ## собрать инструкции из частей в inst/md-out (другая папка: make inst OUT=путь)
 	$(SOBRAT) --out $(or $(OUT),inst/md-out)
 
-full: ## собрать один полный md: make full F=raschet → inst/md-full-out (другая папка: OUT=путь)
+full: ## собрать полный md: make full F=tio.tov-razdelenie → inst/md-full-out/tio/tov-razdelenie.md
 	$(SOBRAT) --full $(F) --out $(or $(OUT),inst/md-full-out)
 
-docx: ## вручную: старые тексты из raw/ в inst/docx/*.docx (Pandoc в Docker)
-	mkdir -p inst/docx
-	UID=$$(id -u) GID=$$(id -g) docker compose run --rm docx
+docx: ## вручную: полный документ в .docx (Pandoc в Docker): make docx F=tio.tov-razdelenie → inst/docx/tio/…
+	$(SOBRAT) --full $(F) --out inst/md-full-out
+	sh tools/docx.sh $(F)

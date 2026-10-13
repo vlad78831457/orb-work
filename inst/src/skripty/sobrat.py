@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Сборщик инструкций из частей.
 
-Часть — папка inst/src/md-kod/<раздел>/<часть>/ (стандарты — inst/src/standarty/<часть>/) с файлом index.md
+Часть — папка inst/src/md-kod/<раздел>/<часть>/ (разделы: tio, zna, um, lis) (стандарты — inst/src/standarty/<часть>/) с файлом index.md
 и шапкой YAML: title, kratko, polno, status, tags, nuzhno. Имя части — <раздел>.<часть>: zna.tab-nmts.
-Реестр — inst/src/md-kod/reg/ter.yaml (термины) и res.yaml (рабочие ссылки).
+Реестр — inst/src/md-kod/reg/: ter.yaml (термины), rol.yaml (роли), res.yaml (рабочие ссылки).
 
 Упоминание в тексте меняет вид по месту:
   [[zna.tab-nmts]] внутри предложения        короткое имя ссылкой
@@ -11,11 +11,14 @@
   [[zna.tab-nmts|свой текст]]                 ссылка со своим текстом
   [[zna.tab-nmts:kratko]]                     короткое имя ссылкой, явно
   [[zna.tab-nmts:polno]]                      карточка, явно
-  [[zna.tab-nmts:tekst]] отдельной строкой    текст части целиком на этом месте
+  [[zna.tab-nmts:tekst]] отдельной строкой    в полном документе — текст части целиком на этом месте,
+                                              в виде «репозиторий» — карточка со ссылкой
 
   sobrat.py --check                     только проверка
   sobrat.py [--out ПАПКА]               проверка и сборка вида «репозиторий» (по умолчанию inst/md-out)
-  sobrat.py --full ИМЯ [--out ПАПКА]    полный md по описанию inst/src/full/ИМЯ.yaml (по умолчанию inst/md-full-out)
+  sobrat.py --full ИМЯ [--out ПАПКА]    полный md (по умолчанию в inst/md-full-out):
+                                        ИМЯ = tio.tov-razdelenie — по описанию full.yaml в папке части,
+                                        ИМЯ = svod — по описанию inst/src/full/svod.yaml
 """
 import os
 import re
@@ -27,8 +30,10 @@ import yaml
 SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INST = os.path.dirname(SRC)
 SECTIONS = [('tio', 'Инструкции', 'md-kod/tio'), ('zna', 'Знания', 'md-kod/zna'), ('um', 'Умения', 'md-kod/um'),
+            ('lis', 'Листы', 'md-kod/lis'),
             ('standarty', 'Стандарты', 'standarty')]
-REG = {'ter': 'Термины', 'res': 'Ресурсы'}
+REG = {'ter': 'Термины', 'rol': 'Роли', 'res': 'Ресурсы'}
+GLOSS = ('ter', 'rol')   # реестры-словари: у каждого своя собранная страница
 STATUSES = ('готово', 'проверить', 'заглушка')
 FORMS = (None, 'kratko', 'polno', 'tekst')
 STUB = '*Часть ещё не написана.*'
@@ -104,23 +109,27 @@ def load():
     for kind in REG:
         path = f'{SRC}/md-kod/reg/{kind}.yaml'
         reg[kind] = (yaml.safe_load(open(path, encoding='utf-8')) or {}) if os.path.isfile(path) else {}
-    fulls = {}
+    fulls = {}   # имя → описание полного документа; rel — куда класть относительно папки сборки
     for f in sorted(os.listdir(f'{SRC}/full')) if os.path.isdir(f'{SRC}/full') else []:
         if f.endswith('.yaml'):
-            fulls[f[:-5]] = yaml.safe_load(open(f'{SRC}/full/{f}', encoding='utf-8')) or {}
+            d = yaml.safe_load(open(f'{SRC}/full/{f}', encoding='utf-8')) or {}
+            fulls[f[:-5]] = {**d, 'rel': f'full/{f[:-5]}'}
+    for p in parts.values():
+        path = f'{p["dir"]}/full.yaml'
+        if os.path.isfile(path):
+            d = yaml.safe_load(open(path, encoding='utf-8')) or {}
+            fulls[p['name']] = {**d, 'chast': p['name'], 'rel': f'{p["sec"]}/{p["slug"]}'}
     return parts, reg, fulls, errors
 
 
-def closure(part, parts, seen=None, stack=()):
-    """Все зависимости части по порядку, каждая один раз."""
+def closure(part, parts, seen=None):
+    """Все зависимости части по порядку, каждая один раз. Взаимные упоминания допустимы."""
     seen = [] if seen is None else seen
-    if part['name'] in stack:
-        raise RecursionError
     for r in part['requires']:
         dep = parts.get(r)
-        if dep and dep not in seen:
+        if dep and dep is not part and dep not in seen:
             seen.append(dep)
-            closure(dep, parts, seen, stack + (part['name'],))
+            closure(dep, parts, seen)
     return seen
 
 
@@ -171,14 +180,10 @@ def check(parts, reg, fulls):
                 soft.append(f'{where}: ссылка на файл вместо упоминания [[…]] — {link}')
         if p['status'] != 'готово' and f'`{p["name"]}`' not in plan:
             errors.append(f'{where}: статус «{p["status"]}», но части нет в inst/PLAN.md')
-        try:
-            closure(p, parts)
-        except RecursionError:
-            errors.append(f'{where}: зависимости замкнуты в круг')
     for name, f in fulls.items():
         for n in [f.get('chast')] + (f.get('vklyuchit') or []):
             if n not in parts:
-                errors.append(f'full/{name}.yaml: нет такой части — {n}')
+                errors.append(f'полный документ {name}: нет такой части — {n}')
     return errors, warnings
 
 
@@ -195,13 +200,15 @@ def note(p):
 class Builder:
     """Общая сборка текста части; наследники задают, куда ведут ссылки и где лежат снимки."""
 
+    inline_tekst = True   # вставлять ли текст части на месте [[…:tekst]]
+
     def __init__(self, parts, reg):
         self.parts, self.reg = parts, reg
 
     def part_link(self, t):            # ссылка на часть или None, если части нет в документе
         raise NotImplementedError
 
-    def term_link(self, key):
+    def term_link(self, kind, key):
         raise NotImplementedError
 
     def image_path(self, owner, host, img):   # путь к снимку части owner из текста части host
@@ -210,9 +217,9 @@ class Builder:
     def render(self, name, form, own, alone):
         kind, key = name.split('.', 1)
         card = form == 'polno' or (alone and not own and form is None)
-        if kind == 'ter':
+        if kind in GLOSS:
             t = self.reg[kind][key]
-            return f'**{t["title"]}** — {t["polno"]}' if card else f'[{own or t["title"]}]({self.term_link(key)})'
+            return f'**{t["title"]}** — {t["polno"]}' if card else f'[{own or t["title"]}]({self.term_link(kind, key)})'
         if kind == 'res':
             r = self.reg[kind][key]
             link = f'[{own or r["title"]}]({r["url"]})' if r.get('url') else f'{own or r["title"]} *(ссылка не задана)*'
@@ -220,7 +227,7 @@ class Builder:
         t = self.parts[name]
         text = own or (t['title'] if card else t['short'])
         url = self.part_link(t)
-        link = f'[{text}]({url})' if url else f'{text} *(нет в этом документе)*'
+        link = f'[{text}]({url})' if url else text   # части нет в полном документе — остаётся названием
         return f'{link} — {t["description"]}' if card and t['description'] else link
 
     def text(self, p, host=None, stack=(), body=None):
@@ -238,6 +245,8 @@ class Builder:
         def line(ln):
             alone = ALONE.match(ln)
             m = MENTION.fullmatch(alone.group(2)) if alone else None
+            if m and m.group(2) == 'tekst' and m.group(1) in self.parts and not self.inline_tekst:
+                return alone.group(1) + self.render(m.group(1), 'polno', None, True)
             if m and m.group(2) == 'tekst' and m.group(1) in self.parts:
                 t = self.parts[m.group(1)]
                 if t is p or t['name'] in stack:
@@ -252,6 +261,8 @@ class Builder:
 
 
 class Dist(Builder):
+    inline_tekst = False   # в виде «репозиторий» часть не дублируется: карточка со ссылкой
+
     def __init__(self, parts, reg, out):
         super().__init__(parts, reg)
         self.out = out
@@ -259,8 +270,8 @@ class Dist(Builder):
     def part_link(self, t):
         return f'../../{t["sec"]}/{t["slug"]}/index.md'
 
-    def term_link(self, key):
-        return f'../../reg/ter.md#{key}'
+    def term_link(self, kind, key):
+        return f'../../reg/{kind}.md#{key}'
 
     def image_path(self, owner, host, img):
         dst = f'{self.out}/{owner["sec"]}/{owner["slug"]}/{img}'
@@ -270,23 +281,24 @@ class Dist(Builder):
 
 
 class Full(Builder):
-    def __init__(self, parts, reg, out, name, names):
+    def __init__(self, parts, reg, out, rel, names):
         super().__init__(parts, reg)
-        self.out, self.name, self.names, self.terms = out, name, names, []
+        self.out, self.rel, self.names, self.terms = out, rel, names, []
 
     def part_link(self, t):
         return f'#part-{t["name"].replace(".", "-")}' if t['name'] in self.names else None
 
-    def term_link(self, key):
-        if key not in self.terms:
-            self.terms.append(key)
-        return f'#term-{key}'
+    def term_link(self, kind, key):
+        if (kind, key) not in self.terms:
+            self.terms.append((kind, key))
+        return f'#{kind}-{key}'
 
     def image_path(self, owner, host, img):
-        rel = f'{self.name}/{owner["sec"]}-{owner["slug"]}/{img}'
-        os.makedirs(os.path.dirname(f'{self.out}/{rel}'), exist_ok=True)
-        shutil.copyfile(f'{owner["dir"]}/{img}', f'{self.out}/{rel}')
-        return rel
+        sub = f'{owner["sec"]}-{owner["slug"]}/{img}'
+        dst = f'{self.out}/{self.rel}/{sub}'
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copyfile(f'{owner["dir"]}/{img}', dst)
+        return f'{os.path.basename(self.rel)}/{sub}'
 
 
 def build_dist(parts, reg, out):
@@ -298,11 +310,12 @@ def build_dist(parts, reg, out):
         os.makedirs(dst, exist_ok=True)
         open(f'{dst}/index.md', 'w', encoding='utf-8').write(note(p) + map_lines(b.text(p), lambda ln: outside_inline(ln, strip_ids)) + '\n')
     os.makedirs(f'{out}/reg', exist_ok=True)
-    lines = ['# Термины\n']
-    for key, t in sorted(reg['ter'].items(), key=lambda kv: kv[1]['title'].lower()):
-        mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
-        lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
-    open(f'{out}/reg/ter.md', 'w', encoding='utf-8').write('\n'.join(lines))
+    for kind in GLOSS:
+        lines = [f'# {REG[kind]}\n']
+        for key, t in sorted(reg[kind].items(), key=lambda kv: kv[1]['title'].lower()):
+            mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
+            lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
+        open(f'{out}/reg/{kind}.md', 'w', encoding='utf-8').write('\n'.join(lines))
     lines = ['# Инструкции\n', 'Собрано из `inst/src` скриптом `skripty/sobrat.py`. Руками здесь не править.\n']
     for sec, title, _ in SECTIONS:
         lines.append(f'## {title}\n')
@@ -312,31 +325,32 @@ def build_dist(parts, reg, out):
                 mark = '' if p['status'] == 'готово' else f' — *{p["status"]}*'
                 lines.append(f'- [{p["title"]}]({sec}/{p["slug"]}/index.md){desc}{mark}')
         lines.append('')
-    lines.append('## Реестр\n\n- [Термины](reg/ter.md)\n')
+    lines.append('## Реестр\n\n' + '\n'.join(f'- [{REG[k]}](reg/{k}.md)' for k in GLOSS) + '\n')
     open(f'{out}/README.md', 'w', encoding='utf-8').write('\n'.join(lines))
     return len(parts)
 
 
 def build_full(name, parts, reg, fulls, out):
     f = fulls[name]
-    included = [parts[f['chast']]] + [parts[n] for n in f.get('vklyuchit') or []]
-    shutil.rmtree(f'{out}/{name}', ignore_errors=True)
-    b = Full(parts, reg, out, name, {p['name'] for p in included})
+    included = [parts[f['chast']]] + [parts[n] for n in f.get('vklyuchit') or [] if n != f['chast']]
+    rel = f['rel']
+    shutil.rmtree(f'{out}/{rel}', ignore_errors=True)
+    b = Full(parts, reg, out, rel, {p['name'] for p in included})
     chunks = [f'---\ntitle: "{f.get("title") or included[0]["title"]}"\n---\n']
     for i, p in enumerate(included):
         chunks.append(('\n---\n\n' if i else '') + f'[]{{#part-{p["name"].replace(".", "-")}}}\n\n' + note(p) + b.text(p) + '\n')
     if b.terms:
-        chunks.append('\n---\n\n# Термины\n')
-        for key in b.terms:
-            t = reg['ter'][key]
-            chunks.append(f'[]{{#term-{key}}}**{t["title"]}** — {t["polno"]}\n')
+        chunks.append('\n---\n\n# Термины и роли\n')
+        for kind, key in b.terms:
+            t = reg[kind][key]
+            chunks.append(f'[]{{#{kind}-{key}}}**{t["title"]}** — {t["polno"]}\n')
     text = '\n'.join(chunks)
     ids = ANCHOR.findall(prose(text))
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
         print(f'  внимание: метка #{dup} встречается в сборке несколько раз')
-    os.makedirs(out, exist_ok=True)
-    open(f'{out}/{name}.md', 'w', encoding='utf-8').write(text)
-    return len(included)
+    os.makedirs(os.path.dirname(f'{out}/{rel}'), exist_ok=True)
+    open(f'{out}/{rel}.md', 'w', encoding='utf-8').write(text)
+    return rel, len(included)
 
 
 def arg(flag):
@@ -358,9 +372,10 @@ def main():
     elif '--full' in sys.argv:
         name = arg('--full')
         if name not in fulls:
-            sys.exit(f'FAIL: нет описания inst/src/full/{name}.yaml')
+            sys.exit(f'FAIL: нет описания полного документа {name}. Есть: {", ".join(fulls) or "—"}')
         out = arg('--out') or f'{INST}/md-full-out'
-        print(f'собран полный документ {name}.md (частей: {build_full(name, parts, reg, fulls, out)})')
+        rel, n = build_full(name, parts, reg, fulls, out)
+        print(f'собран полный документ {rel}.md (частей: {n})')
     else:
         out = arg('--out') or f'{INST}/md-out'
         print(f'собран вид «репозиторий» (частей: {build_dist(parts, reg, out)})')

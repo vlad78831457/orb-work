@@ -26,13 +26,13 @@
 
 ```
 make inst            # части из inst/src → inst/md-out (вид «репозиторий», в Git)
-make full F=raschet  # один полный md → inst/md-full-out (в Git не идёт)
-make docx            # вручную: старые тексты из raw/ → inst/docx/*.docx
+make full F=tio.tov-razdelenie  # полный md инструкции → inst/md-full-out/tio/ (в Git не идёт)
+make docx F=tio.tov-razdelenie  # то же и .docx → inst/docx/tio/ (вручную, Pandoc в Docker)
 ```
 
 **Быстро вспомнить, как тут работать, — [памятка](md-out/standarty/pamyatka/index.md).**
 
-Исходники частей — `inst/src/md-kod/`: `tio` (инструкции), `zna` (знания), `um` (умения), `reg` (реестр).
+Исходники частей — `inst/src/md-kod/`: `tio` (инструкции), `zna` (знания), `um` (умения), `lis` (листы таблиц), `reg` (реестр).
 Рядом — `standarty`, `skripty`, `full`. Как устроена часть и как меняет вид упоминание —
 [src/standarty/format](src/standarty/format/index.md). Что не написано и что проверить — [PLAN.md](PLAN.md).
 Собранное читать с [md-out/README.md](md-out/README.md).

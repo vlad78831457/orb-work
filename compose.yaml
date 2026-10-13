@@ -6,11 +6,3 @@ services:
     volumes:
       - .:/orb:ro
     command: ["sh", "tools/check.sh"]
-  docx:
-    image: pandoc/core:3.6
-    user: "${UID:-1000}:${GID:-1000}"
-    working_dir: /orb
-    volumes:
-      - .:/orb:ro
-      - ./inst/docx:/orb/inst/docx
-    entrypoint: ["sh", "tools/inst.sh"]
