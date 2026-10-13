@@ -12,4 +12,4 @@
 - `raw/` убрана из Git (остаётся на стенде); разбор отрывка таблицы — `think/ah-tablitsa-otryvok.md`; заготовки описаний восьми листов второго контура (`zna.lis-…`); ответы директора внесены в «Разделение товаров»; в шаблон добавлены «Что получится» и «Как проверить» (`task/ag-inst-prefix`).
 - `make test`, `make inst`, `make full` идут без Docker (Docker остался для `make docx` и по желанию — `make test-docker`); знание «Служебные строки листа»; «Разделение товаров» приведено к шаблону (`task/ag-inst-prefix`).
 - `CLAUDE.md`: проверки и сборка идут без Docker — отдельным PR (`task/ah-claude-md`).
-- листы таблиц вынесены в свой раздел `inst/src/md-kod/lis/` с префиксом таблицы (`lis.tr-5-0-tovary`) (`task/ai-inst-lis`).
+- листы таблиц вынесены в свой раздел `inst/src/md-kod/lis/` с префиксом контура (`lis.k2-5-0-peredacha`); знание «Контуры» (`task/ai-inst-lis`).
