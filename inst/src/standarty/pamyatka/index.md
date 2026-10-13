@@ -25,7 +25,7 @@ nuzhno:
 | `inst/src/md-kod/zna/` | знания | да |
 | `inst/src/md-kod/um/` | умения | да |
 | `inst/src/md-kod/lis/` | листы таблиц, по одной части на лист | да |
-| `inst/src/md-kod/reg/` | реестр: `ter.yaml` — термины, `res.yaml` — рабочие ссылки | да |
+| `inst/src/md-kod/reg/` | реестр: `ter.yaml` — термины, `rol.yaml` — роли, `res.yaml` — рабочие ссылки | да |
 | `inst/src/standarty/` | формат, шаблон, правила, эта памятка | да |
 | `inst/src/full/` | описания полных документов | да |
 | `inst/src/skripty/` | сборщик `sobrat.py`, `slugify.sh` | да |
@@ -63,7 +63,7 @@ nuzhno:
 | `[[zna.tab-nmts\|свой текст]]` | ссылка со своим текстом |
 | `[[zna.tab-nmts:kratko]]`, `[[zna.tab-nmts:polno]]` | короткое имя или карточка — явно |
 | `[[zna.tab-nmts:tekst]]` отдельной строкой | текст части целиком на этом месте |
-| `[[ter.kp]]`, `[[res.shablon-tablitsy]]` | термин и рабочая ссылка из реестра |
+| `[[ter.kp]]`, `[[rol.zakupka]]`, `[[res.shablon-tablitsy]]` | термин, роль и рабочая ссылка из реестра |
 
 Упомянул часть — впиши её имя в `nuzhno` в шапке.
 
