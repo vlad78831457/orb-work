@@ -26,8 +26,8 @@
 
 ```
 make inst            # части из inst/src → inst/md-out (вид «репозиторий», в Git)
-make full F=raschet  # один полный md → inst/md-full-out (в Git не идёт)
-make docx            # вручную: старые тексты из raw/ → inst/docx/*.docx
+make full F=tio.tov-razdelenie  # полный md инструкции → inst/md-full-out/tio/ (в Git не идёт)
+make docx F=tio.tov-razdelenie  # то же и .docx → inst/docx/tio/ (вручную, Pandoc в Docker)
 ```
 
 **Быстро вспомнить, как тут работать, — [памятка](md-out/standarty/pamyatka/index.md).**
