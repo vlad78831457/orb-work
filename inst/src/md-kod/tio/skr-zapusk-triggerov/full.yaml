@@ -1,0 +1,5 @@
+# Полный документ этой инструкции: какие части вставить после неё, по порядку.
+# Собирается только по команде: make full F=tio.skr-zapusk-triggerov → inst/md-full-out/tio/skr-zapusk-triggerov.md
+vklyuchit:
+  - tio.skr-avtorizatsiya
+  - zna.skr-plashka
