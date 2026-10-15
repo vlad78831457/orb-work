@@ -1,5 +1,8 @@
 # Полный документ этой инструкции: какие части вставить после неё, по порядку.
-# Собирается только по команде: make full F=tio.skr-zapusk-triggerov → inst/md-full-out/tio/skr-zapusk-triggerov.md
+# Собирается только по команде: make docx F=tio.skr-zapusk-triggerov → короткий и полный .docx с датой в имени.
+# hranenie — где лежат готовые документы; ссылка печатается под заголовком.
 vklyuchit:
   - tio.skr-avtorizatsiya
   - zna.skr-plashka
+  - um.skr-proverit-triggery
+hranenie: https://drive.google.com/drive/folders/1bCT0cWM9w6S7SmeBzEq6Xs6fn2W942oQ
