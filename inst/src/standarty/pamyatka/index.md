@@ -42,9 +42,9 @@ nuzhno:
 |---|---|
 | `make inst` | собрать `inst/md-out` |
 | `make test` | проверить всё; должно кончиться словами `orb-work: ok` |
-| `make full F=tio.tov-razdelenie` | собрать полный документ инструкции в `inst/md-full-out/tio/` |
+| `make full F=tio.skr-zapusk-triggerov` | собрать короткий и полный md инструкции в `inst/md-full-out/tio/` |
 | `make inst OUT=папка` | собрать в другую папку (версия, выгрузка) |
-| `make docx F=tio.tov-razdelenie` | собрать полный документ и сразу `.docx` в `inst/docx/tio/` |
+| `make docx F=tio.skr-zapusk-triggerov` | собрать и сразу два `.docx` с датой: короткий и `-full` — в `inst/docx/tio/` |
 
 Проверка и сборка идут без Docker, за секунды. Нужны `python3` и PyYAML. Docker нужен только для `make docx`.
 
