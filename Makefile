@@ -2,6 +2,7 @@
 .PHONY: help test test-docker inst full docx
 
 SOBRAT := python3 inst/src/skripty/sobrat.py
+DATE ?= $(shell date +%F)
 
 help: ## список команд
 	@grep -E '^[a-z-]+:.*## ' Makefile | sed 's/:.*## /\t/'
@@ -16,9 +17,9 @@ test-docker: ## та же проверка в чистом окружении (D
 inst: ## собрать инструкции из частей в inst/md-out (другая папка: make inst OUT=путь)
 	$(SOBRAT) --out $(or $(OUT),inst/md-out)
 
-full: ## собрать полный md: make full F=tio.tov-razdelenie → inst/md-full-out/tio/tov-razdelenie.md
-	$(SOBRAT) --full $(F) --out $(or $(OUT),inst/md-full-out)
+full: ## собрать короткий и полный md: make full F=tio.skr-zapusk-triggerov → inst/md-full-out/tio/
+	$(SOBRAT) --full $(F) --date $(DATE) --out $(or $(OUT),inst/md-full-out)
 
-docx: ## вручную: полный документ в .docx (Pandoc в Docker): make docx F=tio.tov-razdelenie → inst/docx/tio/…
-	$(SOBRAT) --full $(F) --out inst/md-full-out
-	sh tools/docx.sh $(F)
+docx: ## вручную: короткий и полный .docx с датой: make docx F=tio.skr-zapusk-triggerov → inst/docx/tio/
+	$(SOBRAT) --full $(F) --date $(DATE) --out inst/md-full-out
+	sh tools/docx.sh $(F) $(DATE)

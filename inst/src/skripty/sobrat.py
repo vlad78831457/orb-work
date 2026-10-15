@@ -16,10 +16,12 @@
 
   sobrat.py --check                     только проверка
   sobrat.py [--out ПАПКА]               проверка и сборка вида «репозиторий» (по умолчанию inst/md-out)
-  sobrat.py --full ИМЯ [--out ПАПКА]    полный md (по умолчанию в inst/md-full-out):
+  sobrat.py --full ИМЯ [--out ПАПКА] [--date ГГГГ-ММ-ДД]
+                                        короткий и полный md (по умолчанию в inst/md-full-out):
                                         ИМЯ = tio.tov-razdelenie — по описанию full.yaml в папке части,
                                         ИМЯ = svod — по описанию inst/src/full/svod.yaml
 """
+import datetime
 import os
 import re
 import shutil
@@ -202,6 +204,9 @@ class Builder:
 
     inline_tekst = True   # вставлять ли текст части на месте [[…:tekst]]
 
+    def embed_mark(self, t):   # метка перед вставленным текстом части
+        return ''
+
     def __init__(self, parts, reg):
         self.parts, self.reg = parts, reg
 
@@ -251,7 +256,7 @@ class Builder:
                 t = self.parts[m.group(1)]
                 if t is p or t['name'] in stack:
                     return f'*[вставка по кругу: {t["name"]}]*'
-                return self.text(t, host, stack + (p['name'],), re.sub(r'\A# [^\n]*\n+', '', t['body']))
+                return self.embed_mark(t) + self.text(t, host, stack + (p['name'],), re.sub(r'\A# [^\n]*\n+', '', t['body']))
             if m:
                 return alone.group(1) + self.render(m.group(1), m.group(2), m.group(3), True)
             return outside_inline(ln, lambda t: IMAGE.sub(image, MENTION.sub(
@@ -287,6 +292,9 @@ class Full(Builder):
 
     def part_link(self, t):
         return f'#part-{t["name"].replace(".", "-")}' if t['name'] in self.names else None
+
+    def embed_mark(self, t):
+        return f'[]{{#part-{t["name"].replace(".", "-")}}}\n\n'
 
     def term_link(self, kind, key):
         if (kind, key) not in self.terms:
@@ -330,15 +338,39 @@ def build_dist(parts, reg, out):
     return len(parts)
 
 
-def build_full(name, parts, reg, fulls, out):
+def embedded(p, parts, seen=None):
+    """Части, текст которых вставляется в p через [[…:tekst]] (и дальше по цепочке)."""
+    seen = set() if seen is None else seen
+    for name, form, _, _ in mentions(p['body']):
+        if form == 'tekst' and name in parts and name not in seen:
+            seen.add(name)
+            embedded(parts[name], parts, seen)
+    return seen
+
+
+def build_full(name, parts, reg, fulls, out, date, short=False):
+    """Полный документ (short=False) или короткий: только сама инструкция, вставки [[…:tekst]] — на месте."""
     f = fulls[name]
-    included = [parts[f['chast']]] + [parts[n] for n in f.get('vklyuchit') or [] if n != f['chast']]
+    root = parts[f['chast']]
+    inside = embedded(root, parts)
+    extra = [] if short else [parts[n] for n in f.get('vklyuchit') or [] if n != f['chast'] and n not in inside]
+    included = [root] + extra
     rel = f['rel']
-    shutil.rmtree(f'{out}/{rel}', ignore_errors=True)
-    b = Full(parts, reg, out, rel, {p['name'] for p in included})
-    chunks = [f'---\ntitle: "{f.get("title") or included[0]["title"]}"\n---\n']
+    b = Full(parts, reg, out, rel, {p['name'] for p in included} | inside)
+    title = f.get('title') or root['title']
+    head = [f'**Версия от {date}**']
+    if f.get('hranenie'):
+        head.append(f'Место хранения: [{f["hranenie"]}]({f["hranenie"]})')
+    if not short and extra:
+        head.append('Полная версия: инструкция и всё, на что она опирается')
+    chunks = [f'---\ntitle: "{title}"\ndate: "{date}"\n---\n']
     for i, p in enumerate(included):
-        chunks.append(('\n---\n\n' if i else '') + f'[]{{#part-{p["name"].replace(".", "-")}}}\n\n' + note(p) + b.text(p) + '\n')
+        body = b.text(p)
+        if i == 0:   # строка о версии — сразу под первым заголовком
+            body = re.sub(r'\A(# [^\n]*\n)', lambda m: m.group(1) + '\n' + ' · '.join(head) + '\n', body, count=1)
+            if not body.startswith('# '):
+                body = ' · '.join(head) + '\n\n' + body
+        chunks.append(('\n---\n\n' if i else '') + f'[]{{#part-{p["name"].replace(".", "-")}}}\n\n' + note(p) + body + '\n')
     if b.terms:
         chunks.append('\n---\n\n# Термины и роли\n')
         for kind, key in b.terms:
@@ -348,9 +380,10 @@ def build_full(name, parts, reg, fulls, out):
     ids = ANCHOR.findall(prose(text))
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
         print(f'  внимание: метка #{dup} встречается в сборке несколько раз')
-    os.makedirs(os.path.dirname(f'{out}/{rel}'), exist_ok=True)
-    open(f'{out}/{rel}.md', 'w', encoding='utf-8').write(text)
-    return rel, len(included)
+    path = f'{out}/{rel}{"" if short else "-full"}.md'
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, 'w', encoding='utf-8').write(text)
+    return path, len(included)
 
 
 def arg(flag):
@@ -374,8 +407,11 @@ def main():
         if name not in fulls:
             sys.exit(f'FAIL: нет описания полного документа {name}. Есть: {", ".join(fulls) or "—"}')
         out = arg('--out') or f'{INST}/md-full-out'
-        rel, n = build_full(name, parts, reg, fulls, out)
-        print(f'собран полный документ {rel}.md (частей: {n})')
+        date = arg('--date') or datetime.date.today().isoformat()
+        shutil.rmtree(f'{out}/{fulls[name]["rel"]}', ignore_errors=True)   # снимки — общие для обеих версий
+        for short in (True, False):
+            path, n = build_full(name, parts, reg, fulls, out, date, short)
+            print(f'собран {"короткий" if short else "полный"} документ {os.path.relpath(path, out)} (частей: {n})')
     else:
         out = arg('--out') or f'{INST}/md-out'
         print(f'собран вид «репозиторий» (частей: {build_dist(parts, reg, out)})')
