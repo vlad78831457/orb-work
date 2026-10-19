@@ -1,0 +1,12 @@
+# Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
+# Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
+# результат; otslezhivaet, soglasuyut, uznayut, pomogayut — списки; значение — обязанность или должность «rol.ключ».
+# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+kontur: "0"
+dalee: []
+shagi:
+  zp-0: {delaet: zakrytie-proekta}
+  zp-1: {delaet: zakrytie-proekta}
+  zp-2: {delaet: zakrytie-proekta}
+  zp-3: {delaet: zakrytie-proekta}
+  zp-4: {delaet: zakrytie-proekta, mesto: [bitriks-status-proekta], status: {proekt: Закрыт}}

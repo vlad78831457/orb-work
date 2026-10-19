@@ -1,0 +1,17 @@
+# Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
+# Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
+# результат; otslezhivaet, soglasuyut, uznayut, pomogayut — списки; значение — обязанность или должность «rol.ключ».
+# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+kontur: "3"
+dalee: [r12-zakrytie-proekta]
+shagi:
+  kz-30: {delaet: dozhim-zakazchika, pomogayut: [rol.logist], dogadka: "Регламент: «нет инструмента, прописать инструмент»."}
+  kz-31: {delaet: oplaty-zakazchika, prinimaet: [pretenziya-neuplata]}
+  kz-32: {delaet: oplaty-zakazchika, mesto: [1s]}
+  kz-33: {delaet: oplaty-zakazchika, dogadka: "Регламент: «что тут писать?» — в какую систему, не сказано."}
+  kz-34: {delaet: pretenziya-neuplata, soglasuyut: [rol.proekt], prinimaet: [otpravka-pretenzii]}
+  kz-35: {delaet: otpravka-pretenzii, mesto: [pochta, transportnaya-kompaniya]}
+  kz-36: {delaet: dozhim-zakazchika, pomogayut: [rol.logist]}
+  kz-37: {delaet: isk, prinimaet: [naznachenie-otvetstvennyh]}
+  kz-38: {delaet: naznachenie-otvetstvennyh, prinimaet: [sud]}
+  kz-39: {delaet: sud, stavit: [naznachenie-otvetstvennyh]}

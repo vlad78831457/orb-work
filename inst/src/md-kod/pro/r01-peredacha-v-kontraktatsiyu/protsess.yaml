@@ -1,0 +1,12 @@
+# Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
+# Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
+# результат; otslezhivaet, soglasuyut, uznayut, pomogayut — списки; значение — обязанность или должность «rol.ключ».
+# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+kontur: "0"
+dalee: [r02-kontraktatsiya]
+shagi:
+  pk-0: {delaet: reshenie-kontraktatsiya, mesto: [bitriks-status-proekta, pochta], status: {proekt: Заключаем договор}}
+  pk-1: {delaet: papka-proekta, mesto: [disk-kontraktatsiya]}
+  pk-2: {delaet: papka-proekta, mesto: [disk-papka-proekta], uznayut: [rol.logist]}
+  pk-3: {delaet: papka-proekta, mesto: [disk-kontraktatsiya]}
+  pk-4: {delaet: postanovka-kontraktatsii, mesto: [bitriks-zadacha], prinimaet: [dogovor-s-zakazchikom]}
