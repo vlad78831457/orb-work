@@ -93,6 +93,7 @@ flowchart TB
   o_registratsiya_vhodyashchih -->|ставит| o_vedenie_nesootvetstviya
   o_vedenie_nesootvetstviya -->|ставит| o_otvet_nesootvetstvie
   o_otvetstvennyy_za_yashchik -->|передаёт| o_registratsiya_vhodyashchih
+  o_vedenie_nesootvetstviya -.->|согласует| o_otvet_nesootvetstvie
   o_vedenie_nesootvetstviya --> o_status_nesootvetstvie
   o_status_nesootvetstvie --> o_vedenie_nesootvetstviya
 ```
@@ -111,7 +112,7 @@ flowchart TB
 | 23 | Выдача поручения по устранению несоответствий и организация его выполнения | [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md) | — → — |  |  |
 | 24 | Выдача поручения по подготовке ответа на документ о несоответствии и организация его выполнения | [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md) | — → [Готовящий ответ на несоответствие](../../reg/oby/otvet-nesootvetstvie.md) |  |  |
 | 25 | Устранение несоответствий | [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md) | — → — | помогают: [Технический эксперт (ТС)](../../reg/rol/tekh.md), [Закупщик (специалист по закупке)](../../reg/rol/zakupka.md), [Хранитель учёта и документов (столбец K)](../../reg/rol/khranitel.md), [Логист](../../reg/rol/logist.md) |  |
-| 26 | Подготовка предложений по ответу и согласование с заинтересованными сторонами | [Готовящий ответ на несоответствие](../../reg/oby/otvet-nesootvetstvie.md) | [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md) → — | согласуют: [Менеджер проекта](../../reg/rol/proekt.md), [Закупщик (специалист по закупке)](../../reg/rol/zakupka.md), [Логист](../../reg/rol/logist.md) |  |
+| 26 | Подготовка предложений по ответу и согласование с заинтересованными сторонами<br/>*Регламент: согласуют менеджер, закупщик и логист.* | [Готовящий ответ на несоответствие](../../reg/oby/otvet-nesootvetstvie.md) | [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md) → — | согласуют: [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md); помогают: [Закупщик (специалист по закупке)](../../reg/rol/zakupka.md), [Логист](../../reg/rol/logist.md) |  |
 | 27 | Обеспечение отправки подготовленного ответа | [Готовящий ответ на несоответствие](../../reg/oby/otvet-nesootvetstvie.md) | — → — | узнают о результате: [Менеджер проекта](../../reg/rol/proekt.md), [Логист](../../reg/rol/logist.md) | [Почта](../../reg/mes.md#pochta) |
 | 28 | Сбор объяснений по возникновению несоответствий и сбор предложений по предотвращению/снижению рисков возникновения подобных несоответствий | [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md) | — → — | помогают: [Технический эксперт (ТС)](../../reg/rol/tekh.md), [Закупщик (специалист по закупке)](../../reg/rol/zakupka.md), [Хранитель учёта и документов (столбец K)](../../reg/rol/khranitel.md), [Логист](../../reg/rol/logist.md) |  |
 | 29 | Закрытие процесса Устранение несоответствий | [Ведущий устранение несоответствия](../../reg/oby/vedenie-nesootvetstviya.md) | — → — | помогают: [Логист](../../reg/rol/logist.md) |  |

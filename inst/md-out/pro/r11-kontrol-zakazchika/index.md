@@ -87,6 +87,7 @@ flowchart TB
   o_naznachenie_otvetstvennyh -->|ставит| o_sud
   o_oplaty_zakazchika -->|передаёт| o_pretenziya_neuplata
   o_pretenziya_neuplata -->|передаёт| o_otpravka_pretenzii
+  o_dozhim_zakazchika -.->|согласует| o_pretenziya_neuplata
   o_isk -->|передаёт| o_naznachenie_otvetstvennyh
   o_dozhim_zakazchika --> o_oplaty_zakazchika
   o_otpravka_pretenzii --> o_dozhim_zakazchika
@@ -101,7 +102,7 @@ flowchart TB
 | 31 | Отслеживание сроков оплаты по проекту, | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) |  |  |
 | 32 | Отслеживание и учет оплат от заказчиков и поступлений (типа денег от поставщиков и страховых) по проекту | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → — |  | [1С](../../reg/mes.md#1s) |
 | 33 | Занесение информации о платежах в систему<br/>*Регламент: «что тут писать?» — в какую систему, не сказано.* | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → — |  |  |
-| 34 | Написание претензии о неуплате | [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) | — → [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) | согласуют: [Менеджер проекта](../../reg/rol/proekt.md) |  |
+| 34 | Написание претензии о неуплате | [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) | — → [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) | согласуют: [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) |  |
 | 35 | Отправка претензии Заказчику о неуплате | [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) | — → — |  | [Почта](../../reg/mes.md#pochta), [Транспортная компания](../../reg/mes.md#transportnaya-kompaniya) |
 | 36 | Выяснение вопросов по претензии (когда заплатят деньги) | [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) | — → — | помогают: [Логист](../../reg/rol/logist.md) |  |
 | 37 | Инициирование Судебного Иска | [Инициирующий судебный иск](../../reg/oby/isk.md) | — → [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) |  |  |

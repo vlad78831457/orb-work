@@ -39,6 +39,7 @@
 | `make docx F=tio.skr-zapusk-triggerov` | собрать и сразу два `.docx` с датой: короткий и `-full` — в `inst/docx/tio/` |
 | `make reglament X=raw/…/….xlsx` | пересобрать шаги процессов из регламента «Распределение задач» |
 | `make mermaid` | проверить схемы Mermaid настоящим mermaid-cli (по желанию; ставится `make mermaid-setup`) |
+| `make reglament-xlsx` | книга регламента для Google Таблиц — в `raw/` (шаги и справочники) |
 
 Проверка и сборка идут без Docker, за секунды. Нужны `python3` и PyYAML. Docker нужен только для `make docx`.
 
