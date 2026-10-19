@@ -1,6 +1,6 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
-# результат; otslezhivaet, soglasuyut, uznayut, pomogayut — списки; значение — обязанность или должность «rol.ключ».
+# результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
 # mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
 kontur: "2"
 dalee: [r06-postuplenie]

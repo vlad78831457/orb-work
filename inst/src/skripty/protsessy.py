@@ -13,6 +13,7 @@ import yaml
 ROOT = '../../'
 RELS = (('stavit', 'ставит задачу'), ('prinimaet', 'принимает результат'), ('otslezhivaet', 'отслеживает'),
         ('soglasuyut', 'согласуют'), ('pomogayut', 'помогают'), ('uznayut', 'узнают о результате'))
+PEOPLE = ('pomogayut', 'uznayut')   # здесь — должности «rol.ключ» (люди из столбцов регламента), в остальных связях — обязанности
 COLUMNS = {'H': 'Менеджер', 'I': 'ТС (эксперт)', 'J': 'Закупщик', 'K': 'K', 'L': 'АС', 'M': 'M', 'N': 'Владелец процесса'}
 MARK = (('исполнитель', 'И'), ('владелец', 'В'), ('согласование', 'Сг'), ('информируем', 'У'), ('соисполнител', 'С'))
 STATUS_OBJ = {'proekt': 'Статус проекта', 'sdelka': 'Статус сделки', 'tovar': 'Статус товара'}
@@ -125,7 +126,9 @@ def check(parts, reg):
                         errors.append(f'{where}: в {r} — не имя: {v}')
                         continue
                     kind, key = ref_kind(v)
-                    if key not in (oby if kind == 'oby' else rol):
+                    if (kind == 'rol') != (r in PEOPLE):
+                        errors.append(f'{where}: в {r} — {"должности «rol.ключ»" if r in PEOPLE else "обязанности, не должности"}: {v}')
+                    elif key not in (oby if kind == 'oby' else rol):
                         errors.append(f'{where}: в {r} нет такой {"должности" if kind == "rol" else "обязанности"} — {v}')
             for m in as_list(t.get('mesto')):
                 if m not in mes:

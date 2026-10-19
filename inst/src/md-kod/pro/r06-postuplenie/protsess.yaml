@@ -1,6 +1,6 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
-# результат; otslezhivaet, soglasuyut, uznayut, pomogayut — списки; значение — обязанность или должность «rol.ключ».
+# результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
 # mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
 kontur: "4"
 dalee: [r07-podgotovka-k-otgruzke]
@@ -12,7 +12,7 @@ shagi:
   ps-5: {delaet: plan-sroki}
   ps-6: {delaet: kontrol-postavki, mesto: [tablitsa-logista], status: {tovar: Проблема}}
   ps-7: {delaet: eskalatsiya, prinimaet: [reshenie-problem]}
-  ps-8: {delaet: reshenie-problem, stavit: [eskalatsiya], uznayut: [eskalatsiya]}
+  ps-8: {delaet: reshenie-problem, stavit: [eskalatsiya], uznayut: [rol.zakupka]}
   ps-9: {delaet: pretenzii-postavshchikam, pomogayut: [rol.khranitel], mesto: [pochta]}
   ps-10: {delaet: gotovnost-otgruzki, soglasuyut: [teh-gotovnost, soglasovanie-otkloneniy], uznayut: [rol.logist, rol.vladelets]}
   ps-11: {delaet: tehdokumentatsiya, soglasuyut: [teh-soglasovanie], mesto: [pochta, disk-ispolnenie]}
@@ -23,7 +23,7 @@ shagi:
   ps-15: {delaet: oplata, stavit: [peredacha-na-oplatu]}
   ps-16: {delaet: tablitsa-oplat, mesto: [tablitsa-oplat, disk-zakupki]}
   ps-x2: {delaet: sposob-dostavki, dogadka: "Подраздел «Организация доставки» — у него в регламенте отмечен исполнитель АС."}
-  ps-17: {delaet: sposob-dostavki, soglasuyut: [soglasovanie-otkloneniy, rol.zakupka]}
+  ps-17: {delaet: sposob-dostavki, soglasuyut: [soglasovanie-otkloneniy], pomogayut: [rol.zakupka], dogadka: "Регламент: согласуют менеджер (при необходимости) и закупщик."}
   ps-18: {delaet: dostavka, mesto: [transportnaya-kompaniya]}
   ps-18b: {delaet: dostavka, mesto: [transportnaya-kompaniya]}
   ps-19: {delaet: transportnye-dokumenty, uznayut: [rol.khranitel]}

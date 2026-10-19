@@ -1,6 +1,6 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
-# результат; otslezhivaet, soglasuyut, uznayut, pomogayut — списки; значение — обязанность или должность «rol.ключ».
+# результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
 # mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
 kontur: "4"
 dalee: []
@@ -15,7 +15,7 @@ shagi:
   ns-23: {delaet: vedenie-nesootvetstviya}
   ns-24: {delaet: vedenie-nesootvetstviya, prinimaet: [otvet-nesootvetstvie]}
   ns-25: {delaet: vedenie-nesootvetstviya, pomogayut: [rol.tekh, rol.zakupka, rol.khranitel, rol.logist]}
-  ns-26: {delaet: otvet-nesootvetstvie, stavit: [vedenie-nesootvetstviya], soglasuyut: [rol.proekt, rol.zakupka, rol.logist]}
+  ns-26: {delaet: otvet-nesootvetstvie, stavit: [vedenie-nesootvetstviya], soglasuyut: [vedenie-nesootvetstviya], pomogayut: [rol.zakupka, rol.logist], dogadka: "Регламент: согласуют менеджер, закупщик и логист."}
   ns-27: {delaet: otvet-nesootvetstvie, uznayut: [rol.proekt, rol.logist], mesto: [pochta]}
   ns-28: {delaet: vedenie-nesootvetstviya, pomogayut: [rol.tekh, rol.zakupka, rol.khranitel, rol.logist]}
   ns-29: {delaet: vedenie-nesootvetstviya, pomogayut: [rol.logist]}

@@ -1,6 +1,6 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
-# результат; otslezhivaet, soglasuyut, uznayut, pomogayut — списки; значение — обязанность или должность «rol.ключ».
+# результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
 # mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
 kontur: "2"
 dalee: [r04-zakupka-tovara]
@@ -8,7 +8,7 @@ shagi:
   pz-0: {delaet: reshenie-peredachi, mesto: [bitriks-status-proekta], status: {proekt: Заключаем договор}}
   pz-1: {delaet: peredacha-v-zakupku, mesto: [bitriks-zadacha]}
   pz-2: {delaet: peredacha-v-zakupku, mesto: [bitriks-zadacha]}
-  pz-3: {delaet: list-5-0, pomogayut: [teh-soglasovanie], mesto: [lis-5-0, bitriks-zadacha]}
+  pz-3: {delaet: list-5-0, pomogayut: [rol.tekh], mesto: [lis-5-0, bitriks-zadacha]}
   pz-4: {delaet: proverka-komplektnosti, mesto: [bitriks-zadacha, lis-5-0]}
   pz-5: {delaet: postanovka-zakupki, prinimaet: [prinyatie-zakupki], mesto: [bitriks-zadacha, bitriks-status-proekta], status: {proekt: Передано в Закупки}}
   pz-6: {delaet: prinyatie-zakupki, stavit: [postanovka-zakupki], mesto: [bitriks-zadacha]}
