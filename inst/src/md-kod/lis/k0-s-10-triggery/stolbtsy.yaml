@@ -1,0 +1,87 @@
+# Столбцы листа «S-10 Триггеры»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: err1
+  bukva: A
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: err2
+  bukva: B
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: ID
+  chto: ''
+  kak: ''
+- id: url
+  bukva: D
+  zagolovok: Таблица
+  chto: ''
+  kak: ''
+- id: run
+  bukva: E
+  zagolovok: Дата
+  chto: ''
+  kak: ''
+- id: user
+  bukva: F
+  zagolovok: Аккаунт
+  chto: ''
+  kak: ''
+- id: func
+  bukva: G
+  zagolovok: Функция
+  chto: ''
+  kak: ''
+- id: id
+  bukva: H
+  zagolovok: ID
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Таблица Проекта
+  chto: ''
+  kak: ''
+- id: MrLib_top.triggerService
+  bukva: K
+  zagolovok: Назначение тригера
+  chto: ''
+  kak: ''
+- id: Таблица Проекта
+  bukva: L
+  zagolovok: Таблица Оплат
+  chto: ''
+  kak: ''
+- id: Функции выполняющие сервесные работы в фоне(подсчет, передача данных, и другие)
+  bukva: M
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: Кол-во Триггеров
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Кол-во Уникальных Триггеров
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Кол-во Аккаунтов
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: Лишние Триггеры
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Тригер Остановлен
+  chto: ''
+  kak: ''

@@ -1,0 +1,107 @@
+# Столбцы листа «3-1 Расчет стоимости доставки»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Ед
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Кол
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Поставщик
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Место отправки
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Склад комплектации (СК)
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: Место доставки
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Кол-во мест
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Вес одного места
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Вес всего
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Длина, м
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: Высота,м
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: Ширина,м
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Объем одного места
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Объем всего
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Решение по способу доставки
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Стоимость доставки до СК
+  chto: ''
+  kak: ''
+- id: S
+  bukva: S
+  zagolovok: Стоимость доставки со СК до Заказчика
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: Стоимость доставки напрямую
+  chto: ''
+  kak: ''
+- id: U
+  bukva: U
+  zagolovok: Общая стоимость доставки (R+S+T)
+  chto: ''
+  kak: ''

@@ -1,0 +1,17 @@
+# Столбцы листа «Товары»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: слово
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: поставщик
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: официал
+  chto: ''
+  kak: ''

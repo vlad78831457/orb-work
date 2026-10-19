@@ -1,0 +1,157 @@
+# Столбцы листа «Отзывы о поставщиках»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: E-mail
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Итоговая оценка
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Объединенный итог
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Комментарий
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Завершенных сделок
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Кинул в сделках
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: Сделок в работе
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Наша оценка
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Название компании
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: ИНН
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Дата регистрации
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Уставный капитал
+  chto: ''
+  kak: ''
+- id: S
+  bukva: S
+  zagolovok: Число сотрудников
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: УСН
+  chto: ''
+  kak: ''
+- id: U
+  bukva: U
+  zagolovok: Доходы
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Прибыль
+  chto: ''
+  kak: ''
+- id: W
+  bukva: W
+  zagolovok: Налоги
+  chto: ''
+  kak: ''
+- id: X
+  bukva: X
+  zagolovok: Взносы
+  chto: ''
+  kak: ''
+- id: Y
+  bukva: Y
+  zagolovok: Недоимки
+  chto: ''
+  kak: ''
+- id: Z
+  bukva: Z
+  zagolovok: Связи
+  chto: ''
+  kak: ''
+- id: AA
+  bukva: AA
+  zagolovok: Госзакупки
+  chto: ''
+  kak: ''
+- id: AB
+  bukva: AB
+  zagolovok: Судебные дела
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: Ответчик
+  chto: ''
+  kak: ''
+- id: AD
+  bukva: AD
+  zagolovok: Проверки
+  chto: ''
+  kak: ''
+- id: AE
+  bukva: AE
+  zagolovok: Нарушения
+  chto: ''
+  kak: ''
+- id: AF
+  bukva: AF
+  zagolovok: Долги
+  chto: ''
+  kak: ''
+- id: AG
+  bukva: AG
+  zagolovok: Сумма долгов
+  chto: ''
+  kak: ''
+- id: AH
+  bukva: AH
+  zagolovok: Остаток долгов
+  chto: ''
+  kak: ''
+- id: AI
+  bukva: AI
+  zagolovok: Филиалы
+  chto: ''
+  kak: ''
+- id: AJ
+  bukva: AJ
+  zagolovok: Лицензии
+  chto: ''
+  kak: ''

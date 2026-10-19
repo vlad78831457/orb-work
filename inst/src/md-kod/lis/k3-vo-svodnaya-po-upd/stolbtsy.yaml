@@ -1,0 +1,32 @@
+# Столбцы листа «Сводная по УПД»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: B
+  bukva: B
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: key
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: № УПД о закупке
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: другой вариант ключа
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: для проверки расхождения данных с логистом
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Ошибки при заполнение УПД во внешней
+  chto: ''
+  kak: ''

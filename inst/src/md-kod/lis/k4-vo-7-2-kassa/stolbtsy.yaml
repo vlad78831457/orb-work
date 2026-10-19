@@ -1,0 +1,62 @@
+# Столбцы листа «7-2 Касса»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: B
+  bukva: B
+  zagolovok: Вид оплаты
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: ID
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Дата
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Выбытие
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Поступление
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Проект
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: Контрагент
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Назначение платежа
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Статья
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Кто внес запись
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Касса
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: НДС
+  chto: ''
+  kak: ''

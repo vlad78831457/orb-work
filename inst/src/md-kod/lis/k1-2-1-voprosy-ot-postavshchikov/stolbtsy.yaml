@@ -1,0 +1,147 @@
+# Столбцы листа «2-1 Вопросы от Поставщиков»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: № Вопроса
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: Итого
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Предложений
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: НМЦ
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Группа
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Еmail поставщика
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: Вопрос
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: С вопросом ознакомлен Менеджер
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: С вопросом ознакомлен Эксперт
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Ответ
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Комментарий Менеджера
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Комментарий Эксперта
+  chto: ''
+  kak: ''
+- id: S
+  bukva: S
+  zagolovok: Текущая стадия вопроса из Битрикс
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: Ссылка на вопрос или проблему в Битрикс
+  chto: ''
+  kak: ''
+- id: U
+  bukva: U
+  zagolovok: Ответ разослан
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Дата отправки Ответа
+  chto: ''
+  kak: ''
+- id: W
+  bukva: W
+  zagolovok: Дата добавления ответа
+  chto: ''
+  kak: ''
+- id: X
+  bukva: X
+  zagolovok: Дата добавления вопроса
+  chto: ''
+  kak: ''
+- id: Y
+  bukva: Y
+  zagolovok: Добавлено Автоматический
+  chto: ''
+  kak: ''
+- id: Z
+  bukva: Z
+  zagolovok: Дата ознакомления Менеджера с вопросом
+  chto: ''
+  kak: ''
+- id: AA
+  bukva: AA
+  zagolovok: Дата ознакомления Эксперта с вопросом
+  chto: ''
+  kak: ''
+- id: AB
+  bukva: AB
+  zagolovok: key
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: last
+  chto: ''
+  kak: ''

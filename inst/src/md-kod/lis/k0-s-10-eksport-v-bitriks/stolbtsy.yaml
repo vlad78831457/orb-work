@@ -1,0 +1,27 @@
+# Столбцы листа «S-10 Экспорт в Битрикс»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: C
+  bukva: C
+  zagolovok: Индификатор поля
+  chto: ''
+  kak: ''
+- id: needToSend
+  bukva: D
+  zagolovok: Экспортировать
+  chto: ''
+  kak: ''
+- id: Номер
+  bukva: E
+  zagolovok: Номер
+  chto: ''
+  kak: ''
+- id: Название
+  bukva: F
+  zagolovok: Название
+  chto: ''
+  kak: ''
+- id: Значение
+  bukva: G
+  zagolovok: Значение
+  chto: ''
+  kak: ''

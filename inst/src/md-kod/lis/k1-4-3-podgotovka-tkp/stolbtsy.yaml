@@ -1,0 +1,122 @@
+# Столбцы листа «4-3 Подготовка ТКП»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: НМЦ
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Нац режим 1875
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Название товара в ТП
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Изгот-тель товара
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: ИНН Изгот-ля
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Страна про-ния
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Цена (с НДС)
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Сумма (с НДС)
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Цена (Без НДС)
+  chto: ''
+  kak: ''
+- id: S
+  bukva: S
+  zagolovok: Сумма (Без НДС)
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: Аналог
+  chto: ''
+  kak: ''
+- id: U
+  bukva: U
+  zagolovok: Комментарий, где что изменено
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Номер реестровой записи 1875
+  chto: ''
+  kak: ''
+- id: W
+  bukva: W
+  zagolovok: Проверка ошибок
+  chto: ''
+  kak: ''
+- id: Y
+  bukva: Y
+  zagolovok: Цена
+  chto: ''
+  kak: ''

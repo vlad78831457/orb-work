@@ -1,0 +1,17 @@
+# Столбцы листа «3-4 Прочие расходы»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: D
+  bukva: D
+  zagolovok: ПЛАН
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: ФАКТ(анализ)
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Переводы ПЛАН
+  chto: ''
+  kak: ''

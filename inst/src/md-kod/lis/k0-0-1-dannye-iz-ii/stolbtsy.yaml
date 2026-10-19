@@ -1,0 +1,27 @@
+# Столбцы листа «0-1 Данные из ИИ»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: B
+  bukva: B
+  zagolovok: № п/п
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Показатель
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Значение
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Классификация
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Оцифровка
+  chto: ''
+  kak: ''

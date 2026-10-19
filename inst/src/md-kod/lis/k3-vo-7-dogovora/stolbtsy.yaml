@@ -1,0 +1,227 @@
+# Столбцы листа «7 Договора»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: Ошибки
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: ID_Документа
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Проект №
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Юр. лицо Продавец
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: ИНН Продавца
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Юр. лицо Покупатель
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: ИНН Покупателя
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Номер Договора
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Дата договора от
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Сумма договора
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Валюта договора
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: НДС Договора
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: Ориентировочная сумма договора в рублях
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Коэф
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Дата подписи продавцом
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Дата подписи Покупателем
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Вид подписания договора
+  chto: ''
+  kak: ''
+- id: S
+  bukva: S
+  zagolovok: Договора о закупке
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: Частичная оплата за товар
+  chto: ''
+  kak: ''
+- id: U
+  bukva: U
+  zagolovok: Частичная поставка товара
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Срок поставки
+  chto: ''
+  kak: ''
+- id: W
+  bukva: W
+  zagolovok: Срок доставки
+  chto: ''
+  kak: ''
+- id: X
+  bukva: X
+  zagolovok: Срок приемки
+  chto: ''
+  kak: ''
+- id: Y
+  bukva: Y
+  zagolovok: Срок оплаты
+  chto: ''
+  kak: ''
+- id: Z
+  bukva: Z
+  zagolovok: Сумма отгруженных товаров
+  chto: ''
+  kak: ''
+- id: AA
+  bukva: AA
+  zagolovok: Сумма полученых оплат
+  chto: ''
+  kak: ''
+- id: AB
+  bukva: AB
+  zagolovok: Комментарий Текстовое
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: Скан Версия
+  chto: ''
+  kak: ''
+- id: AD
+  bukva: AD
+  zagolovok: Скан с двумя печатями в папке
+  chto: ''
+  kak: ''
+- id: AE
+  bukva: AE
+  zagolovok: Бумажная версия продавца с двумя печатями
+  chto: ''
+  kak: ''
+- id: AF
+  bukva: AF
+  zagolovok: Бумажная версия покупателя с двумя печатями
+  chto: ''
+  kak: ''
+- id: AG
+  bukva: AG
+  zagolovok: Требуется ли Партнерская Договор
+  chto: ''
+  kak: ''
+- id: AH
+  bukva: AH
+  zagolovok: Папка
+  chto: ''
+  kak: ''
+- id: AI
+  bukva: AI
+  zagolovok: Автоматическая Проверка
+  chto: ''
+  kak: ''
+- id: AJ
+  bukva: AJ
+  zagolovok: Комментарий логиста
+  chto: ''
+  kak: ''
+- id: AK
+  bukva: AK
+  zagolovok: Статус проекта
+  chto: ''
+  kak: ''
+- id: AL
+  bukva: AL
+  zagolovok: Результат проверки
+  chto: ''
+  kak: ''
+- id: AM
+  bukva: AM
+  zagolovok: Дата исправления ошибки
+  chto: ''
+  kak: ''
+- id: AN
+  bukva: AN
+  zagolovok: Актуален ли договор
+  chto: ''
+  kak: ''
+- id: AO
+  bukva: AO
+  zagolovok: ID
+  chto: ''
+  kak: ''
+- id: AP
+  bukva: AP
+  zagolovok: № Договора о закупке
+  chto: ''
+  kak: ''
+- id: AQ
+  bukva: AQ
+  zagolovok: ТипДоговора
+  chto: ''
+  kak: ''
+- id: AR
+  bukva: AR
+  zagolovok: Сводка Документа
+  chto: ''
+  kak: ''
+- id: AS
+  bukva: AS
+  zagolovok: Оплаты Документа
+  chto: ''
+  kak: ''

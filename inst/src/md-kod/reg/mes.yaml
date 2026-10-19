@@ -7,17 +7,17 @@ lis-0-pasport:
   title: "Лист «0-Паспорт проекта»"
   polno: "Основные настройки проекта из Битрикс24; раздел «Контрактация» — даты и сведения о договоре."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k0-0-pasport-proekta
 lis-1-1:
   title: "Лист «1-1 Сбор КП»"
   polno: "Данные о товарах и предложениях поставщиков в расчёте."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k1-1-1-sbor-kp
 lis-1-2:
   title: "Листы «1-2 Запросы…»"
   polno: "Товарные группы и рассылка писем поставщикам; повторная и третья рассылка."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k1-1-2-zaprosy-po-tovarnym-gruppam
 lis-2-x:
   title: "Листы «2-1 Вопросы от Поставщиков», «2-2 Проблемы по проекту»"
   polno: "Вопросы поставщиков и проблемы проекта; заполняются редко."
@@ -27,17 +27,17 @@ lis-3-2:
   title: "Лист «3-2 Экспертиза предложений»"
   polno: "Эксперт оценивает предложения поставщиков и предложенные модели."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k1-3-2-ekspertiza-predlozheniy
 lis-3-3:
   title: "Лист «3-3 Выбор поставщиков»"
   polno: "Выбор поставщиков из топ-7 в расчёте."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k1-3-3-vybor-postavshchikov
 lis-4-3:
   title: "Лист «4-3 Подготовка ТКП»"
   polno: "Наше предложение: техническая часть — ТС, коммерческая — менеджер; итоговый файл уходит на заявку."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k1-4-3-podgotovka-tkp
 lis-5-0:
   title: "Лист «5-0 Передача в закупку»"
   polno: "Перечень товаров как в договоре с заказчиком — задание для закупки."
@@ -72,12 +72,12 @@ lis-7-ispolnenie:
   title: "Лист «7 Исполнение»"
   polno: "Статусы доставки и приёмки товара — контроль исполнения."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k3-7-ispolnenie
 lis-otzyvy:
   title: "Лист «Отзывы о поставщиках»"
   polno: "Отражение таблицы проверки контрагентов в таблице проекта."
   vid: лист
-  chast: lis.tab-proekta
+  chast: lis.k1-otzyvy-o-postavshchikakh
 
 # --- другие таблицы ---
 tablitsa-oplat:

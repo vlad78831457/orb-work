@@ -1,0 +1,32 @@
+# Столбцы листа «S-10 Справочник полей Битрикс»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: C
+  bukva: C
+  zagolovok: id_mapping
+  chto: ''
+  kak: ''
+- id: type
+  bukva: D
+  zagolovok: Тип поля
+  chto: ''
+  kak: ''
+- id: fild_name
+  bukva: E
+  zagolovok: Название
+  chto: ''
+  kak: ''
+- id: fild_id
+  bukva: F
+  zagolovok: Индификатор поля
+  chto: ''
+  kak: ''
+- id: valie_id
+  bukva: G
+  zagolovok: Код Битрикс
+  chto: ''
+  kak: ''
+- id: value
+  bukva: H
+  zagolovok: Значение
+  chto: ''
+  kak: ''

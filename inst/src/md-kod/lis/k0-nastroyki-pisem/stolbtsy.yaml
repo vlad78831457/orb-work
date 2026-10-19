@@ -1,0 +1,224 @@
+# Столбцы листа «Настройки писем»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: (♠)
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: '46314.65486'
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: '45834.383051122684'
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: \n
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: <br>
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Лимит рассылки
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: '100.0'
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Название
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Коэффициент
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Полное название
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Статус
+  chto: ''
+  kak: ''
+- id: W
+  bukva: W
+  zagolovok: Исключить из рассылки
+  chto: ''
+  kak: ''
+- id: X
+  bukva: X
+  zagolovok: Название листа
+  chto: ''
+  kak: ''
+- id: Y
+  bukva: Y
+  zagolovok: Столбец для поиска пустых строк
+  chto: ''
+  kak: ''
+- id: Z
+  bukva: Z
+  zagolovok: '@ Столбец с @'
+  chto: ''
+  kak: ''
+- id: AA
+  bukva: AA
+  zagolovok: Оставить на листе строки с первой по [значение] включительно
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: служебные вычисления
+  chto: ''
+  kak: ''
+- id: AD
+  bukva: AD
+  zagolovok: Запросили счет
+  chto: ''
+  kak: ''
+- id: AE
+  bukva: AE
+  zagolovok: Цена на момент расчета
+  chto: ''
+  kak: ''
+- id: AF
+  bukva: AF
+  zagolovok: '0,00
+
+    0,00'
+  chto: ''
+  kak: ''
+- id: AG
+  bukva: AG
+  zagolovok: Цена участника 1
+  chto: ''
+  kak: ''
+- id: AJ
+  bukva: AJ
+  zagolovok: Исключить строки из таблицы логиста
+  chto: ''
+  kak: ''
+- id: AL
+  bukva: AL
+  zagolovok: Статусы запроса
+  chto: ''
+  kak: ''
+- id: AM
+  bukva: AM
+  zagolovok: Нужна экспертиза
+  chto: ''
+  kak: ''
+- id: AN
+  bukva: AN
+  zagolovok: Решение эксперта
+  chto: ''
+  kak: ''
+- id: AO
+  bukva: AO
+  zagolovok: Нац режим 1875
+  chto: ''
+  kak: ''
+- id: AU
+  bukva: AU
+  zagolovok: Лист 5-5 Условия оплаты
+  chto: ''
+  kak: ''
+- id: AV
+  bukva: AV
+  zagolovok: Лист 5-5 Куда доставить груз (промежуточное место комплектации)
+  chto: ''
+  kak: ''
+- id: AW
+  bukva: AW
+  zagolovok: Лист 5-5 Обязательства поставщика по доставке
+  chto: ''
+  kak: ''
+- id: AX
+  bukva: AX
+  zagolovok: Статус закупщика
+  chto: ''
+  kak: ''
+- id: AY
+  bukva: AY
+  zagolovok: Реальная цена
+  chto: ''
+  kak: ''
+- id: AZ
+  bukva: AZ
+  zagolovok: Реальный срок
+  chto: ''
+  kak: ''
+- id: BA
+  bukva: BA
+  zagolovok: Статусы Условия получены
+  chto: ''
+  kak: ''
+- id: BB
+  bukva: BB
+  zagolovok: Статусы звонков
+  chto: ''
+  kak: ''
+- id: BC
+  bukva: BC
+  zagolovok: Статусы проекта
+  chto: ''
+  kak: ''
+- id: BD
+  bukva: BD
+  zagolovok: Правила приемки
+  chto: ''
+  kak: ''
+- id: BE
+  bukva: BE
+  zagolovok: Статусы Экспертизы
+  chto: ''
+  kak: ''
+- id: BF
+  bukva: BF
+  zagolovok: Аналог
+  chto: ''
+  kak: ''
+- id: BG
+  bukva: BG
+  zagolovok: ндс
+  chto: ''
+  kak: ''
+- id: BH
+  bukva: BH
+  zagolovok: Проверка обязательно заполненных столбцов "5-5 Оформление сделок"
+  chto: ''
+  kak: ''
+- id: BM
+  bukva: BM
+  zagolovok: Col1
+  chto: ''
+  kak: ''
+- id: BP
+  bukva: BP
+  zagolovok: Скрывать Листы
+  chto: ''
+  kak: ''
+- id: BQ
+  bukva: BQ
+  zagolovok: Вид оплаты
+  chto: ''
+  kak: ''

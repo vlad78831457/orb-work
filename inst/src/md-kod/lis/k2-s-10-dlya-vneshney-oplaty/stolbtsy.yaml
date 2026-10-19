@@ -1,0 +1,167 @@
+# Столбцы листа «S-10 Для Внешней Оплаты»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: err
+  bukva: A
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: err2
+  bukva: B
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: ID_Товара
+  chto: ''
+  kak: ''
+- id: Номер
+  bukva: D
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: Номенклатура
+  bukva: E
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: НазваниеТовараПоДоговору
+  bukva: F
+  zagolovok: Название товара по договору
+  chto: ''
+  kak: ''
+- id: ИзготовительТовараПоДоговору
+  bukva: G
+  zagolovok: Изготовитель товара по договору
+  chto: ''
+  kak: ''
+- id: Характеристики
+  bukva: H
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: СоставТехническойДокументации
+  bukva: I
+  zagolovok: Состав поставляемой с продукцией технической документации
+  chto: ''
+  kak: ''
+- id: ЕдИзм
+  bukva: J
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: Количевство
+  bukva: K
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: РеальнаяЦена
+  bukva: L
+  zagolovok: Реальная цена
+  chto: ''
+  kak: ''
+- id: РеальнаяЦенаИтого
+  bukva: M
+  zagolovok: Реальная цена Итого
+  chto: ''
+  kak: ''
+- id: Группа
+  bukva: N
+  zagolovok: Группа
+  chto: ''
+  kak: ''
+- id: РеальныйСрок
+  bukva: O
+  zagolovok: Реальный срок
+  chto: ''
+  kak: ''
+- id: СрокПоставкиПоДоговору
+  bukva: P
+  zagolovok: Срок поставки по договору
+  chto: ''
+  kak: ''
+- id: Поставщик
+  bukva: Q
+  zagolovok: Поставщик
+  chto: ''
+  kak: ''
+- id: ИннПоставщика
+  bukva: R
+  zagolovok: ИНН Постав-ка
+  chto: ''
+  kak: ''
+- id: Комментарий
+  bukva: S
+  zagolovok: Комментарий к товару с листа 5-3
+  chto: ''
+  kak: ''
+- id: КомментарийКСделке
+  bukva: T
+  zagolovok: Комментарий закупщика к сделке
+  chto: ''
+  kak: ''
+- id: Статус
+  bukva: U
+  zagolovok: Статус
+  chto: ''
+  kak: ''
+- id: РезультатПроверкиКонтаргента
+  bukva: V
+  zagolovok: Результат проверки контаргента
+  chto: ''
+  kak: ''
+- id: ЗавершенныхСделок
+  bukva: W
+  zagolovok: Завершенных сделок
+  chto: ''
+  kak: ''
+- id: Кинул
+  bukva: X
+  zagolovok: Кинул
+  chto: ''
+  kak: ''
+- id: СделокВРаботе
+  bukva: Y
+  zagolovok: Сделок в работе
+  chto: ''
+  kak: ''
+- id: НДС
+  bukva: Z
+  zagolovok: НДС
+  chto: ''
+  kak: ''
+- id: ВидОплаты
+  bukva: AA
+  zagolovok: Вид оплаты
+  chto: ''
+  kak: ''
+- id: ПроцентПервоначальнойОплаты
+  bukva: AB
+  zagolovok: Процент перв-ной оп-ты
+  chto: ''
+  kak: ''
+- id: УсловияОплаты
+  bukva: AC
+  zagolovok: Условия оплаты
+  chto: ''
+  kak: ''
+- id: ИныеУсловияОплаты
+  bukva: AD
+  zagolovok: Иные условия оплаты
+  chto: ''
+  kak: ''
+- id: ОтсрочкаКалендарныхДней
+  bukva: AE
+  zagolovok: Отсрочка календарных дней
+  chto: ''
+  kak: ''
+- id: КудаДоставитьГруз
+  bukva: AF
+  zagolovok: Куда доставить груз (промежучточное место комплектации)
+  chto: ''
+  kak: ''
+- id: ОбязательстваПоставщикаПоДоставке
+  bukva: AG
+  zagolovok: Обязательства поставщика по доставке
+  chto: ''
+  kak: ''

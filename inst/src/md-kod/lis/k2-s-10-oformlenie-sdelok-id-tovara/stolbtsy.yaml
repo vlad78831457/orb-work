@@ -1,0 +1,42 @@
+# Столбцы листа «S-10 Оформление сделок ID_Товара»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: err
+  bukva: A
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: РазличиеМужду
+  bukva: B
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: ID_Товара
+  chto: ''
+  kak: ''
+- id: Номер
+  bukva: D
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: Номенклатура
+  bukva: E
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: НазваниеТовараПоДоговору
+  bukva: F
+  zagolovok: Название товара по договору
+  chto: ''
+  kak: ''
+- id: ИзготовительТовараПоДоговору
+  bukva: G
+  zagolovok: Изготовитель товара по договору
+  chto: ''
+  kak: ''
+- id: Характеристики
+  bukva: H
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''

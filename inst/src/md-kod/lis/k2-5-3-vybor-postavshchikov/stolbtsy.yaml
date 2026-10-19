@@ -1,0 +1,677 @@
+# Столбцы листа «5-3 Выбор поставщиков Закупки»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: err
+  bukva: A
+  zagolovok: Сделка
+  chto: ''
+  kak: ''
+- id: err2
+  bukva: B
+  zagolovok: Исключить по причине
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: ID_Товара
+  chto: ''
+  kak: ''
+- id: Номер
+  bukva: D
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: Номенклатура
+  bukva: E
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: НазваниеТовараПоДоговору
+  bukva: F
+  zagolovok: Название товара по договору
+  chto: ''
+  kak: ''
+- id: ИзготовительТовараПоДоговору
+  bukva: G
+  zagolovok: Изготовитель товара по договору
+  chto: ''
+  kak: ''
+- id: Характеристики
+  bukva: H
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: СоставТехническойДокументации
+  bukva: I
+  zagolovok: Состав поставляемой с продукцией технической документации
+  chto: ''
+  kak: ''
+- id: Группа
+  bukva: J
+  zagolovok: Группа
+  chto: ''
+  kak: ''
+- id: ЕдИзм
+  bukva: K
+  zagolovok: Изготовитель товара по договору
+  chto: ''
+  kak: ''
+- id: Количевство
+  bukva: L
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: Цена
+  bukva: M
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: Сумма
+  bukva: N
+  zagolovok: Сумма
+  chto: ''
+  kak: ''
+- id: Срок поставки
+  bukva: O
+  zagolovok: Срок поставки
+  chto: ''
+  kak: ''
+- id: СрокПоставкиПоДоговору
+  bukva: P
+  zagolovok: Срок поставки по договору
+  chto: ''
+  kak: ''
+- id: ОснвнойПоставщик
+  bukva: Q
+  zagolovok: Основной Поставщик
+  chto: ''
+  kak: ''
+- id: Свободно3
+  bukva: R
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: ОснвноеЛистИПредложение
+  bukva: S
+  zagolovok: Основное Предложение
+  chto: ''
+  kak: ''
+- id: РезервныйПоставщик
+  bukva: T
+  zagolovok: Резервный Поставщик
+  chto: ''
+  kak: ''
+- id: Свободно4
+  bukva: U
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: РезервноеЛистИПредложение
+  bukva: V
+  zagolovok: Резервное Предложение
+  chto: ''
+  kak: ''
+- id: НМЦ
+  bukva: W
+  zagolovok: НМЦ
+  chto: ''
+  kak: ''
+- id: СчетПоставщиков
+  bukva: X
+  zagolovok: Счет Поставщиков
+  chto: ''
+  kak: ''
+- id: Статус
+  bukva: Y
+  zagolovok: Статус
+  chto: ''
+  kak: ''
+- id: ПредполагаемаяДатаОплаты
+  bukva: Z
+  zagolovok: Предполагаемая дата оплаты
+  chto: ''
+  kak: ''
+- id: Комментарий
+  bukva: AA
+  zagolovok: Комментарий
+  chto: ''
+  kak: ''
+- id: РазницаОтМиним
+  bukva: AB
+  zagolovok: Разница от миним
+  chto: ''
+  kak: ''
+- id: ИтогоРазница
+  bukva: AC
+  zagolovok: Итого разница
+  chto: ''
+  kak: ''
+- id: БлокТопНачало
+  bukva: AD
+  zagolovok: БлокТопНачало
+  chto: ''
+  kak: ''
+- id: ТопA.Цена.Ф
+  bukva: AE
+  zagolovok: Цена.Ф 1
+  chto: ''
+  kak: ''
+- id: ТопA.Цена.З
+  bukva: AF
+  zagolovok: Цена 1
+  chto: ''
+  kak: ''
+- id: ТопA.Постовшик.Ф
+  bukva: AG
+  zagolovok: Постовшик.Ф 1
+  chto: ''
+  kak: ''
+- id: ТопA.Постовшик.З
+  bukva: AH
+  zagolovok: Постовшик 1
+  chto: ''
+  kak: ''
+- id: ТопA.ЛистИПредложение.Ф
+  bukva: AI
+  zagolovok: ЛистИПредложение.Ф 1
+  chto: ''
+  kak: ''
+- id: ТопA.ЛистИПредложение.З
+  bukva: AJ
+  zagolovok: Предложение 1
+  chto: ''
+  kak: ''
+- id: ТопA.Комментарий.Ф
+  bukva: AK
+  zagolovok: Комментарий.Ф 1
+  chto: ''
+  kak: ''
+- id: ТопA.Комментарий.З
+  bukva: AL
+  zagolovok: Комментарий 1
+  chto: ''
+  kak: ''
+- id: ТопA.Срок.Ф
+  bukva: AM
+  zagolovok: Срок.Ф 1
+  chto: ''
+  kak: ''
+- id: ТопA.Срок.З
+  bukva: AN
+  zagolovok: Срок 1
+  chto: ''
+  kak: ''
+- id: ТопA.Эксперт.Ф
+  bukva: AO
+  zagolovok: Эксперт.Ф 1
+  chto: ''
+  kak: ''
+- id: ТопA.Эксперт.З
+  bukva: AP
+  zagolovok: Эксперт 1
+  chto: ''
+  kak: ''
+- id: ТопA.Свободно_3
+  bukva: AQ
+  zagolovok: Свободно_3 1
+  chto: ''
+  kak: ''
+- id: ТопA.Свободно_4
+  bukva: AR
+  zagolovok: Свободно_4 1
+  chto: ''
+  kak: ''
+- id: ТопA.Свободно_5
+  bukva: AS
+  zagolovok: Свободно_5 1
+  chto: ''
+  kak: ''
+- id: ТопB.Цена.Ф
+  bukva: AT
+  zagolovok: Цена.Ф 2
+  chto: ''
+  kak: ''
+- id: ТопB.Цена.З
+  bukva: AU
+  zagolovok: Цена 2
+  chto: ''
+  kak: ''
+- id: ТопB.Постовшик.Ф
+  bukva: AV
+  zagolovok: Постовшик.Ф 2
+  chto: ''
+  kak: ''
+- id: ТопB.Постовшик.З
+  bukva: AW
+  zagolovok: Постовшик 2
+  chto: ''
+  kak: ''
+- id: ТопB.ЛистИПредложение.Ф
+  bukva: AX
+  zagolovok: ЛистИПредложение.Ф 2
+  chto: ''
+  kak: ''
+- id: ТопB.ЛистИПредложение.З
+  bukva: AY
+  zagolovok: Предложение 2
+  chto: ''
+  kak: ''
+- id: ТопB.Комментарий.Ф
+  bukva: AZ
+  zagolovok: Комментарий.Ф 2
+  chto: ''
+  kak: ''
+- id: ТопB.Комментарий.З
+  bukva: BA
+  zagolovok: Комментарий 2
+  chto: ''
+  kak: ''
+- id: ТопB.Срок.Ф
+  bukva: BB
+  zagolovok: Срок.Ф 2
+  chto: ''
+  kak: ''
+- id: ТопB.Срок.З
+  bukva: BC
+  zagolovok: Срок 2
+  chto: ''
+  kak: ''
+- id: ТопB.Эксперт.Ф
+  bukva: BD
+  zagolovok: Эксперт.Ф 2
+  chto: ''
+  kak: ''
+- id: ТопB.Эксперт.З
+  bukva: BE
+  zagolovok: Эксперт 2
+  chto: ''
+  kak: ''
+- id: ТопB.Свободно_3
+  bukva: BF
+  zagolovok: Свободно_3 2
+  chto: ''
+  kak: ''
+- id: ТопB.Свободно_4
+  bukva: BG
+  zagolovok: Свободно_4 2
+  chto: ''
+  kak: ''
+- id: ТопB.Свободно_5
+  bukva: BH
+  zagolovok: Свободно_5 2
+  chto: ''
+  kak: ''
+- id: ТопC.Цена.Ф
+  bukva: BI
+  zagolovok: Цена.Ф 3
+  chto: ''
+  kak: ''
+- id: ТопC.Цена.З
+  bukva: BJ
+  zagolovok: Цена 3
+  chto: ''
+  kak: ''
+- id: ТопC.Постовшик.Ф
+  bukva: BK
+  zagolovok: Постовшик.Ф 3
+  chto: ''
+  kak: ''
+- id: ТопC.Постовшик.З
+  bukva: BL
+  zagolovok: Постовшик 3
+  chto: ''
+  kak: ''
+- id: ТопC.ЛистИПредложение.Ф
+  bukva: BM
+  zagolovok: ЛистИПредложение.Ф 3
+  chto: ''
+  kak: ''
+- id: ТопC.ЛистИПредложение.З
+  bukva: BN
+  zagolovok: Предложение 3
+  chto: ''
+  kak: ''
+- id: ТопC.Комментарий.Ф
+  bukva: BO
+  zagolovok: Комментарий.Ф 3
+  chto: ''
+  kak: ''
+- id: ТопC.Комментарий.З
+  bukva: BP
+  zagolovok: Комментарий 3
+  chto: ''
+  kak: ''
+- id: ТопC.Срок.Ф
+  bukva: BQ
+  zagolovok: Срок.Ф 3
+  chto: ''
+  kak: ''
+- id: ТопC.Срок.З
+  bukva: BR
+  zagolovok: Срок 3
+  chto: ''
+  kak: ''
+- id: ТопC.Эксперт.Ф
+  bukva: BS
+  zagolovok: Эксперт.Ф 3
+  chto: ''
+  kak: ''
+- id: ТопC.Эксперт.З
+  bukva: BT
+  zagolovok: Эксперт 3
+  chto: ''
+  kak: ''
+- id: ТопC.Свободно_3
+  bukva: BU
+  zagolovok: Свободно_3 3
+  chto: ''
+  kak: ''
+- id: ТопC.Свободно_4
+  bukva: BV
+  zagolovok: Свободно_4 3
+  chto: ''
+  kak: ''
+- id: ТопC.Свободно_5
+  bukva: BW
+  zagolovok: Свободно_5 3
+  chto: ''
+  kak: ''
+- id: ТопD.Цена.Ф
+  bukva: BX
+  zagolovok: Цена.Ф 4
+  chto: ''
+  kak: ''
+- id: ТопD.Цена.З
+  bukva: BY
+  zagolovok: Цена 4
+  chto: ''
+  kak: ''
+- id: ТопD.Постовшик.Ф
+  bukva: BZ
+  zagolovok: Постовшик.Ф 4
+  chto: ''
+  kak: ''
+- id: ТопD.Постовшик.З
+  bukva: CA
+  zagolovok: Постовшик 4
+  chto: ''
+  kak: ''
+- id: ТопD.ЛистИПредложение.Ф
+  bukva: CB
+  zagolovok: ЛистИПредложение.Ф 4
+  chto: ''
+  kak: ''
+- id: ТопD.ЛистИПредложение.З
+  bukva: CC
+  zagolovok: Предложение 4
+  chto: ''
+  kak: ''
+- id: ТопD.Комментарий.Ф
+  bukva: CD
+  zagolovok: Комментарий.Ф 4
+  chto: ''
+  kak: ''
+- id: ТопD.Комментарий.З
+  bukva: CE
+  zagolovok: Комментарий 4
+  chto: ''
+  kak: ''
+- id: ТопD.Срок.Ф
+  bukva: CF
+  zagolovok: Срок.Ф 4
+  chto: ''
+  kak: ''
+- id: ТопD.Срок.З
+  bukva: CG
+  zagolovok: Срок 4
+  chto: ''
+  kak: ''
+- id: ТопD.Эксперт.Ф
+  bukva: CH
+  zagolovok: Эксперт.Ф 4
+  chto: ''
+  kak: ''
+- id: ТопD.Эксперт.З
+  bukva: CI
+  zagolovok: Эксперт 4
+  chto: ''
+  kak: ''
+- id: ТопD.Свободно_3
+  bukva: CJ
+  zagolovok: Свободно_3 4
+  chto: ''
+  kak: ''
+- id: ТопD.Свободно_4
+  bukva: CK
+  zagolovok: Свободно_4 4
+  chto: ''
+  kak: ''
+- id: ТопD.Свободно_5
+  bukva: CL
+  zagolovok: Свободно_5 4
+  chto: ''
+  kak: ''
+- id: ТопE.Цена.Ф
+  bukva: CM
+  zagolovok: Цена.Ф 5
+  chto: ''
+  kak: ''
+- id: ТопE.Цена.З
+  bukva: CN
+  zagolovok: Цена 5
+  chto: ''
+  kak: ''
+- id: ТопE.Постовшик.Ф
+  bukva: CO
+  zagolovok: Постовшик.Ф 5
+  chto: ''
+  kak: ''
+- id: ТопE.Постовшик.З
+  bukva: CP
+  zagolovok: Постовшик 5
+  chto: ''
+  kak: ''
+- id: ТопE.ЛистИПредложение.Ф
+  bukva: CQ
+  zagolovok: ЛистИПредложение.Ф 5
+  chto: ''
+  kak: ''
+- id: ТопE.ЛистИПредложение.З
+  bukva: CR
+  zagolovok: Предложение 5
+  chto: ''
+  kak: ''
+- id: ТопE.Комментарий.Ф
+  bukva: CS
+  zagolovok: Комментарий.Ф 5
+  chto: ''
+  kak: ''
+- id: ТопE.Комментарий.З
+  bukva: CT
+  zagolovok: Комментарий 5
+  chto: ''
+  kak: ''
+- id: ТопE.Срок.Ф
+  bukva: CU
+  zagolovok: Срок.Ф 5
+  chto: ''
+  kak: ''
+- id: ТопE.Срок.З
+  bukva: CV
+  zagolovok: Срок 5
+  chto: ''
+  kak: ''
+- id: ТопE.Эксперт.Ф
+  bukva: CW
+  zagolovok: Эксперт.Ф 5
+  chto: ''
+  kak: ''
+- id: ТопE.Эксперт.З
+  bukva: CX
+  zagolovok: Эксперт 5
+  chto: ''
+  kak: ''
+- id: ТопE.Свободно_3
+  bukva: CY
+  zagolovok: Свободно_3 5
+  chto: ''
+  kak: ''
+- id: ТопE.Свободно_4
+  bukva: CZ
+  zagolovok: Свободно_4 5
+  chto: ''
+  kak: ''
+- id: ТопE.Свободно_5
+  bukva: DA
+  zagolovok: Свободно_5 5
+  chto: ''
+  kak: ''
+- id: ТопF.Цена.Ф
+  bukva: DB
+  zagolovok: Цена.Ф 6
+  chto: ''
+  kak: ''
+- id: ТопF.Цена.З
+  bukva: DC
+  zagolovok: Цена 6
+  chto: ''
+  kak: ''
+- id: ТопF.Постовшик.Ф
+  bukva: DD
+  zagolovok: Постовшик.Ф 6
+  chto: ''
+  kak: ''
+- id: ТопF.Постовшик.З
+  bukva: DE
+  zagolovok: Постовшик 6
+  chto: ''
+  kak: ''
+- id: ТопF.ЛистИПредложение.Ф
+  bukva: DF
+  zagolovok: ЛистИПредложение.Ф 6
+  chto: ''
+  kak: ''
+- id: ТопF.ЛистИПредложение.З
+  bukva: DG
+  zagolovok: Предложение 6
+  chto: ''
+  kak: ''
+- id: ТопF.Комментарий.Ф
+  bukva: DH
+  zagolovok: Комментарий.Ф 6
+  chto: ''
+  kak: ''
+- id: ТопF.Комментарий.З
+  bukva: DI
+  zagolovok: Комментарий 6
+  chto: ''
+  kak: ''
+- id: ТопF.Срок.Ф
+  bukva: DJ
+  zagolovok: Срок.Ф 6
+  chto: ''
+  kak: ''
+- id: ТопF.Срок.З
+  bukva: DK
+  zagolovok: Срок 6
+  chto: ''
+  kak: ''
+- id: ТопF.Эксперт.Ф
+  bukva: DL
+  zagolovok: Эксперт.Ф 6
+  chto: ''
+  kak: ''
+- id: ТопF.Эксперт.З
+  bukva: DM
+  zagolovok: Эксперт 6
+  chto: ''
+  kak: ''
+- id: ТопF.Свободно_3
+  bukva: DN
+  zagolovok: Свободно_3 6
+  chto: ''
+  kak: ''
+- id: ТопF.Свободно_4
+  bukva: DO
+  zagolovok: Свободно_4 6
+  chto: ''
+  kak: ''
+- id: ТопF.Свободно_5
+  bukva: DP
+  zagolovok: Свободно_5 6
+  chto: ''
+  kak: ''
+- id: ТопG.Цена.Ф
+  bukva: DQ
+  zagolovok: Цена.Ф 7
+  chto: ''
+  kak: ''
+- id: ТопG.Цена.З
+  bukva: DR
+  zagolovok: Цена 7
+  chto: ''
+  kak: ''
+- id: ТопG.Постовшик.Ф
+  bukva: DS
+  zagolovok: Постовшик.Ф 7
+  chto: ''
+  kak: ''
+- id: ТопG.Постовшик.З
+  bukva: DT
+  zagolovok: Постовшик 7
+  chto: ''
+  kak: ''
+- id: ТопG.ЛистИПредложение.Ф
+  bukva: DU
+  zagolovok: ЛистИПредложение.Ф 7
+  chto: ''
+  kak: ''
+- id: ТопG.ЛистИПредложение.З
+  bukva: DV
+  zagolovok: Предложение 7
+  chto: ''
+  kak: ''
+- id: ТопG.Комментарий.Ф
+  bukva: DW
+  zagolovok: Комментарий.Ф 7
+  chto: ''
+  kak: ''
+- id: ТопG.Комментарий.З
+  bukva: DX
+  zagolovok: Комментарий 7
+  chto: ''
+  kak: ''
+- id: ТопG.Срок.Ф
+  bukva: DY
+  zagolovok: Срок.Ф 7
+  chto: ''
+  kak: ''
+- id: ТопG.Срок.З
+  bukva: DZ
+  zagolovok: Срок 7
+  chto: ''
+  kak: ''
+- id: ТопG.Эксперт.Ф
+  bukva: EA
+  zagolovok: Эксперт.Ф 7
+  chto: ''
+  kak: ''
+- id: ТопG.Эксперт.З
+  bukva: EB
+  zagolovok: Эксперт 7
+  chto: ''
+  kak: ''
+- id: ТопG.Свободно_3
+  bukva: EC
+  zagolovok: Свободно_3 7
+  chto: ''
+  kak: ''
+- id: ТопG.Свободно_4
+  bukva: ED
+  zagolovok: Свободно_4 7
+  chto: ''
+  kak: ''
+- id: ТопG.Свободно_5
+  bukva: EE
+  zagolovok: Свободно_5 7
+  chto: ''
+  kak: ''

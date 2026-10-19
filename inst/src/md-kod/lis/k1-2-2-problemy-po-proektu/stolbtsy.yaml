@@ -1,0 +1,122 @@
+# Столбцы листа «2-2 Проблемы по проекту»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: № Проблемы
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Дата проблемы
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: "Товар к которому относится проблема \n(не обязательно)"
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: "Еmail к которому относится проблема \n(не обязательно)"
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Суть проблемы
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: С проблемой ознакомлен Менеджер
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: С проблемой ознакомлен Эксперт
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Предлагаемое решение
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Комментарий Менеджера
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Комментарий Эксперта
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Текущая стадия вопроса из Битрикс
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: Ссылка на вопрос или проблему в Битрикс
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: С решением ознакомлен специалист по расчету
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: С решением ознакомлен Эксперт
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Дата ознакомления с ответом
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Дата добавления проблемы
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Дата добавления решения
+  chto: ''
+  kak: ''
+- id: S
+  bukva: S
+  zagolovok: Добавлено Автоматический
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: Дата ознакомления Менеджера с проблемой
+  chto: ''
+  kak: ''
+- id: U
+  bukva: U
+  zagolovok: Дата ознакомления Эксперта с проблемой
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Дата ознакомления Эксперта с решением
+  chto: ''
+  kak: ''
+- id: X
+  bukva: X
+  zagolovok: key
+  chto: ''
+  kak: ''
+- id: Y
+  bukva: Y
+  zagolovok: last
+  chto: ''
+  kak: ''

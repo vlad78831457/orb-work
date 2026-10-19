@@ -1,0 +1,37 @@
+# Столбцы листа «S-10 Конвейер Запросов КП»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: err1
+  bukva: A
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: err2
+  bukva: B
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Емайл
+  chto: ''
+  kak: ''
+- id: Обнаружен
+  bukva: D
+  zagolovok: Обнаружен
+  chto: ''
+  kak: ''
+- id: Одобрен
+  bukva: E
+  zagolovok: Одобрен
+  chto: ''
+  kak: ''
+- id: Отправлять
+  bukva: F
+  zagolovok: Отправлять
+  chto: ''
+  kak: ''
+- id: Отпрвален
+  bukva: G
+  zagolovok: Отпрвален
+  chto: ''
+  kak: ''

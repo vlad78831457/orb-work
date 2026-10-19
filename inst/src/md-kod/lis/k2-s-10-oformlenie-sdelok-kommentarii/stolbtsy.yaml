@@ -1,0 +1,152 @@
+# Столбцы листа «S-10 Оформление сделок Комментарии»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: err
+  bukva: A
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: err2
+  bukva: B
+  zagolovok: ''
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: id
+  chto: ''
+  kak: ''
+- id: Добавлен
+  bukva: D
+  zagolovok: Время
+  chto: ''
+  kak: ''
+- id: ВписанНаЛисте
+  bukva: E
+  zagolovok: ВписанНаЛисте
+  chto: ''
+  kak: ''
+- id: Лист
+  bukva: F
+  zagolovok: Лист
+  chto: ''
+  kak: ''
+- id: ВписаноВПоле
+  bukva: G
+  zagolovok: ИзмененоВПоле
+  chto: ''
+  kak: ''
+- id: ВписаноЗначение
+  bukva: H
+  zagolovok: ВписаноЗначение
+  chto: ''
+  kak: ''
+- id: Поставщик
+  bukva: I
+  zagolovok: Поставщик
+  chto: ''
+  kak: ''
+- id: ID_Товара
+  bukva: J
+  zagolovok: Товар
+  chto: ''
+  kak: ''
+- id: КомментарийКСделке
+  bukva: K
+  zagolovok: Комментарий к сделке
+  chto: ''
+  kak: ''
+- id: ДатаСледКонтакта
+  bukva: L
+  zagolovok: Дата след контакта
+  chto: ''
+  kak: ''
+- id: РеальнаяЦена
+  bukva: M
+  zagolovok: Реальная цена
+  chto: ''
+  kak: ''
+- id: РеальныйСрок
+  bukva: N
+  zagolovok: Реальный срок
+  chto: ''
+  kak: ''
+- id: ИннПоставщика
+  bukva: O
+  zagolovok: ИНН Поставщика
+  chto: ''
+  kak: ''
+- id: ПроцентПервоначальнойОплаты
+  bukva: P
+  zagolovok: Процент первоначальной оплаты
+  chto: ''
+  kak: ''
+- id: свободно_Q
+  bukva: Q
+  zagolovok: Место поставки товара
+  chto: ''
+  kak: ''
+- id: свободно_R
+  bukva: R
+  zagolovok: Условия доставки товара
+  chto: ''
+  kak: ''
+- id: свободно_S
+  bukva: S
+  zagolovok: Стоимость доставки для нас
+  chto: ''
+  kak: ''
+- id: СтатусОплаты
+  bukva: T
+  zagolovok: Статус оплаты
+  chto: ''
+  kak: ''
+- id: ДатаПолученияФинальногоСчетДоговора
+  bukva: U
+  zagolovok: Дата получения финального счет договора
+  chto: ''
+  kak: ''
+- id: ДатаОтправкиПодписанногоСНашейСтороныСчетДоговора
+  bukva: V
+  zagolovok: Дата отправки подписанного с нашей стороны счет договора
+  chto: ''
+  kak: ''
+- id: Статус
+  bukva: W
+  zagolovok: Статус
+  chto: ''
+  kak: ''
+- id: НДС
+  bukva: X
+  zagolovok: НДС
+  chto: ''
+  kak: ''
+- id: УсловияОплаты
+  bukva: Y
+  zagolovok: Условия Оплаты
+  chto: ''
+  kak: ''
+- id: КудаДоставитьГруз
+  bukva: Z
+  zagolovok: Куда доставить груз (промежучточное место комплектации)
+  chto: ''
+  kak: ''
+- id: ОбязательстваПоставщикаПоДоставке
+  bukva: AA
+  zagolovok: Обязательства поставщика по доставке
+  chto: ''
+  kak: ''
+- id: ИныеУсловияОплаты
+  bukva: AB
+  zagolovok: Иные условия оплаты
+  chto: ''
+  kak: ''
+- id: ОтсрочкаКалендарныхДней
+  bukva: AC
+  zagolovok: Отсрочка календарных дней
+  chto: ''
+  kak: ''
+- id: ВидОплаты
+  bukva: AD
+  zagolovok: Вид оплаты
+  chto: ''
+  kak: ''

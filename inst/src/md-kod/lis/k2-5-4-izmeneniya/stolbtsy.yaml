@@ -1,0 +1,87 @@
+# Столбцы листа «5-4 Изменения в товарах»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: ID_Изменения
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: № Изменения
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Исключить по причине
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Что проверить
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: ID_Товара
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: Название товара по договору
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Изготовитель товара по договору
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Состав поставляемой с продукцией технической документации
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: НМЦ
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Срок поставки по договору
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Нац режим 1875
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Код ОКПД 2
+  chto: ''
+  kak: ''

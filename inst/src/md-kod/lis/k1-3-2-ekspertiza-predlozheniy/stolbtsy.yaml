@@ -1,0 +1,1237 @@
+# Столбцы листа «3-2 Экспертиза предложений»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Комментарий
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: Сумма
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: 'Всего: 0 вопросов'
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: 'Всего: 0 проблем'
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Группа
+  chto: ''
+  kak: ''
+- id: Z
+  bukva: Z
+  zagolovok: БлокТопНачало
+  chto: ''
+  kak: ''
+- id: AA
+  bukva: AA
+  zagolovok: 1 Формула
+  chto: ''
+  kak: ''
+- id: AB
+  bukva: AB
+  zagolovok: 1 Цена
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: 2 Формула
+  chto: ''
+  kak: ''
+- id: AD
+  bukva: AD
+  zagolovok: 1 Поставщик
+  chto: ''
+  kak: ''
+- id: AE
+  bukva: AE
+  zagolovok: 3 Формула
+  chto: ''
+  kak: ''
+- id: AF
+  bukva: AF
+  zagolovok: 1 Срок
+  chto: ''
+  kak: ''
+- id: AG
+  bukva: AG
+  zagolovok: 4 Формула
+  chto: ''
+  kak: ''
+- id: AH
+  bukva: AH
+  zagolovok: 1 Модель
+  chto: ''
+  kak: ''
+- id: AI
+  bukva: AI
+  zagolovok: 5 Формула
+  chto: ''
+  kak: ''
+- id: AJ
+  bukva: AJ
+  zagolovok: 1 Изготовитель
+  chto: ''
+  kak: ''
+- id: AK
+  bukva: AK
+  zagolovok: 6 Формула
+  chto: ''
+  kak: ''
+- id: AL
+  bukva: AL
+  zagolovok: 1 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: AM
+  bukva: AM
+  zagolovok: 7 Формула
+  chto: ''
+  kak: ''
+- id: AN
+  bukva: AN
+  zagolovok: 1 Подходит
+  chto: ''
+  kak: ''
+- id: AO
+  bukva: AO
+  zagolovok: 8 Формула
+  chto: ''
+  kak: ''
+- id: AP
+  bukva: AP
+  zagolovok: 1 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: AQ
+  bukva: AQ
+  zagolovok: 9 Формула
+  chto: ''
+  kak: ''
+- id: AR
+  bukva: AR
+  zagolovok: 2 Цена
+  chto: ''
+  kak: ''
+- id: AS
+  bukva: AS
+  zagolovok: 10 Формула
+  chto: ''
+  kak: ''
+- id: AT
+  bukva: AT
+  zagolovok: 2 Поставщик
+  chto: ''
+  kak: ''
+- id: AU
+  bukva: AU
+  zagolovok: 11 Формула
+  chto: ''
+  kak: ''
+- id: AV
+  bukva: AV
+  zagolovok: 2 Срок
+  chto: ''
+  kak: ''
+- id: AW
+  bukva: AW
+  zagolovok: 12 Формула
+  chto: ''
+  kak: ''
+- id: AX
+  bukva: AX
+  zagolovok: 2 Модель
+  chto: ''
+  kak: ''
+- id: AY
+  bukva: AY
+  zagolovok: 13 Формула
+  chto: ''
+  kak: ''
+- id: AZ
+  bukva: AZ
+  zagolovok: 2 Изготовитель
+  chto: ''
+  kak: ''
+- id: BA
+  bukva: BA
+  zagolovok: 14 Формула
+  chto: ''
+  kak: ''
+- id: BB
+  bukva: BB
+  zagolovok: 2 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: BC
+  bukva: BC
+  zagolovok: 15 Формула
+  chto: ''
+  kak: ''
+- id: BD
+  bukva: BD
+  zagolovok: 2 Подходит
+  chto: ''
+  kak: ''
+- id: BE
+  bukva: BE
+  zagolovok: 16 Формула
+  chto: ''
+  kak: ''
+- id: BF
+  bukva: BF
+  zagolovok: 2 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: BG
+  bukva: BG
+  zagolovok: 17 Формула
+  chto: ''
+  kak: ''
+- id: BH
+  bukva: BH
+  zagolovok: 3 Цена
+  chto: ''
+  kak: ''
+- id: BI
+  bukva: BI
+  zagolovok: 18 Формула
+  chto: ''
+  kak: ''
+- id: BJ
+  bukva: BJ
+  zagolovok: 3 Поставщик
+  chto: ''
+  kak: ''
+- id: BK
+  bukva: BK
+  zagolovok: 19 Формула
+  chto: ''
+  kak: ''
+- id: BL
+  bukva: BL
+  zagolovok: 3 Срок
+  chto: ''
+  kak: ''
+- id: BM
+  bukva: BM
+  zagolovok: 20 Формула
+  chto: ''
+  kak: ''
+- id: BN
+  bukva: BN
+  zagolovok: 3 Модель
+  chto: ''
+  kak: ''
+- id: BO
+  bukva: BO
+  zagolovok: 21 Формула
+  chto: ''
+  kak: ''
+- id: BP
+  bukva: BP
+  zagolovok: 3 Изготовитель
+  chto: ''
+  kak: ''
+- id: BQ
+  bukva: BQ
+  zagolovok: 22 Формула
+  chto: ''
+  kak: ''
+- id: BR
+  bukva: BR
+  zagolovok: 3 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: BS
+  bukva: BS
+  zagolovok: 23 Формула
+  chto: ''
+  kak: ''
+- id: BT
+  bukva: BT
+  zagolovok: 3 Подходит
+  chto: ''
+  kak: ''
+- id: BU
+  bukva: BU
+  zagolovok: 24 Формула
+  chto: ''
+  kak: ''
+- id: BV
+  bukva: BV
+  zagolovok: 3 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: BW
+  bukva: BW
+  zagolovok: 25 Формула
+  chto: ''
+  kak: ''
+- id: BX
+  bukva: BX
+  zagolovok: 4 Цена
+  chto: ''
+  kak: ''
+- id: BY
+  bukva: BY
+  zagolovok: 26 Формула
+  chto: ''
+  kak: ''
+- id: BZ
+  bukva: BZ
+  zagolovok: 4 Поставщик
+  chto: ''
+  kak: ''
+- id: CA
+  bukva: CA
+  zagolovok: 27 Формула
+  chto: ''
+  kak: ''
+- id: CB
+  bukva: CB
+  zagolovok: 4 Срок
+  chto: ''
+  kak: ''
+- id: CC
+  bukva: CC
+  zagolovok: 28 Формула
+  chto: ''
+  kak: ''
+- id: CD
+  bukva: CD
+  zagolovok: 4 Модель
+  chto: ''
+  kak: ''
+- id: CE
+  bukva: CE
+  zagolovok: 29 Формула
+  chto: ''
+  kak: ''
+- id: CF
+  bukva: CF
+  zagolovok: 4 Изготовитель
+  chto: ''
+  kak: ''
+- id: CG
+  bukva: CG
+  zagolovok: 30 Формула
+  chto: ''
+  kak: ''
+- id: CH
+  bukva: CH
+  zagolovok: 4 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: CI
+  bukva: CI
+  zagolovok: 31 Формула
+  chto: ''
+  kak: ''
+- id: CJ
+  bukva: CJ
+  zagolovok: 4 Подходит
+  chto: ''
+  kak: ''
+- id: CK
+  bukva: CK
+  zagolovok: 32 Формула
+  chto: ''
+  kak: ''
+- id: CL
+  bukva: CL
+  zagolovok: 4 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: CM
+  bukva: CM
+  zagolovok: 33 Формула
+  chto: ''
+  kak: ''
+- id: CN
+  bukva: CN
+  zagolovok: 5 Цена
+  chto: ''
+  kak: ''
+- id: CO
+  bukva: CO
+  zagolovok: 34 Формула
+  chto: ''
+  kak: ''
+- id: CP
+  bukva: CP
+  zagolovok: 5 Поставщик
+  chto: ''
+  kak: ''
+- id: CQ
+  bukva: CQ
+  zagolovok: 35 Формула
+  chto: ''
+  kak: ''
+- id: CR
+  bukva: CR
+  zagolovok: 5 Срок
+  chto: ''
+  kak: ''
+- id: CS
+  bukva: CS
+  zagolovok: 36 Формула
+  chto: ''
+  kak: ''
+- id: CT
+  bukva: CT
+  zagolovok: 5 Модель
+  chto: ''
+  kak: ''
+- id: CU
+  bukva: CU
+  zagolovok: 37 Формула
+  chto: ''
+  kak: ''
+- id: CV
+  bukva: CV
+  zagolovok: 5 Изготовитель
+  chto: ''
+  kak: ''
+- id: CW
+  bukva: CW
+  zagolovok: 38 Формула
+  chto: ''
+  kak: ''
+- id: CX
+  bukva: CX
+  zagolovok: 5 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: CY
+  bukva: CY
+  zagolovok: 39 Формула
+  chto: ''
+  kak: ''
+- id: CZ
+  bukva: CZ
+  zagolovok: 5 Подходит
+  chto: ''
+  kak: ''
+- id: DA
+  bukva: DA
+  zagolovok: 40 Формула
+  chto: ''
+  kak: ''
+- id: DB
+  bukva: DB
+  zagolovok: 5 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: DC
+  bukva: DC
+  zagolovok: 41 Формула
+  chto: ''
+  kak: ''
+- id: DD
+  bukva: DD
+  zagolovok: 6 Цена
+  chto: ''
+  kak: ''
+- id: DE
+  bukva: DE
+  zagolovok: 42 Формула
+  chto: ''
+  kak: ''
+- id: DF
+  bukva: DF
+  zagolovok: 6 Поставщик
+  chto: ''
+  kak: ''
+- id: DG
+  bukva: DG
+  zagolovok: 43 Формула
+  chto: ''
+  kak: ''
+- id: DH
+  bukva: DH
+  zagolovok: 6 Срок
+  chto: ''
+  kak: ''
+- id: DI
+  bukva: DI
+  zagolovok: 44 Формула
+  chto: ''
+  kak: ''
+- id: DJ
+  bukva: DJ
+  zagolovok: 6 Модель
+  chto: ''
+  kak: ''
+- id: DK
+  bukva: DK
+  zagolovok: 45 Формула
+  chto: ''
+  kak: ''
+- id: DL
+  bukva: DL
+  zagolovok: 6 Изготовитель
+  chto: ''
+  kak: ''
+- id: DM
+  bukva: DM
+  zagolovok: 46 Формула
+  chto: ''
+  kak: ''
+- id: DN
+  bukva: DN
+  zagolovok: 6 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: DO
+  bukva: DO
+  zagolovok: 47 Формула
+  chto: ''
+  kak: ''
+- id: DP
+  bukva: DP
+  zagolovok: 6 Подходит
+  chto: ''
+  kak: ''
+- id: DQ
+  bukva: DQ
+  zagolovok: 48 Формула
+  chto: ''
+  kak: ''
+- id: DR
+  bukva: DR
+  zagolovok: 6 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: DS
+  bukva: DS
+  zagolovok: 49 Формула
+  chto: ''
+  kak: ''
+- id: DT
+  bukva: DT
+  zagolovok: 7 Цена
+  chto: ''
+  kak: ''
+- id: DU
+  bukva: DU
+  zagolovok: 50 Формула
+  chto: ''
+  kak: ''
+- id: DV
+  bukva: DV
+  zagolovok: 7 Поставщик
+  chto: ''
+  kak: ''
+- id: DW
+  bukva: DW
+  zagolovok: 51 Формула
+  chto: ''
+  kak: ''
+- id: DX
+  bukva: DX
+  zagolovok: 7 Срок
+  chto: ''
+  kak: ''
+- id: DY
+  bukva: DY
+  zagolovok: 52 Формула
+  chto: ''
+  kak: ''
+- id: DZ
+  bukva: DZ
+  zagolovok: 7 Модель
+  chto: ''
+  kak: ''
+- id: EA
+  bukva: EA
+  zagolovok: 53 Формула
+  chto: ''
+  kak: ''
+- id: EB
+  bukva: EB
+  zagolovok: 7 Изготовитель
+  chto: ''
+  kak: ''
+- id: EC
+  bukva: EC
+  zagolovok: 54 Формула
+  chto: ''
+  kak: ''
+- id: ED
+  bukva: ED
+  zagolovok: 7 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: EE
+  bukva: EE
+  zagolovok: 55 Формула
+  chto: ''
+  kak: ''
+- id: EF
+  bukva: EF
+  zagolovok: 7 Подходит
+  chto: ''
+  kak: ''
+- id: EG
+  bukva: EG
+  zagolovok: 56 Формула
+  chto: ''
+  kak: ''
+- id: EH
+  bukva: EH
+  zagolovok: 7 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: EI
+  bukva: EI
+  zagolovok: 57 Формула
+  chto: ''
+  kak: ''
+- id: EJ
+  bukva: EJ
+  zagolovok: 8 Цена
+  chto: ''
+  kak: ''
+- id: EK
+  bukva: EK
+  zagolovok: 58 Формула
+  chto: ''
+  kak: ''
+- id: EL
+  bukva: EL
+  zagolovok: 8 Поставщик
+  chto: ''
+  kak: ''
+- id: EM
+  bukva: EM
+  zagolovok: 59 Формула
+  chto: ''
+  kak: ''
+- id: EN
+  bukva: EN
+  zagolovok: 8 Срок
+  chto: ''
+  kak: ''
+- id: EO
+  bukva: EO
+  zagolovok: 60 Формула
+  chto: ''
+  kak: ''
+- id: EP
+  bukva: EP
+  zagolovok: 8 Модель
+  chto: ''
+  kak: ''
+- id: EQ
+  bukva: EQ
+  zagolovok: 61 Формула
+  chto: ''
+  kak: ''
+- id: ER
+  bukva: ER
+  zagolovok: 8 Изготовитель
+  chto: ''
+  kak: ''
+- id: ES
+  bukva: ES
+  zagolovok: 62 Формула
+  chto: ''
+  kak: ''
+- id: ET
+  bukva: ET
+  zagolovok: 8 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: EU
+  bukva: EU
+  zagolovok: 63 Формула
+  chto: ''
+  kak: ''
+- id: EV
+  bukva: EV
+  zagolovok: 8 Подходит
+  chto: ''
+  kak: ''
+- id: EW
+  bukva: EW
+  zagolovok: 64 Формула
+  chto: ''
+  kak: ''
+- id: EX
+  bukva: EX
+  zagolovok: 8 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: EY
+  bukva: EY
+  zagolovok: 65 Формула
+  chto: ''
+  kak: ''
+- id: EZ
+  bukva: EZ
+  zagolovok: 9 Цена
+  chto: ''
+  kak: ''
+- id: FA
+  bukva: FA
+  zagolovok: 66 Формула
+  chto: ''
+  kak: ''
+- id: FB
+  bukva: FB
+  zagolovok: 9 Поставщик
+  chto: ''
+  kak: ''
+- id: FC
+  bukva: FC
+  zagolovok: 67 Формула
+  chto: ''
+  kak: ''
+- id: FD
+  bukva: FD
+  zagolovok: 9 Срок
+  chto: ''
+  kak: ''
+- id: FE
+  bukva: FE
+  zagolovok: 68 Формула
+  chto: ''
+  kak: ''
+- id: FF
+  bukva: FF
+  zagolovok: 9 Модель
+  chto: ''
+  kak: ''
+- id: FG
+  bukva: FG
+  zagolovok: 69 Формула
+  chto: ''
+  kak: ''
+- id: FH
+  bukva: FH
+  zagolovok: 9 Изготовитель
+  chto: ''
+  kak: ''
+- id: FI
+  bukva: FI
+  zagolovok: 70 Формула
+  chto: ''
+  kak: ''
+- id: FJ
+  bukva: FJ
+  zagolovok: 9 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: FK
+  bukva: FK
+  zagolovok: 71 Формула
+  chto: ''
+  kak: ''
+- id: FL
+  bukva: FL
+  zagolovok: 9 Подходит
+  chto: ''
+  kak: ''
+- id: FM
+  bukva: FM
+  zagolovok: 72 Формула
+  chto: ''
+  kak: ''
+- id: FN
+  bukva: FN
+  zagolovok: 9 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: FO
+  bukva: FO
+  zagolovok: 73 Формула
+  chto: ''
+  kak: ''
+- id: FP
+  bukva: FP
+  zagolovok: 10 Цена
+  chto: ''
+  kak: ''
+- id: FQ
+  bukva: FQ
+  zagolovok: 74 Формула
+  chto: ''
+  kak: ''
+- id: FR
+  bukva: FR
+  zagolovok: 10 Поставщик
+  chto: ''
+  kak: ''
+- id: FS
+  bukva: FS
+  zagolovok: 75 Формула
+  chto: ''
+  kak: ''
+- id: FT
+  bukva: FT
+  zagolovok: 10 Срок
+  chto: ''
+  kak: ''
+- id: FU
+  bukva: FU
+  zagolovok: 76 Формула
+  chto: ''
+  kak: ''
+- id: FV
+  bukva: FV
+  zagolovok: 10 Модель
+  chto: ''
+  kak: ''
+- id: FW
+  bukva: FW
+  zagolovok: 77 Формула
+  chto: ''
+  kak: ''
+- id: FX
+  bukva: FX
+  zagolovok: 10 Изготовитель
+  chto: ''
+  kak: ''
+- id: FY
+  bukva: FY
+  zagolovok: 78 Формула
+  chto: ''
+  kak: ''
+- id: FZ
+  bukva: FZ
+  zagolovok: 10 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: GA
+  bukva: GA
+  zagolovok: 79 Формула
+  chto: ''
+  kak: ''
+- id: GB
+  bukva: GB
+  zagolovok: 10 Подходит
+  chto: ''
+  kak: ''
+- id: GC
+  bukva: GC
+  zagolovok: 80 Формула
+  chto: ''
+  kak: ''
+- id: GD
+  bukva: GD
+  zagolovok: 10 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: GE
+  bukva: GE
+  zagolovok: 81 Формула
+  chto: ''
+  kak: ''
+- id: GF
+  bukva: GF
+  zagolovok: 11 Цена
+  chto: ''
+  kak: ''
+- id: GG
+  bukva: GG
+  zagolovok: 82 Формула
+  chto: ''
+  kak: ''
+- id: GH
+  bukva: GH
+  zagolovok: 11 Поставщик
+  chto: ''
+  kak: ''
+- id: GI
+  bukva: GI
+  zagolovok: 83 Формула
+  chto: ''
+  kak: ''
+- id: GJ
+  bukva: GJ
+  zagolovok: 11 Срок
+  chto: ''
+  kak: ''
+- id: GK
+  bukva: GK
+  zagolovok: 84 Формула
+  chto: ''
+  kak: ''
+- id: GL
+  bukva: GL
+  zagolovok: 11 Модель
+  chto: ''
+  kak: ''
+- id: GM
+  bukva: GM
+  zagolovok: 85 Формула
+  chto: ''
+  kak: ''
+- id: GN
+  bukva: GN
+  zagolovok: 11 Изготовитель
+  chto: ''
+  kak: ''
+- id: GO
+  bukva: GO
+  zagolovok: 86 Формула
+  chto: ''
+  kak: ''
+- id: GP
+  bukva: GP
+  zagolovok: 11 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: GQ
+  bukva: GQ
+  zagolovok: 87 Формула
+  chto: ''
+  kak: ''
+- id: GR
+  bukva: GR
+  zagolovok: 11 Подходит
+  chto: ''
+  kak: ''
+- id: GS
+  bukva: GS
+  zagolovok: 88 Формула
+  chto: ''
+  kak: ''
+- id: GT
+  bukva: GT
+  zagolovok: 11 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: GU
+  bukva: GU
+  zagolovok: 89 Формула
+  chto: ''
+  kak: ''
+- id: GV
+  bukva: GV
+  zagolovok: 12 Цена
+  chto: ''
+  kak: ''
+- id: GW
+  bukva: GW
+  zagolovok: 90 Формула
+  chto: ''
+  kak: ''
+- id: GX
+  bukva: GX
+  zagolovok: 12 Поставщик
+  chto: ''
+  kak: ''
+- id: GY
+  bukva: GY
+  zagolovok: 91 Формула
+  chto: ''
+  kak: ''
+- id: GZ
+  bukva: GZ
+  zagolovok: 12 Срок
+  chto: ''
+  kak: ''
+- id: HA
+  bukva: HA
+  zagolovok: 92 Формула
+  chto: ''
+  kak: ''
+- id: HB
+  bukva: HB
+  zagolovok: 12 Модель
+  chto: ''
+  kak: ''
+- id: HC
+  bukva: HC
+  zagolovok: 93 Формула
+  chto: ''
+  kak: ''
+- id: HD
+  bukva: HD
+  zagolovok: 12 Изготовитель
+  chto: ''
+  kak: ''
+- id: HE
+  bukva: HE
+  zagolovok: 94 Формула
+  chto: ''
+  kak: ''
+- id: HF
+  bukva: HF
+  zagolovok: 12 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: HG
+  bukva: HG
+  zagolovok: 95 Формула
+  chto: ''
+  kak: ''
+- id: HH
+  bukva: HH
+  zagolovok: 12 Подходит
+  chto: ''
+  kak: ''
+- id: HI
+  bukva: HI
+  zagolovok: 96 Формула
+  chto: ''
+  kak: ''
+- id: HJ
+  bukva: HJ
+  zagolovok: 12 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: HK
+  bukva: HK
+  zagolovok: 97 Формула
+  chto: ''
+  kak: ''
+- id: HL
+  bukva: HL
+  zagolovok: 13 Цена
+  chto: ''
+  kak: ''
+- id: HM
+  bukva: HM
+  zagolovok: 98 Формула
+  chto: ''
+  kak: ''
+- id: HN
+  bukva: HN
+  zagolovok: 13 Поставщик
+  chto: ''
+  kak: ''
+- id: HO
+  bukva: HO
+  zagolovok: 99 Формула
+  chto: ''
+  kak: ''
+- id: HP
+  bukva: HP
+  zagolovok: 13 Срок
+  chto: ''
+  kak: ''
+- id: HQ
+  bukva: HQ
+  zagolovok: 100 Формула
+  chto: ''
+  kak: ''
+- id: HR
+  bukva: HR
+  zagolovok: 13 Модель
+  chto: ''
+  kak: ''
+- id: HS
+  bukva: HS
+  zagolovok: 101 Формула
+  chto: ''
+  kak: ''
+- id: HT
+  bukva: HT
+  zagolovok: 13 Изготовитель
+  chto: ''
+  kak: ''
+- id: HU
+  bukva: HU
+  zagolovok: 102 Формула
+  chto: ''
+  kak: ''
+- id: HV
+  bukva: HV
+  zagolovok: 13 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: HW
+  bukva: HW
+  zagolovok: 103 Формула
+  chto: ''
+  kak: ''
+- id: HX
+  bukva: HX
+  zagolovok: 13 Подходит
+  chto: ''
+  kak: ''
+- id: HY
+  bukva: HY
+  zagolovok: 104 Формула
+  chto: ''
+  kak: ''
+- id: HZ
+  bukva: HZ
+  zagolovok: 13 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: IA
+  bukva: IA
+  zagolovok: 105 Формула
+  chto: ''
+  kak: ''
+- id: IB
+  bukva: IB
+  zagolovok: 14 Цена
+  chto: ''
+  kak: ''
+- id: IC
+  bukva: IC
+  zagolovok: 106 Формула
+  chto: ''
+  kak: ''
+- id: ID
+  bukva: ID
+  zagolovok: 14 Поставщик
+  chto: ''
+  kak: ''
+- id: IE
+  bukva: IE
+  zagolovok: 107 Формула
+  chto: ''
+  kak: ''
+- id: IF
+  bukva: IF
+  zagolovok: 14 Срок
+  chto: ''
+  kak: ''
+- id: IG
+  bukva: IG
+  zagolovok: 108 Формула
+  chto: ''
+  kak: ''
+- id: IH
+  bukva: IH
+  zagolovok: 14 Модель
+  chto: ''
+  kak: ''
+- id: II
+  bukva: II
+  zagolovok: 109 Формула
+  chto: ''
+  kak: ''
+- id: IJ
+  bukva: IJ
+  zagolovok: 14 Изготовитель
+  chto: ''
+  kak: ''
+- id: IK
+  bukva: IK
+  zagolovok: 110 Формула
+  chto: ''
+  kak: ''
+- id: IL
+  bukva: IL
+  zagolovok: 14 Комментарий эксперта
+  chto: ''
+  kak: ''
+- id: IM
+  bukva: IM
+  zagolovok: 111 Формула
+  chto: ''
+  kak: ''
+- id: IN
+  bukva: IN
+  zagolovok: 14 Подходит
+  chto: ''
+  kak: ''
+- id: IO
+  bukva: IO
+  zagolovok: 112 Формула
+  chto: ''
+  kak: ''
+- id: IP
+  bukva: IP
+  zagolovok: 14 Комментарий менеджера
+  chto: ''
+  kak: ''
+- id: IQ
+  bukva: IQ
+  zagolovok: БлокТопКонец
+  chto: ''
+  kak: ''
+- id: JC
+  bukva: JC
+  zagolovok: ТопЭксперта
+  chto: ''
+  kak: ''
+- id: JD
+  bukva: JD
+  zagolovok: НоменклатураПроверка
+  chto: ''
+  kak: ''
+- id: JE
+  bukva: JE
+  zagolovok: Лист1НомерСтроки
+  chto: ''
+  kak: ''
+- id: JJ
+  bukva: JJ
+  zagolovok: Да
+  chto: ''
+  kak: ''
+- id: JK
+  bukva: JK
+  zagolovok: Нет
+  chto: ''
+  kak: ''
+- id: JL
+  bukva: JL
+  zagolovok: Уточнить параметры
+  chto: ''
+  kak: ''
+- id: JM
+  bukva: JM
+  zagolovok: Осн поставщик
+  chto: ''
+  kak: ''
+- id: JN
+  bukva: JN
+  zagolovok: Резерв поставщик
+  chto: ''
+  kak: ''
+- id: JO
+  bukva: JO
+  zagolovok: Условно подходит
+  chto: ''
+  kak: ''
+- id: JQ
+  bukva: JQ
+  zagolovok: Подходит
+  chto: ''
+  kak: ''

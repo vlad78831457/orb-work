@@ -1,0 +1,57 @@
+# Столбцы листа «7 Стоимость Денег»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: Дата От
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Ставка День
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: theStr
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Дата
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Выбытие
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Поступление
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: Чистый поток за день
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Остаток
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: Ставка за пользование деньгами
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Стоимость финансирования
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Итого Стоимость финансирования
+  chto: ''
+  kak: ''

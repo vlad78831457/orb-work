@@ -1,0 +1,27 @@
+# Столбцы листа «S-10 ОтчетРентабельности»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Название
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Значение
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Столбец Поиска
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Столбец Значения
+  chto: ''
+  kak: ''
