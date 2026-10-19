@@ -47,4 +47,8 @@ flowchart LR
 | [Процесс. Контрактация](../../pro/r02-kontraktatsiya/index.md) | 15 | Подписание договора через ЭДО | ставит задачу |
 | [Процесс. Контрактация](../../pro/r02-kontraktatsiya/index.md) | 16 | Направление скан копии подписанного договора заказчику. | делает |
 
+**Получает:** [Заключение по проекту договора](../../reg/art.md#zaklyuchenie-dogovor), [Заключение по ТЗ](../../reg/art.md#zaklyuchenie-tz), [Подписанный договор с заказчиком](../../reg/art.md#dogovor-podpisannyy)
+
+**Отдаёт:** [Подзадача «Оформить договор»](../../reg/art.md#podzadacha-dogovor), [Проект договора заказчика](../../reg/art.md#proekt-dogovora), [Подзадача на проверку ТЗ](../../reg/art.md#podzadacha-tz), [Просьба подписать договор через ЭДО](../../reg/art.md#poruchenie-podpisat), [Оригинал договора для заказчика](../../reg/art.md#original-dogovora)
+
 **Где работает:** [Почта](../../reg/mes.md#pochta), [Диск: «Рабочие документы» → «Контрактация», «Договор»](../../reg/mes.md#disk-kontraktatsiya), [Лист «0-Паспорт проекта»](../../reg/mes.md#lis-0-pasport), [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta)

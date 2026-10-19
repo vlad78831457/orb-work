@@ -16,7 +16,8 @@ sequenceDiagram
   participant r_vladelets as Владелец процесса
   participant r_none as не знаем кто
   Note over r_vladelets: 15. Назначение ответственного за<br/>оформление Экспорта
-  r_vladelets->>r_none: Оформление экспорта
+  r_vladelets->>r_none: Назначение ответственного
+  Note over r_none: Оформление экспорта
 ```
 
 ## Как в регламенте
@@ -55,12 +56,12 @@ flowchart TB
   subgraph r_none["не знаем кто"]
     o_eksport("Оформляющий экспорт")
   end
-  o_naznachenie_otvetstvennyh -->|ставит| o_eksport
+  o_naznachenie_otvetstvennyh -->|"ставит"| o_eksport
 ```
 
 ## Шаги и обязанности
 
-| № | Шаг | Делает | Ставит → принимает | Согласуют, помогают, узнают | Где |
-|---|---|---|---|---|---|
-| 15 | Назначение ответственного за оформление Экспорта | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) | — → [Оформляющий экспорт](../../reg/oby/eksport.md) |  |  |
-| — | Оформление экспорта | [Оформляющий экспорт](../../reg/oby/eksport.md) | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) → — |  |  |
+| № | Шаг | Делает | Ставит → принимает | Передаёт | Согласуют, помогают, узнают | Где |
+|---|---|---|---|---|---|---|
+| 15 | Назначение ответственного за оформление Экспорта | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) | — → [Оформляющий экспорт](../../reg/oby/eksport.md) | [Назначение ответственного](../../reg/art.md#naznachenie) |  |  |
+| — | Оформление экспорта | [Оформляющий экспорт](../../reg/oby/eksport.md) | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) → — |  |  |  |
