@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Сборщик инструкций из частей.
 
-Часть — папка inst/src/md-kod/<раздел>/<часть>/ (разделы: tio, zna, um, lis) (стандарты — inst/src/standarty/<часть>/) с файлом index.md
+Часть — папка inst/src/md-kod/<раздел>/<часть>/ (разделы: tio, zna, um, lis, pro) (стандарты — inst/src/standarty/<часть>/) с файлом index.md
 и шапкой YAML: title, kratko, polno, status, tags, nuzhno. Имя части — <раздел>.<часть>: zna.tab-nmts.
-Реестр — inst/src/md-kod/reg/: ter.yaml (термины), rol.yaml (роли), res.yaml (рабочие ссылки).
+Реестр — inst/src/md-kod/reg/: ter.yaml (термины), rol.yaml (должности), oby.yaml (обязанности), mes.yaml (места работы),
+res.yaml (рабочие ссылки). Процессы (раздел pro) — данные шагов и схемы: см. protsessy.py.
 
 Упоминание в тексте меняет вид по месту:
   [[zna.tab-nmts]] внутри предложения        короткое имя ссылкой
@@ -29,16 +30,19 @@ import sys
 
 import yaml
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import protsessy  # noqa: E402
+
 SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INST = os.path.dirname(SRC)
 SECTIONS = [('tio', 'Инструкции', 'md-kod/tio'), ('zna', 'Знания', 'md-kod/zna'), ('um', 'Умения', 'md-kod/um'),
-            ('lis', 'Листы', 'md-kod/lis'),
+            ('lis', 'Листы', 'md-kod/lis'), ('pro', 'Процессы', 'md-kod/pro'),
             ('standarty', 'Стандарты', 'standarty')]
-REG = {'ter': 'Термины', 'rol': 'Роли', 'zad': 'Группы задач', 'res': 'Ресурсы'}
-GLOSS = ('ter', 'rol', 'zad')   # реестры-словари: у каждого своя собранная страница
-ROLE_FIELDS = (('pomogayut', 'помогают'), ('soglasuyut', 'согласуют'), ('uznayut', 'узнают о результате'))   # роли в группе задач
-INFO = (('kontur', 'Контур'), ('listy', 'Листы'), ('nazvaniya', 'Как ещё называют'), ('stolbets', 'Столбец регламента'),
-        ('shagi', 'Шаги'), ('istochnik', 'Источник'), ('pochemu', 'Почему выделили'), ('dogadka', 'Догадка, не подтверждено'))
+REG = {'ter': 'Термины', 'rol': 'Должности', 'oby': 'Обязанности', 'mes': 'Места работы', 'res': 'Ресурсы'}
+GLOSS = ('ter', 'rol', 'oby', 'mes')   # реестры-словари: у каждого своя собранная страница
+CARDS = ('rol', 'oby')                 # у должности и обязанности — ещё и своя карточка reg/<вид>/<ключ>.md
+INFO = (('kontur', 'Контур'), ('nazvaniya', 'Как ещё называют'), ('kolonka', 'Столбец регламента'),
+        ('istochnik', 'Источник'), ('pochemu', 'Почему выделили'), ('dogadka', 'Догадка, не подтверждено'))
 STATUSES = ('готово', 'проверить', 'заглушка')
 FORMS = (None, 'kratko', 'polno', 'tekst')
 STUB = '*Часть ещё не написана.*'
@@ -110,6 +114,9 @@ def load():
                 'description': head.get('polno') or '', 'tags': head.get('tags') or [],
                 'status': head['status'], 'requires': head.get('nuzhno') or [],
                 'body': body or f'# {head["title"]}\n\n{STUB}'}
+    for p in parts.values():
+        if p['sec'] == 'pro' and p['slug'] != 'obzor':
+            protsessy.attach(p, errors)
     reg = {}
     for kind in REG:
         path = f'{SRC}/md-kod/reg/{kind}.yaml'
@@ -185,11 +192,10 @@ def check(parts, reg, fulls):
                 soft.append(f'{where}: ссылка на файл вместо упоминания [[…]] — {link}')
         if p['status'] != 'готово' and f'`{p["name"]}`' not in plan:
             errors.append(f'{where}: статус «{p["status"]}», но части нет в inst/PLAN.md')
-    for key, z in reg.get('zad', {}).items():   # у группы задач — только роли из реестра
-        for field, roles in [('rol', [z.get('rol')])] + [(f, z.get(f) or []) for f, _ in ROLE_FIELDS]:
-            for r in roles:
-                if r not in reg['rol']:
-                    errors.append(f'zad.{key}: в {field} нет такой роли — {r}')
+    e, notes = protsessy.check(parts, reg)
+    errors += e
+    if notes:
+        warnings.append(f'процессы: расхождений и вопросов — {len(notes)}, список в inst/md-out/pro/obzor/index.md')
     for name, f in fulls.items():
         for n in [f.get('chast')] + (f.get('vklyuchit') or []):
             if n not in parts:
@@ -284,7 +290,7 @@ class Dist(Builder):
         return f'../../{t["sec"]}/{t["slug"]}/index.md'
 
     def term_link(self, kind, key):
-        return f'../../reg/{kind}.md#{key}'
+        return f'../../reg/{kind}/{key}.md' if kind in CARDS else f'../../reg/{kind}.md#{key}'
 
     def image_path(self, owner, host, img):
         dst = f'{self.out}/{owner["sec"]}/{owner["slug"]}/{img}'
@@ -321,47 +327,55 @@ def build_dist(parts, reg, out):
     for d in [s for s, _, _ in SECTIONS] + ['reg']:
         shutil.rmtree(f'{out}/{d}', ignore_errors=True)
     b = Dist(parts, reg, out)
+    _, notes = protsessy.check(parts, reg)
     for p in parts.values():
         dst = f'{out}/{p["sec"]}/{p["slug"]}'
         os.makedirs(dst, exist_ok=True)
-        open(f'{dst}/index.md', 'w', encoding='utf-8').write(note(p) + map_lines(b.text(p), lambda ln: outside_inline(ln, strip_ids)) + '\n')
+        text = note(p) + map_lines(b.text(p), lambda ln: outside_inline(ln, strip_ids)) + '\n'
+        if p['sec'] == 'pro':   # схемы и таблицы процесса собираются из данных шагов
+            text += protsessy.render_obzor(parts, reg, notes) if p['slug'] == 'obzor' else protsessy.render_process(p, reg, parts)
+        open(f'{dst}/index.md', 'w', encoding='utf-8').write(text)
     os.makedirs(f'{out}/reg', exist_ok=True)
-    where = {}   # (реестр, ключ) → части, где запись упомянута: у роли так видно её инструкции
+    where = {}   # (реестр, ключ) → части, где запись упомянута: у должности так видно её инструкции
     for p in parts.values():
         for name, *_ in mentions(p['body']):
             kind, key = name.split('.', 1)
             if kind in GLOSS and p not in where.setdefault((kind, key), []):
                 where[(kind, key)].append(p)
-    zad = reg.get('zad', {})
-    ref = lambda kind, key: f'[{reg[kind][key]["title"]}]({kind}.md#{key})'
+    by_oby, by_rol, places = protsessy.index(parts, reg)
+
+    def info(t, kind, key, root):
+        lines = []
+        for f, title in INFO:
+            v = t.get(f)
+            if v:
+                lines.append(f'- **{title}:** ' + ('; '.join(map(str, v)) if isinstance(v, list) else str(v)))
+        if where.get((kind, key)):
+            lines.append('- **Где упоминается:** ' + ', '.join(f'[{p["title"]}]({root}{p["sec"]}/{p["slug"]}/index.md)'
+                                                              for p in sorted(where[(kind, key)], key=lambda p: (p['sec'], p['slug']))))
+        return lines
+
     for kind in GLOSS:
         lines = [f'# {REG[kind]}\n']
         items = reg[kind].items() if kind != 'ter' else sorted(reg[kind].items(), key=lambda kv: kv[1]['title'].lower())
-        for key, t in items:   # роли и группы задач — в порядке файла: он сгруппирован по контурам
+        for key, t in items:   # должности и обязанности — в порядке файла: он сгруппирован по контурам
             mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
             if kind == 'ter':
                 lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
-            else:   # у роли и группы — подробности, поэтому свой заголовок
-                lines.append(f'## <a id="{key}"></a>{t["title"]}\n\n{t["polno"]}{mark}\n')
-            info = []
-            if kind == 'zad':
-                info.append(f'- **Исполняет:** {ref("rol", t["rol"])}')
-                info += [f'- **{label.capitalize()}:** ' + ', '.join(ref('rol', r) for r in t[f]) for f, label in ROLE_FIELDS if t.get(f)]
-            for f, label in INFO:
-                v = t.get(f)
-                if v:
-                    info.append(f'- **{label}:** ' + ('; '.join(map(str, v)) if isinstance(v, list) else str(v)))
-            if kind == 'rol':
-                own = [k for k, z in zad.items() if z.get('rol') == key]
-                part = [k for k, z in zad.items() if any(key in (z.get(f) or []) for f, _ in ROLE_FIELDS)]
-                info += [f'- **Группы задач:** ' + ', '.join(ref('zad', k) for k in own)] if own else []
-                info += [f'- **Участвует в группах:** ' + ', '.join(ref('zad', k) for k in part)] if part else []
-            if kind != 'ter' and where.get((kind, key)):
-                info.append('- **Где упоминается:** ' + ', '.join(f'[{p["title"]}](../{p["sec"]}/{p["slug"]}/index.md)'
-                                       for p in sorted(where[(kind, key)], key=lambda p: (p['sec'], p['slug']))))
-            if info:
-                lines.append('\n'.join(info) + '\n')
-        open(f'{out}/reg/{kind}.md', 'w', encoding='utf-8').write('\n'.join(lines))
+            elif kind in CARDS:
+                lines.append(f'- <a id="{key}"></a>[{t["title"]}]({kind}/{key}.md) — {t["polno"]}{mark}')
+            else:   # место работы: кто там работает
+                used = ', '.join(f'[{reg["oby"][o]["title"]}](oby/{o}.md)' for o in places.get(key, []))
+                chast = f' Описание: [{parts[t["chast"]]["title"]}](../{t["chast"].replace(".", "/")}/index.md).' if t.get('chast') else ''
+                lines.append(f'## <a id="{key}"></a>{t["title"]}\n\n{t["polno"]}{chast}\n' + (f'\nРаботают здесь: {used}\n' if used else ''))
+        open(f'{out}/reg/{kind}.md', 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
+    for key in reg['oby']:
+        os.makedirs(f'{out}/reg/oby', exist_ok=True)
+        open(f'{out}/reg/oby/{key}.md', 'w', encoding='utf-8').write(protsessy.card_oby(key, reg, by_oby))
+    for key, t in reg['rol'].items():
+        os.makedirs(f'{out}/reg/rol', exist_ok=True)
+        open(f'{out}/reg/rol/{key}.md', 'w', encoding='utf-8').write(
+            protsessy.card_rol(key, reg, by_oby, by_rol, info(t, 'rol', key, '../../')))
     lines = ['# Инструкции\n', 'Собрано из `inst/src` скриптом `skripty/sobrat.py`. Руками здесь не править.\n']
     for sec, title, _ in SECTIONS:
         lines.append(f'## {title}\n')

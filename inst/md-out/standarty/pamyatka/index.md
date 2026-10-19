@@ -16,7 +16,8 @@
 | `inst/src/md-kod/zna/` | знания | да |
 | `inst/src/md-kod/um/` | умения | да |
 | `inst/src/md-kod/lis/` | листы таблиц, по одной части на лист | да |
-| `inst/src/md-kod/reg/` | реестр: `ter.yaml` — термины, `rol.yaml` — роли, `zad.yaml` — группы задач ролей, `res.yaml` — рабочие ссылки | да |
+| `inst/src/md-kod/pro/` | процессы: `reglament.yaml` — как записано (руками не править), `protsess.yaml` — кто что делает | да, кроме `reglament.yaml` |
+| `inst/src/md-kod/reg/` | реестр: `ter.yaml` — термины, `rol.yaml` — должности, `oby.yaml` — обязанности, `mes.yaml` — места работы, `res.yaml` — рабочие ссылки | да |
 | `inst/src/standarty/` | формат, шаблон, правила, эта памятка | да |
 | `full.yaml` в папке инструкции | что включить в её полный документ | да |
 | `inst/src/full/` | описания сводных полных документов | да |
@@ -36,6 +37,8 @@
 | `make full F=tio.skr-zapusk-triggerov` | собрать короткий и полный md инструкции в `inst/md-full-out/tio/` |
 | `make inst OUT=папка` | собрать в другую папку (версия, выгрузка) |
 | `make docx F=tio.skr-zapusk-triggerov` | собрать и сразу два `.docx` с датой: короткий и `-full` — в `inst/docx/tio/` |
+| `make reglament X=raw/…/….xlsx` | пересобрать шаги процессов из регламента «Распределение задач» |
+| `make mermaid` | проверить схемы Mermaid настоящим mermaid-cli (по желанию; ставится `make mermaid-setup`) |
 
 Проверка и сборка идут без Docker, за секунды. Нужны `python3` и PyYAML. Docker нужен только для `make docx`.
 
@@ -61,7 +64,7 @@
 | `[[zna.tab-nmts\|свой текст]]` | ссылка со своим текстом |
 | `[[zna.tab-nmts:kratko]]`, `[[zna.tab-nmts:polno]]` | короткое имя или карточка — явно |
 | `[[zna.tab-nmts:tekst]]` отдельной строкой | в полном документе — текст части целиком; в `md-out` — карточка |
-| `[[ter.kp]]`, `[[rol.zakupka]]`, `[[zad.zak-oformlenie]]`, `[[res.shablon-tablitsy]]` | термин, роль, группа задач и рабочая ссылка из реестра |
+| `[[ter.kp]]`, `[[rol.zakupka]]`, `[[oby.oplata]]`, `[[mes.lis-5-5]]`, `[[res.shablon-tablitsy]]` | термин, должность, обязанность, место работы и рабочая ссылка из реестра |
 
 Упомянул часть — впиши её имя в `nuzhno` в шапке.
 
