@@ -420,7 +420,7 @@ def render_obzor(parts, reg, notes):
             '| Где | Что |', '|---|---|']
     groups = {}   # одинаковое замечание по нескольким шагам процесса — одной строкой
     for p, s, text in notes:
-        groups.setdefault((p['name'] if p else '', text), []).append((p, s))
+        groups.setdefault((p['name'] if p else f'oby.{s}', text), []).append((p, s))
     for (_, text), items in groups.items():
         p = items[0][0]
         if p:
