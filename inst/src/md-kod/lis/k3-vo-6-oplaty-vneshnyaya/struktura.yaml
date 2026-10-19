@@ -1,0 +1,153 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 6 Оплаты Внешняя
+diapazon: A1:CC310
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 19
+znacheniy: 85
+spiskov: 3
+uslovnyh: 1
+obedineno: 4
+beryot:
+  S-10 Реально оплаченная сумма: 4
+  S-10 Проверки Оплаты Внешняя: 2
+  S-10 Оплаты Отчет: 1
+  7 Стоимость Денег: 1
+  Технический лист: 1
+  7-2 Касса: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+- bukva: B
+  zagolovok: Описание
+- bukva: C
+  zagolovok: Значение
+- bukva: G
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: H
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: I
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: J
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  zagolovok: Нет таблицы Проекта
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AN
+  zagolovok: Юр лицо поставщика
+- bukva: AO
+  zagolovok: № счета
+- bukva: AP
+  zagolovok: Плательщик
+- bukva: AQ
+  zagolovok: Статус оплаты
+  formula: "={\"Статус оплаты\";\nLAMBDA(Pey_Stat_inf_do, Stat_v_do,Oplata_v_do, Tov_Name_ar,Tov_Stat_ar,Tov_Cond_ar,Tov_Procent_ar, \n MAP(Tov_Name_ar,Tov_Stat_ar,Tov_Cond_ar,Tov_Procent_ar,LAMBDA(Tov_Name_v,Tov_Stat_v,Tov_Cond_v,Tov_Procent_v, IF( Tov_Name_v<>\"\" ,\n Pey_Stat_inf_do( Stat_v_do(Tov_Stat_v,Tov_Cond_v) , Oplata_v_do(Tov_Procent_v) )\n,) ) )\n)( \n LAMBDA(Stat_ce,Oplata_v, TEXTJOIN(\" \",TRUE,Stat_ce,Oplata_v)),\n LAMBDA(Stat_v, Tov_Cond_v, IF(AND(ISNUMBER(MATCH(\"\"&Stat_v, { \"Договор передан в оплату Наша версия договора\"; \"Договор передан в оплату Версия поставщика\"; \"Счет передан в оплату с доп пунктами\"; \"Счет передан в оплату без доп пунктов\" }, 0)) , Tov_Cond_v=\"Отсрочка\"),\"Отсрочка\",) ),\n LAMBDA(u, ifs( u>=1,\"Оплачено\",u>0,\"Частично оплачено\",TRUE,)),\n $K$11:$K310,$AA$11:$AA310,$AI$11:$AI310,$AT$11:$AT310\n )\n}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AR
+  zagolovok: Дата оплаты
+  formula: '={"Дата оплаты";LAMBDA(doToDate,doCheck,doFind,doFind2,thePlateS,theOplS,BYROW(theOplS,LAMBDA(theOpl ,IF(doCheck(theOpl), TEXTJOIN(CHAR(10),TRUE, doToDate(doFind(thePlateS,INDEX(theOpl,,1),INDEX(theOpl,,2)))),))) )(
+
+    LAMBDA(theVs,BYROW(theVs,LAMBDA(t,"Дата оплаты")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AS
+  zagolovok: Реально оплаченная сумма
+  formula: ={"Реально оплаченная сумма";LAMBDA(theIdS,theProblemS, BYROW(theIdS, LAMBDA(theId, IF(theId<>"",IFERROR(VLOOKUP(theId,theProblemS,2,FALSE),),) )) )('6 Оплаты Внешняя'!I11:I310,{'S-10 Реально оплаченная сумма'!A1:A310,'S-10 Реально оплаченная сумма'!B1:B310})}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AT
+  zagolovok: '% оплаты'
+  formula: ={"% оплаты";LAMBDA(theIdS,theProblemS, BYROW(theIdS, LAMBDA(theId, IF(theId<>"",IFERROR(VLOOKUP(theId,theProblemS,2,FALSE),),) )) )('6 Оплаты Внешняя'!I11:I310,{'S-10 Реально оплаченная сумма'!A1:A310,'S-10 Реально оплаченная сумма'!C1:C310})}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AU
+  zagolovok: Верная сумма
+- bukva: AV
+  zagolovok: Проверка
+  formula: ={"Проверка";LAMBDA(theIdS,theProblemS, BYROW(theIdS, LAMBDA(theId, IF(theId<>"",IFERROR(VLOOKUP(theId,theProblemS,2,FALSE),),) )) )('6 Оплаты Внешняя'!I11:I310,{'S-10 Проверки Оплаты Внешняя'!A1:A310,'S-10 Проверки Оплаты Внешняя'!B1:B310})}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AX
+  zagolovok: ссылка на папку со счетами
+- bukva: AY
+  formula: =K6
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BB
+  zagolovok: № проекта
+- bukva: BC
+  zagolovok: Дата
+- bukva: BD
+  zagolovok: Тип
+  spisok: '"По спецификации,Дополнительный платеж"'
+- bukva: BE
+  zagolovok: Плательщик
+- bukva: BF
+  zagolovok: ИНН Плательщика
+  formula: =IFERROR(VLOOKUP($BE11,'Технический лист'!$D$1:$E310,2,FALSE),)
+  formula_v_stroke: 11
+  formul: 1
+- bukva: BG
+  zagolovok: Кому
+- bukva: BH
+  zagolovok: ИНН Поставщика
+- bukva: BI
+  zagolovok: Сумма
+- bukva: BJ
+  zagolovok: НДС
+  spisok: '''Технический лист''!$C$2:$C$10'
+- bukva: BK
+  zagolovok: Вид оплаты
+  spisok: '"Без нал,Нал"'
+- bukva: BL
+  zagolovok: № счета
+- bukva: BM
+  zagolovok: Назначение платежа
+- bukva: BN
+  zagolovok: Проверка
+  formula: "={\"Проверка\";IF(LEN(BI11:BI310)>0, IF(BD11:BD310<>\"По спецификации\" , \nIFS( \nISBLANK(BD11:BD310),\"Не указан 'Тип' платежа, выберите один из\",\nLEN(BL11:BL310&BM11:BM310)=0,\"Ошибка необходимо заполнить 'Назначение платежа'\",\nNOT(ISNUMBER(BI11:BI310)),\"Ошибка 'Сумма' - не число, удалить пробелы\",\nISBLANK(BE11:BE310),\"Ошибка. Не указан 'Плательщик'\",\nISBLANK(BG11:BG310),\"Ошибка. Не указан 'Кому'\",\nISBLANK(BJ11:BJ310),\"Ошибка. Не указан 'НДС' платежа, выберите один из\",\nISBLANK(BK11:BK310),\"Ошибка. Не указан 'Вид оплаты' платежа, выберите один из\",\nISBLANK(BF11:BF310),\"Ошибка. Не указан 'ИНН Плательщика'\",\nISBLANK(BH11:BH310),\"Ошибка. Не указан 'ИНН Поставщика'\",\n1=1,\"Ок\"\n)\n,IFS( \nISBLANK(BD11:BD310),\"Не указан 'Тип' платежа, выберите один из\",\nLEN(IFERROR(VLOOKUP(BG11:BG310,AN:AN,1,0),))=0,\"Ошибка нет такого 'Юр лица ПРОДАВЦА'\",\nLEN(IFERROR(VLOOKUP(BE11:BE310,AP:AP,1,0),))=0,\"Ошибка нет такого 'Юр лица ПОКУПАТЕЛЯ'\",\nLEN(BL11:BL310&BM11:BM310)=0,\"Ошибка необходимо заполнить '№ счета' или 'Назначение платежа'\",\nLEN(IFERROR(VLOOKUP(BL11:BL310,AO:AO,1,0),))=0,\"Ошибка нет такого '№ счета' в столбце AN\",\nNOT(ISNUMBER(BI11:BI310)),\"Ошибка 'Сумма' - не число, удалить пробелы\",\nISBLANK(BJ11:BJ310),\"Не указан 'НДС' платежа, выберите один из\",\nISBLANK(BF11:BF310),\"Ошибка. Не указан 'ИНН Плательщика'\",\nISBLANK(BH11:BH310),\"Ошибка. Не указан 'ИНН Поставщика'\",\n1=1,\"Ок\"\n) ) ,)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BP
+  formula: ='7-2 Касса'!A10:O310
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BQ
+  zagolovok: Вид оплаты
+- bukva: BR
+  zagolovok: ID
+- bukva: BS
+  zagolovok: Дата
+- bukva: BT
+  zagolovok: Выбытие
+- bukva: BU
+  zagolovok: Поступление
+- bukva: BV
+  zagolovok: Проект
+- bukva: BW
+  zagolovok: Контрагент
+- bukva: BX
+  zagolovok: Назначение платежа
+- bukva: BY
+  zagolovok: Статья
+- bukva: BZ
+  zagolovok: Кто внес запись
+- bukva: CA
+  zagolovok: Касса
+- bukva: CB
+  zagolovok: НДС

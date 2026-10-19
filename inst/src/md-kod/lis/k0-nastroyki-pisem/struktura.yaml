@@ -1,0 +1,166 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: Настройки писем
+diapazon: A1:BQ100
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 84
+znacheniy: 240
+spiskov: 0
+uslovnyh: 0
+obedineno: 1
+beryot:
+  4-2 Подготовка КП: 48
+  5-5 Оформление сделок: 27
+  3-3 Выбор поставщиков: 5
+  1-1 Сбор КП: 4
+  4-3 Подготовка ТКП: 4
+  6 Оплаты: 3
+  Экспорт в битрикс: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: (♠)
+- bukva: C
+  zagolovok: '46314.65486'
+  formula: =NOW()
+  formula_v_stroke: 1
+  formul: 1
+- bukva: D
+  zagolovok: '45834.383051122684'
+- bukva: H
+  zagolovok: \n
+- bukva: I
+  zagolovok: <br>
+- bukva: J
+  zagolovok: Лимит рассылки
+- bukva: K
+  zagolovok: '100.0'
+- bukva: O
+  zagolovok: №
+- bukva: P
+  zagolovok: Название
+- bukva: Q
+  zagolovok: Коэффициент
+- bukva: R
+  zagolovok: Полное название
+- bukva: V
+  zagolovok: Статус
+- bukva: W
+  zagolovok: Исключить из рассылки
+- bukva: X
+  zagolovok: Название листа
+- bukva: Y
+  zagolovok: Столбец для поиска пустых строк
+- bukva: Z
+  zagolovok: '@ Столбец с @'
+- bukva: AA
+  zagolovok: Оставить на листе строки с первой по [значение] включительно
+- bukva: AC
+  zagolovok: служебные вычисления
+  formula: =MATCH("@",'3-3 Выбор поставщиков'!A:A,0)-1
+  formula_v_stroke: 2
+  formul: 1
+- bukva: AD
+  zagolovok: Запросили счет
+- bukva: AE
+  zagolovok: Цена на момент расчета
+- bukva: AF
+  zagolovok: '0,00
+
+    0,00'
+  formula: =IF(SUM(IF(LEN('6 Оплаты'!AM11:AM310)>0,ROUND('6 Оплаты'!S11:S310-IFERROR(VALUE(SUBSTITUTE('6 Оплаты'!AM11:AM310," ","",)),0),2),))=0,IFERROR(IF('3-3 Выбор поставщиков'!F302>0,'3-3 Выбор поставщиков'!F302,'1-1 Сбор КП'!I302),'1-1 Сбор КП'!I302),"Не верно учтена себестоиомсть")
+  formula_v_stroke: 1
+  formul: 2
+- bukva: AG
+  zagolovok: Цена участника 1
+  formula: =Textjoin(CHAR(10),TRUE,IF(LEN(IFERROR(AE2,-1))=-1,"В таблице ОШИБКА Статуса написать [сотрудник]",),IF(ISBLANK(AE3),"Статус проекта не известен",))
+  formula_v_stroke: 7
+  formul: 1
+- bukva: AH
+  formula: =IF('4-2 Подготовка КП'!$O$1=$AC6,'4-2 Подготовка КП'!O$303,IF('4-2 Подготовка КП'!$AA$1=$AC6,'4-2 Подготовка КП'!AC$303,IF('4-2 Подготовка КП'!$AM$1=$AC6,'4-2 Подготовка КП'!AM$305,IF('4-3 Подготовка ТКП'!I1="Да",'4-3 Подготовка ТКП'!Q1,))))
+  formula_v_stroke: 1
+  formul: 5
+- bukva: AI
+  formula: =IF('4-2 Подготовка КП'!$O$1=$AC6,PROPER('4-2 Подготовка КП'!$J$1),IF('4-2 Подготовка КП'!$AA$1=$AC6,PROPER('4-2 Подготовка КП'!$V$1),IF('4-2 Подготовка КП'!$AM$1=$AC6,PROPER('4-2 Подготовка КП'!$AH$1),IF('4-3 Подготовка ТКП'!I1="Да",PROPER('4-3 Подготовка ТКП'!C1),))))
+  formula_v_stroke: 1
+  formul: 6
+- bukva: AJ
+  zagolovok: Исключить строки из таблицы логиста
+- bukva: AL
+  zagolovok: Статусы запроса
+- bukva: AM
+  zagolovok: Нужна экспертиза
+- bukva: AN
+  zagolovok: Решение эксперта
+- bukva: AO
+  zagolovok: Нац режим 1875
+- bukva: AU
+  zagolovok: Лист 5-5 Условия оплаты
+- bukva: AV
+  zagolovok: Лист 5-5 Куда доставить груз (промежуточное место комплектации)
+- bukva: AW
+  zagolovok: Лист 5-5 Обязательства поставщика по доставке
+- bukva: AX
+  zagolovok: Статус закупщика
+- bukva: AY
+  zagolovok: Реальная цена
+  formula: =TEXTJOIN("; ",True,$AX$3:$AX$20)
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AZ
+  zagolovok: Реальный срок
+  formula: =TEXTJOIN("; ",True,$AX$6:$AX$20)
+  formula_v_stroke: 2
+  formul: 2
+- bukva: BA
+  zagolovok: Статусы Условия получены
+  formula: =TEXTJOIN("; ",True,$AX$7:$AX$20)
+  formula_v_stroke: 2
+  formul: 2
+- bukva: BB
+  zagolovok: Статусы звонков
+- bukva: BC
+  zagolovok: Статусы проекта
+- bukva: BD
+  zagolovok: Правила приемки
+- bukva: BE
+  zagolovok: Статусы Экспертизы
+- bukva: BF
+  zagolovok: Аналог
+- bukva: BG
+  zagolovok: ндс
+- bukva: BH
+  zagolovok: Проверка обязательно заполненных столбцов "5-5 Оформление сделок"
+- bukva: BI
+  formula: ='5-5 Оформление сделок'!$AP$10
+  formula_v_stroke: 3
+  formul: 12
+- bukva: BJ
+  formula: ='Настройки писем'!$AY$2
+  formula_v_stroke: 3
+  formul: 12
+- bukva: BK
+  formula: '=LAMBDA(doMake,theSep,theStr,doMake(theSep,theStr))(
+
+    LAMBDA(theSep,theStr, TEXTJOIN(CHAR(10),TRUE,Split(theStr,theSep,FALSE,TRUE))),
+
+    "; ",''Настройки писем''!$AY$2
+
+    )'
+  formula_v_stroke: 3
+  formul: 12
+- bukva: BL
+  formula: '="''"&''Настройки писем''!$BI3&"'' обязательна для статуса: "'
+  formula_v_stroke: 3
+  formul: 13
+- bukva: BM
+  zagolovok: Col1
+  formula: ='5-5 Оформление сделок'!$AF$10
+  formula_v_stroke: 3
+  formul: 13
+- bukva: BP
+  zagolovok: Скрывать Листы
+- bukva: BQ
+  zagolovok: Вид оплаты

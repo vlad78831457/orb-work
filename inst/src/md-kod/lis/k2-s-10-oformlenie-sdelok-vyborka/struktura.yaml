@@ -1,0 +1,558 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Оформление сделок Выборка
+diapazon: A1:CK319
+karkas: true
+stroka_zagolovkov: 10
+formul: 335
+znacheniy: 314
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  5-5 Оформление сделок: 22
+  6 Оплаты: 16
+  0-Паспорт проекта: 10
+  7 Исполнение: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err
+- bukva: B
+  klyuch: err2
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaColl
+  formula: ='5-5 Оформление сделок'!C10:C319
+  formula_v_stroke: 10
+  formul: 1
+- bukva: D
+  klyuch: Номер
+- bukva: E
+  klyuch: Номенклатура
+- bukva: F
+  klyuch: НазваниеТовараПоДоговору
+- bukva: G
+  klyuch: ИзготовительТовараПоДоговору
+- bukva: H
+  klyuch: Характеристики
+- bukva: I
+  klyuch: СоставТехническойДокументации
+- bukva: J
+  klyuch: ЕдИзм
+- bukva: K
+  klyuch: Количевство
+- bukva: L
+  klyuch: Группа
+- bukva: M
+  klyuch: Цена
+- bukva: N
+  klyuch: Сумма
+- bukva: O
+  klyuch: Срок поставки
+- bukva: P
+  klyuch: Срок поставки по договору
+- bukva: U
+  zagolovok: Кто контактирует с заказчиком по вопросу исполнения
+  klyuch: КонтактируетСЗаказчикомПоВопросуИсполнения
+  vid: formulaColl
+  primechanie: Кто контактирует с заказчиком по вопросу исполнения
+  formula: "={'S-10 Оформление сделок Выборка'!U$9;\nLAMBDA(calc_project_export_ce_mp, project_passport_mp, product_id_ar, product_export_ce_ar,\n LET(\n project_export_ce, calc_project_export_ce_mp(project_passport_mp),\n MAP(product_id_ar, product_export_ce_ar,\n LAMBDA(product_id, product_export_ce,\n IF(AND(product_id <> \"\", product_export_ce <> \"\"), project_export_ce, \"\")\n )\n )\n )\n)(\n LAMBDA(project_passport_mp, LET( val_v, IFERROR(VLOOKUP(\"Кто контактирует с заказчиком по вопросу исполнения\", project_passport_mp, 2, FALSE), ), val_v ) ),\n {'0-Паспорт проекта'!$B$1:$B319, '0-Паспорт проекта'!$C$1:$C319},\n '5-5 Оформление сделок'!$C$11:$C319,\n '5-5 Оформление сделок'!$E$11:$E319\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: V
+  zagolovok: Особые условия
+  klyuch: ОсобыеУсловия
+  vid: formulaColl
+  primechanie: Особые условия
+  formula: "={'S-10 Оформление сделок Выборка'!V$9;\nLAMBDA(calc_project_export_ce_mp, project_passport_mp, product_id_ar, product_export_ce_ar,\n LET(\n project_export_ce, calc_project_export_ce_mp(project_passport_mp),\n MAP(product_id_ar, product_export_ce_ar,\n LAMBDA(product_id, product_export_ce,\n IF(AND(product_id <> \"\", product_export_ce <> \"\"), project_export_ce, \"\")\n )\n )\n )\n)(\n LAMBDA(project_passport_mp, LET( val_v, IFERROR(VLOOKUP(\"Условия договора на которые нужно обратить ВНИМАНИЕ\", project_passport_mp, 2, FALSE), ), val_v ) ),\n {'0-Паспорт проекта'!$B$1:$B319, '0-Паспорт проекта'!$C$1:$C319},\n '5-5 Оформление сделок'!$C$11:$C319,\n '5-5 Оформление сделок'!$E$11:$E319\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: W
+  zagolovok: Дата подписания договора
+  klyuch: ДатаПодписанияДоговора
+  vid: formulaColl
+  primechanie: Дата подписания договора
+  formula: "={'S-10 Оформление сделок Выборка'!W$9;\nLAMBDA(data_isp_v, data_zac_v, product_id_ar, product_ce_ar,\n LET(\n max_data_v, LAMBDA(data, IF(data<40000,,data))( MAX(data_isp_v, data_zac_v,0,)),\n MAP(product_id_ar, product_ce_ar, LAMBDA(product_id, product_ce, IF(AND(product_id <> \"\", product_ce <> \"\"), max_data_v, ) ) )\n )\n)(\n LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),'7 Исполнение'!$A$1:$AA$1,\"Дата подписи заказчиком\" ),\n LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),'7 Исполнение'!$A$1:$AA$1,\"Дата подписи исполнителем\"),\n '5-5 Оформление сделок'!$C$11:$C319,\n '5-5 Оформление сделок'!$E$11:$E319\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: X
+  zagolovok: Место поставки товара
+  klyuch: МестоПоставкиТовара
+  vid: formulaColl
+  primechanie: Место поставки товара
+  formula: "={'S-10 Оформление сделок Выборка'!X$9;\nLAMBDA(get_mesto_v, project_passport_mp, product_id_ar, product_ce_ar,\n LET(\n mesto_v, get_mesto_v(project_passport_mp),\n MAP(product_id_ar, product_ce_ar, LAMBDA(product_id, product_ce, IF(AND(product_id <> \"\", product_ce <> \"\"), mesto_v, \"\") ) )\n )\n)(\n LAMBDA(passport_mp, LET( export_status_v, IFERROR(VLOOKUP(\"Место поставки товара\", passport_mp, 2, FALSE), ),export_status_v ) ),\n {'0-Паспорт проекта'!$B$1:$B319, '0-Паспорт проекта'!$C$1:$C319},\n '5-5 Оформление сделок'!$C$11:$C319,\n '5-5 Оформление сделок'!$E$11:$E319\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: Y
+  zagolovok: Контакты покупателя
+  klyuch: КонтактыПокупателя
+  vid: formulaColl
+  primechanie: Контакты покупателя
+  formula: "={'S-10 Оформление сделок Выборка'!Y$9;\nLAMBDA(get_contact_resp_v, get_contact_oter_v, project_passport_mp, product_id_ar, product_ce_ar,\n LET(\n project_contact_v, TEXTJOIN(CHAR(10),TRUE,get_contact_resp_v(project_passport_mp), get_contact_oter_v(project_passport_mp)),\n MAP(product_id_ar, product_ce_ar,\n LAMBDA(product_id, product_ce,\n IF(AND(product_id <> \"\", product_ce <> \"\"), project_contact_v, \"\")\n )\n )\n )\n)(\n LAMBDA(project_passport_mp, LET( val_v, IFERROR(VLOOKUP(\"Контакты ЛПР\", project_passport_mp, 2, FALSE), ), IF(val_v<>\"\", \"ЛПР - \"& val_v ,) ) ),\n LAMBDA(project_passport_mp, LET( val_v, IFERROR(VLOOKUP(\"Другие контакты заказчика.\", project_passport_mp, 2, FALSE), ), IF(val_v<>\"\", \"Другие - \"& val_v ,) ) ),\n {'0-Паспорт проекта'!$B$1:$B319, '0-Паспорт проекта'!$C$1:$C319},\n '5-5 Оформление сделок'!$C$11:$C319,\n '5-5 Оформление сделок'!$E$11:$E319\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: Z
+  zagolovok: Экспортный контракт
+  klyuch: ЭкспортныйКонтракт
+  vid: formulaColl
+  primechanie: Экспортный контракт
+  formula: "={'S-10 Оформление сделок Выборка'!Z$9;\nLAMBDA(calc_project_export_ce_mp, project_passport_mp, product_id_ar, product_export_ce_ar,\n LET(\n project_export_ce, calc_project_export_ce_mp(project_passport_mp),\n MAP(product_id_ar, product_export_ce_ar,\n LAMBDA(product_id, product_export_ce,\n IF(AND(product_id <> \"\", product_export_ce <> \"\"), project_export_ce, \"\")\n )\n )\n )\n)(\n LAMBDA(project_passport_mp,\n LET(\n export_status_v, IFERROR(VLOOKUP(\"Экспортный контракт\", project_passport_mp, 2, FALSE), \"Нет\"),\n IF(export_status_v = \"\",\"Нет\",export_status_v )\n )\n ),\n {'0-Паспорт проекта'!$B$1:$B319, '0-Паспорт проекта'!$C$1:$C319},\n '5-5 Оформление сделок'!$C$11:$C319,\n '5-5 Оформление сделок'!$E$11:$E319\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AA
+  klyuch: ПоставщикВыбор
+- bukva: AB
+  zagolovok: Поставщик
+  klyuch: Поставщик
+  vid: formulaColl
+  primechanie: Поставщик
+  formula: ='5-5 Оформление сделок'!AB10:AB319
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AC
+  klyuch: ЛистИПредложение
+- bukva: AD
+  klyuch: Комментарий
+- bukva: AE
+  klyuch: Статус.Ф
+- bukva: AF
+  zagolovok: Статус
+  klyuch: Статус
+  vid: formulaColl
+  primechanie: Статус
+  formula: '={''S-10 Оформление сделок Выборка''!AF$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Статус")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AG
+  klyuch: РезультатПроверкиКонтаргента
+- bukva: AH
+  klyuch: ЗавершенныхСделок
+- bukva: AI
+  klyuch: Кинул
+- bukva: AJ
+  klyuch: СделокВРаботе
+- bukva: AK
+  klyuch: КомментарийКСделке.Ф
+- bukva: AL
+  zagolovok: Комментарий закупщика к сделке
+  klyuch: КомментарийКСделке
+  vid: formulaColl
+  primechanie: Комментарий закупщика к сделке
+  formula: '={''S-10 Оформление сделок Выборка''!AL$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Комментарий закупщика к сделке")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AM
+  klyuch: ДатаСледКонтакта.Ф
+- bukva: AN
+  zagolovok: Дата след контакта
+  klyuch: ДатаСледКонтакта
+  vid: formulaColl
+  primechanie: Дата след контакта
+  formula: '={''S-10 Оформление сделок Выборка''!AN$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Дата след контакта")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AO
+  klyuch: РеальнаяЦена.Ф
+- bukva: AP
+  zagolovok: Реальная цена
+  klyuch: РеальнаяЦена
+  vid: formulaColl
+  primechanie: Реальная цена
+  formula: '={''S-10 Оформление сделок Выборка''!AP$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Реальная цена")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AQ
+  klyuch: РеальнаяЦенаИтого
+- bukva: AR
+  klyuch: РеальныйСрок.Ф
+- bukva: AS
+  zagolovok: Реальный срок
+  klyuch: РеальныйСрок
+  vid: formulaColl
+  primechanie: Реальный срок
+  formula: '={''S-10 Оформление сделок Выборка''!AS$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Реальный срок")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AT
+  klyuch: НДС.Ф
+- bukva: AU
+  zagolovok: НДС
+  klyuch: НДС
+  vid: formulaColl
+  primechanie: НДС
+  formula: '={''S-10 Оформление сделок Выборка''!AU$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"НДС")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AV
+  klyuch: ВидОплаты.Ф
+- bukva: AW
+  zagolovok: Вид оплаты
+  klyuch: ВидОплаты
+  vid: formulaColl
+  primechanie: Вид оплаты
+  formula: '={''S-10 Оформление сделок Выборка''!AW$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Вид оплаты")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AX
+  klyuch: РазницаЗаШтуку
+- bukva: AY
+  klyuch: РазницаИтого
+- bukva: AZ
+  klyuch: ИннПоставщика.Ф
+- bukva: BA
+  zagolovok: ИНН Постав-ка
+  klyuch: ИннПоставщика
+  vid: formulaColl
+  primechanie: ИНН Постав-ка
+  formula: '={''S-10 Оформление сделок Выборка''!BA$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"ИНН Постав-ка")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BB
+  klyuch: ПроцентПервоначальнойОплаты.Ф
+- bukva: BC
+  zagolovok: Процент перв-ной оп-ты
+  klyuch: ПроцентПервоначальнойОплаты
+  vid: formulaColl
+  primechanie: Процент перв-ной оп-ты
+  formula: '={''S-10 Оформление сделок Выборка''!BC$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Процент перв-ной оп-ты")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BD
+  klyuch: УсловияОплаты.Ф
+- bukva: BE
+  zagolovok: Условия оплаты
+  klyuch: УсловияОплаты
+  vid: formulaColl
+  primechanie: Условия оплаты
+  formula: '={''S-10 Оформление сделок Выборка''!BE$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Условия оплаты")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BF
+  klyuch: ИныеУсловияОплаты.Ф
+- bukva: BG
+  zagolovok: Иные условия оплаты
+  klyuch: ИныеУсловияОплаты
+  primechanie: Иные условия оплаты
+  formula: '={''S-10 Оформление сделок Выборка''!BG$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Иные условия оплаты")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BH
+  klyuch: ОтсрочкаКалендарныхДней.Ф
+- bukva: BI
+  zagolovok: Отсрочка календарных дней
+  klyuch: ОтсрочкаКалендарныхДней
+  primechanie: Отсрочка календарных дней
+  formula: '={''S-10 Оформление сделок Выборка''!BI$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Отсрочка календарных дней")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BJ
+  klyuch: КудаДоставитьГруз.Ф
+- bukva: BK
+  zagolovok: Куда доставить груз (промежучточное место комплектации)
+  klyuch: КудаДоставитьГруз
+  vid: formulaColl
+  primechanie: Куда доставить груз (промежучточное место комплектации)
+  formula: '={''S-10 Оформление сделок Выборка''!BK$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Куда доставить груз (промежучточное место комплектации)")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BL
+  klyuch: ОбязательстваПоставщикаПоДоставке.Ф
+- bukva: BM
+  zagolovok: Обязательства поставщика по доставке
+  klyuch: ОбязательстваПоставщикаПоДоставке
+  vid: formulaColl
+  primechanie: Обязательства поставщика по доставке
+  formula: '={''S-10 Оформление сделок Выборка''!BM$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Обязательства поставщика по доставке")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BN
+  klyuch: СтатусОплаты.Ф
+- bukva: BO
+  zagolovok: Статус оплаты
+  klyuch: СтатусОплаты
+  vid: formulaColl
+  primechanie: Статус оплаты
+  formula: '={''S-10 Оформление сделок Выборка''!BO$9
+
+    ;LAMBDA(doVPR, doFind, theRows,theData,
+
+    doFind(doVPR,theRows,theData)
+
+    )(
+
+    LAMBDA(tr, theData, IFERROR(VLOOKUP(tr,theData,2,FALSE),)),
+
+    LAMBDA(doVPR,theRows, theData, BYROW(theRows,LAMBDA(tr, IF(tr<>"",doVPR(tr,theData),)) )),
+
+    ''S-10 Оформление сделок Выборка''!$C$11:$C319,
+
+    {''6 Оплаты''!I10:I319, IF(''6 Оплаты''!AQ10:AQ319&''6 Оплаты''!AR10:AR319<>"",""&''6 Оплаты''!AQ10:AQ319&" "&''6 Оплаты''!AR10:AR319,)}
+
+    )}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BP
+  klyuch: ПроцентОплаты.Ф
+- bukva: BQ
+  zagolovok: Процент оплаты
+  klyuch: ПроцентОплаты
+  vid: formulaColl
+  primechanie: Процент оплаты
+  formula: '={''S-10 Оформление сделок Выборка''!BQ$9
+
+    ;LAMBDA(doVPR, doFind, theRows,theData,
+
+    doFind(doVPR,theRows,theData)
+
+    )(
+
+    LAMBDA(tr, theData, IFERROR(VLOOKUP(tr,theData,2,FALSE),)),
+
+    LAMBDA(doVPR,theRows, theData, BYROW(theRows,LAMBDA(tr, IF(tr<>"",doVPR(tr,theData),)) )),
+
+    ''S-10 Оформление сделок Выборка''!$C$11:$C319,
+
+    {''6 Оплаты''!I10:I319, IF(''6 Оплаты''!AT10:AT319<>"",''6 Оплаты''!AT10:AT319,)}
+
+    )}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BR
+  klyuch: ДатаПолученияФинальногоСчетДоговора.Ф
+- bukva: BS
+  zagolovok: Дата получения финального счет договора
+  klyuch: ДатаПолученияФинальногоСчетДоговора
+  vid: formulaColl
+  primechanie: Дата получения финального счет договора
+  formula: '={''S-10 Оформление сделок Выборка''!BS$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Дата получения финального счет договора")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BT
+  klyuch: ДатаОтправкиПодписанногоСНашейСтороныСчетДоговора.Ф
+- bukva: BU
+  zagolovok: Дата отправки подписанного нами счет договора
+  klyuch: ДатаОтправкиПодписанногоСНашейСтороныСчетДоговора
+  vid: formulaColl
+  primechanie: Дата отправки подписанного нами счет договора
+  formula: '={''S-10 Оформление сделок Выборка''!BU$9
+
+    ;LAMBDA(doSelect, doFind, doMakeData,theRows,
+
+    theDKey,theDДобавлен,theDПоставщик,theDТовар,theDВписано,
+
+    theDFild,theВписано,
+
+    doFind(doSelect,theRows,doMakeData(theВписано,theDKey,theDДобавлен,theDВписано,theDПоставщи,"Дата отправки подписанного нами счет договора")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BV
+  klyuch: ПроверкаОшибок.Ф
+- bukva: BW
+  zagolovok: Проверка ошибок
+  klyuch: ПроверкаОшибок
+  vid: formulaColl
+  primechanie: Проверка ошибок
+  formula: '={"Проверка ошибок";LAMBDA(theData,ByRow(theData,LAMBDA(td,TEXTJOIN(CHAR(10),TRUE,td))))(
+
+    {BZ11:BZ319,CA11:CA319,CB11:CB319,CC11:CC319,CD11:CD319,CE11:CE319,CF11:CK319})}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BX
+  klyuch: свободно76
+- bukva: BY
+  klyuch: свободно77
+- bukva: BZ
+  zagolovok: Проверка ошибок постатсу
+  klyuch: ПроверкаОшибокПоСтатсу
+  vid: formulaColl
+  formula: '={"Проверка ошибок постатсу";LAMBDA(doResCel,doResCelA,doResCelB,doResCelC, doFindStatuses, doResCol,doVpr,doIndexCols, theRuls,theHStatuses,theStatuses,theHeders,theData,
+
+    byRow(ByCol(doIndexCols(theHeders), LAMBDA( theInd,doResCol(
+
+    doResCel(doResCelA,do,"Проверка ошибок постатсу")'
+  formula_v_stroke: 10
+  formul: 301
+- bukva: CA
+  zagolovok: Проверка Верная сумма
+  klyuch: ПроверкаОшибокВернаяСумма
+  vid: formulaColl
+  formula: '={"Проверка Верная сумма";LAMBDA(doFind,doCheckRow,theSdeki,theOplati,
+
+    BYROW( INDEX( theSdeki,,1),LAMBDA(theId,IF(theId<>"",doCheckRow(doFind(theId,theSdeki),doFind(theId,theOplati)),)))
+
+    )(
+
+    LAMBDA(theId,theData,IFERROR(VLOOKUP(theId,theData,2,FALSE),)),
+
+    LAMBDA(theItog,theOkSum, ifs(theOkSum="",,theItog=theOkSum,,TRUE,"''Реальная цена Итого'' Ошибка указанная стоимость товара "&theItog&" не совпадает с оплаченной стоимостью "&theOkSum&". ошибка")),
+
+    {''5-5 Оформление сделок''!C11:C310,''5-5 Оформление сделок''!AQ11:AQ310},{''6 Оплаты''!I11:I310,''6 Оплаты''!AU11:AU310})}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CB
+  zagolovok: Проверка НДС
+  klyuch: ПроверкаОшибокНДС
+  vid: formulaColl
+  formula: '={"Проверка НДС";LAMBDA(doFind,doCheckRow,theSdeki,theOplati,theOplatiNDS,
+
+    BYROW( INDEX( theSdeki,,1),LAMBDA(theId,IF(theId<>"",doCheckRow(doFind,doFind(theId,theSdeki), doFind(theId,theOplati),theOplatiNDS),)))
+
+    )(
+
+    LAMBDA(theId,theData,IF(theId<>"", IFERROR(VLOOKUP(theId,theData,2,FALSE),),)),
+
+    LAMBDA(doFind,theSdelkiNds,thePlat,theOplatiNds, ifs(thePlat="", ,ISNA(VLOOKUP(thePlat,theOplatiNds,2,FALSE)),,theSdelkiNds=doFind(thePlat,theOplatiNds),, TRUE,"''НДС'' ''6 Оплаты'' (столбец AS) "&TEXT( doFind(thePlat,theOplatiNds),"0%")&" не совпадает с НДС на листе ''5-5 Оформление сделок'' "&TEXT(theSdelkiNds,"0%")&" Юр лицо поставщика ''"&thePlat&"''. ошибка")),
+
+    {''5-5 Оформление сделок''!C11:C310,''5-5 Оформление сделок''!AU11:AU310},{''6 Оплаты''!I11:I310,''6 Оплаты''!AM11:AM310},{''6 Оплаты''!BC11:BC310,''6 Оплаты''!BG11:BG310})}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CC
+  zagolovok: Проверка переплаты
+  klyuch: ПроверкаОшибокПереплаты
+  vid: formulaColl
+  formula: '={"Проверка переплаты"; LAMBDA(doChErr,doNorm,doFilter,doSum,thePlan,theFakt,theInnS, doChErr(theInnS, IFERROR( doFilter( doNorm( doSum({thePlan;theFakt}))),{"Инн","Сумм"})))(
+
+    LAMBDA(theInnS,theData, BYROW(theInnS,LAMBDA(tInn,IF(tInn<>"",IFERROR(","Проверка переплаты")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CD
+  zagolovok: ПроверкаОшибокОплаты
+  klyuch: ПроверкаОшибокОплаты
+  vid: formulaColl
+  formula: '={"ПроверкаОшибокОплаты";LAMBDA(doFind,doMsg,theIds,theErrS,ByRow( theIds, LAMBDA(theId,doMsg(doFind(theId,theErrS))) ))(
+
+    LAMBDA(theId,theErrS,IF(theId<>"",IFERROR(VLOOKUP(theId,theErrS,2,FALSE),),)),
+
+    LAMBDA(theErr,IF(theErr<>"","На листе ''6 Оплаты'' есть ошибка: "& theErr &" . ''Статус оплаты'', ''Процент оплаты'' - помечены красным",)),
+
+    ''S-10 Оформление сделок Выборка''!$C$11:$C319, {''6 Оплаты''!$I$11:$I319,''6 Оплаты''!$AV$11:$AV319})}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CE
+  zagolovok: Проверка Дата отправки подписанного нами счет договора
+  klyuch: ПроверкаОшибокОплаты
+  vid: formulaColl
+  formula: "=Let(\nhead, \" Проверка Дата отправки подписанного нами счет договора\",\nststus_mp, { \"Скан подписанного договора получен\" ; \"Договор передан в оплату Наша версия договора\" ; \"Договор передан в оплату Версия поставщика\" },\ntovar_ar , '5-5 Оформление сделок'!F11:F319,\nstatus_ar , '5-5 Оформление сделок'!AF11:AF319,\noplati_ar , '5-5 Оформление сделок'!BO11:BO319, \ndata_ar , '5-5 Оформление сделок'!BU11:BU319, \nis_ar, MAP(tovar_ar, LAMBDA(a_v,AND(a_v<>\"\") )),\nis_err_ar, Map(status_ar,oplati_ar,data_ar,LAMBDA(a_v, b_v, c_v, AND( NOT( c_v<>\"\") , ( b_v<>\"\") ,IFERROR( VLOOKUP(a_v,ststus_mp,1,FALSE) , ) <>\"\" ) ) ),\ndo_msg, LAMBDA(o,s,\"Заполните 'Дата отправки подписанного нами счет договора'. При 'Статус оплаты'-'\"&o&\"' это поле обязательно для статуса '\"&s&\"'. ошибка\"),\nmsg_ar, Map(oplati_ar , status_ar, do_msg),\nmet_Insp2, LAMBDA(A_ar, B_ar, fn, MAP(A_ar, B_ar, is_ar, LAMBDA(a_v, b_v, is, IF(is, fn(a_v, b_v), )))),\nrez_ar, met_Insp2(is_err_ar, msg_ar, LAMBDA(a,b, IF( a,b,) ) ),\n { head ; rez_ar }\n)"
+  formula_v_stroke: 10
+  formul: 1

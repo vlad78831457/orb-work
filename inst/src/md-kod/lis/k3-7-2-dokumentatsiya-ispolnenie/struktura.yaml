@@ -1,0 +1,151 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 7-2 Документация исполнение
+diapazon: A1:AB319
+zakrepleno: J11
+karkas: true
+stroka_zagolovkov: 10
+formul: 321
+znacheniy: 320
+spiskov: 0
+uslovnyh: 0
+obedineno: 7
+beryot:
+  5-1 Сбор КП Закупки: 326
+  5-5 Оформление сделок: 4
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: Уникальные ссылки по проекту
+  formula: ={"Уникальные ссылки по проекту";Sort(UNIQUE({N11:N310;P11:P310;Q11:Q310;R11:R310;S11:S310;T11:T310;U11:U310;V11:V310;W11:W310;X11:X310;Y11:Y310;Z11:Z310;AA11:AA310;AB11:AB310}),1,TRUE)}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!C10
+  formula_v_stroke: 10
+  formul: 310
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaColl
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$D$10:D319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaColl
+  skryt: СкрытьСгрупировать
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$E$10:E319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: F
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  vid: formulaColl
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$F$10:F319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: G
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  vid: formulaColl
+  skryt: СкрытьСгрупировать
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$G$10:G319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: H
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  skryt: СкрытьСгрупировать
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$H$10:H319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: I
+  zagolovok: Состав поставляемой с продукцией технической документации
+  klyuch: СоставТехническойДокументации
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$I$10:I319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: J
+  zagolovok: Ед. Изм
+  klyuch: ЕдИзм
+  vid: formulaColl
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$J$10:J319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  zagolovok: Кол-во
+  klyuch: Количевство
+  vid: formulaColl
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-1 Сбор КП Закупки'!$C$10:$C319,'5-1 Сбор КП Закупки'!$K$10:K319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: L
+  zagolovok: Поставщик
+  klyuch: Поставщик
+  vid: formulaColl
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-5 Оформление сделок'!$C$10:$C319,'5-5 Оформление сделок'!$AB$10:$AB319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: M
+  zagolovok: ИНН Постав-ка
+  klyuch: ИннПоставщика
+  vid: formulaColl
+  formula: "=LAMBDA(doNothing,doFind,doRezolve,theIds,theData,\nbyrow(doRezolve(doNothing,doFind,theIds,theData),LAMBDA(t,t))\n)( \nLAMBDA(theIds,theData,),\nLAMBDA(theId,theData, VLOOKUP(theId,theData,2,FALSE) ),\nLAMBDA(doNothing,doFind,theIds,theData, ByRow(theIds,LAMBDA(theId,IF(theId<>\"\",doFind,doNothing)(theId,theData) ))),\n'7-2 Документация исполнение'!$C$10:$C319,{'5-5 Оформление сделок'!$C$10:$C319,'5-5 Оформление сделок'!$BA$10:$BA319}\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: N
+  klyuch: свободно01
+  skryt: Скрыть
+- bukva: O
+  zagolovok: на Русском
+  klyuch: СсылкаНаПаспортНаРусском
+  primechanie: Ссылка на паспорт
+- bukva: P
+  zagolovok: на Английском
+  klyuch: СсылкаНаПаспортНаАнглийском
+- bukva: Q
+  zagolovok: на Русском
+  klyuch: СсылкаНаРуководствоНаРусском
+  primechanie: Ссылка на Руководство по эксплуатации
+- bukva: R
+  zagolovok: на Английском
+  klyuch: СсылкаНаРуководствоНаАнглийском
+- bukva: S
+  zagolovok: на Русском
+  klyuch: СсылкаНаСоответствиеНаРусском
+  primechanie: ДЕКЛАРАЦИЯ О СООТВЕТСТВИИ / Сертификат
+- bukva: T
+  zagolovok: на Английском
+  klyuch: СсылкаНаСоответствиеНаАнглийском
+- bukva: U
+  zagolovok: на Русском
+  klyuch: СсылкаНаСертификатНаРусском
+  primechanie: CB Test Certificate (на англ. языке)
+- bukva: V
+  zagolovok: на Английском
+  klyuch: СсылкаНаСертификатНаАнглийском
+- bukva: W
+  zagolovok: на Русском
+  klyuch: СсылкаНаДокументАНаРусском
+  primechanie: Еще какой то документ (указать верное название документа)
+- bukva: X
+  zagolovok: на Английском
+  klyuch: СсылкаНаДокументАНаАнглийском
+- bukva: Y
+  zagolovok: на Русском
+  klyuch: СсылкаНаДокументБНаРусском
+  primechanie: Еще какой то документ (указать верное название документа)
+- bukva: Z
+  zagolovok: на Английском
+  klyuch: СсылкаНаДокументБНаАнглийском
+- bukva: AA
+  zagolovok: на Русском
+  klyuch: СсылкаНаДокументВНаРусском
+  primechanie: Еще какой то документ (указать верное название документа)
+- bukva: AB
+  zagolovok: на Английском
+  klyuch: СсылкаНаДокументВНаАнглийском

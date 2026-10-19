@@ -1,0 +1,125 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 1-0 Товары
+diapazon: A1:U313
+zakrepleno: A11
+karkas: true
+stroka_zagolovkov: 10
+formul: 614
+znacheniy: 4
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  1-1 Сбор КП: 6
+  5-1 Сбор КП Закупки: 4
+  5-2 Запросы КП Закупки: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err
+- bukva: B
+  klyuch: err2
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaColl
+  formula: "={\"ID_Товара\";\nLAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWords,theWord,theC,\"ID_Товара\")"
+  formula_v_stroke: 10
+  formul: 301
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaColl
+  formula: "={ \n{'1-1 Сбор КП'!C1:G1};\n{LAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWords,t,\"№\")"
+  formula_v_stroke: 10
+  formul: 301
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaFree
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: F
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  vid: formulaFree
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: G
+  zagolovok: Ед. Изм
+  klyuch: ЕдИзм
+  vid: formulaFree
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: H
+  zagolovok: Кол-во
+  klyuch: Количевство
+  vid: formulaFree
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: I
+  zagolovok: НМЦ
+  klyuch: НМЦ
+  vid: formulaFree
+  formula: "={ \n{'1-1 Сбор КП'!K1};\n{LAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWords,theW,\"НМЦ\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: J
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  vid: formulaColl
+  formula: =IF(E10:E313<>"",IFERROR(VLOOKUP(E10:E313,{'5-1 Сбор КП Закупки'!E10:E313,'5-1 Сбор КП Закупки'!F10:F313},2,FALSE) ,),)
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  vid: formulaColl
+  formula: =IF(E10:E313<>"",IFERROR(VLOOKUP(E10:E313,{'5-1 Сбор КП Закупки'!E10:E313,'5-1 Сбор КП Закупки'!G10:G313},2,FALSE) ,),)
+  formula_v_stroke: 10
+  formul: 1
+- bukva: L
+  zagolovok: Группа
+  klyuch: Группа_1_2
+  vid: formulaColl
+  formula: "=BYROW({ \n{'1-1 Сбор КП'!O1};\n{LAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWord,\"Группа\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: M
+  zagolovok: Группа
+  klyuch: Группа_5_2
+  vid: formulaColl
+  formula: '={"Группа";LAMBDA(doFind,theIds,theData, doFind(theIds,theData)
+
+    )(
+
+    LAMBDA(theIds,theData, BYROW(theIds,LAMBDA(ti,IF(ti<>"", IFERROR(VLOOKUP(ti,theData,2,0),),)))),
+
+    ''1-0 Товары''!C11:C313,
+
+    {''5-2 Запросы КП Закупки''!C11:C313,''5-2 Запросы КП Закупки''!N11:N313}
+
+    )}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: N
+  zagolovok: Срок поставки по договору
+  klyuch: СрокПоставкиПоДоговору
+  vid: formulaColl
+  formula: "={ \n{'1-1 Сбор КП'!N1};\n{LAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWords,theW,\"Срок поставки по договору\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: O
+  zagolovok: Нац режим 1875
+  formula: "={ \n{'1-1 Сбор КП'!L1};\n{LAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWords,theW,\"Нац режим 1875\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: P
+  zagolovok: Код ОКПД 2
+  formula: "={ \n{'1-1 Сбор КП'!M1};\n{LAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWords,theW,\"Код ОКПД 2\")"
+  formula_v_stroke: 10
+  formul: 1

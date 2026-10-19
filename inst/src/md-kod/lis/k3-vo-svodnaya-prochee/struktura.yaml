@@ -1,0 +1,77 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: Сводная Прочее
+diapazon: A1:N30
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 51
+znacheniy: 10
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 49
+  Технический лист: 2
+  Col1: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: key
+- bukva: B
+  zagolovok: Время Последней Синхронизации
+  formula: =VLOOKUP(B$10,{'Технический лист'!$K$11:$K30,'Технический лист'!$L$11:$L30},2,0)
+  formula_v_stroke: 18
+  formul: 1
+- bukva: C
+  zagolovok: Посредник
+  formula: '= LAMBDA(Посредник,ifs(Посредник="","Нет Посредника",TRUE,Посредник))
+
+    ( LAMBDA(Победил,ЮрЛицаДляПартнера, TEXTJOIN(","&CHAR(10),TRUE, IFERROR( QUERY(UNIQUE(ЮрЛицаДляПартнера),"select Col1 where Col1!=''"&Победил&"'' and Col1 is not null",0 ),) ))
+
+    (,"Нет Посредника")'
+  formula_v_stroke: 18
+  formul: 1
+- bukva: D
+  formula: =TEXTJOIN("",TRUE,'7 Исполнение Внешние'!AF11:AF15)<>""
+  formula_v_stroke: 20
+  formul: 4
+- bukva: E
+  formula: ='7 Исполнение Внешние'!D$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: F
+  formula: ='7 Исполнение Внешние'!F$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: G
+  formula: ='7 Исполнение Внешние'!H$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: H
+  formula: ='7 Исполнение Внешние'!J$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: I
+  formula: ='7 Исполнение Внешние'!L$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: J
+  formula: ='7 Исполнение Внешние'!T$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: K
+  formula: ='7 Исполнение Внешние'!V$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: L
+  formula: ='7 Исполнение Внешние'!X$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: M
+  formula: ='7 Исполнение Внешние'!Z$11
+  formula_v_stroke: 11
+  formul: 5
+- bukva: N
+  zagolovok: '1'

@@ -1,0 +1,127 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 4-1 Расчет рентабельности КП
+diapazon: A1:AN1103
+zakrepleno: A8
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 7
+formul: 7938
+znacheniy: 1320
+spiskov: 9
+uslovnyh: 13
+obedineno: 47
+beryot:
+  0-Паспорт проекта: 19
+  3-3 Выбор поставщиков: 14
+  S-10 Экспорт в Битрикс: 2
+  3-1 Расчет стоимости доставки: 2
+  3-4 Прочие расходы: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: '#VALUE!'
+  formula: '="Пик финансирования (кассовый разрыв): "&TEXT(-$AJ$25,"# ### ##0")&" ₽"'
+  formula_v_stroke: 7
+  formul: 40
+- bukva: B
+  formula: =IF($C$10<>"",$C$10,IFERROR('0-Паспорт проекта'!C11,""))
+  formula_v_stroke: 10
+  formul: 58
+  spisok: '"Платёж −,Поступление +"'
+- bukva: C
+  formula: =IF($B$51=0,"",ROUND(N($Z$31)/2,0))
+  formula_v_stroke: 64
+  formul: 33
+  spisok: '"22%,0%,5%"'
+- bukva: D
+  formula: =$B$50
+  formula_v_stroke: 63
+  formul: 45
+- bukva: E
+  zagolovok: '#VALUE!'
+  formula: '="Целевая цена ("&TEXT($Z$10,"0%")&" год): "&IF(AND(N($B$11)>0,$AJ$16>$B$11),"недостижима (> НМЦ)",TEXT($AJ$16,"# ##0")&" ₽")'
+  formula_v_stroke: 7
+  formul: 49
+- bukva: F
+  formula: =$AJ$13
+  formula_v_stroke: 10
+  formul: 24
+- bukva: G
+  formula: =0
+  formula_v_stroke: 16
+  formul: 6
+- bukva: I
+  formula: ="ШАГ 5 · ПОСТАВЩИКИ · закупка "&TEXT(IFERROR(SUMIF('3-3 Выбор поставщиков'!A:A,"@",'3-3 Выбор поставщиков'!F:F),0),"#,##0")&" ₽ · "&SUMPRODUCT(--($I$11:$I$313<>""))&" поз. (авто из 3-3)"
+  formula_v_stroke: 9
+  formul: 301
+- bukva: M
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 300
+- bukva: P
+  formula: =IF($I11="",,ROUND(IFERROR(VALUE(LEFT(TRIM(""&$O11)&" ",FIND(" ",TRIM(""&$O11)&" ")-1)),0)*IF(ISNUMBER(SEARCH("мес",$O11)),30,IF(ISNUMBER(SEARCH("нед",$O11)),7,IF(OR(ISNUMBER(SEARCH("рд",$O11)),ISNUMBER(SEARCH("раб",$O11))),1.4,1))),0))
+  formula_v_stroke: 11
+  formul: 303
+- bukva: Q
+  formula: =IF($I11="",,$Z$30)
+  formula_v_stroke: 11
+  formul: 303
+- bukva: R
+  formula: =IF($I11="",,$Z$30+$P11)
+  formula_v_stroke: 11
+  formul: 303
+- bukva: S
+  formula: =IF($I11="",,$M11*IF($P11<$Z$28,1,$Z$29))
+  formula_v_stroke: 11
+  formul: 303
+- bukva: T
+  formula: =IF($I11="",,$M11*(1-IF($P11<$Z$28,1,$Z$29)))
+  formula_v_stroke: 11
+  formul: 303
+- bukva: V
+  formula: ="ROI расч (Чистая÷Себест.)"
+  formula_v_stroke: 10
+  formul: 13
+- bukva: W
+  formula: =IF($B$59>0,$F$33/$B$59,0)
+  formula_v_stroke: 10
+  formul: 13
+- bukva: AB
+  zagolovok: День №
+- bukva: AC
+  zagolovok: Поступления за день, ₽
+  formula: =SUMIFS($D$63:$D$107,$C$63:$C$107,$AB8,$B$63:$B$107,"Поступление +")
+  formula_v_stroke: 8
+  formul: 1096
+- bukva: AD
+  zagolovok: Платежи за день, ₽
+  formula: =SUMIFS($D$63:$D$107,$C$63:$C$107,$AB8,$B$63:$B$107,"Платёж −")
+  formula_v_stroke: 8
+  formul: 1096
+- bukva: AE
+  zagolovok: 'XIRR-поток: Нетто за день (пост.−плат.), ₽'
+  formula: =AC8-AD8
+  formula_v_stroke: 8
+  formul: 1096
+- bukva: AF
+  zagolovok: Остаток нарастающим, ₽
+  formula: =SUM($AE$8:AE8)
+  formula_v_stroke: 8
+  formul: 1096
+- bukva: AG
+  zagolovok: 'XIRR-дата: базовая дата (AJ28) + номер дня (столбец R)'
+  formula: =$AJ$27+$AB8
+  formula_v_stroke: 8
+  formul: 1096
+- bukva: AJ
+  formula: =IF($B$11>0,($B$11-$B$47)/(1+$B$14)/$B$11,0)
+  formula_v_stroke: 8
+  formul: 35
+- bukva: AL
+  zagolovok: Неделя (день оплаты)
+- bukva: AM
+  zagolovok: Остаток к оплате, ₽
+  formula: =SUMIFS($T$11:$T$313,$R$11:$R$313,"<="&$AL8)
+  formula_v_stroke: 8
+  formul: 26

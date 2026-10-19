@@ -1,0 +1,115 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Триггеры
+diapazon: A1:Z15
+zakrepleno: A11
+karkas: true
+stroka_zagolovkov: 10
+formul: 13
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err1
+  skryt: Скрыть
+- bukva: B
+  klyuch: err2
+  skryt: Скрыть
+- bukva: C
+  zagolovok: ID
+- bukva: D
+  zagolovok: Таблица
+  klyuch: url
+- bukva: E
+  zagolovok: Дата
+  klyuch: run
+  vid: date
+  var_name: Считать, что тригеры не работают
+  var_value: '46312'
+- bukva: F
+  zagolovok: Аккаунт
+  klyuch: user
+  var_name: Таблица Проекта
+  var_value: Триггеры проекта не запущены
+- bukva: G
+  zagolovok: Функция
+  klyuch: func
+  var_name: Таблица Оплат
+  var_value: Триггеры оплат не запущены
+- bukva: H
+  zagolovok: ID
+  klyuch: id
+- bukva: J
+  zagolovok: Таблица Проекта
+  formula: "={\"Таблица Проекта\";LAMBDA(doCompare,doSelect,theData,theUrlS,theTrigerS, \nBYROW(theUrlS,Lambda(theUrl, IF(theUrl<>\"\",doCompare( doSelect(theData,theUrl), theTrigerS) , ) ))\n )(\nLAMBDA(theA,theB, IFERROR(AND(ArrayFormula(theA=theB)),FALSE)),\nLAMBD,\"Таблица Проекта\")"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: K
+  zagolovok: Назначение тригера
+  klyuch: MrLib_top.triggerService
+  vid: onEdit_trigger
+  var_name: triggerMrProjLib
+  var_value: triggerMrProjLibPay
+  formula: ={"Назначение тригера";(IF(D11:D15<>"",IFERROR(VLOOKUP(G11:G15,K1:L6,2,FALSE),""),) )}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: L
+  zagolovok: Таблица Оплат
+  klyuch: Таблица Проекта
+  vid: Редактирование
+  var_name: Таблица Проекта
+  var_value: Таблица Оплат
+  formula: '={"Таблица Оплат";LAMBDA(doCompare,doSelect,theData,theUrlS,theTrigerS, BYROW(theUrlS,Lambda(theUrl, IF(theUrl<>"",doCompare( doSelect(theData,theUrl), theTrigerS) , ) )) )(
+
+    LAMBDA(theA,theB, IFERROR(AND(ArrayFormula(theA=theB)),FALSE)),
+
+    LAMBDA(th,"Таблица Оплат")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: M
+  klyuch: Функции выполняющие сервесные работы в фоне(подсчет, передача данных, и другие)
+  vid: Делает тоже что и onEdit иимеет возможность выполнятся до 360 секунд
+  var_name: Лист 1-2 и листы 5
+  var_value: Функции таблицы оплат
+- bukva: N
+  zagolovok: Кол-во Триггеров
+  formula: '={"Кол-во Триггеров";LAMBDA(doRez,doFind,doCount,the,doRez(doFind,INDEX(the,,),doCount(the)))(
+
+    LAMBDA(doFind,theUrls,theData,BYROW(theUrls,LAMBDA(theUrl,doFind(theUrl,theData)))),
+
+    LAMBDA(theUrl,theData,IF(theUrl<>"",VLOOKUP(theUrl,theData,2,FALSE),)),
+
+    ,"Кол-во Триггеров")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: P
+  zagolovok: Кол-во Уникальных Триггеров
+  formula: '={"Кол-во Уникальных Триггеров";LAMBDA(do, theData, BYROW(theData,LAMBDA(td, IF( td<>"",({COUNTA( UNIQUE( do(INDEX(td,,1),theData) ) ) } ),) )))
+
+    (LAMBDA(theUrl,theData,QUERY(theData, "Select Col4 Where Col1=''"& theUrl &"'' ",0)),
+
+    {D11:D15,E11:E15,F,"Кол-во Уникальных Триггеров")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: R
+  zagolovok: Кол-во Аккаунтов
+  formula: '={"Кол-во Аккаунтов";LAMBDA(do, theData, BYROW(theData,LAMBDA(td, IF( td<>"",({COUNTA( UNIQUE( do(INDEX(td,,1),theData) ) ) } ),) )))
+
+    (LAMBDA(theUrl,theData,QUERY(theData, "Select Col3 Where Col1=''"& theUrl &"'' ",0)),
+
+    {D11:D15,E11:E15,F11:F15,G11:,"Кол-во Аккаунтов")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: T
+  zagolovok: Лишние Триггеры
+  formula: "={\"Лишние Триггеры\";LAMBDA(do, theData, theCounts, \nBYROW(theData,LAMBDA(td, IF( td<>\"\",( IF(IFERROR(do(td,theCounts),0)>1,TRUE,) ),) )))\n(LAMBDA(td,theData, SUM(QUERY(theData,\"Select Col3 where Col1='\"&INDEX(td,,1)&\"' and Col2='\"&INDEX(td,,4)&\",\"Лишние Триггеры\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: V
+  zagolovok: Тригер Остановлен
+  formula: ={"Тригер Остановлен";IF($D$11:$D15<>"",IF($E$11:$E15<$E$6,TRUE,),)}
+  formula_v_stroke: 10
+  formul: 1

@@ -1,0 +1,94 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Проверки Оплаты Внешняя
+diapazon: A1:AZ857
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 615
+znacheniy: 7
+spiskov: 0
+uslovnyh: 1
+obedineno: 0
+beryot:
+  6 Оплаты Внешняя: 13
+importrange: 0
+stolbtsy:
+- bukva: A
+  formula: =AA1:AB857
+  formula_v_stroke: 1
+  formul: 1
+- bukva: J
+  formula: ={'6 Оплаты Внешняя'!I10:I857,'6 Оплаты Внешняя'!S10:S857,'6 Оплаты Внешняя'!AU10:AU857,'6 Оплаты Внешняя'!AS10:AS857,'6 Оплаты Внешняя'!AT10:AT857}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: R
+  formula: ="Факт Все платежи"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AA
+  formula: ="ID_Товаров"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: AB
+  formula: ="Проверки"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: AE
+  formula: "={\"Проверка 'Тип / Статья'\";LAMBDA( doCtA,doCtB,doCtC,doCtD,doCtE ,doFindPlanCat,doFindPlanSCat, theInnS,thePostS, thePlanS, theFactS,\n BYROW({theInnS,thePostS,doFindPlanSCat(doFindPlanCat,thePlanS, theFactS)} ,LAMBDA(theR, TEXTJOIN(CHAR(10),TRUE, {\n,\"Проверка 'Тип / Статья'\")"
+  formula_v_stroke: 10
+  formul: 301
+- bukva: AG
+  formula: "={\"Проверка ИНН\";LAMBDA(doFind,doCmp, doFindPlanCat,doFindPlanSCat, theData,theInnS,thePostS, thePlanS, theFactS,\nBYROW({theInnS,thePostS,doFindPlanSCat(doFindPlanCat,thePlanS, theFactS)} ,LAMBDA(theR, TEXTJOIN(CHAR(10),TRUE, {\n IF(INDEX(theR,1,3)=15,\"Проверка ИНН\")"
+  formula_v_stroke: 10
+  formul: 301
+- bukva: AI
+  formula: '={"Проверка НДС";LAMBDA( doComp,doSelect, thePlanS, theFactS,
+
+    BYROW(thePlanS,LAMBDA(thePlan, IF(thePlan="", ,doComp(thePlan,doSelect(thePlan,theFactS)) ) ))
+
+    )(
+
+    LAMBDA(thePlan, theFactS, IF(ISNA(theFactS),, "3.a НДС ''"&INDEX( thePlan,,2)&"'' из пл,"Проверка НДС")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AK
+  formula: '={"Проверка ''Вид оплаты''";LAMBDA( doComp,doSelect, thePlanS, theFactS,
+
+    BYROW(thePlanS,LAMBDA(thePlan, IF(thePlan="", ,doComp(thePlan,doSelect(thePlan,theFactS)) ) ))
+
+    )(
+
+    LAMBDA(thePlan, theFactS, IF(ISNA(theFactS),, "3.b Вид оплаты ''"&INDEX( thePl,"Проверка ''Вид оплаты''")'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AM
+  formula: '={"Проверка Верной Суммы"; LAMBDA(doMs,doKak,oKakS,BYROW(oKakS,LAMBDA(oKak, IF(doKak(oKak),doMs(oKak),))))(
+
+    LAMBDA(oKak,"4.a Верная сумма ("&INDEX(oKak,,3)&") отличается от плана ("&INDEX(oKak,,2)&")"),
+
+    LAMBDA(oKak, AND(INDEX(oKak,,1)<>"",INDEX(oKak,,3)<>0,INDEX(oKak,,2)<>INDEX(oKak,,3))),
+
+    {J11:J857,K11:K857,L11:L857})}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AO
+  formula: '={"Проверка Переплаты"; LAMBDA(doMs,doKak,oKakS,BYROW(oKakS,LAMBDA(oKak, IF(doKak(oKak),doMs(oKak),))))(
+
+    LAMBDA(oKak,"4.b Переплата на ("&INDEX(oKak,,3)-INDEX(oKak,,2)&"). ошибка"),
+
+    LAMBDA(oKak, AND(INDEX(oKak,,1)<>"",INDEX(oKak,,3)<>0,INDEX(oKak,,2)<INDEX(oKak,,3))),
+
+    {J11:J857,K11:K857,M11:M857})}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AQ
+  formula: '={"Проверка Недоплаты"; LAMBDA(doMs,doKak,oKakS,BYROW(oKakS,LAMBDA(oKak, IF(doKak(oKak),doMs(oKak),))))(
+
+    LAMBDA(oKak,"4.с До полной оплаты не хватает менее 5%"),
+
+    LAMBDA(oKak, AND(INDEX(oKak,,1)<>"",INDEX(oKak,,2)<>0,INDEX(oKak,,2)>=95%,INDEX(oKak,,2)<100%)),
+
+    {J11:J857,N11:N857})}'
+  formula_v_stroke: 10
+  formul: 1

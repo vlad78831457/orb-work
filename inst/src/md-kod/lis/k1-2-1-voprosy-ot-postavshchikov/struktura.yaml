@@ -1,0 +1,82 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 2-1 Вопросы от Поставщиков
+diapazon: A1:AC103
+zakrepleno: A2
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 102
+znacheniy: 0
+spiskov: 3
+uslovnyh: 4
+obedineno: 0
+beryot:
+  1-1 Сбор КП: 510
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: № Вопроса
+- bukva: B
+  zagolovok: №
+  spisok: '''1-1 Сбор КП''!$C$2:$C$301'
+- bukva: C
+  zagolovok: Номенклатура
+  formula: =IF(ISBLANK(B2),, FILTER({'1-1 Сбор КП'!D$2:D103, '1-1 Сбор КП'!E$2:E103, '1-1 Сбор КП'!F$2:K103,'1-1 Сбор КП'!O$2:O103},{'1-1 Сбор КП'!C$2:C103=B2}))
+  formula_v_stroke: 2
+  formul: 102
+- bukva: D
+  zagolovok: Характеристики
+- bukva: E
+  zagolovok: Ед. Изм
+- bukva: F
+  zagolovok: Кол-во
+- bukva: G
+  zagolovok: Цена
+- bukva: H
+  zagolovok: Итого
+- bukva: I
+  zagolovok: Предложений
+- bukva: J
+  zagolovok: НМЦ
+- bukva: K
+  zagolovok: Группа
+- bukva: L
+  zagolovok: Еmail поставщика
+- bukva: M
+  zagolovok: Вопрос
+- bukva: N
+  zagolovok: С вопросом ознакомлен Менеджер
+  spisok: '"Ознакомлен"'
+- bukva: O
+  zagolovok: С вопросом ознакомлен Эксперт
+  spisok: '"Ознакомлен"'
+- bukva: P
+  zagolovok: Ответ
+- bukva: Q
+  zagolovok: Комментарий Менеджера
+- bukva: R
+  zagolovok: Комментарий Эксперта
+- bukva: S
+  zagolovok: Текущая стадия вопроса из Битрикс
+- bukva: T
+  zagolovok: Ссылка на вопрос или проблему в Битрикс
+- bukva: U
+  zagolovok: Ответ разослан
+  spisok: '"Да,Ответ не требуется"'
+- bukva: V
+  zagolovok: Дата отправки Ответа
+- bukva: W
+  zagolovok: Дата добавления ответа
+- bukva: X
+  zagolovok: Дата добавления вопроса
+- bukva: Y
+  zagolovok: Добавлено Автоматический
+- bukva: Z
+  zagolovok: Дата ознакомления Менеджера с вопросом
+- bukva: AA
+  zagolovok: Дата ознакомления Эксперта с вопросом
+- bukva: AB
+  zagolovok: key
+- bukva: AC
+  zagolovok: last

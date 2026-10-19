@@ -1,0 +1,13 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: Технический
+diapazon: A1:T74
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 0
+znacheniy: 81
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+importrange: 0

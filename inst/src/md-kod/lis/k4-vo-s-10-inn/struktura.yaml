@@ -1,0 +1,40 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 ИНН
+diapazon: A1:H11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 15
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  Col1: 1
+importrange: 0
+stolbtsy:
+- bukva: B
+  formula: ="key"
+  formula_v_stroke: 9
+  formul: 3
+- bukva: C
+  formula: ="Юр лицо"
+  formula_v_stroke: 9
+  formul: 3
+- bukva: D
+  formula: ="ИНН"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: E
+  formula: ="Тип"
+  formula_v_stroke: 9
+  formul: 3
+- bukva: F
+  formula: ="Проект"
+  formula_v_stroke: 9
+  formul: 3
+- bukva: G
+  formula: ={LAMBDA(a,)(1),LAMBDA(a,)(1)}
+  formula_v_stroke: 2
+  formul: 1

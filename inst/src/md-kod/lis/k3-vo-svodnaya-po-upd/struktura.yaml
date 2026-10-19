@@ -1,0 +1,37 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: Сводная по УПД
+diapazon: A1:O30
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 51
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 9
+  Сводная по Номенклатуре: 2
+  VALUE: 1
+importrange: 0
+stolbtsy:
+- bukva: B
+  zagolovok: №
+- bukva: J
+  zagolovok: key
+- bukva: L
+  zagolovok: № УПД о закупке
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: M
+  zagolovok: другой вариант ключа
+- bukva: N
+  zagolovok: для проверки расхождения данных с логистом
+- bukva: O
+  zagolovok: Ошибки при заполнение УПД во внешней
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 22

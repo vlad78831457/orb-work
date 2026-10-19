@@ -1,0 +1,251 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Новые предложения
+diapazon: A1:AO1000
+karkas: true
+stroka_zagolovkov: 10
+formul: 90
+znacheniy: 602
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  S-10 Новые предложения (сохр): 4
+  S-10 Предложения: 4
+  3-3 Выбор поставщиков: 3
+  0-Паспорт проекта: 2
+  1-0 Товары: 2
+importrange: 0
+stolbtsy:
+- bukva: C
+  zagolovok: Таблица
+  vid: formulaColl
+  formula: ="Таблица"
+  formula_v_stroke: 10
+  formul: 10
+- bukva: D
+  zagolovok: Лист^Предложение^Товар
+  klyuch: Лист_Предложение_Товар
+  var_name: ВписанНаЛисте
+  var_value: 1-1 Сбор КП
+  formula: '={"Лист^Предложение^Товар";LAMBDA(
+
+    doFilterProducts, doForEachProducts, doGetProductOffers,doSplitByLines, theProducts, theOffers, theNumTop, theWhereAnd,
+
+    doSplitByLines(doForEachProducts(doFilterProducts (theProducts),theNumTop,theWhereAnd,theOffers,doG,"Лист^Предложение^Товар")'
+  formula_v_stroke: 10
+  formul: 6
+- bukva: E
+  zagolovok: Лист
+  klyuch: Лист
+  var_value: And ( Col2='1-1 Сбор КП' )
+  formula: '={$E$2:$I$2;LAMBDA( doComplereOffer, doTreatOffers, theOffersKey, theOffers,
+
+    doComplereOffer(theOffersKey,doTreatOffers(theOffers)))
+
+    (
+
+    LAMBDA(theOffersKey,theOffers, IFERROR( VLOOKUP(theOffersKey,theOffers,{2,3,4,5,6},FALSE),) ),
+
+    LAMBDA(theOffers,theOffers),
+
+    ''S-10 Новые предложения''!$D$11:$D1000,
+
+    ''S-10 Предложения''!$D11:$K1000
+
+    )}'
+  formula_v_stroke: 10
+  formul: 3
+- bukva: F
+  zagolovok: Предложение
+  klyuch: Предложение
+  var_name: ДатаЗавершенияЭкспертизы
+- bukva: G
+  zagolovok: Постовшик
+  klyuch: Постовшик
+  var_name: Есть изменения
+- bukva: H
+  zagolovok: Товар
+  klyuch: Товар
+  var_name: Добавлено новое предложение
+  var_value: '0'
+- bukva: I
+  zagolovok: Цена
+  klyuch: Цена
+  var_name: изменения в топ 1
+  var_value: '0'
+- bukva: J
+  klyuch: столбец_10
+  var_name: изменения в топ 3
+  var_value: '0'
+- bukva: K
+  zagolovok: Лист^Предложение^Товар
+  klyuch: столбец_11
+  var_name: изменения в топ 7
+  var_value: '0'
+  formula: '={"Лист^Предложение^Товар";LAMBDA(
+
+    doFilterProducts, doForEachProducts, doGetProductOffers,doSplitByLines, theProducts, theOffers, theNumTop, theWhereAnd,
+
+    doSplitByLines(doForEachProducts(doFilterProducts (theProducts),theNumTop,theWhereAnd,theOffers,doG,"Лист^Предложение^Товар")'
+  formula_v_stroke: 10
+  formul: 6
+- bukva: L
+  zagolovok: Лист
+  klyuch: столбец_12
+  var_name: изменения в топ 14
+  var_value: '0'
+  formula: '={$E$2:$I$2;LAMBDA( doComplereOffer, doTreatOffers, theOffersKey, theOffers,
+
+    doComplereOffer(theOffersKey,doTreatOffers(theOffers)))
+
+    (
+
+    LAMBDA(theOffersKey,theOffers, IFERROR( VLOOKUP(theOffersKey,theOffers,{2,3,4,5,6},FALSE),) ),
+
+    LAMBDA(theOffers,theOffers),
+
+    ''S-10 Новые предложения''!$K$11:$K1000,
+
+    ''S-10 Предложения''!$D11:$K1000
+
+    )}'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: M
+  zagolovok: Предложение
+  klyuch: столбец_13
+  var_name: ДатаСохранения
+- bukva: N
+  zagolovok: Постовшик
+  klyuch: столбец_14
+- bukva: O
+  zagolovok: Товар
+  klyuch: столбец_15
+- bukva: P
+  zagolovok: Цена
+  klyuch: столбец_16
+- bukva: Q
+  klyuch: столбец_17
+- bukva: R
+  zagolovok: Лист^Предложение^Товар
+  klyuch: столбец_18
+  formula: '={"Лист^Предложение^Товар";LAMBDA(
+
+    doFilterProducts, doForEachProducts, doGetProductOffers,doSplitByLines, theProducts, theOffers, theNumTop, theWhereAnd,
+
+    doSplitByLines(doForEachProducts(doFilterProducts (theProducts),theNumTop,theWhereAnd,theOffers,doG,"Лист^Предложение^Товар")'
+  formula_v_stroke: 10
+  formul: 3
+- bukva: S
+  zagolovok: Лист
+  klyuch: столбец_19
+  formula: '={$E$2:$I$2;LAMBDA( doComplereOffer, doTreatOffers, theOffersKey, theOffers,
+
+    doComplereOffer(theOffersKey,doTreatOffers(theOffers)))
+
+    (
+
+    LAMBDA(theOffersKey,theOffers, IFERROR( VLOOKUP(theOffersKey,theOffers,{2,3,4,5,6},FALSE),) ),
+
+    LAMBDA(theOffers,theOffers),
+
+    ''S-10 Новые предложения''!$R$11:$R1000,
+
+    ''S-10 Предложения''!$D11:$K1000
+
+    )}'
+  formula_v_stroke: 10
+  formul: 2
+- bukva: T
+  zagolovok: Предложение
+  klyuch: столбец_20
+- bukva: U
+  zagolovok: Постовшик
+  klyuch: столбец_21
+- bukva: V
+  zagolovok: Товар
+  klyuch: столбец_22
+- bukva: W
+  zagolovok: Цена
+  klyuch: столбец_23
+- bukva: X
+  klyuch: столбец_24
+- bukva: Y
+  zagolovok: Лист^Предложение^Товар
+  klyuch: столбец_25
+  formula: '={"Лист^Предложение^Товар";LAMBDA(
+
+    doFilterProducts, doForEachProducts, doGetProductOffers,doSplitByLines, theProducts, theOffers, theNumTop, theWhereAnd,
+
+    doSplitByLines(doForEachProducts(doFilterProducts (theProducts),theNumTop,theWhereAnd,theOffers,doG,"Лист^Предложение^Товар")'
+  formula_v_stroke: 10
+  formul: 3
+- bukva: Z
+  zagolovok: Лист
+  klyuch: столбец_26
+  formula: '={$E$2:$I$2;LAMBDA( doComplereOffer, doTreatOffers, theOffersKey, theOffers,
+
+    doComplereOffer(theOffersKey,doTreatOffers(theOffers)))
+
+    (
+
+    LAMBDA(theOffersKey,theOffers, IFERROR( VLOOKUP(theOffersKey,theOffers,{2,3,4,5,6},FALSE),) ),
+
+    LAMBDA(theOffers,theOffers),
+
+    ''S-10 Новые предложения''!$Y$11:$Y1000,
+
+    ''S-10 Предложения''!$D11:$K1000
+
+    )}'
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AA
+  zagolovok: Предложение
+  klyuch: столбец_27
+- bukva: AB
+  zagolovok: Постовшик
+  klyuch: столбец_28
+- bukva: AC
+  zagolovok: Товар
+  klyuch: столбец_29
+- bukva: AD
+  zagolovok: Цена
+  klyuch: столбец_30
+- bukva: AE
+  klyuch: столбец_31
+- bukva: AF
+  zagolovok: №
+  klyuch: столбец_32
+  formula: ='3-3 Выбор поставщиков'!A1:A1000
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AG
+  zagolovok: Поставщик
+  klyuch: столбец_33
+  formula: ='3-3 Выбор поставщиков'!K1:K1000
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AH
+  zagolovok: Товар
+  klyuch: столбец_34
+  formula: ={"Товар";lambda(_ns,_ds, byrow(_ns,LAMBDA(n,IFERROR(VLOOKUP(n,_ds,2,FALSE),))) )(AF11:AF1000,{'1-0 Товары'!$D$1:$D1000,'1-0 Товары'!$C$1:$C1000})}
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AI
+  zagolovok: Цена
+  klyuch: столбец_35
+  formula: ='3-3 Выбор поставщиков'!E1:E1000
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AJ
+  klyuch: столбец_36
+- bukva: AK
+  klyuch: столбец_37
+- bukva: AL
+  zagolovok: Новые предложения
+  klyuch: столбец_38
+  formula: "= {\"Новые предложения\"\n;LET(\n _do_join, LAMBDA(_vals, TEXTJOIN(CHAR(10), TRUE, BYROW( _vals,lambda(_v_r,TEXTJOIN(\" - \",FALSE,_v_r))))),\n _do_map_get, LAMBDA(_map, _key, IFERROR(VLOOKUP(_key, _map, 2, FALSE), \"\")),\n _do_dif, LAMBDA(_new, _save,\n,\"Новые предложения\")"
+  formula_v_stroke: 10
+  formul: 3

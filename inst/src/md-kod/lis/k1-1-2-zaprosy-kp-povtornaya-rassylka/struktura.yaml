@@ -1,0 +1,256 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 1-2 Запросы КП повторная рассыл
+diapazon: A1:AZ399
+zakrepleno: F11
+karkas: true
+stroka_zagolovkov: 10
+formul: 427
+znacheniy: 0
+spiskov: 1
+uslovnyh: 0
+obedineno: 0
+beryot:
+  1-0 Товары: 16
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err
+  skryt: Скрыть
+- bukva: B
+  klyuch: err2
+  skryt: Скрыть
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaColl
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$C$10:C399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  var_name: Ответственный
+  var_value: '0'
+  spisok: '''1-0 Товары''!$D$11:$D399'
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  var_name: ПоУмолчанию
+  var_value: <- ID из битрикс | По умолчанию | Текст подписи ->
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$E$10:E399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: F
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  vid: formulaColl
+  var_name: Подпись
+  var_value: '<br>[сотрудник]
+
+    <br> [телефон]'
+  skryt: Сгрупировать
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$J$10:J399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: G
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$K$10:K399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: H
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$F$10:F399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: I
+  zagolovok: Ед. Изм
+  klyuch: ЕдИзм
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$G$10:G399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: J
+  zagolovok: Кол-во
+  klyuch: Количевство
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$H$10:H399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  zagolovok: Нац режим 1875
+  klyuch: НацРежим
+  skryt: Сгрупировать
+  formula: '=LAMBDA(doFind,theNames,theDatas,BYROW(theNames,LAMBDA(theName,IF(theName<>"",doFind(theName,theDatas),))))(
+
+    LAMBDA(theName,theDatas,IFERROR( VLOOKUP(theName,theDatas,2,0),)),
+
+    D10:D399,{''1-0 Товары''!$D$10:$D399,''1-0 Товары''!$O$10:O399}
+
+    )'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: L
+  zagolovok: Название товара для запроса
+  klyuch: НазваниеТовраДляЗапроса
+  vid: formulaCell
+  formula: =E11
+  formula_v_stroke: 11
+  formul: 389
+- bukva: M
+  zagolovok: Комментарий
+  klyuch: Комментарий
+  skryt: Сгрупировать
+- bukva: N
+  zagolovok: Файлы
+  klyuch: Файлы
+  skryt: Сгрупировать
+- bukva: O
+  zagolovok: Группа
+  klyuch: Группа
+  vid: formulaColl
+  formula: "={{\"Группа\",\"Строка в группе\"};\nLAMBDA(doNorm, doGrop, doExtact, doJoin,\ndoScan,doResolveItem,\nнач,дата, doGrop(doExtact, doScan( doResolveItem , doExtact, doJoin,нач,doNorm(дата) ))\n)(\n LAMBDA(dr,BYROW(dr ,LAMBDA(r,NOT( ISBLANK(r))))), \n LAMBDA(doE,\"Группа\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: P
+  zagolovok: Строка в группе
+  klyuch: СтрокаВГруппе
+  vid: formulaFree
+  skryt: Сгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: Q
+  zagolovok: Ключ фразы 1
+  klyuch: Ключ фразы 1
+  skryt: Сгрупировать
+- bukva: R
+  zagolovok: Ключ фразы 2
+  klyuch: Ключ фразы 2
+  skryt: Сгрупировать
+- bukva: S
+  zagolovok: Ключ фразы 3
+  klyuch: Ключ фразы 3
+  skryt: Сгрупировать
+- bukva: T
+  klyuch: Свободно01
+  skryt: Скрыть
+- bukva: U
+  klyuch: Свободно02
+  skryt: Скрыть
+- bukva: V
+  klyuch: Свободно03
+  skryt: Скрыть
+- bukva: W
+  klyuch: Свободно04
+  skryt: Скрыть
+- bukva: X
+  klyuch: Свободно05
+  skryt: Скрыть
+- bukva: Y
+  klyuch: Свободно06
+  skryt: Скрыть
+- bukva: Z
+  klyuch: ПочтыНачало
+  skryt: Скрыть
+- bukva: AA
+  klyuch: Почта.AA
+- bukva: AB
+  klyuch: Почта.AB
+- bukva: AC
+  klyuch: Почта.AC
+- bukva: AD
+  klyuch: Почта.AD
+- bukva: AE
+  klyuch: Почта.AE
+- bukva: AF
+  klyuch: Почта.AF
+- bukva: AG
+  klyuch: Почта.AG
+- bukva: AH
+  klyuch: Почта.AH
+- bukva: AI
+  klyuch: Почта.AI
+- bukva: AJ
+  klyuch: Почта.AJ
+- bukva: AK
+  klyuch: Почта.AK
+- bukva: AL
+  klyuch: Почта.AL
+- bukva: AM
+  klyuch: Почта.AM
+- bukva: AN
+  klyuch: Почта.AN
+- bukva: AO
+  klyuch: Почта.AO
+- bukva: AP
+  klyuch: Почта.AP
+- bukva: AQ
+  klyuch: Почта.AQ
+- bukva: AR
+  klyuch: Почта.AR
+- bukva: AS
+  klyuch: Почта.AS
+- bukva: AT
+  klyuch: Почта.AT
+- bukva: AU
+  klyuch: Почта.AU
+- bukva: AV
+  klyuch: Почта.AV
+- bukva: AW
+  klyuch: Почта.AW
+- bukva: AX
+  klyuch: Почта.AX
+- bukva: AY
+  klyuch: Почта.AY
+- bukva: AZ
+  klyuch: Почта.AZ

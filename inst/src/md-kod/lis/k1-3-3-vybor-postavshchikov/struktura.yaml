@@ -1,0 +1,506 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 3-3 Выбор поставщиков
+diapazon: A1:DI340
+zakrepleno: M2
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 27977
+znacheniy: 55
+spiskov: 0
+uslovnyh: 17
+obedineno: 9
+beryot:
+  1-1 Сбор КП: 11420
+  2-1 Вопросы от Поставщиков: 900
+  3-2 Экспертиза предложений: 3
+  Настройки писем: 2
+  3-1 Расчет стоимости доставки: 1
+  3-4 Прочие расходы: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+  formula: ='1-1 Сбор КП'!C1
+  formula_v_stroke: 1
+  formul: 301
+- bukva: B
+  zagolovok: Номенклатура
+  formula: ='1-1 Сбор КП'!D1
+  formula_v_stroke: 1
+  formul: 301
+- bukva: C
+  zagolovok: Ед
+  formula: ='1-1 Сбор КП'!F2
+  formula_v_stroke: 2
+  formul: 300
+- bukva: D
+  zagolovok: Кол
+  formula: ='1-1 Сбор КП'!G2
+  formula_v_stroke: 2
+  formul: 300
+- bukva: E
+  zagolovok: Цена
+  formula: =IF(CU2>0,CU2,CW2)
+  formula_v_stroke: 2
+  formul: 300
+- bukva: F
+  zagolovok: Сумма
+  formula: =E2*D2
+  formula_v_stroke: 2
+  formul: 304
+- bukva: G
+  zagolovok: Группа
+  formula: ='1-1 Сбор КП'!O2
+  formula_v_stroke: 2
+  formul: 300
+- bukva: H
+  zagolovok: Срок поставки
+  formula: =IFERROR(IF(CU2>0,OFFSET('1-1 Сбор КП'!$O2,0,CT2+1),OFFSET('1-1 Сбор КП'!$O2,0,CV2+1)),)
+  formula_v_stroke: 2
+  formul: 301
+- bukva: I
+  zagolovok: Срок поставки по договору
+  formula: ='1-1 Сбор КП'!N2
+  formula_v_stroke: 2
+  formul: 300
+- bukva: J
+  zagolovok: Нац режим 1875
+  formula: ='1-1 Сбор КП'!L1
+  formula_v_stroke: 1
+  formul: 301
+- bukva: K
+  zagolovok: Поставщик
+- bukva: L
+  zagolovok: Резервный поставщик
+  formula: =COUNTA(UNIQUE(K2:K301))
+  formula_v_stroke: 305
+  formul: 1
+- bukva: M
+  formula: =COUNTIF(AD:AD,K2)
+  formula_v_stroke: 2
+  formul: 300
+- bukva: N
+  zagolovok: НМЦ
+  formula: ='1-1 Сбор КП'!K2
+  formula_v_stroke: 2
+  formul: 301
+- bukva: O
+  zagolovok: Статус
+- bukva: P
+  zagolovok: Предполагаемая дата оплаты
+- bukva: Q
+  zagolovok: Комментарий
+- bukva: R
+  zagolovok: Разница от миним
+  formula: =E2-AB2
+  formula_v_stroke: 2
+  formul: 300
+- bukva: S
+  zagolovok: Итого разница
+  formula: =R2*D2
+  formula_v_stroke: 2
+  formul: 301
+- bukva: T
+  zagolovok: Название товара в ТП
+  formula: =IF(CT2>0,OFFSET('1-1 Сбор КП'!$O2,0,CT2+2),)
+  formula_v_stroke: 2
+  formul: 300
+- bukva: Y
+  zagolovok: 'Всего: 0 вопросов
+
+    Всего: 0 проблем'
+  formula: =LAMBDA(номенклатуры,экспертиза, BYROW(номенклатуры, LAMBDA(н, TEXTJOIN(CHAR(10),TRUE, IFERROR(VLOOKUP(н,экспертиза,2,FALSE),),IFERROR(VLOOKUP(н,экспертиза,3,FALSE),)))))('3-3 Выбор поставщиков'!B1:B301,{'3-2 Экспертиза предложений'!B:B,'3-2 Экспертиза предложений'!I:I,'3-2 Экспертиза предложений'!J:J})
+  formula_v_stroke: 1
+  formul: 1
+- bukva: Z
+  zagolovok: БлокТопНачало
+- bukva: AA
+  zagolovok: 1 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,1))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AB
+  zagolovok: 1 цена
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AC
+  zagolovok: 2 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,2))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AD
+  zagolovok: 1 Поставщик
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AE
+  zagolovok: 3 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,3),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AF
+  zagolovok: 1 Комментарий
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AG
+  zagolovok: 4 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,4))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AH
+  zagolovok: 1 срок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AI
+  zagolovok: 5 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,5),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AJ
+  zagolovok: 1 Эксперт
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AK
+  zagolovok: 6 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,6))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AL
+  zagolovok: 2 цена
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AM
+  zagolovok: 7 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,7))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AN
+  zagolovok: 2 Поставщик
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AO
+  zagolovok: 8 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,8),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AP
+  zagolovok: 2 Комментарий
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AQ
+  zagolovok: 9 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,9))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AR
+  zagolovok: 2 срок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AS
+  zagolovok: 10 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,10),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AT
+  zagolovok: 2 Эксперт
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AU
+  zagolovok: 11 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,11))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AV
+  zagolovok: 3 цена
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AW
+  zagolovok: 12 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,12))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AX
+  zagolovok: 3 Поставщик
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AY
+  zagolovok: 13 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,13),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: AZ
+  zagolovok: 3 Комментарий
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BA
+  zagolovok: 14 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,14))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BB
+  zagolovok: 3 срок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BC
+  zagolovok: 15 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,15),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BD
+  zagolovok: 3 Эксперт
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BE
+  zagolovok: 16 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,16))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BF
+  zagolovok: 4 цена
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BG
+  zagolovok: 17 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,17))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BH
+  zagolovok: 4 Поставщик
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BI
+  zagolovok: 18 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,18),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BJ
+  zagolovok: 4 Комментарий
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BK
+  zagolovok: 19 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,19))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BL
+  zagolovok: 4 срок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BM
+  zagolovok: 20 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,20),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BN
+  zagolovok: 4 Эксперт
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BO
+  zagolovok: 21 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,21))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BP
+  zagolovok: 5 цена
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BQ
+  zagolovok: 22 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,22))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BR
+  zagolovok: 5 Поставщик
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BS
+  zagolovok: 23 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,23),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BT
+  zagolovok: 5 Комментарий
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BU
+  zagolovok: 24 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,24))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BV
+  zagolovok: 5 срок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BW
+  zagolovok: 25 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,25),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BX
+  zagolovok: 5 Эксперт
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BY
+  zagolovok: 26 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,26))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: BZ
+  zagolovok: 6 цена
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CA
+  zagolovok: 27 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,27))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CB
+  zagolovok: 6 Поставщик
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CC
+  zagolovok: 28 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,28),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CD
+  zagolovok: 6 Комментарий
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CE
+  zagolovok: 29 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,29))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CF
+  zagolovok: 6 срок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CG
+  zagolovok: 30 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,30),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CH
+  zagolovok: 6 Эксперт
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CI
+  zagolovok: 31 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,31))),"")}
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CJ
+  zagolovok: 7 цена
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CK
+  zagolovok: 32 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,32))),"")}
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CL
+  zagolovok: 7 Поставщик
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CM
+  zagolovok: 33 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,33),"")}
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CN
+  zagolovok: 7 Комментарий
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CO
+  zagolovok: 34 Формула
+  formula: ={"" , IFERROR( INDIRECT( CONCATENATE("'1-1 Сбор КП'!", INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,34))),"")}
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CP
+  zagolovok: 7 срок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CQ
+  zagolovok: 35 Формула
+  formula: ={"" , IFERROR(INDEX(SPLIT($CZ2,"|||",FALSE,FALSE),1,35),"")}
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CR
+  zagolovok: 7 Эксперт
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 308
+- bukva: CS
+  zagolovok: БлокТопКонец
+- bukva: CT
+  zagolovok: НЕТ
+  formula: ='Настройки писем'!$K$11
+  formula_v_stroke: 1
+  formul: 301
+- bukva: CU
+  formula: =IF(CT2>0,OFFSET('1-1 Сбор КП'!$O2,0,CT2),)
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CV
+  formula: =IFERROR(MATCH("#@!$!#$@",SPLIT(SUBSTITUTE(JOIN("|||",'1-1 Сбор КП'!$P$1:$KL$1),K2,"#@!$!#$@",2),"|||",FALSE,FALSE),0),)
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CW
+  formula: =IF(CV2>0,OFFSET('1-1 Сбор КП'!$O2,0,CV2),)
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CX
+  formula: =COUNTA(IFERROR(FILTER({'2-1 Вопросы от Поставщиков'!B:B},{'2-1 Вопросы от Поставщиков'!B:B=A2},{'2-1 Вопросы от Поставщиков'!U:U=FALSE}),))
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CY
+  formula: =INDIRECT(ADDRESS($DA2,COLUMN('1-1 Сбор КП'!$D$1),1,TRUE,"1-1 Сбор КП"))
+  formula_v_stroke: 2
+  formul: 300
+- bukva: CZ
+  formula: =INDIRECT(ADDRESS($DA2,COLUMN('1-1 Сбор КП'!$IE$1),1,TRUE,"1-1 Сбор КП"))
+  formula_v_stroke: 2
+  formul: 300
+- bukva: DA
+  zagolovok: Лист1 Номер строки
+  formula: =ROW(INDIRECT(MIDB(FORMULATEXT(INDIRECT(ADDRESS(ROW(),2,1,TRUE))),2,LENB(FORMULATEXT(INDIRECT(ADDRESS(ROW(),2,1,TRUE)))))))
+  formula_v_stroke: 2
+  formul: 300
+- bukva: DB
+  zagolovok: ТопЭксперта

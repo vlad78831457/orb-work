@@ -1,0 +1,395 @@
+# Реестр листов обеих таблиц: какой лист — какая часть описания. Руками.
+# list — имя листа как в выгрузке xlsx (Excel обрезает до 31 знака), title — полное имя, если обрезано;
+# tablitsa — proekta (таблица проекта) | oplat (внешняя таблица оплат); kontur; chast — папка части в lis/;
+# zachem — одна строка со слов директора («краткое описание листов», 2026-10-19); analog — лист-аналог другого контура;
+# dogadka — что не подтверждено. Устройство листа — в lis/<chast>/struktura.yaml (make listy), описание — index.md, stolbtsy.yaml.
+- list: Лист49
+  tablitsa: proekta
+  kontur: '0'
+  dogadka: Листа нет в описании листов директора; контур не известен.
+  chast: k0-list49
+- list: 0-Паспорт проекта
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-0-pasport-proekta
+  zachem: основные настройки, приходят из Битрикс24
+- list: 0-1 Данные из ИИ
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-0-1-dannye-iz-ii
+  zachem: пустой, не важен
+- list: 1-1 Сбор КП
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-1-1-sbor-kp
+  zachem: данные о товарах и предложениях поставщиков
+- list: 1-0 Товары
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-1-0-tovary
+  zachem: собирает данные по товарам и передаёт их дальше
+- list: 1-4 1875 ОКПД2
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-1-4-1875-okpd2
+  zachem: по ОКПД2; назначение неясно
+- list: 1-2 Запросы по товарным группам
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-1-2-zaprosy-po-tovarnym-gruppam
+  zachem: товарные группы и рассылка писем
+- list: 1-2 Запросы КП повторная рассыл
+  title: 1-2 Запросы КП повторная рассылка
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-1-2-zaprosy-kp-povtornaya-rassylka
+  zachem: резервный лист рассылки
+- list: 1-2 Запросы КП третья рассылка
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-1-2-zaprosy-kp-tretya-rassylka
+  zachem: резервный лист рассылки
+- list: 2-1 Вопросы от Поставщиков
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-2-1-voprosy-ot-postavshchikov
+  zachem: заполняется редко
+- list: 2-2 Проблемы по проекту
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-2-2-problemy-po-proektu
+  zachem: заполняется редко
+- list: 3-1 Расчет стоимости доставки
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-3-1-raschet-stoimosti-dostavki
+  zachem: расчёт доставки
+- list: 3-2 Экспертиза предложений
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-3-2-ekspertiza-predlozheniy
+  zachem: 'важный: эксперт оценивает предложения поставщиков и предложенные модели'
+- list: 3-3 Выбор поставщиков
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-3-3-vybor-postavshchikov
+  zachem: выбор поставщиков из списка топ-7
+- list: 3-4 Прочие расходы
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-3-4-prochie-raskhody
+- list: 3-5 Экспортная экспертиза
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-3-5-eksportnaya-ekspertiza
+- list: 4-1 Расчет рентабельности КП в1
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-4-1-raschet-rentabelnosti-kp-v1
+- list: 4-2 Подготовка КП
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-4-2-podgotovka-kp
+- list: 4-1 Расчет рентабельности КП
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-4-1-raschet-rentabelnosti-kp
+- list: S-10 ОтчетРентабельности
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-s-10-otchetrentabelnosti
+- list: 4-3 Подготовка ТКП
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-4-3-podgotovka-tkp
+  zachem: 'важный: участвует в подготовке ТКП'
+- list: 4-9 Финансист
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-4-9-finansist
+  zachem: отчёт для финансиста; не используется
+- list: 5-0 Товары
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-5-0-tovary
+  zachem: все данные по товарам для второго контура
+  analog: 1-0 Товары
+- list: 5-0 Передача в закупку
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-5-0-peredacha
+  zachem: товары как в договоре
+- list: 5-1 Сбор КП Закупки
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-5-1-sbor-kp
+  zachem: сбор коммерческих предложений
+  analog: 1-1 Сбор КП
+- list: Отзывы о поставщиках
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-otzyvy-o-postavshchikakh
+  zachem: отражение таблицы проверки контрагентов (ответ директора, раунд 2)
+- list: Товары
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-tovary
+- list: 5-2 Запросы КП Закупки
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-5-2-zaprosy-kp
+  zachem: рассылка писем второго контура
+  analog: 1-2 Запросы по товарным группам
+- list: 5-3 Выбор поставщиков Закупки
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-5-3-vybor-postavshchikov
+  zachem: выбор поставщиков, убираются ненужные товары
+  analog: 3-3 Выбор поставщиков
+- list: 5-4 Изменения в товарах
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-5-4-izmeneniya
+  zachem: добавляем и изменяем товары; данные собираются на лист 5-0
+- list: 5-5 Оформление сделок
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-5-5-sdelki
+  zachem: с листа 5-3 забираются товары и поставщики, по ним оформляются сделки
+- list: S-10 Оформление сделок ID_Товар
+  title: S-10 Оформление сделок ID_Товара
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-s-10-oformlenie-sdelok-id-tovara
+  zachem: товары листа 5-3 с «Да» в столбце A; по ним строится список
+- list: S-10 Оформление сделок Выборка
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-s-10-oformlenie-sdelok-vyborka
+  zachem: данные для листа 5-5 по сохранённым комментариям
+- list: S-10 Для Внешней Оплаты
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-s-10-dlya-vneshney-oplaty
+  zachem: по листу 5-5 готовит данные для контура 3 — для листа «6 Оплаты Внешняя»
+- list: 6 Оплаты
+  tablitsa: proekta
+  kontur: '3'
+  chast: k3-6-oplaty
+  zachem: загружается из внешней таблицы оплат — для контроля и обратной связи
+- list: 7 Исполнение
+  tablitsa: proekta
+  kontur: '3'
+  chast: k3-7-ispolnenie
+  zachem: контроль и обратная связь
+- list: 7 Договора
+  tablitsa: proekta
+  kontur: '3'
+  chast: k3-7-dogovora
+  zachem: контроль и обратная связь
+- list: 7 Стоимость Денег
+  tablitsa: proekta
+  kontur: '3'
+  chast: k3-7-stoimost-deneg
+  zachem: контроль и обратная связь
+- list: 7-2 Документация исполнение
+  tablitsa: proekta
+  kontur: '3'
+  chast: k3-7-2-dokumentatsiya-ispolnenie
+  zachem: контроль и обратная связь
+- list: 7-2 Оплаты
+  tablitsa: proekta
+  kontur: '3'
+  chast: k3-7-2-oplaty
+  zachem: контроль и обратная связь
+- list: Технический
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-tekhnicheskiy
+  zachem: технический лист со справочниками
+- list: Справочники
+  tablitsa: proekta
+  kontur: '0'
+  dogadka: Листа нет в описании листов директора; контур не известен.
+  chast: k0-spravochniki
+- list: Настройки писем
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-nastroyki-pisem
+  zachem: настройки писем
+- list: S-10 Экспорт в Битрикс
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-s-10-eksport-v-bitriks
+  zachem: собирает данные для выгрузки в Битрикс24
+- list: S-10 Справочник полей Битрикс
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-s-10-spravochnik-poley-bitriks
+  zachem: сопоставление полей с кодами Битрикс24
+- list: S-10 ОтчетыПроектов
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-s-10-otchetyproektov
+  zachem: собирает отчётные данные для контура 0
+- list: S-10 ОтчетыПроектовВнешний
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-s-10-otchetyproektovvneshniy
+  zachem: то же по данным из внешней таблицы оплат
+- list: S-10 Оформление сделок Коммента
+  title: S-10 Оформление сделок Комментарии
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-s-10-oformlenie-sdelok-kommentarii
+  zachem: поставщик может смениться во время оформления сделки — здесь хранятся комментарии, цены и статусы, вписанные на листе 5-5
+- list: S-10 Комментарии
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-s-10-kommentarii
+  zachem: хранит комментарии, вписанные на листе 5-3
+- list: S-10 Предложения
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-s-10-predlozheniya
+  zachem: собирает предложения с листов 1-1 и 5-1
+- list: S-10 Топ 5-3
+  tablitsa: proekta
+  kontur: '2'
+  chast: k2-s-10-top-5-3
+  zachem: топ-7 для листа 5-3
+- list: S-10 Финансист сбор данных
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-s-10-finansist-sbor-dannykh
+  zachem: готовит данные для листа 4-9
+- list: S-10 Триггеры
+  tablitsa: proekta
+  kontur: '0'
+  chast: k0-s-10-triggery
+  zachem: показывает, как выполняются триггеры
+- list: S-10 Новые предложения
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-s-10-novye-predlozheniya
+  zachem: 'следит за новыми предложениями: если цена заметно ниже, чем на листе 3-3, эксперт получает предупреждение'
+- list: S-10 Конвейер Запросов КП
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-s-10-konveyer-zaprosov-kp
+  zachem: следит за письмами, запоминает дату обнаружения и «температуру»
+- list: S-10 Новые предложения (сохр)
+  tablitsa: proekta
+  kontur: '1'
+  chast: k1-s-10-novye-predlozheniya-sokhr
+  zachem: копия — чтобы находить разницу
+- list: 6 Оплаты Внешняя
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-6-oplaty-vneshnyaya
+  zachem: данные готовит второй контур (лист «S-10 Для Внешней Оплаты»), сюда — импортом
+- list: 7 Исполнение Внешние
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-ispolnenie-vneshnie
+  zachem: 'договоры: номера и суммы'
+- list: 7 Договора
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-dogovora
+  zachem: продолжение договоров
+- list: 7 Стоимость Денег
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-stoimost-deneg
+  zachem: расчёт стоимости денег
+- list: 7-2 Номенклатуры
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-2-nomenklatury
+  zachem: отчёт по номенклатурам из контура 4
+- list: 7-2 Касса
+  tablitsa: oplat
+  kontur: '4'
+  chast: k4-vo-7-2-kassa
+  zachem: отчёт по кассе из контура 4
+- list: S-10 ИНН
+  tablitsa: oplat
+  kontur: '4'
+  chast: k4-vo-s-10-inn
+  zachem: 'для контура 4: оттуда берутся ИНН'
+- list: S-10 Проверки Оплаты Внешняя
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-s-10-proverki-oplaty-vneshnyaya
+  zachem: проверки внешней оплаты
+- list: S-10 Реально оплаченная сумма
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-s-10-realno-oplachennaya-summa
+  zachem: расчёт реально оплаченной суммы
+- list: S-10 Оплаты Отчет
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-s-10-oplaty-otchet
+  zachem: для листа «S-10 ОтчетыПроектовВнешний» таблицы проекта
+- list: S-10 7 Исполнение Внешние (отче
+  title: S-10 7 Исполнение Внешние (отчет)
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-s-10-7-ispolnenie-vneshnie-otchet
+  zachem: отчёт по листу «7 Договора»
+- list: 7-2 УПД
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-2-upd
+  zachem: отчёт по УПД из контура 4
+- list: 7-2 Договора
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-2-dogovora
+  zachem: отчёт по договорам из контура 4
+- list: 7-2 Оплаты
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-2-oplaty
+  zachem: отчёт по оплатам из контура 4
+- list: 7 Проверки Документов
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-proverki-dokumentov
+  zachem: проверка, правильно ли заполнены документы
+- list: ОтчетыПроектов
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-otchetyproektov
+  zachem: не используется
+- list: 7 Проверки
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-7-proverki
+  zachem: проверка, заполнены ли УПД на листе 7
+- list: Сводная Прочее
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-svodnaya-prochee
+  zachem: сводные прочие показатели
+- list: Сводная по Номенклатуре
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-svodnaya-po-nomenklature
+  zachem: по листу «7 Исполнение Внешние» — для контура 4
+- list: Сводная по УПД
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-svodnaya-po-upd
+  zachem: по листу «7 Исполнение Внешние» — для контура 4
+- list: Сводная по Договорам
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-svodnaya-po-dogovoram
+  zachem: по листу «7 Исполнение Внешние» — для контура 4
+- list: Технический лист
+  tablitsa: oplat
+  kontur: '3'
+  chast: k3-vo-tekhnicheskiy-list

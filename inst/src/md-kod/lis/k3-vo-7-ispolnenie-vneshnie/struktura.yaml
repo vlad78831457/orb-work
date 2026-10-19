@@ -1,0 +1,153 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 7 Исполнение Внешние
+diapazon: A1:AM333
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 2145
+znacheniy: 91
+spiskov: 3
+uslovnyh: 12
+obedineno: 5
+beryot:
+  6 Оплаты Внешняя: 2109
+  7-2 Номенклатуры: 32
+  7 Проверки: 6
+  7 Проверки Документов: 4
+  5-1 Сбор КП Закупки: 1
+  7 Договора: 1
+importrange: 1
+stolbtsy:
+- bukva: A
+  formula: ="№"
+  formula_v_stroke: 18
+  formul: 301
+- bukva: B
+  formula: ="Номенклатура"
+  formula_v_stroke: 18
+  formul: 302
+- bukva: C
+  formula: ="Название товара по договору"
+  formula_v_stroke: 18
+  formul: 302
+- bukva: D
+  formula: ="ед"
+  formula_v_stroke: 18
+  formul: 302
+- bukva: E
+  formula: ="Кол"
+  formula_v_stroke: 18
+  formul: 302
+- bukva: F
+  formula: ="% оплаты"
+  formula_v_stroke: 18
+  formul: 302
+- bukva: G
+  formula: "={\"Текущий статус\";\nLAMBDA(ном_ры,срок,\n BYROW(ном_ры,LAMBDA(ном, IF(ном=\"\" ,,IFERROR( VLOOKUP(ном,срок,2,FALSE),\"Текуший статус доставки не найден\"))))\n)(\n IF(A19:A333<>\"\",A19:A333&\"\U0001F517\"&B19:B333,),\n IF('7-2 Номенклатуры'!B11:B333<>\"\",{'7-2 Номенклатуры'!B11:B333&\"\U0001F517\"&'7-2 Номенклатуры'!C11:C333,'7-2 Номенклатуры'!Q11:Q333},) \n )\n}"
+  formula_v_stroke: 18
+  formul: 2
+- bukva: H
+  formula: "={\"Срок поставки по договору До\";LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n '7 Исполнение Внешние'!$AJ$19:$AJ333,'6 Оплаты Внешняя'!$I$1:$I333\n ,'6 Оплаты Внешняя'!V1:V333\n)}"
+  formula_v_stroke: 18
+  formul: 2
+- bukva: I
+  formula: ={"Цена для партнера";IF(LEN(A19:A333)>0,ROUND(N19:N333*AA$12,2),)}
+  formula_v_stroke: 18
+  formul: 1
+- bukva: J
+  formula: =SUM(J19:J318)
+  formula_v_stroke: 17
+  formul: 2
+- bukva: K
+  formula: ="Юр лицо для партнера"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: L
+  formula: ="№ СФ для партенра"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: M
+  formula: ="Дата СФ для партнера"
+  formula_v_stroke: 18
+  formul: 2
+- bukva: N
+  formula: ="Цена для Заказчика"
+  formula_v_stroke: 18
+  formul: 1
+  spisok: '"руб.,дол. США"'
+- bukva: O
+  formula: =SUM(O19:O318)
+  formula_v_stroke: 17
+  formul: 2
+- bukva: P
+  formula: ="№ СФ для Заказчика"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: Q
+  formula: ="Дата СФ для Заказчика"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: R
+  formula: ={"Проверки";IF(A19:A333&B19:B333="",, VLOOKUP(ROW(A19:A333),{'7 Проверки'!A19:A333,'7 Проверки'!B19:B333},2,FALSE))}
+  formula_v_stroke: 18
+  formul: 1
+  spisok: '''Технический лист''!$B$2:$B$10'
+- bukva: T
+  formula: "={\"Ожидаемая дата готовности\";\nLAMBDA(ном_ры,срок,\n BYROW(ном_ры,LAMBDA(ном, IF(ном=\"\" ,,IFERROR( VLOOKUP(ном,срок,2,FALSE),))))\n)(\n IF(A19:A333<>\"\",A19:A333&\"\U0001F517\"&B19:B333,),\n IF('7-2 Номенклатуры'!B11:B333<>\"\",{'7-2 Номенклатуры'!B11:B333&\"\U0001F517\"&'7-2 Номенклатуры'!C11:C333,'7-2 Номенклатуры'!M11:M333},) \n )\n}"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: U
+  formula: "={\"Комментарий логиста\";\nLAMBDA(ном_ры,срок,\n BYROW(ном_ры,LAMBDA(ном, IF(ном=\"\" ,,IFERROR( VLOOKUP(ном,срок,2,FALSE),))))\n)(\n IF(A19:A333<>\"\",A19:A333&\"\U0001F517\"&B19:B333,),\n IF('7-2 Номенклатуры'!B11:B333<>\"\",{'7-2 Номенклатуры'!B11:B333&\"\U0001F517\"&'7-2 Номенклатуры'!C11:C333,'7-2 Номенклатуры'!O11:O333},) \n )\n}"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: V
+  formula: "={\"Комментарий [сотрудник контура 2]\";\nLAMBDA(ном_ры,срок,\n BYROW(ном_ры,LAMBDA(ном, IF(ном=\"\" ,,IFERROR( VLOOKUP(ном,срок,2,FALSE),))))\n)(\n IF(A19:A333<>\"\",A19:A333&\"\U0001F517\"&B19:B333,),\n IF('7-2 Номенклатуры'!B11:B333<>\"\",{'7-2 Номенклатуры'!B11:B333&\"\U0001F517\"&'7-2 Номенклатуры'!C11:C333,'7-2 Номенклатуры'!BF11:BF333},) \n )\n}"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: W
+  formula: "={\"Дата поступления к нам на склад\" ;\nLAMBDA(ном_ры,срок,\n BYROW(ном_ры,LAMBDA(ном, IF(ном=\"\" ,,IFERROR( VLOOKUP(ном,срок,2,FALSE),))))\n)(\n IF(A19:A333<>\"\",A19:A333&\"\U0001F517\"&B19:B333,),\n IF('7-2 Номенклатуры'!B11:B333<>\"\",{'7-2 Номенклатуры'!B11:B333&\"\U0001F517\"&'7-2 Номенклатуры'!C11:C333,'7-2 Номенклатуры'!BG11:BG333},) \n )\n}"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: X
+  formula: "={\"Дата доставки Заказчику\" ;\nLAMBDA(ном_ры,срок,\n BYROW(ном_ры,LAMBDA(ном, IF(ном=\"\" ,,IFERROR( VLOOKUP(ном,срок,2,FALSE),))))\n)(\n IF(A19:A333<>\"\",A19:A333&\"\U0001F517\"&B19:B333,),\n IF('7-2 Номенклатуры'!B11:B333<>\"\",{'7-2 Номенклатуры'!B11:B333&\"\U0001F517\"&'7-2 Номенклатуры'!C11:C333,'7-2 Номенклатуры'!AM11:AM333},) \n )\n}"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: Y
+  formula: "={\"Дата окончания приемки\";\nLAMBDA(ном_ры,срок,\n BYROW(ном_ры,LAMBDA(ном, IF(ном=\"\" ,,IFERROR( VLOOKUP(ном,срок,2,FALSE),))))\n)(\n IF(A19:A333<>\"\",A19:A333&\"\U0001F517\"&B19:B333,),\n IF('7-2 Номенклатуры'!B11:B333<>\"\",{'7-2 Номенклатуры'!B11:B333&\"\U0001F517\"&'7-2 Номенклатуры'!C11:C333,'7-2 Номенклатуры'!AO11:AO333},) \n )\n}"
+  formula_v_stroke: 18
+  formul: 1
+- bukva: AF
+  zagolovok: Проверки
+  formula: ={"Проверки";IF(FALSE,, VLOOKUP(ROW(A11:A16),{'7 Проверки Документов'!A11:A16,'7 Проверки Документов'!B11:B16},2,FALSE));'7 Проверки'!B17}
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AG
+  zagolovok: Цвета
+  formula: ={"Цвета";IF(FALSE,, VLOOKUP(ROW(A11:A16),{'7 Проверки Документов'!A11:A16,'7 Проверки Документов'!C11:C16},2,FALSE));'7 Проверки'!C17}
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AH
+  zagolovok: № строки с Договором о закупке
+  formula: ={"№ строки с Договором о закупке";ByRow(H11:H15,LAMBDA(продавец, IF(продавец="",, TEXTJOIN(", ",TRUE,IFERROR( QUERY({J11:J15,AJ11:AJ15},"Select Col2 Where Col1='"&продавец&"'"),)))))}
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AI
+  zagolovok: № Договора
+  formula: ="№ Договора"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AJ
+  zagolovok: ID Договора
+  formula: ="ID Договора"
+  formula_v_stroke: 10
+  formul: 301
+- bukva: AK
+  zagolovok: Сводка Документа
+  formula: ='7 Договора'!AR10:AR15
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AM
+  zagolovok: НДС Договора
+  spisok: '''Технический лист''!$C$2:$C$10'

@@ -1,0 +1,118 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 4-3 Подготовка ТКП
+diapazon: A1:Y320
+zakrepleno: A4
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 3
+formul: 3025
+znacheniy: 16
+spiskov: 2
+uslovnyh: 7
+obedineno: 2
+beryot:
+  3-3 Выбор поставщиков: 302
+  1-1 Сбор КП: 9
+  4-1 Расчет рентабельности КП: 3
+  1-2 Запросы по товарным группам: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+  formula: =FILTER({'1-1 Сбор КП'!C1:D320,ARRAYFORMULA(IFERROR(VLOOKUP('1-1 Сбор КП'!D1:D320,{'1-2 Запросы по товарным группам'!E11:E320,'1-2 Запросы по товарным группам'!H11:H320},2,0),'1-1 Сбор КП'!E1:E320)),'1-1 Сбор КП'!F:G,'1-1 Сбор КП'!K:K,'1-1 Сбор КП'!L:L},'1,"№")
+  formula_v_stroke: 3
+  formul: 302
+- bukva: B
+  zagolovok: Номенклатура
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 3
+  formul: 1
+- bukva: C
+  zagolovok: Характеристики
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 3
+  formul: 1
+- bukva: D
+  zagolovok: Ед. Изм
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 3
+  formul: 1
+- bukva: E
+  zagolovok: Кол-во
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 3
+  formul: 1
+- bukva: F
+  zagolovok: НМЦ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 3
+  formul: 2
+- bukva: G
+  zagolovok: Нац режим 1875
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 3
+  formul: 1
+- bukva: H
+  zagolovok: №
+  formula: =A3
+  formula_v_stroke: 3
+  formul: 301
+- bukva: I
+  zagolovok: Название товара в ТП
+  formula: ='3-3 Выбор поставщиков'!T2
+  formula_v_stroke: 4
+  formul: 300
+  spisok: '"Да,Нет"'
+- bukva: J
+  zagolovok: Изгот-тель товара
+- bukva: K
+  zagolovok: ИНН Изгот-ля
+- bukva: L
+  zagolovok: Страна про-ния
+- bukva: M
+  zagolovok: Характеристики
+  formula: =C3
+  formula_v_stroke: 3
+  formul: 302
+- bukva: N
+  zagolovok: Ед. Изм
+- bukva: O
+  zagolovok: Кол-во
+- bukva: P
+  zagolovok: Цена (с НДС)
+  formula: =IF(LEN(I4)>0,R4*1.22,)
+  formula_v_stroke: 4
+  formul: 300
+- bukva: Q
+  zagolovok: Сумма (с НДС)
+  formula: =IF(LEN(I4)>0,P4*O4,)
+  formula_v_stroke: 4
+  formul: 302
+- bukva: R
+  zagolovok: Цена (Без НДС)
+  formula: =IF(LEN(I4)>0,ROUNDDOWN(Y4/O4*Y$1/1.22,1),)
+  formula_v_stroke: 4
+  formul: 300
+- bukva: S
+  zagolovok: Сумма (Без НДС)
+  formula: =IF(LEN(I4)>0,O4*R4,)
+  formula_v_stroke: 4
+  formul: 304
+- bukva: T
+  zagolovok: Аналог
+  formula: =IF(ROUND(Q304-S306,2)=0,"ok","Копейки не сходятся на "&ROUND(Q304-S306,2)*100&" коп")
+  formula_v_stroke: 306
+  formul: 1
+  spisok: '''Настройки писем''!$BF$2:$BF$8'
+- bukva: U
+  zagolovok: Комментарий, где что изменено
+- bukva: V
+  zagolovok: Номер реестровой записи 1875
+- bukva: W
+  zagolovok: Проверка ошибок
+  formula: ={"Проверка ошибок";IFS(LEN(I4:I320)>0,IFS(LEN(T4:T320)=0,"Не выбрано значение в столбце Аналог",1=1,),P4:P320=0,,F4:F320=0,"НМЦ не задано",P4:P320>F4:F320,"Ошибка Цена выше НМЦ",1=1,)}
+  formula_v_stroke: 3
+  formul: 1
+- bukva: Y
+  zagolovok: Цена

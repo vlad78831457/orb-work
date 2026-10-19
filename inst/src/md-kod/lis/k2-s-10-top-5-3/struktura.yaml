@@ -1,0 +1,126 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Топ 5-3
+diapazon: A1:Q1000
+karkas: true
+stroka_zagolovkov: 10
+formul: 33
+znacheniy: 203
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  5-3 Выбор поставщиков Закупки: 2
+  S-10 Предложения: 1
+importrange: 0
+stolbtsy:
+- bukva: C
+  zagolovok: Таблица
+  vid: formulaColl
+- bukva: D
+  zagolovok: Лист^Предложение^Товар
+  klyuch: Лист_Предложение_Товар
+  vid: formulaColl
+  var_name: ВписанНаЛисте
+  var_value: 5-1 Сбор КП Закупки, 1-1 Сбор КП
+  primechanie: '1.0'
+  formula: '={"Лист^Предложение^Товар";LAMBDA(
+
+    doFilterProducts, doForEachProducts, doGetProductOffers,doSplitByLines, theProducts, theOffers, theNumTop, theWhereAnd,
+
+    doSplitByLines(doForEachProducts(doFilterProducts (theProducts),theNumTop,theWhereAnd,theOffers,doG,"Лист^Предложение^Товар")'
+  formula_v_stroke: 10
+  formul: 26
+- bukva: E
+  zagolovok: ЛистИПредложение
+  klyuch: Цена
+  vid: formulaColl
+  var_value: And ( Col2='5-1 Сбор КП Закупки' or Col2='1-1 Сбор КП' )
+  primechanie: '2.0'
+  formula: "={\"ЛистИПредложение\";LAMBDA(doRez,theData,doRez(theData))\n(\n LAMBDA(theData,BYROW(theData,LAMBDA(theR,IF(INDEX(theR,,1)<>\"\",textJoin(\" \",FALSE,theR),))))\n ,{F11:F1000 , G11:G1000}\n)}"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: F
+  zagolovok: Лист
+  klyuch: Лист
+  vid: formulaColl
+  primechanie: '3.0'
+  formula: '={F2:L2;LAMBDA( doComplereOffer, doTreatOffers, theOffersKey, theOffers,
+
+    doComplereOffer(theOffersKey,doTreatOffers(theOffers)))
+
+    (
+
+    LAMBDA(theOffersKey,theOffers, IFERROR( VLOOKUP(theOffersKey,theOffers,{2,3,4,5,6,7,8},FALSE),) ),
+
+    LAMBDA(theOffers,theOffers),
+
+    ''S-10 Топ 5-3''!D11:D1000,
+
+    ''S-10 Предложения''!D11:K1000
+
+    )}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: G
+  zagolovok: Предложение
+  klyuch: Предложение
+  vid: formulaFree
+  primechanie: '4.0'
+- bukva: H
+  zagolovok: Постовшик
+  klyuch: Постовшик
+  vid: formulaFree
+  primechanie: '5.0'
+- bukva: I
+  zagolovok: Товар
+  klyuch: Товар
+  vid: formulaFree
+  primechanie: '6.0'
+- bukva: J
+  zagolovok: Цена
+  klyuch: Цена
+  vid: formulaFree
+  primechanie: '7.0'
+- bukva: K
+  zagolovok: Срок
+  klyuch: Срок
+  vid: formulaFree
+  primechanie: '8.0'
+- bukva: L
+  zagolovok: Модель
+  klyuch: Модель
+  vid: formulaFree
+  primechanie: '9.0'
+- bukva: M
+  zagolovok: Манаджер
+  klyuch: Манаджер
+  vid: formulaColl
+  primechanie: '10.0'
+  formula: "={{'S-10 Топ 5-3'!$M$2:$O$2};LAMBDA( doFind, doOrderMax, doMakeData, doFindByKey,\ntheFilter, theKeys, \ntheDFilter,theDKey, theDMng, theDExp, theDFsh, theDTim,\n{\n doFind(doFindByKey,theKeys,doOrderMax(doMakeData(theDKey, theDMng, theDTim, theDFilter),theFi,\"Манаджер\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: N
+  zagolovok: Эксперт
+  klyuch: Эксперт
+  vid: formulaFree
+  primechanie: '11.0'
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: O
+  zagolovok: Сделка
+  klyuch: Сделка
+  vid: formulaFree
+  primechanie: '12.0'
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: P
+  zagolovok: Сборный Коммент
+  klyuch: СборныйКомент
+  vid: formulaColl
+  primechanie: '13.0'
+  formula: ={"Сборный Коммент"; L11:L1000& IF(N11:N1000<>"", CHAR(10)&N11:N1000,)}
+  formula_v_stroke: 10
+  formul: 1

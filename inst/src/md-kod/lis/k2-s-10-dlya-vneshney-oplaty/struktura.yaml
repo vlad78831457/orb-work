@@ -1,0 +1,274 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Для Внешней Оплаты
+diapazon: A1:AG30
+zakrepleno: A11
+karkas: true
+stroka_zagolovkov: 10
+formul: 53
+znacheniy: 39
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  5-5 Оформление сделок: 62
+  10 - Настройки проекта: 6
+  0-Паспорт проекта: 5
+  S-10 Триггеры: 2
+  6 Оплаты Внешняя: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err
+  skryt: Скрыть
+- bukva: B
+  klyuch: err2
+  skryt: Скрыть
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaColl
+  formula: "={LAMBDA( doFindRow, doFilter, doStrWhere, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData,theDataFul, \n QUERY(theDataFul,\"Select Col1 \" & doStrWhere(doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWord,\"ID_Товара\")"
+  formula_v_stroke: 10
+  formul: 6
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaColl
+  var_name: Диапозон для импорта
+  var_value: '''6 Оплаты Внешняя''!G1:BZ'
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!D1:D30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaColl
+  var_name: ссылка на папку со счетами
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!E1:E30\n)"
+  formula_v_stroke: 10
+  formul: 3
+- bukva: F
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  vid: formulaColl
+  var_name: Ссылка на таблицу оплаты
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!F1:F30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: G
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  vid: formulaColl
+  var_name: Ссылка на таблицу проекта
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!G1:G30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: H
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  var_name: Номер Проекта
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!H1:H30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: I
+  zagolovok: Состав поставляемой с продукцией технической документации
+  klyuch: СоставТехническойДокументации
+  var_name: Название Таблицы
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!I1:I30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: J
+  zagolovok: Ед. Изм
+  klyuch: ЕдИзм
+  vid: formulaColl
+  var_name: Плательщик
+  primechanie: Не запущены триггеры оплат
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!J1:J30\n)"
+  formula_v_stroke: 10
+  formul: 3
+- bukva: K
+  zagolovok: Кол-во
+  klyuch: Количевство
+  vid: formulaColl
+  var_name: Исполнение.Закупает
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!K1:K30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: L
+  zagolovok: Реальная цена
+  klyuch: РеальнаяЦена
+  vid: formulaColl
+  var_name: Реестр.Победил
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AP1:AP30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: M
+  zagolovok: Реальная цена Итого
+  klyuch: РеальнаяЦенаИтого
+  vid: formulaColl
+  var_name: Время Последней Синхронизации
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AQ1:AQ30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: N
+  zagolovok: Группа
+  klyuch: Группа
+  vid: formulaColl
+  var_name: 0-Паспорт проекта - Срок поставки по договору (справочно), календарные дни
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!L1:L30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: O
+  zagolovok: Реальный срок
+  klyuch: РеальныйСрок
+  vid: formulaColl
+  var_name: 0-Паспорт проекта - Срок доставки, календарные дни
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AS1:AS30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: P
+  zagolovok: Срок поставки по договору
+  klyuch: СрокПоставкиПоДоговору
+  vid: formulaColl
+  var_name: 0-Паспорт проекта - Срок приемки, календарные дни
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!P1:P30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: Q
+  zagolovok: Поставщик
+  klyuch: Поставщик
+  vid: formulaColl
+  var_name: 0-Паспорт проекта - Срок оплаты, календарные дни
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AB1:AB30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: R
+  zagolovok: ИНН Постав-ка
+  klyuch: ИннПоставщика
+  vid: formulaColl
+  var_name: Триггеры оплат
+  var_value: Триггеры оплат не запущены
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!BA1:BA30\n)"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: S
+  zagolovok: Комментарий к товару с листа 5-3
+  klyuch: Комментарий
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AD1:AD30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: T
+  zagolovok: Комментарий закупщика к сделке
+  klyuch: КомментарийКСделке
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AL1:AL30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: U
+  zagolovok: Статус
+  klyuch: Статус
+  vid: formulaColl
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AF1:AF30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: V
+  zagolovok: Результат проверки контаргента
+  klyuch: РезультатПроверкиКонтаргента
+  vid: formulaColl
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AG1:AG30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: W
+  zagolovok: Завершенных сделок
+  klyuch: ЗавершенныхСделок
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AH1:AH30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: X
+  zagolovok: Кинул
+  klyuch: Кинул
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AI1:AI30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: Y
+  zagolovok: Сделок в работе
+  klyuch: СделокВРаботе
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AJ1:AJ30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: Z
+  zagolovok: НДС
+  klyuch: НДС
+  vid: formulaColl
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AU1:AU30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AA
+  zagolovok: Вид оплаты
+  klyuch: ВидОплаты
+  vid: formulaColl
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!AW1:AW30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AB
+  zagolovok: Процент перв-ной оп-ты
+  klyuch: ПроцентПервоначальнойОплаты
+  vid: formulaColl
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!BC1:BC30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AC
+  zagolovok: Условия оплаты
+  klyuch: УсловияОплаты
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!BE1:BE30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AD
+  zagolovok: Иные условия оплаты
+  klyuch: ИныеУсловияОплаты
+  vid: formulaFree
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!BG1:BG30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AE
+  zagolovok: Отсрочка календарных дней
+  klyuch: ОтсрочкаКалендарныхДней
+  vid: formulaFree
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!BI1:BI30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AF
+  zagolovok: Куда доставить груз (промежучточное место комплектации)
+  klyuch: КудаДоставитьГруз
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!BK1:BK30\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AG
+  zagolovok: Обязательства поставщика по доставке
+  klyuch: ОбязательстваПоставщикаПоДоставке
+  vid: formulaColl
+  skryt: СгрупироватьСкрыть
+  formula: "=LAMBDA( doFind, theIDS, theDataIDS,theDataVLS, \n doFind(theIDS, {theDataIDS,theDataVLS} ) )( \n LAMBDA(theIDS, theData, ByRow(theIDS,LAMBDA(tid,IF(tid<>\"\", IFERROR(VLOOKUP(tid, theData,2,FALSE),) ,))) ),\n 'S-10 Для Внешней Оплаты'!$C$10:$C30,'5-5 Оформление сделок'!$C$1:$C30\n ,'5-5 Оформление сделок'!BM1:BM30\n)"
+  formula_v_stroke: 10
+  formul: 1

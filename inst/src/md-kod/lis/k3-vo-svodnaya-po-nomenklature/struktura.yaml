@@ -1,0 +1,100 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: Сводная по Номенклатуре
+diapazon: A1:X30
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 33
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 20
+  6 Оплаты Внешняя: 2
+importrange: 0
+stolbtsy:
+- bukva: B
+  zagolovok: №
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: C
+  zagolovok: Номенклатура
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: D
+  zagolovok: № отгрузочных документов
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: F
+  zagolovok: №🔗Номенклатура
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: G
+  zagolovok: Сводная Исполнителей
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: H
+  zagolovok: count
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: I
+  zagolovok: Кол-во Отгрузок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: J
+  zagolovok: '- частичная отгрузка'
+- bukva: L
+  zagolovok: №🔗Номенклатура
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: M
+  zagolovok: Сводная Продавеца
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: N
+  zagolovok: count
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: O
+  zagolovok: Кол-во Поставок
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: P
+  zagolovok: '- частичная поставка'
+- bukva: R
+  zagolovok: № Поставки для Закупки
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: S
+  zagolovok: № Закупки для Поставки
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: T
+  zagolovok: Дата Закупки
+- bukva: U
+  zagolovok: Дата Поставки
+- bukva: V
+  zagolovok: ID Закупки
+- bukva: W
+  zagolovok: ID Поставки
+- bukva: X
+  zagolovok: Название товара по договору
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4

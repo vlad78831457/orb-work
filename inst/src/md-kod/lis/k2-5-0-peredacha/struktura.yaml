@@ -1,0 +1,104 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 5-0 Передача в закупку
+diapazon: A1:Z319
+zakrepleno: A11
+karkas: true
+stroka_zagolovkov: 10
+formul: 623
+znacheniy: 54
+spiskov: 0
+uslovnyh: 1
+obedineno: 0
+beryot:
+  1-0 Товары: 607
+  5-1 Сбор КП Закупки: 16
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err
+  vid: formulaColl
+  skryt: Скрыть
+- bukva: B
+  zagolovok: РазличиеМужду
+  klyuch: РазличиеМужду
+  vid: formulaColl
+  skryt: Скрыть
+  formula: ='5-1 Сбор КП Закупки'!$Y$10:$Y$310
+  formula_v_stroke: 10
+  formul: 1
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaCell
+  formula: ='1-0 Товары'!C10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!D10
+  formula_v_stroke: 10
+  formul: 310
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!E10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: F
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  formula: ='5-1 Сбор КП Закупки'!F10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: G
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  formula: ='5-1 Сбор КП Закупки'!G10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: H
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!H10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: I
+  zagolovok: Состав поставляемой с продукцией технической документации
+  klyuch: СоставТехническойДокументации
+  formula: ='5-1 Сбор КП Закупки'!I10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: J
+  zagolovok: Ед. Изм
+  formula: ='1-0 Товары'!G$10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  zagolovok: Кол-во
+  formula: ='1-0 Товары'!H$10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: L
+  zagolovok: НМЦ
+  formula: ='1-0 Товары'!I$10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: M
+  zagolovok: Срок поставки по договору
+  formula: ='1-0 Товары'!N$10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: N
+  zagolovok: Нац режим 1875
+  formula: ='1-0 Товары'!O$10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: O
+  zagolovok: Код ОКПД 2
+  formula: ='1-0 Товары'!P$10
+  formula_v_stroke: 10
+  formul: 1

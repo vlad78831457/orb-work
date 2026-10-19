@@ -1,0 +1,202 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 7-2 Оплаты
+diapazon: A1:AZ20
+zakrepleno: E1
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 134
+znacheniy: 2
+spiskov: 0
+uslovnyh: 4
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  formula: ="ПартнерскаяУПД"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: B
+  formula: ="key"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: C
+  formula: ="НомерУПД"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: D
+  formula: ="Проект"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: E
+  formula: ="НазваниеПроекта"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: F
+  formula: ="Продавец"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: G
+  formula: ="Покупатель"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: H
+  formula: ="№Документа"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: I
+  formula: ="Дата"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: J
+  formula: ="СуммаУПД"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: K
+  formula: ="ОкончаниеПриемки"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: L
+  formula: ="ПодписанПокупателем"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: M
+  formula: ="СканВПапке"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: N
+  formula: ="ЭкземплярПродавца"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: O
+  formula: ="ЭкземплярПокупателя"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: P
+  formula: ="СтрокаУПДзакупки"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: Q
+  formula: ="УПДзакупки"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: R
+  formula: ="ПланОплаты"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: S
+  formula: ="Статус"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: T
+  formula: ="ФактОплата"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: U
+  formula: ="СуммаОплаты"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: V
+  formula: ="ДолгПартнера"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: W
+  formula: ="ДатаПоставкиПоДогворуДо"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: X
+  formula: ="ПросрочкаПоставкиДней"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: Y
+  formula: ="ПросрочкаОплатыДней"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AB
+  formula: ="Срок в кд"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AC
+  formula: ="ЧастичнаяОплата"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AD
+  formula: ="ДатаПоследнейУПД"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: AE
+  formula: ="Поступление Нам или партнеру"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AF
+  formula: ="Папка"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AG
+  formula: ="Исполнение"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AK
+  formula: ="ТутФормулаКотораяОбединяетВсеОплатыЭтогоПроекта"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AL
+  formula: ="ПланОплаты"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: AM
+  formula: ="ДолгПартнера"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AN
+  formula: ="ПросрочкаОплатыДней"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AP
+  zagolovok: Сводка Оплаты
+  formula: ="Сводка Оплаты"
+  formula_v_stroke: 1
+  formul: 3
+- bukva: AQ
+  formula: ="Ошибки"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AR
+  formula: ="План Оплаты"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AS
+  formula: ="Субъект"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AT
+  formula: ="Документы"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AU
+  formula: ="Условия"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AV
+  formula: ="Поставка"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AW
+  formula: ="Оплата"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AX
+  formula: ="Сверка (Факт/План)"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AY
+  formula: ="Срок"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: AZ
+  formula: ="Откл (дни)"
+  formula_v_stroke: 2
+  formul: 2

@@ -1,0 +1,39 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 ОтчетРентабельности
+diapazon: A1:J60
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 74
+znacheniy: 60
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  4-1 Расчет рентабельности КП: 6
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+  formula: =row(A11)-10
+  formula_v_stroke: 11
+  formul: 24
+- bukva: B
+  zagolovok: Название
+- bukva: C
+  zagolovok: Значение
+  formula: "={\"Значение\" ;Let(\n dha_data_mtx, '4-1 Расчет рентабельности КП'!A1:BM60,\n dha_name_ar,B11:B60,\n dha_strategi_ar,D11:D60,\n dha_col_name_ar,E11:E60,\n dha_col_val_ar,F11:F60,\n do_check ,Lambda(v, v<>\"\"),\n is_ar_mtx, {\n Map( dha_name_ar ,do_check)\n , Map( dha_strategi_ar ,do_check)\n , Map( dha_col_name_ar ,do_check)\n , Map( dha_col_val_ar ,do_check)\n },\n is_ar, ByRow(is_ar_mtx , Lambda( r, AND(r) ) ),\n do_strategi_find, Lambda(name, col_name, col_value, IFERROR(\n VLOOKUP(name,{INDEX(dha_data_mtx,,col_name) , INDEX(dha_data_mtx,,col_value) }, 2,FALSE), \n )),\n do_strategi_cell, Lambda(name, row, col , IFERROR(INDEX(dha_data_mtx, row, col),) ),\n do_strategi_null, Lambda(name, row, col , ),\n do_find, Lambda(is, name , strategi , col_name , col_value ,\n IF(NOT(is),do_strategi_null,\n IF( strategi=\"Поиск\",do_strategi_find,\n IF( strategi=\"Ячейка\",do_strategi_cell,do_strategi_null)\n )\n )(name , col_name , col_value)\n ),\n m,Map(is_ar, dha_name_ar , dha_strategi_ar , dha_col_name_ar , dha_col_val_ar , do_find ),\nm\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: E
+  zagolovok: Столбец Поиска
+  formula: =$E$3
+  formula_v_stroke: 11
+  formul: 25
+- bukva: F
+  zagolovok: Столбец Значения
+  formula: =E11+1
+  formula_v_stroke: 11
+  formul: 24

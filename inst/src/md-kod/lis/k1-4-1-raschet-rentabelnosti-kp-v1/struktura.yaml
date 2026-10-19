@@ -1,0 +1,99 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 4-1 Расчет рентабельности КП в1
+diapazon: A1:AE825
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 117
+znacheniy: 919
+spiskov: 0
+uslovnyh: 3
+obedineno: 38
+beryot:
+  0-Паспорт проекта: 7
+  3-3 Выбор поставщиков: 5
+  1-1 Сбор КП: 1
+  3-1 Расчет стоимости доставки: 1
+  3-4 Прочие расходы: 1
+  4-1 Расчет рентабельности КП в2: 1
+  Настройки писем: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: 'Параметры проекта которые надо заполнить:'
+- bukva: C
+  formula: ='0-Паспорт проекта'!C18
+  formula_v_stroke: 2
+  formul: 12
+- bukva: E
+  zagolovok: 'Параметры которые рассчитываются автоматически:'
+- bukva: G
+  formula: =COUNTA(UNIQUE('3-3 Выбор поставщиков'!B2:B301))
+  formula_v_stroke: 2
+  formul: 17
+- bukva: I
+  zagolovok: Переменные проекта
+- bukva: K
+  formula: ='4-1 Расчет рентабельности КП в2'!C14
+  formula_v_stroke: 3
+  formul: 30
+- bukva: L
+  zagolovok: 'Конкуренты:'
+  formula: =COUNTIF(L5:L19,"<>")
+  formula_v_stroke: 2
+  formul: 6
+- bukva: M
+  zagolovok: цены
+  formula: =K70/K75
+  formula_v_stroke: 75
+  formul: 8
+- bukva: N
+  zagolovok: Рейтинг
+- bukva: O
+  zagolovok: №
+  formula: ={'3-3 Выбор поставщиков'!A1:F301,'3-3 Выбор поставщиков'!H1:H301}
+  formula_v_stroke: 1
+  formul: 1
+- bukva: P
+  zagolovok: Номенклатура
+- bukva: Q
+  zagolovok: Ед
+- bukva: R
+  zagolovok: Кол
+- bukva: S
+  zagolovok: Цена
+- bukva: T
+  zagolovok: Сумма
+- bukva: U
+  zagolovok: Срок поставки
+- bukva: V
+  zagolovok: Число
+  formula: ={"Число","Тип"}
+  formula_v_stroke: 1
+  formul: 2
+- bukva: W
+  zagolovok: Тип
+- bukva: X
+  zagolovok: Срок в днях
+  formula: ={"Срок в днях";IFS(IFERROR(SEARCH("нал",V2:V71,1),0)>0,3,W2:W71="кд",V2:V71,W2:W71="д",V2:V71,W2:W71="рд",V2:V71/5*7,W2:W71="н",V2:V71*7,W2:W71="нед",V2:V71*7,W2:W71="м",V2:V71*30,W2:W71="мес",V2:V71*30,W2:W71="",V2:V71,1=1,1)}
+  formula_v_stroke: 1
+  formul: 1
+- bukva: AA
+  zagolovok: Расчет прибыли
+- bukva: AB
+  formula: =B21
+  formula_v_stroke: 7
+  formul: 5
+- bukva: AC
+  formula: =G35*C9
+  formula_v_stroke: 19
+  formul: 15
+- bukva: AD
+  formula: =G8
+  formula_v_stroke: 7
+  formul: 8
+- bukva: AE
+  formula: =AC7*AD7
+  formula_v_stroke: 7
+  formul: 12

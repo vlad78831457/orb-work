@@ -1,0 +1,146 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Реально оплаченная сумма
+diapazon: A1:AZ857
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 44
+znacheniy: 3
+spiskov: 0
+uslovnyh: 1
+obedineno: 0
+beryot:
+  6 Оплаты Внешняя: 10
+importrange: 0
+stolbtsy:
+- bukva: A
+  formula: ={J1:J857,AW1:AW857,AY1:AY857}
+  formula_v_stroke: 1
+  formul: 1
+- bukva: J
+  formula: ="ID_Товара"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: L
+  formula: ="План"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: O
+  formula: "=QUERY( { \n ARRAYFORMULA({'6 Оплаты Внешняя'!$BL$11:BL857 &'6 Оплаты Внешняя'!$BG$11:$BG857&'6 Оплаты Внешняя'!$BE$11:$BE857,'6 Оплаты Внешняя'!$BI$11:$BI857 , IF('6 Оплаты Внешняя'!$BD$11:$BD857=\"По спецификации\",15,3) } )\n ; ARRAYFORMULA({'6 Опла,\"#N/A\")"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: P
+  formula: ="Факт"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: S
+  formula: =QUERY( {O11:P857},"Select Col1, Sum(Col2) Where Col1 is not Null Group by Col1 Label Sum(Col2) ''",0 )
+  formula_v_stroke: 11
+  formul: 1
+- bukva: T
+  formula: ="Сумма Факт по Оплате"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: V
+  formula: =QUERY( {K11:K857,L11:L857},"Select Col1, Sum(Col2) Where Col1 is not Null Group by Col1 Label Sum(Col2) ''",0 )
+  formula_v_stroke: 11
+  formul: 1
+- bukva: W
+  formula: ="Сумма План по Оплате"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: X
+  formula: ="Сумма Факт по Оплате"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: Y
+  formula: ="Разница"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: Z
+  formula: ="Ровно"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AA
+  formula: ="Недоплата"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AB
+  formula: ="Переплата"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AD
+  formula: ="Процент"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AF
+  formula: =QUERY( {K11:K857,AN11:AN857},"Select Col1, Sum(Col2) Where Col1 is not Null Group by Col1 Label Sum(Col2) ''",0 )
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AG
+  formula: ="Пром Сумм по Оплате"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AH
+  formula: ="Поправка"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AJ
+  formula: ="Ровно"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AK
+  formula: ="Недоплата"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AL
+  formula: ="Переплата"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AN
+  formula: ="Пром Сумм"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AP
+  formula: ="Поправка"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AQ
+  formula: '=LAMBDA(doFind,thePlanS,
+
+    BYROW(thePlanS,LAMBDA(thePlan, IF(thePlan<>"",doFind(thePlan,thePlanS), ) ))
+
+    )(
+
+    LAMBDA(thePlan ,thePlanS, IF(INDEX(thePlan,,2)= MAX(IFERROR( QUERY(thePlanS,"Select Col2 Where Col1=''"&thePlan&"''",0),0) ),1,0 )),
+
+    {K11:K857,L1,"")'
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AR
+  formula: '=LAMBDA(doFindFirstMax,doFindMax,thePlanS,
+
+    BYROW(thePlanS,LAMBDA(thePlan, IF(thePlan<>"",
+
+    doFindFirstMax(doFindMax(thePlan,thePlanS),thePlan,thePlanS)
+
+    , ) ))
+
+    )(
+
+    LAMBDA(theMax, thePlan ,thePlanS, IF(INDEX(thePlan,,3)= MIN(IFERROR( QUERY(thePlanS,"Selec,"")'
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AT
+  formula: ="Добавить Сумм"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AW
+  formula: ="Реально оплаченная сумма"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AY
+  formula: ="% оплатытт"
+  formula_v_stroke: 10
+  formul: 2

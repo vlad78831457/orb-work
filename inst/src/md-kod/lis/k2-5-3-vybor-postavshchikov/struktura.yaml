@@ -1,0 +1,1127 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 5-3 Выбор поставщиков Закупки
+diapazon: A1:EE319
+zakrepleno: J1
+karkas: true
+stroka_zagolovkov: 10
+formul: 17062
+znacheniy: 937
+spiskov: 2
+uslovnyh: 3
+obedineno: 1
+beryot:
+  5-1 Сбор КП Закупки: 3311
+  5-0 Товары: 306
+  S-10 Предложения: 4
+  5-5 Оформление сделок: 2
+  3-3 Выбор поставщиков: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: Сделка
+  klyuch: err
+  skryt: Скрыть
+  formula: =IF(D11<>"","Да",)
+  formula_v_stroke: 11
+  formul: 300
+- bukva: B
+  zagolovok: Исключить по причине
+  klyuch: err2
+  skryt: Скрыть
+  formula: ='5-0 Товары'!B10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!C10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!D10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaCell
+  skryt: СкрытьСгрупировать
+  formula: ='5-1 Сбор КП Закупки'!E10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: F
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!F10
+  formula_v_stroke: 10
+  formul: 301
+  spisok: '"1-1 Сбор КП,5-1 Сбор КП Закупки"'
+- bukva: G
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  vid: formulaCell
+  skryt: СкрытьСгрупировать
+  formula: ='5-1 Сбор КП Закупки'!G10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: H
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  vid: formulaCell
+  skryt: СкрытьСгрупировать
+  formula: ='5-1 Сбор КП Закупки'!H10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: I
+  zagolovok: Состав поставляемой с продукцией технической документации
+  klyuch: СоставТехническойДокументации
+  vid: formulaCell
+  skryt: СкрытьСгрупировать
+  formula: ='5-1 Сбор КП Закупки'!I10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: J
+  zagolovok: Группа
+  klyuch: Группа
+  vid: formulaColl
+  formula: ={"Группа";IFERROR( VLOOKUP(C11:C46,{ '5-0 Товары'!C11:C319,IF('5-0 Товары'!M11:M319<>"","5-1 "&'5-0 Товары'!M11:M319, IF('5-0 Товары'!L11:L319<>"", "1-1 "&'5-0 Товары'!L11:L319,))},2,0),)}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  zagolovok: Изготовитель товара по договору
+  klyuch: ЕдИзм
+  vid: formulaCell
+  skryt: Сгрупировать
+  formula: ='5-1 Сбор КП Закупки'!G10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: L
+  zagolovok: Кол-во
+  klyuch: Количевство
+  vid: formulaCell
+  skryt: Сгрупировать
+  formula: ='5-1 Сбор КП Закупки'!K10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: M
+  zagolovok: Цена
+  klyuch: Цена
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: '={"Цена";LAMBDA(theOffer, theData,
+
+    byRow(theOffer,LAMBDA(theO, IFERROR( VLOOKUP( theO,theData,2,FALSE),)))
+
+    )(
+
+    IF((($C$11:$C310<>"")+( $S$11:$S310<>"")) =2, $S$11:$S310&" "&$C$11:$C310,),
+
+    {''S-10 Предложения''!C:C,''S-10 Предложения''!I:I}
+
+    )}'
+  formula_v_stroke: 10
+  formul: 2
+- bukva: N
+  zagolovok: Сумма
+  klyuch: Сумма
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: ={"Сумма";LAMBDA(theId, theCol, thePrice,IF(theId<>"",theCol*thePrice,))(C11:C310,L11:L310,M11:M310)}
+  formula_v_stroke: 10
+  formul: 3
+- bukva: O
+  zagolovok: Срок поставки
+  klyuch: Срок поставки
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: '={"Срок поставки";LAMBDA(theOffer, theData,
+
+    byRow(theOffer,LAMBDA(theO, IFERROR( VLOOKUP( theO,theData,2,FALSE),)))
+
+    )(
+
+    IF((($C$11:$C310<>"")+( $S$11:$S310<>"")) =2, $S$11:$S310&" "&$C$11:$C310,),
+
+    {''S-10 Предложения''!C:C,''S-10 Предложения''!J:J}
+
+    )}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: P
+  zagolovok: Срок поставки по договору
+  klyuch: СрокПоставкиПоДоговору
+  vid: formulaColl
+  formula: ='5-1 Сбор КП Закупки'!P10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: Q
+  zagolovok: Основной Поставщик
+  klyuch: ОснвнойПоставщик
+- bukva: R
+  klyuch: Свободно3
+  skryt: Скрыть
+- bukva: S
+  zagolovok: Основное Предложение
+  klyuch: ОснвноеЛистИПредложение
+- bukva: T
+  zagolovok: Резервный Поставщик
+  klyuch: РезервныйПоставщик
+  skryt: Скрыть
+- bukva: U
+  klyuch: Свободно4
+  skryt: Скрыть
+- bukva: V
+  zagolovok: Резервное Предложение
+  klyuch: РезервноеЛистИПредложение
+  skryt: Скрыть
+  formula: ="Итого " &W10
+  formula_v_stroke: 311
+  formul: 1
+- bukva: W
+  zagolovok: НМЦ
+  klyuch: НМЦ
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!O10
+  formula_v_stroke: 10
+  formul: 302
+- bukva: X
+  zagolovok: Счет Поставщиков
+  klyuch: СчетПоставщиков
+  skryt: Скрыть
+- bukva: Y
+  zagolovok: Статус
+  klyuch: Статус
+  vid: formulaColl
+  skryt: Скрыть
+  formula: ={"Статус";IFERROR( VLOOKUP(C11:C310,{'5-5 Оформление сделок'!C11:C310,'5-5 Оформление сделок'!AF11:AF310},2,0),)}
+  formula_v_stroke: 10
+  formul: 1
+  spisok: '''Настройки писем''!$AX$1:$AX$30'
+- bukva: Z
+  zagolovok: Предполагаемая дата оплаты
+  klyuch: ПредполагаемаяДатаОплаты
+  skryt: Скрыть
+- bukva: AA
+  zagolovok: Комментарий
+  klyuch: Комментарий
+- bukva: AB
+  zagolovok: Разница от миним
+  klyuch: РазницаОтМиним
+  vid: formulaColl
+  formula: '={"Разница от миним";LAMBDA(doSum,theData,
+
+    byRow(theData,LAMBDA(theR, doSum( INDEX(theR,1,1),INDEX(theR,1,2))))
+
+    )(
+
+    LAMBDA(theP,theM,SUM(theP,0-theM)),
+
+    {''5-3 Выбор поставщиков Закупки''!$M$11:$M310,''5-3 Выбор поставщиков Закупки''!$AF$11:$AF310}
+
+    )}'
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AC
+  zagolovok: Итого разница
+  klyuch: ИтогоРазница
+  vid: formulaColl
+  formula: ={"Итого разница";LAMBDA(theId, theCol, thePrice,IF(theId<>"",theCol*thePrice,))('5-3 Выбор поставщиков Закупки'!C11:C310,'5-3 Выбор поставщиков Закупки'!L11:L310,'5-3 Выбор поставщиков Закупки'!AB11:AB310)}
+  formula_v_stroke: 10
+  formul: 2
+- bukva: AD
+  zagolovok: БлокТопНачало
+  klyuch: БлокТопНачало
+  var_name: БлокТопНачало
+  skryt: Скрыть
+  formula: '={"БлокТопНачало",LAMBDA(имена,MAKEARRAY(1,7*15,LAMBDA(ri,ci, IFERROR( VLOOKUP( MOD((ci-1),15),имена,2,FALSE),) &" "& INT( (ci-1)/15+1))))
+
+    ( LAMBDA(theSre,SCAN(-1,TRANSPOSE( Split(theSre,CHAR(32),FALSE)),LAMBDA(t,v,{t+1,v}))) ("Цена.Ф Цена Постовшик.,"БлокТопНачало")'
+  formula_v_stroke: 10
+  formul: 6
+- bukva: AE
+  zagolovok: Цена.Ф 1
+  klyuch: ТопA.Цена.Ф
+  vid: formulaCell
+  var_name: '7'
+  skryt: Скрыть
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AF
+  zagolovok: Цена 1
+  klyuch: ТопA.Цена.З
+  var_name: Цена.З
+  skryt: Показать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: AG
+  zagolovok: Постовшик.Ф 1
+  klyuch: ТопA.Постовшик.Ф
+  vid: formulaCell
+  var_name: '5'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AH
+  zagolovok: Постовшик 1
+  klyuch: ТопA.Постовшик.З
+  var_name: Постовшик.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: AI
+  zagolovok: ЛистИПредложение.Ф 1
+  klyuch: ТопA.ЛистИПредложение.Ф
+  vid: formulaCell
+  var_name: '2'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AJ
+  zagolovok: Предложение 1
+  klyuch: ТопA.ЛистИПредложение.З
+  var_name: ЛистИПредложение.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: AK
+  zagolovok: Комментарий.Ф 1
+  klyuch: ТопA.Комментарий.Ф
+  vid: formulaCell
+  var_name: '10'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AL
+  zagolovok: Комментарий 1
+  klyuch: ТопA.Комментарий.З
+  var_name: Комментарий.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: AM
+  zagolovok: Срок.Ф 1
+  klyuch: ТопA.Срок.Ф
+  vid: formulaCell
+  var_name: '8'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AN
+  zagolovok: Срок 1
+  klyuch: ТопA.Срок.З
+  var_name: Срок.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 7
+- bukva: AO
+  zagolovok: Эксперт.Ф 1
+  klyuch: ТопA.Эксперт.Ф
+  vid: formulaCell
+  var_name: '13'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AP
+  zagolovok: Эксперт 1
+  klyuch: ТопA.Эксперт.З
+  var_name: Эксперт.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: AQ
+  zagolovok: Свободно_3 1
+  klyuch: ТопA.Свободно_3
+  var_name: Свободно_3
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: AR
+  zagolovok: Свободно_4 1
+  klyuch: ТопA.Свободно_4
+  var_name: Свободно_4
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: AS
+  zagolovok: Свободно_5 1
+  klyuch: ТопA.Свободно_5
+  var_name: Свободно_5
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: AT
+  zagolovok: Цена.Ф 2
+  klyuch: ТопB.Цена.Ф
+  vid: formulaCell
+  var_name: '7'
+  skryt: Скрыть
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AU
+  zagolovok: Цена 2
+  klyuch: ТопB.Цена.З
+  var_name: Цена.З
+  skryt: Показать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: AV
+  zagolovok: Постовшик.Ф 2
+  klyuch: ТопB.Постовшик.Ф
+  vid: formulaCell
+  var_name: '5'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AW
+  zagolovok: Постовшик 2
+  klyuch: ТопB.Постовшик.З
+  var_name: Постовшик.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: AX
+  zagolovok: ЛистИПредложение.Ф 2
+  klyuch: ТопB.ЛистИПредложение.Ф
+  vid: formulaCell
+  var_name: '2'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: AY
+  zagolovok: Предложение 2
+  klyuch: ТопB.ЛистИПредложение.З
+  var_name: ЛистИПредложение.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: AZ
+  zagolovok: Комментарий.Ф 2
+  klyuch: ТопB.Комментарий.Ф
+  vid: formulaCell
+  var_name: '10'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BA
+  zagolovok: Комментарий 2
+  klyuch: ТопB.Комментарий.З
+  var_name: Комментарий.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BB
+  zagolovok: Срок.Ф 2
+  klyuch: ТопB.Срок.Ф
+  vid: formulaCell
+  var_name: '8'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BC
+  zagolovok: Срок 2
+  klyuch: ТопB.Срок.З
+  var_name: Срок.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: BD
+  zagolovok: Эксперт.Ф 2
+  klyuch: ТопB.Эксперт.Ф
+  vid: formulaCell
+  var_name: '13'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BE
+  zagolovok: Эксперт 2
+  klyuch: ТопB.Эксперт.З
+  var_name: Эксперт.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: BF
+  zagolovok: Свободно_3 2
+  klyuch: ТопB.Свободно_3
+  var_name: Свободно_3
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BG
+  zagolovok: Свободно_4 2
+  klyuch: ТопB.Свободно_4
+  var_name: Свободно_4
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BH
+  zagolovok: Свободно_5 2
+  klyuch: ТопB.Свободно_5
+  var_name: Свободно_5
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BI
+  zagolovok: Цена.Ф 3
+  klyuch: ТопC.Цена.Ф
+  vid: formulaCell
+  var_name: '7'
+  skryt: Скрыть
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BJ
+  zagolovok: Цена 3
+  klyuch: ТопC.Цена.З
+  var_name: Цена.З
+  skryt: Показать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: BK
+  zagolovok: Постовшик.Ф 3
+  klyuch: ТопC.Постовшик.Ф
+  vid: formulaCell
+  var_name: '5'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BL
+  zagolovok: Постовшик 3
+  klyuch: ТопC.Постовшик.З
+  var_name: Постовшик.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: BM
+  zagolovok: ЛистИПредложение.Ф 3
+  klyuch: ТопC.ЛистИПредложение.Ф
+  vid: formulaCell
+  var_name: '2'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BN
+  zagolovok: Предложение 3
+  klyuch: ТопC.ЛистИПредложение.З
+  var_name: ЛистИПредложение.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 9
+- bukva: BO
+  zagolovok: Комментарий.Ф 3
+  klyuch: ТопC.Комментарий.Ф
+  vid: formulaCell
+  var_name: '10'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BP
+  zagolovok: Комментарий 3
+  klyuch: ТопC.Комментарий.З
+  var_name: Комментарий.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BQ
+  zagolovok: Срок.Ф 3
+  klyuch: ТопC.Срок.Ф
+  vid: formulaCell
+  var_name: '8'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BR
+  zagolovok: Срок 3
+  klyuch: ТопC.Срок.З
+  var_name: Срок.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: BS
+  zagolovok: Эксперт.Ф 3
+  klyuch: ТопC.Эксперт.Ф
+  vid: formulaCell
+  var_name: '13'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BT
+  zagolovok: Эксперт 3
+  klyuch: ТопC.Эксперт.З
+  var_name: Эксперт.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: BU
+  zagolovok: Свободно_3 3
+  klyuch: ТопC.Свободно_3
+  var_name: Свободно_3
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BV
+  zagolovok: Свободно_4 3
+  klyuch: ТопC.Свободно_4
+  var_name: Свободно_4
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BW
+  zagolovok: Свободно_5 3
+  klyuch: ТопC.Свободно_5
+  var_name: Свободно_5
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BX
+  zagolovok: Цена.Ф 4
+  klyuch: ТопD.Цена.Ф
+  vid: formulaCell
+  var_name: '7'
+  skryt: Скрыть
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: BY
+  zagolovok: Цена 4
+  klyuch: ТопD.Цена.З
+  var_name: Цена.З
+  skryt: Показать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: BZ
+  zagolovok: Постовшик.Ф 4
+  klyuch: ТопD.Постовшик.Ф
+  vid: formulaCell
+  var_name: '5'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CA
+  zagolovok: Постовшик 4
+  klyuch: ТопD.Постовшик.З
+  var_name: Постовшик.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: CB
+  zagolovok: ЛистИПредложение.Ф 4
+  klyuch: ТопD.ЛистИПредложение.Ф
+  vid: formulaCell
+  var_name: '2'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CC
+  zagolovok: Предложение 4
+  klyuch: ТопD.ЛистИПредложение.З
+  var_name: ЛистИПредложение.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: CD
+  zagolovok: Комментарий.Ф 4
+  klyuch: ТопD.Комментарий.Ф
+  vid: formulaCell
+  var_name: '10'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CE
+  zagolovok: Комментарий 4
+  klyuch: ТопD.Комментарий.З
+  var_name: Комментарий.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: CF
+  zagolovok: Срок.Ф 4
+  klyuch: ТопD.Срок.Ф
+  vid: formulaCell
+  var_name: '8'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CG
+  zagolovok: Срок 4
+  klyuch: ТопD.Срок.З
+  var_name: Срок.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 7
+- bukva: CH
+  zagolovok: Эксперт.Ф 4
+  klyuch: ТопD.Эксперт.Ф
+  vid: formulaCell
+  var_name: '13'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CI
+  zagolovok: Эксперт 4
+  klyuch: ТопD.Эксперт.З
+  var_name: Эксперт.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: CJ
+  zagolovok: Свободно_3 4
+  klyuch: ТопD.Свободно_3
+  var_name: Свободно_3
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: CK
+  zagolovok: Свободно_4 4
+  klyuch: ТопD.Свободно_4
+  var_name: Свободно_4
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: CL
+  zagolovok: Свободно_5 4
+  klyuch: ТопD.Свободно_5
+  var_name: Свободно_5
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: CM
+  zagolovok: Цена.Ф 5
+  klyuch: ТопE.Цена.Ф
+  vid: formulaCell
+  var_name: '7'
+  skryt: Скрыть
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CN
+  zagolovok: Цена 5
+  klyuch: ТопE.Цена.З
+  var_name: Цена.З
+  skryt: Показать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: CO
+  zagolovok: Постовшик.Ф 5
+  klyuch: ТопE.Постовшик.Ф
+  vid: formulaCell
+  var_name: '5'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CP
+  zagolovok: Постовшик 5
+  klyuch: ТопE.Постовшик.З
+  var_name: Постовшик.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: CQ
+  zagolovok: ЛистИПредложение.Ф 5
+  klyuch: ТопE.ЛистИПредложение.Ф
+  vid: formulaCell
+  var_name: '2'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CR
+  zagolovok: Предложение 5
+  klyuch: ТопE.ЛистИПредложение.З
+  var_name: ЛистИПредложение.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: CS
+  zagolovok: Комментарий.Ф 5
+  klyuch: ТопE.Комментарий.Ф
+  vid: formulaCell
+  var_name: '10'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CT
+  zagolovok: Комментарий 5
+  klyuch: ТопE.Комментарий.З
+  var_name: Комментарий.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: CU
+  zagolovok: Срок.Ф 5
+  klyuch: ТопE.Срок.Ф
+  vid: formulaCell
+  var_name: '8'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CV
+  zagolovok: Срок 5
+  klyuch: ТопE.Срок.З
+  var_name: Срок.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: CW
+  zagolovok: Эксперт.Ф 5
+  klyuch: ТопE.Эксперт.Ф
+  vid: formulaCell
+  var_name: '13'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: CX
+  zagolovok: Эксперт 5
+  klyuch: ТопE.Эксперт.З
+  var_name: Эксперт.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 8
+- bukva: CY
+  zagolovok: Свободно_3 5
+  klyuch: ТопE.Свободно_3
+  var_name: Свободно_3
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: CZ
+  zagolovok: Свободно_4 5
+  klyuch: ТопE.Свободно_4
+  var_name: Свободно_4
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DA
+  zagolovok: Свободно_5 5
+  klyuch: ТопE.Свободно_5
+  var_name: Свободно_5
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DB
+  zagolovok: Цена.Ф 6
+  klyuch: ТопF.Цена.Ф
+  vid: formulaCell
+  var_name: '7'
+  skryt: Скрыть
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DC
+  zagolovok: Цена 6
+  klyuch: ТопF.Цена.З
+  var_name: Цена.З
+  skryt: Показать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: DD
+  zagolovok: Постовшик.Ф 6
+  klyuch: ТопF.Постовшик.Ф
+  vid: formulaCell
+  var_name: '5'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DE
+  zagolovok: Постовшик 6
+  klyuch: ТопF.Постовшик.З
+  var_name: Постовшик.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: DF
+  zagolovok: ЛистИПредложение.Ф 6
+  klyuch: ТопF.ЛистИПредложение.Ф
+  vid: formulaCell
+  var_name: '2'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DG
+  zagolovok: Предложение 6
+  klyuch: ТопF.ЛистИПредложение.З
+  var_name: ЛистИПредложение.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: DH
+  zagolovok: Комментарий.Ф 6
+  klyuch: ТопF.Комментарий.Ф
+  vid: formulaCell
+  var_name: '10'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DI
+  zagolovok: Комментарий 6
+  klyuch: ТопF.Комментарий.З
+  var_name: Комментарий.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DJ
+  zagolovok: Срок.Ф 6
+  klyuch: ТопF.Срок.Ф
+  vid: formulaCell
+  var_name: '8'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DK
+  zagolovok: Срок 6
+  klyuch: ТопF.Срок.З
+  var_name: Срок.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: DL
+  zagolovok: Эксперт.Ф 6
+  klyuch: ТопF.Эксперт.Ф
+  vid: formulaCell
+  var_name: '13'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DM
+  zagolovok: Эксперт 6
+  klyuch: ТопF.Эксперт.З
+  var_name: Эксперт.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: DN
+  zagolovok: Свободно_3 6
+  klyuch: ТопF.Свободно_3
+  var_name: Свободно_3
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DO
+  zagolovok: Свободно_4 6
+  klyuch: ТопF.Свободно_4
+  var_name: Свободно_4
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DP
+  zagolovok: Свободно_5 6
+  klyuch: ТопF.Свободно_5
+  var_name: Свободно_5
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DQ
+  zagolovok: Цена.Ф 7
+  klyuch: ТопG.Цена.Ф
+  vid: formulaCell
+  var_name: '7'
+  skryt: Скрыть
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DR
+  zagolovok: Цена 7
+  klyuch: ТопG.Цена.З
+  var_name: Цена.З
+  skryt: Показать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DS
+  zagolovok: Постовшик.Ф 7
+  klyuch: ТопG.Постовшик.Ф
+  vid: formulaCell
+  var_name: '5'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DT
+  zagolovok: Постовшик 7
+  klyuch: ТопG.Постовшик.З
+  var_name: Постовшик.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DU
+  zagolovok: ЛистИПредложение.Ф 7
+  klyuch: ТопG.ЛистИПредложение.Ф
+  vid: formulaCell
+  var_name: '2'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DV
+  zagolovok: Предложение 7
+  klyuch: ТопG.ЛистИПредложение.З
+  var_name: ЛистИПредложение.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DW
+  zagolovok: Комментарий.Ф 7
+  klyuch: ТопG.Комментарий.Ф
+  vid: formulaCell
+  var_name: '10'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DX
+  zagolovok: Комментарий 7
+  klyuch: ТопG.Комментарий.З
+  var_name: Комментарий.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: DY
+  zagolovok: Срок.Ф 7
+  klyuch: ТопG.Срок.Ф
+  vid: formulaCell
+  var_name: '8'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: DZ
+  zagolovok: Срок 7
+  klyuch: ТопG.Срок.З
+  var_name: Срок.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: EA
+  zagolovok: Эксперт.Ф 7
+  klyuch: ТопG.Эксперт.Ф
+  vid: formulaCell
+  var_name: '13'
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 304
+- bukva: EB
+  zagolovok: Эксперт 7
+  klyuch: ТопG.Эксперт.З
+  var_name: Эксперт.З
+  skryt: ПоказатьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: EC
+  zagolovok: Свободно_3 7
+  klyuch: ТопG.Свободно_3
+  var_name: Свободно_3
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: ED
+  zagolovok: Свободно_4 7
+  klyuch: ТопG.Свободно_4
+  var_name: Свободно_4
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: EE
+  zagolovok: Свободно_5 7
+  klyuch: ТопG.Свободно_5
+  var_name: Свободно_5
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4

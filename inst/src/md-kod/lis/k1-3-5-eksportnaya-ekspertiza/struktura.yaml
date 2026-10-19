@@ -1,0 +1,118 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 3-5 Экспортная экспертиза
+diapazon: A1:AA310
+zakrepleno: A2
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 313
+znacheniy: 1
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  1-1 Сбор КП: 315
+  4-3 Подготовка ТКП: 3
+  5-1 Сбор КП Закупки: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+  formula: ='1-1 Сбор КП'!C1
+  formula_v_stroke: 1
+  formul: 302
+- bukva: B
+  zagolovok: Номенклатура
+  formula: "={\"Номенклатура\";LAMBDA(doRez,doFind,theNumbrS,theData1,theData5, BYROW(theNumbrS,LAMBDA(theN,IF(theN<>\"\", doRez(doFind(theN,theData1),doFind(theN,theData5)) ,) )))(\n LAMBDA(theV1,theV5,IF(theV5<>\"\",theV5,theV1)),\n LAMBDA(theN,theData,IFERROR(VLOOKUP(\"\"&theN,theData,2,FALSE),)),\n'3-5 Экспортная экспертиза'!A2:A310, {\"\"&'1-1 Сбор КП'!C2:C310,'1-1 Сбор КП'!D2:D310},{\"\"& '5-1 Сбор КП Закупки'!D11:D310,'5-1 Сбор КП Закупки'!F11:F310})\n}"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: C
+  zagolovok: Характеристики
+  formula: "={'1-1 Сбор КП'!E1;\nLAMBDA(doRez,doFind,theNumbrS,theData1,theData5, BYROW(theNumbrS,LAMBDA(theN,IF(theN<>\"\", doRez(doFind(theN,theData1),doFind(theN,theData5)) ,) )))(\n LAMBDA(theV1,theV5,IF(theV5<>\"\",theV5,theV1)),LAMBDA(theN,theData,IFERROR(VLOOKUP(\"\"&theN,theData,2,FALSE),)),\n'3-5 Экспортная экспертиза'!A2:A310, {\"\"&'1-1 Сбор КП'!C2:C310,'1-1 Сбор КП'!E2:E310},)\n}"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: D
+  zagolovok: Ед. Изм
+  formula: "={'1-1 Сбор КП'!F1;\nLAMBDA(doRez,doFind,theNumbrS,theData1,theData5, BYROW(theNumbrS,LAMBDA(theN,IF(theN<>\"\", doRez(doFind(theN,theData1),doFind(theN,theData5)) ,) )))(\n LAMBDA(theV1,theV5,IF(theV5<>\"\",theV5,theV1)),LAMBDA(theN,theData,IFERROR(VLOOKUP(\"\"&theN,theData,2,FALSE),)),\n'3-5 Экспортная экспертиза'!A2:A310, {\"\"&'1-1 Сбор КП'!C2:C310,'1-1 Сбор КП'!F2:F310},)\n}"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: E
+  zagolovok: Кол-во
+  formula: "={'1-1 Сбор КП'!G1;\nLAMBDA(doRez,doFind,theNumbrS,theData1,theData5, BYROW(theNumbrS,LAMBDA(theN,IF(theN<>\"\", doRez(doFind(theN,theData1),doFind(theN,theData5)) ,) )))(\n LAMBDA(theV1,theV5,IF(theV5<>\"\",theV5,theV1)),LAMBDA(theN,theData,IFERROR(VLOOKUP(\"\"&theN,theData,2,FALSE),)),\n'3-5 Экспортная экспертиза'!A2:A310, {\"\"&'1-1 Сбор КП'!C2:C310,'1-1 Сбор КП'!G2:G310},)\n}"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: F
+  zagolovok: НМЦ за ЕД
+  formula: "={\"НМЦ за ЕД\";\nLAMBDA(doRez,doFind,theNumbrS,theData1,theData5, BYROW(theNumbrS,LAMBDA(theN,IF(INDEX( theN,1,2)<>\"\", doRez(doFind(INDEX( theN,,1),theData1),doFind(INDEX( theN,,1),theData5)) ,) )))(\n LAMBDA(theV1,theV5,IF(theV5<>\"\",theV5,theV1)),LAMBDA(theN,theData,IFERROR(VLOOKUP(\"\"&theN,theData,2,FALSE),)),\n'3-5 Экспортная экспертиза'!A2:B310, {\"\"&'1-1 Сбор КП'!C2:C310,'1-1 Сбор КП'!K2:K310},)\n}"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: G
+  zagolovok: НМЦ Всего
+  formula: '={"НМЦ Всего";
+
+    IF(B2:B310<>"", F2:F310*E2:E310,)
+
+    }'
+  formula_v_stroke: 1
+  formul: 1
+- bukva: H
+  zagolovok: Название товара в ТП
+  formula: "={'4-3 Подготовка ТКП'!I3 ;\nLAMBDA(doRez,doFind,theNumbrS,theData1,theData5, BYROW(theNumbrS,LAMBDA(theN,IF(theN<>\"\", doRez(doFind(theN,theData1),doFind(theN,theData5)) ,) )))(\n LAMBDA(theV1,theV5,IF(theV5<>\"\",theV5,theV1)),LAMBDA(theN,theData,IFERROR(VLOOKUP(\"\"&theN,theData,2,FALSE),)),\n'3-5 Экспортная экспертиза'!A2:A310, {\"\"&'4-3 Подготовка ТКП'!A4:A310,'4-3 Подготовка ТКП'!I4:I310},)\n}"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: I
+  zagolovok: Таможенная процедура
+- bukva: J
+  zagolovok: Техническое описание и характеристики (область применения и материал из которого изготовлен) (информация необходимая для идентификации товара и подбора 10 значного кода ТН ВЭД)
+- bukva: K
+  zagolovok: Документы на товар, тех карты, спецификации
+- bukva: L
+  zagolovok: Торговая марка (зарегистрированная ТМ (при наличии))
+- bukva: M
+  zagolovok: "Страна происхождения \nтовара"
+- bukva: N
+  zagolovok: Наименование Изготовителя
+- bukva: O
+  zagolovok: 'Quantity (PCS)
+
+    Кол-во штук'
+- bukva: P
+  zagolovok: Цена за 1 шт в валюте контракта
+- bukva: Q
+  zagolovok: Итого стоимость в валюте контракта
+  formula: '={"Итого стоимость в валюте контракта";
+
+    IF(B2:B301<>"",E2:E301*P2:P301,)}'
+  formula_v_stroke: 1
+  formul: 2
+- bukva: R
+  zagolovok: 'Weight netto, kg
+
+    Вес нетто, кг'
+- bukva: S
+  zagolovok: 'Weight Gross, kg
+
+    Вес брутто, кг'
+- bukva: T
+  zagolovok: 'Customs Code
+
+    Код ТН-ВЭД'
+- bukva: U
+  zagolovok: Код ОКПД2
+- bukva: V
+  zagolovok: Ограничения /запреты по 311 ([ссылка]
+- bukva: W
+  zagolovok: 'Необходимость получения заключения ФСТЭК (идентификационное заключение ФСТЭК необходимо для вывоза товаров двойного назначения) МОжно определять необходимость и стоимость с помощью ресурса: [ссылка] ) то что не требует ИЗ - приведено здесь (Перечень
+
+    товаров, в отношении которых при их перемещении за пределы Российской Федерации
+
+    не применяются запреты и ограничения, установленные законодательством
+
+    Российской Федерации в области экспортного контроля): [ссылка]'
+- bukva: X
+  zagolovok: Необходимость получения СТ-1 ( на отечественные товары) . Она появляется если на данный товар действует запрет согласно 311 или 312.
+- bukva: Y
+  zagolovok: Выдача разрешения на вывоз отдельных видов промышленной продукции по перечню согласно приложению N 3 к постановлению Правительства Российской Федерации от 9 марта 2022 г. N 312 "О введении на временной основе разрешительного порядка вывоза отдельных видов товаров за пределы территории Российской Федерации" МИНПРОМТОРГ
+- bukva: Z
+  zagolovok: Заметки по изменениям

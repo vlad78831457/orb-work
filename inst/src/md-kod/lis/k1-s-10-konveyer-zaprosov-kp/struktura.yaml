@@ -1,0 +1,36 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Конвейер Запросов КП
+diapazon: A1:J10
+zakrepleno: A11
+karkas: true
+stroka_zagolovkov: 10
+formul: 0
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err1
+  skryt: Скрыть
+- bukva: B
+  klyuch: err2
+  skryt: Скрыть
+- bukva: C
+  zagolovok: Емайл
+  vid: formulaColl
+- bukva: D
+  zagolovok: Обнаружен
+  klyuch: Обнаружен
+  var_name: Дата согласования запросов
+- bukva: E
+  zagolovok: Одобрен
+  klyuch: Одобрен
+- bukva: F
+  zagolovok: Отправлять
+  klyuch: Отправлять
+- bukva: G
+  zagolovok: Отпрвален
+  klyuch: Отпрвален

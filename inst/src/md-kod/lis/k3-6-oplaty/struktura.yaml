@@ -1,0 +1,42 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 6 Оплаты
+diapazon: A1:CC310
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 7
+znacheniy: 0
+spiskov: 0
+uslovnyh: 12
+obedineno: 0
+beryot:
+  S-10 Для Внешней Оплаты: 1
+  6 Оплаты Внешняя: 1
+importrange: 1
+stolbtsy:
+- bukva: A
+  zagolovok: '#N/A'
+  formula: =IMPORTRANGE( 'S-10 Для Внешней Оплаты'!$F$6, "'6 Оплаты Внешняя'!A1:D")
+  formula_v_stroke: 1
+  formul: 1
+- bukva: G
+  formula: =LAMBDA(theData,theUrl,theEmpty, IF(theUrl="", {theEmpty;{"","","","","Нет внешней таблицы оплат. ошибка"}},IF( ISERR(theData), {theEmpty;{"","","",theData,"<< Откройте доступ ошибка"};{"","","",theUrl,"<< Внешняя таблица оплат","")
+  formula_v_stroke: 1
+  formul: 2
+- bukva: H
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: I
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: J
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 1

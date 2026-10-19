@@ -1,0 +1,110 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: Сводная по Договорам
+diapazon: A1:Z30
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 79
+znacheniy: 20
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Договора: 18
+  7 Исполнение Внешние: 7
+  Col1: 1
+importrange: 0
+stolbtsy:
+- bukva: B
+  zagolovok: №
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: C
+  zagolovok: Проект №
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: D
+  zagolovok: Юр. лицо Продавец
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: E
+  zagolovok: Юр. лицо Покупатель
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: F
+  zagolovok: Номер Договора
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: G
+  zagolovok: Дата подписи продавцом
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: H
+  zagolovok: Сумма договора
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: I
+  zagolovok: Дата подписи Покупателем
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: J
+  zagolovok: Частичная оплата за товар
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: K
+  zagolovok: Частичная поставка товара
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: L
+  zagolovok: № Договора о закупке
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: M
+  zagolovok: key
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: N
+  zagolovok: Дата договора от
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: O
+  zagolovok: ТипДоговора
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 5
+- bukva: P
+  zagolovok: Вид подписания договора
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: Q
+  zagolovok: для проверки расхождения данных с логистом
+- bukva: R
+  zagolovok: Ошибки при заполнение договора во внешней
+- bukva: S
+  zagolovok: ИНН Продавца
+- bukva: T
+  zagolovok: ИНН Покупателя
+- bukva: U
+  zagolovok: Срок поставки
+- bukva: V
+  zagolovok: Срок доставки
+- bukva: W
+  zagolovok: Срок приемки
+- bukva: X
+  zagolovok: Срок оплаты

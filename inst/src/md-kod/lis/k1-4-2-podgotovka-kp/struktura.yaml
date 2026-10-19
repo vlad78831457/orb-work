@@ -1,0 +1,197 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 4-2 Подготовка КП
+diapazon: A1:AW310
+zakrepleno: A3
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 2
+formul: 11425
+znacheniy: 1206
+spiskov: 1
+uslovnyh: 10
+obedineno: 8
+beryot:
+  3-3 Выбор поставщиков: 1500
+  1-1 Сбор КП: 601
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+  formula: ='3-3 Выбор поставщиков'!$A2
+  formula_v_stroke: 3
+  formul: 300
+- bukva: B
+  zagolovok: Номенклатура
+  formula: ='3-3 Выбор поставщиков'!B2
+  formula_v_stroke: 3
+  formul: 300
+- bukva: C
+  zagolovok: Ед. Изм
+  formula: ='3-3 Выбор поставщиков'!C2
+  formula_v_stroke: 3
+  formul: 301
+- bukva: D
+  zagolovok: Кол-во
+  formula: ='3-3 Выбор поставщиков'!D2
+  formula_v_stroke: 3
+  formul: 300
+- bukva: E
+  zagolovok: Цена
+  formula: ='1-1 Сбор КП'!H1
+  formula_v_stroke: 2
+  formul: 301
+- bukva: F
+  zagolovok: Итого
+  formula: =E3*D3
+  formula_v_stroke: 3
+  formul: 301
+- bukva: H
+  zagolovok: нмц
+  formula: ='1-1 Сбор КП'!K2
+  formula_v_stroke: 3
+  formul: 301
+- bukva: J
+  zagolovok: №
+- bukva: K
+  zagolovok: Номенклатура
+  formula: =B3
+  formula_v_stroke: 3
+  formul: 300
+- bukva: L
+  zagolovok: Ед. Изм
+- bukva: M
+  zagolovok: Кол-во
+- bukva: N
+  zagolovok: Цена С НДС
+  formula: =P3*1.22
+  formula_v_stroke: 3
+  formul: 300
+- bukva: O
+  zagolovok: Сумма С НДС
+  formula: =N3*M3
+  formula_v_stroke: 3
+  formul: 303
+  spisok: '''Настройки писем''!$AC$6:$AC$9'
+- bukva: P
+  zagolovok: Цена без НДС
+  formula: =ROUND(E3/1.22*(N$1+R3/100),0)
+  formula_v_stroke: 3
+  formul: 300
+- bukva: Q
+  zagolovok: Сумма без НДС
+  formula: =P3*M3
+  formula_v_stroke: 3
+  formul: 302
+- bukva: S
+  formula: =RANDBETWEEN(-10,10)
+  formula_v_stroke: 3
+  formul: 300
+- bukva: V
+  zagolovok: №
+  formula: =V3+1
+  formula_v_stroke: 4
+  formul: 299
+- bukva: W
+  zagolovok: Номенклатура
+  formula: =B3
+  formula_v_stroke: 3
+  formul: 300
+- bukva: X
+  zagolovok: Ед. Изм
+- bukva: Y
+  zagolovok: Кол-во
+- bukva: Z
+  zagolovok: Цена за единицу без НДС, руб.
+  formula: =ROUND(E3/1.22*(Z$1+AD3/100),0)
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AA
+  zagolovok: Сумма без НДС, руб.
+  formula: =Z3*Y3
+  formula_v_stroke: 3
+  formul: 303
+  spisok: '''Настройки писем''!$AC$6:$AC$9'
+- bukva: AB
+  zagolovok: НДС 22%, руб
+  formula: =AA3*0.22
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AC
+  zagolovok: Итого с НДС 22%, руб
+  formula: =AB3+AA3
+  formula_v_stroke: 3
+  formul: 302
+- bukva: AE
+  formula: =RANDBETWEEN(-10,10)
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AH
+  zagolovok: №
+  formula: ='1-1 Сбор КП'!C2
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AI
+  zagolovok: Наименование
+  formula: =B3
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AJ
+  zagolovok: Кол-во
+  formula: =Y3
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AK
+  zagolovok: Ед. Измер.
+  formula: =X3
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AL
+  zagolovok: Цена
+  formula: =ROUND(E3/1.22*(AL$1+AP3/100),0)
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AM
+  zagolovok: Сумма
+  formula: =AL3*AJ3
+  formula_v_stroke: 3
+  formul: 305
+  spisok: '''Настройки писем''!$AC$6:$AC$9'
+- bukva: AN
+  zagolovok: Цена С НДС
+  formula: =AL3*1.22
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AO
+  zagolovok: Сумма С НДС
+  formula: =AN3*AJ3
+  formula_v_stroke: 3
+  formul: 302
+- bukva: AQ
+  formula: =RANDBETWEEN(-10,10)
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AS
+  formula: =IF(ABS(N3-AB3)<AS$1*N3,"Цены совпадают",IF(ABS(N3-AN3)<AS$1*N3,"Цены совпадают",IF(ABS(AB3-AN3)<AS$1*AB3,"Цены совпадают","OK")))
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AT
+  zagolovok: Цена
+  formula: =MIN(P3,Z3,AL3)*1.2
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AU
+  zagolovok: Сумма
+  formula: =AT3*D3
+  formula_v_stroke: 3
+  formul: 301
+- bukva: AV
+  zagolovok: Цена
+  formula: =AVERAGE(P3,Z3,AL3)*1.2
+  formula_v_stroke: 3
+  formul: 300
+- bukva: AW
+  zagolovok: Сумма
+  formula: =AV3*D3
+  formula_v_stroke: 3
+  formul: 301

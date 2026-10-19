@@ -1,0 +1,43 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 4-9 Финансист
+diapazon: A1:Z20
+zakrepleno: A2
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 85
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение: 32
+  0-Паспорт проекта: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: Статья
+  formula: ="Статья"
+  formula_v_stroke: 1
+  formul: 17
+- bukva: B
+  zagolovok: Проект
+  formula: ="Проект"
+  formula_v_stroke: 1
+  formul: 17
+- bukva: C
+  zagolovok: Отчет
+  formula: ="Отчет"
+  formula_v_stroke: 1
+  formul: 17
+- bukva: D
+  zagolovok: Организация
+  formula: ="Организация"
+  formula_v_stroke: 1
+  formul: 17
+- bukva: E
+  zagolovok: '#N/A'
+  formula: "=LAMBDA(doMakeList,theList,doMakeList( DATE(2025,1,1) ,EOMONTH(MAX(theList,DATE(2025,1,1)),1)))( \nLAMBDA(tneMin,theMax , TRANSPOSE( UNIQUE( BYROW(MAKEARRAY(theMax-tneMin+1,1,LAMBDA(r,c,tneMin + r-1)),LAMBDA(td,EOMONTH(td,0)) )))),\nsort(Unique( FILTER( 'S,\"#N/A\")"
+  formula_v_stroke: 1
+  formul: 17

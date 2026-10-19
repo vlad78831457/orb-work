@@ -1,0 +1,77 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: Отзывы о поставщиках
+diapazon: A1:AO1000
+zakrepleno: C2
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 0
+znacheniy: 8246
+spiskov: 0
+uslovnyh: 23
+obedineno: 0
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+- bukva: B
+  zagolovok: E-mail
+- bukva: C
+  zagolovok: Итоговая оценка
+- bukva: D
+  zagolovok: Объединенный итог
+- bukva: E
+  zagolovok: Комментарий
+- bukva: F
+  zagolovok: Завершенных сделок
+- bukva: G
+  zagolovok: Кинул в сделках
+- bukva: H
+  zagolovok: Сделок в работе
+- bukva: I
+  zagolovok: Наша оценка
+- bukva: O
+  zagolovok: Название компании
+- bukva: P
+  zagolovok: ИНН
+- bukva: Q
+  zagolovok: Дата регистрации
+- bukva: R
+  zagolovok: Уставный капитал
+- bukva: S
+  zagolovok: Число сотрудников
+- bukva: T
+  zagolovok: УСН
+- bukva: U
+  zagolovok: Доходы
+- bukva: V
+  zagolovok: Прибыль
+- bukva: W
+  zagolovok: Налоги
+- bukva: X
+  zagolovok: Взносы
+- bukva: Y
+  zagolovok: Недоимки
+- bukva: Z
+  zagolovok: Связи
+- bukva: AA
+  zagolovok: Госзакупки
+- bukva: AB
+  zagolovok: Судебные дела
+- bukva: AC
+  zagolovok: Ответчик
+- bukva: AD
+  zagolovok: Проверки
+- bukva: AE
+  zagolovok: Нарушения
+- bukva: AF
+  zagolovok: Долги
+- bukva: AG
+  zagolovok: Сумма долгов
+- bukva: AH
+  zagolovok: Остаток долгов
+- bukva: AI
+  zagolovok: Филиалы
+- bukva: AJ
+  zagolovok: Лицензии

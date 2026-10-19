@@ -1,0 +1,411 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Финансист сбор данных
+diapazon: A1:EA1000
+zakrepleno: M1
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 464
+znacheniy: 205
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение: 7
+  0-Паспорт проекта: 3
+  5-0 Товары: 2
+  5-3 Выбор поставщиков Закупки: 2
+  3-3 Выбор поставщиков: 2
+  6 Оплаты: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: 0-Паспорт проекта - Номер проекта
+  formula: ={"0-Паспорт проекта - Номер проекта",LAMBDA(theName,theRange,IFERROR(VLOOKUP(theName,theRange,2,FALSE),))("Номер проекта",'0-Паспорт проекта'!$B:$C)}
+  formula_v_stroke: 1
+  formul: 3
+- bukva: B
+  formula: ="Проект"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: C
+  formula: ="Отчет"
+  formula_v_stroke: 9
+  formul: 35
+- bukva: D
+  formula: ="Статья"
+  formula_v_stroke: 9
+  formul: 35
+- bukva: E
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 16
+- bukva: F
+  formula: ="Сумма"
+  formula_v_stroke: 9
+  formul: 35
+- bukva: H
+  zagolovok: Есть ошибки в датах
+  formula: ="Есть ошибки в датах"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: I
+  zagolovok: '1'
+  formula: =LAMBDA(theMin,theList, NOT(ISERROR(FILTER(theList,ARRAYFORMULA(theList<theMin)))) )(I2, sort(Unique(E11:E42)))
+  formula_v_stroke: 1
+  formul: 2
+- bukva: AA
+  formula: =LAMBDA(doDolya,theTovarS, thePriceS, doDolya( ByRow( IFERROR( QUERY( {theTovarS,thePriceS} ,"Select Col1, Sum(Col2) Where Col1 is not null group by Col1 label Sum(Col2) '' ",0) , {"",""} ),LAMBDA(tr,{INDEX(tr,,1),"7 Исполнение - Итого для Заказчик,"")
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AB
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AC
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AD
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AF
+  formula: =LAMBDA(doDolya, theTovarS, thePriceS, doDolya( ByRow( IFERROR( QUERY( {theTovarS,thePriceS} ,"Select Col1, Sum(Col2) Where Col1 is not null group by Col1 label Sum(Col2) '' ",0) , {"",""} ),LAMBDA(tr,{INDEX(tr,,1),"5-5 Оформление сделок - Реальная,"")
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AG
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AH
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AI
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AK
+  formula: =LAMBDA(doDolya,theTovarS, thePriceS,theNumS , doDolya( ByRow( IFERROR( QUERY( {theTovarS,thePriceS,theNumS} ,"Select Col1, Sum(Col2) Where Col1 is not null and Col3 is not null group by Col1 label Sum(Col2) '' ",0) , {"",""} ),LAMBDA(tr,{INDEX(tr,,"")
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AL
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AM
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AN
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AP
+  formula: =LAMBDA(doDolya,theTovarS, thePriceS, thePayS, doDolya( ByRow( IFERROR( QUERY( {{theTovarS,thePriceS};{theTovarS,thePayS} } ,"Select Col1, Sum(Col2) Where Col1 is not null group by Col1 label Sum(Col2) '' ",0) , {"",""} ),LAMBDA(tr,{INDEX(tr,,1),"6,"")
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AQ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AR
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AS
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AU
+  formula: =if( AV11:AV1000<>"",AV11:AV1000,)
+  formula_v_stroke: 11
+  formul: 1
+- bukva: AV
+  formula: '={{"",""}
+
+    ;{"7 Исполнение - Договор Ориентировочная сумма договора в рублях" , LAMBDA(theData,theName,IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),))(''7 Исполнение''!A1:EA1,"Ориентировочная сумма договора в рублях") }
+
+    ;{"4-1 Расчет рент,"")'
+  formula_v_stroke: 10
+  formul: 19
+- bukva: AW
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 13
+- bukva: AY
+  formula: "= QUERY( { \n AU11:AX1000\n},\"Select * where Col1 is not null\",0 )"
+  formula_v_stroke: 11
+  formul: 18
+- bukva: AZ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 18
+- bukva: BA
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 13
+  formul: 12
+- bukva: BC
+  zagolovok: кд
+  formula: "={\n {\"кд\" , 1}\n;{\"д\" , 1}\n;{\"рд\" , 1.4}\n;{\"н\" , 7}\n;{\"нед\" , 7}\n;{\"м\" , 30}\n;{\"мес\" , 30}\n;{\"нал\" , 0}\n}"
+  formula_v_stroke: 1
+  formul: 8
+- bukva: BD
+  zagolovok: '1.0'
+  formula: ="Дата"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: BE
+  formula: ="Tип"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: BG
+  formula: ="Справочник Дат"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: BH
+  formula: ="Дата"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BI
+  formula: ="Тип"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BK
+  zagolovok: кд
+  formula: "={\n {\"кд\" , 1}\n;{\"д\" , 1}\n;{\"рд\" , 1.4}\n;{\"н\" , 7}\n;{\"нед\" , 7}\n;{\"м\" , 30}\n;{\"мес\" , 30}\n;{\"нал\" , 0}\n}"
+  formula_v_stroke: 1
+  formul: 6
+- bukva: BL
+  zagolovok: '1.0'
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 11
+  formul: 5
+- bukva: BM
+  formula: =sum(BM11:BM1000)
+  formula_v_stroke: 10
+  formul: 6
+- bukva: BN
+  formula: ="7 Исполнение - Ожидаемая дата готовности"
+  formula_v_stroke: 4
+  formul: 3
+- bukva: BO
+  formula: ="5-3 Выбор поставщиков Закупки - Срок поставки"
+  formula_v_stroke: 4
+  formul: 3
+- bukva: BP
+  formula: ="3-3 Выбор поставщиков - Срок поставки"
+  formula_v_stroke: 4
+  formul: 7
+- bukva: BQ
+  formula: ="Срок поставки"
+  formula_v_stroke: 4
+  formul: 3
+- bukva: BR
+  zagolovok: '0'
+  formula: =BR10=1
+  formula_v_stroke: 1
+  formul: 8
+- bukva: BS
+  formula: =IF(LAMBDA(theData,theStr, IFERROR(VLOOKUP(theStr,theData,2,FALSE) ,0))($BG$11:$BH1000,"Договор Дата")<>0,LAMBDA(theData,theStr, IFERROR(VLOOKUP(theStr,theData,2,FALSE) ,0))($BG$11:$BH1000,"Договор Дата"),LAMBDA(theData,theStr, IFERROR(VLOOKUP(theStr,theData,2,FALSE) ,0))($BG$11:$BH1000,"0-Паспорт проекта - Плановая дата заключения договора (расчетная)") )
+  formula_v_stroke: 3
+  formul: 4
+- bukva: BT
+  formula: ="5-3 Выбор поставщиков Закупки - Основной Поставщик"
+  formula_v_stroke: 4
+  formul: 2
+- bukva: BU
+  formula: ="3-3 Выбор поставщиков - Поставщик"
+  formula_v_stroke: 4
+  formul: 2
+- bukva: BV
+  formula: =if(BL11:BL1000<>"",if(BT11:BT1000<>"",BT11:BT1000,BU11:BU1000),)
+  formula_v_stroke: 11
+  formul: 1
+- bukva: CA
+  zagolovok: Нет
+  formula: ="Нет"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: CB
+  zagolovok: Нет
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 5
+- bukva: CC
+  zagolovok: Да
+  formula: ="Да"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: CD
+  zagolovok: Да
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 5
+- bukva: CE
+  zagolovok: Нет
+  formula: =IF($BR$1,CC1:CD1000,CA1:CB1000)
+  formula_v_stroke: 1
+  formul: 1
+- bukva: CF
+  zagolovok: Нет
+- bukva: CG
+  formula: ="ЗП коммерческого персонала СДЕЛЬНАЯ"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: CH
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: CI
+  formula: ="ЗП производственного персонала СДЕЛЬНАЯ"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: CJ
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: CK
+  formula: ="Себестоимость оборудования"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: CL
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: CM
+  formula: ="Транспортные услуги"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: CN
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: CO
+  formula: ="Комиссия за конвертацию наличных денег"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: CP
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: CQ
+  formula: ="Административные подрядчики"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: CR
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: CS
+  formula: ="Затраты на ЭТП"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: CT
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: CU
+  zagolovok: Нет
+  formula: ="Нет"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: CV
+  zagolovok: Нет
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 5
+- bukva: CW
+  zagolovok: Да
+  formula: ="Да"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: CX
+  zagolovok: Да
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 5
+- bukva: CY
+  zagolovok: Нет
+  formula: =IF($BR$1,CW1:CX1000,CU1:CV1000)
+  formula_v_stroke: 1
+  formul: 1
+- bukva: CZ
+  zagolovok: Нет
+- bukva: DA
+  zagolovok: Нет
+  formula: ="Нет"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: DB
+  zagolovok: Нет
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 5
+- bukva: DC
+  zagolovok: Да
+  formula: ="Да"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: DD
+  zagolovok: Да
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 5
+- bukva: DE
+  zagolovok: Нет
+  formula: =IF($BR$1,DC1:DD1000,DA1:DB1000)
+  formula_v_stroke: 1
+  formul: 1
+- bukva: DF
+  zagolovok: Нет
+- bukva: DG
+  formula: ="Транспортные услуги"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: DH
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: DI
+  formula: ="ЗП коммерческого персонала СДЕЛЬНАЯ"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: DJ
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: DK
+  formula: ="ЗП производственного персонала СДЕЛЬНАЯ"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: DL
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: DM
+  formula: ="Комиссия за конвертацию наличных денег"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: DN
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: DO
+  formula: ="Административные подрядчики"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: DP
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4
+- bukva: DQ
+  formula: ="Затраты на ЭТП"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: DR
+  formula: ="Сумма"
+  formula_v_stroke: 3
+  formul: 4

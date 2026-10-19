@@ -1,0 +1,831 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 ОтчетыПроектов
+diapazon: A1:KE15
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 656
+znacheniy: 220
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение: 66
+  4-1 Расчет рентабельности КП в1: 44
+  5-5 Оформление сделок: 42
+  S-10 ОтчетыПроектовВнешний: 12
+  S-10 Предложения: 11
+  6 Оплаты: 7
+  1-1 Сбор КП: 4
+  7 Договора: 4
+  0-Паспорт проекта: 3
+  1-2 Запросы по товарным группам: 3
+  3-3 Выбор поставщиков: 2
+  Настройки писем: 2
+  S-10 ОтчетРентабельности: 2
+  5-1 Сбор КП Закупки: 2
+  3-2 Экспертиза предложений: 1
+  S-10 Для Внешней Оплаты: 1
+  7 Стоимость Денег: 1
+  Экспорт в битрикс: 1
+  5-2 Запросы КП Закупки: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: Актуально вер:002
+  formula: ={"Актуально вер:002",TEXT( NOW(),"DD.MM.YYYY HH:mm:ss")}
+  formula_v_stroke: 1
+  formul: 4
+- bukva: B
+  zagolovok: 19.10.2026 15:43:00
+  formula: ="Актуально Проект"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: C
+  zagolovok: Лист 4-1
+  formula: ="Лист 4-1"
+  formula_v_stroke: 1
+  formul: 6
+- bukva: D
+  formula: ="Годовая рентабельность , %"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: E
+  formula: ="Дневная рентабельность (с учетом аванса) , %"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: F
+  formula: ="Закупка товара, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: G
+  formula: ="Затраты на ЭТП БРИФ"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: H
+  formula: ="БГ Обеспечение Исполнения договора"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: I
+  formula: ="БГ на Аванс"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: J
+  formula: ="Транспортировка, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: K
+  formula: ="Прочие расходы, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: L
+  formula: ="Организация логистики, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: M
+  formula: ="Курьерские услуги, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: N
+  formula: ="Бонусы, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: O
+  formula: ="Итого прямые затраты, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: P
+  formula: ="Итого косвенные затраты, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: Q
+  formula: ="Себестоимость, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: R
+  formula: ="Минимальная цена (без прибыли) с резервом на риски, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: S
+  formula: ="Цена целевой рентабельности(максимальная желаемая), руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: T
+  formula: ="Цена предложения, руб (вводится вручную)"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: U
+  formula: ="Планируемая чистая прибыль до налогообложения, руб"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: V
+  formula: ="НМЦ, руб с НДС"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: W
+  formula: ="Штрафы / неустойка от заказчика"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: X
+  formula: ="Падение от НМЦ"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: Y
+  formula: ="Прибыль до налогообложения (РПП)"
+  formula_v_stroke: 2
+  formul: 5
+- bukva: AB
+  zagolovok: 1-1 Сбор КП
+  formula: ="1-1 Сбор КП"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: AC
+  zagolovok: 3-2 Экспертиза предложений
+  formula: ="3-2 Экспертиза предложений"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: AD
+  zagolovok: 5-5 Оформление сделок
+  formula: ="5-5 Оформление сделок"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: AE
+  formula: ="Итого с НДС"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AF
+  formula: ="Итого без НДС"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AG
+  formula: ="Итого наличными"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AH
+  formula: ="НДС"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AI
+  formula: ="Прочие Расходы"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AJ
+  formula: ="Всего"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AK
+  formula: ="Сумма оплат"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AL
+  formula: ="Проверка ошибок"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: AM
+  zagolovok: 6 Оплаты
+  formula: ="6 Оплаты"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: AN
+  zagolovok: 7 Исполнение П
+  formula: ="7 Исполнение П"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: AO
+  formula: ="От"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AP
+  formula: ="Исполнитель"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AQ
+  formula: ="Заказчик"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AR
+  formula: ="НДС Договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AS
+  formula: ="Сумма"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AT
+  formula: ="Валюта договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AU
+  formula: ="Ориентировочная сумма договора в рублях"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AV
+  formula: ="Вид подписания договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AW
+  formula: ="Частичная оплата за товар"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AX
+  formula: ="Частичная поставка товара"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: AY
+  formula: ="Дата подписи исполнителем"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: AZ
+  formula: ="Дата подписи заказчиком"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: BA
+  formula: ="Проверка обязательного заполнения полей"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BB
+  formula: ="Договора"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: BC
+  formula: ="Сводка Договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BD
+  formula: ="Оплаты Документа"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BE
+  zagolovok: 7 Исполнение З
+  formula: ="7 Исполнение З"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: BF
+  formula: ="От"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BG
+  formula: ="Исполнитель"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BH
+  formula: ="Заказчик"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BI
+  formula: ="НДС Договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BJ
+  formula: ="Сумма"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BK
+  formula: ="Валюта договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BL
+  formula: ="Ориентировочная сумма договора в рублях"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BM
+  formula: ="Вид подписания договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BN
+  formula: ="Частичная оплата за товар"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BO
+  formula: ="Частичная поставка товара"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BP
+  formula: ="Дата подписи исполнителем"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: BQ
+  formula: ="Дата подписи заказчиком"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: BR
+  formula: ="Проверка обязательного заполнения полей"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BS
+  formula: ="Договора"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: BT
+  formula: ="Сводка Договора"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BU
+  formula: ="Оплаты Документа"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BV
+  formula: ="Цена договора с партнером"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: BW
+  zagolovok: 7 Исполнение
+  formula: ="7 Исполнение"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: BX
+  zagolovok: 6 Оплаты
+  formula: ="6 Оплаты"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: BY
+  zagolovok: 7 Стоимость Денег
+  formula: ="7 Стоимость Денег"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: BZ
+  zagolovok: Настройки писем
+  formula: ="Настройки писем"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: CA
+  formula: ="Наши Цены"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: CB
+  zagolovok: Экспорт в битрикс
+  formula: ="Экспорт в битрикс"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: CC
+  zagolovok: 0-Паспорт проекта
+  formula: ="0-Паспорт проекта"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: CD
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CE
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CF
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CG
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CH
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CI
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CJ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CK
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CL
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CM
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CN
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CO
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CP
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CQ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CR
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CS
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CT
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CU
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CV
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CW
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CX
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CY
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: CZ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DA
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DB
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DC
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DD
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DE
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DF
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DG
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DH
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DI
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DJ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DK
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DL
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DM
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DN
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DO
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DP
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DQ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DR
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DS
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DT
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DU
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DV
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DW
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DX
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DY
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: DZ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EA
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EB
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EC
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: ED
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EE
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EF
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EG
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EH
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EI
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EJ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EK
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EL
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EM
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: EN
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: ES
+  zagolovok: 6 Оплаты
+  formula: ="6 Оплаты"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: GI
+  formula: ="K10"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: GJ
+  zagolovok: 4-1 Расчет рентабельности
+  formula: ="4-1 Расчет рентабельности"
+  formula_v_stroke: 1
+  formul: 4
+- bukva: GK
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GL
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GM
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GN
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GO
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GP
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GQ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GR
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GS
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GT
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GU
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GV
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GW
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GX
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GY
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: GZ
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: HA
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: HB
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: HC
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: HD
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: HE
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: HF
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: HG
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 2
+  formul: 2
+- bukva: IM
+  zagolovok: Рабочий Лист
+  formula: ="Рабочий Лист"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: IN
+  formula: ="Ожидаемая дата готовности последнего товара"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: IO
+  formula: ="Даты доставок товара заказчику"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: IP
+  formula: ="Сводка по доставке Товаров"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: IQ
+  formula: ="Дата доставки Заказчику последнего товара"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: IR
+  formula: ="Дата поступления к нам на склад последнего товара"
+  formula_v_stroke: 2
+  formul: 3
+- bukva: IU
+  zagolovok: Ошибки
+  formula: ="Ошибки"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: IV
+  formula: ="Исполнения"
+  formula_v_stroke: 2
+  formul: 4
+- bukva: IZ
+  zagolovok: Запросы и предложения Сбор
+  formula: ="Запросы и предложения Сбор"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: JA
+  formula: '="Поставщики: Предложений"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JB
+  formula: '="Поставщики: Доля"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JD
+  formula: '="Товары: Всего"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JE
+  formula: '="Товары: Хотябы один"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JF
+  formula: '="Товары: Доля Хотябы один"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JG
+  formula: '="Товары: Более 3"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JH
+  formula: '="Товары: Доля Более 3"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JJ
+  formula: '="Товары Итого: Доля ответов"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JK
+  formula: '="Товары Итого: Списком"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JM
+  zagolovok: Запросы и предложения Закупка
+  formula: ="Запросы и предложения Закупка"
+  formula_v_stroke: 1
+  formul: 5
+- bukva: JN
+  formula: '="Поставщики: Предложений"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JO
+  formula: '="Поставщики: Доля"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JQ
+  formula: '="Товары: Всего"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JR
+  formula: '="Товары: Хотябы один"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JS
+  formula: '="Товары: Доля Хотябы один"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JT
+  formula: '="Товары: Более 3"'
+  formula_v_stroke: 2
+  formul: 4
+- bukva: JU
+  formula: '="Товары: Доля Более 3"'
+  formula_v_stroke: 2
+  formul: 4
