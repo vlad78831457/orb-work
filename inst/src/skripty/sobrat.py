@@ -34,8 +34,11 @@ INST = os.path.dirname(SRC)
 SECTIONS = [('tio', 'Инструкции', 'md-kod/tio'), ('zna', 'Знания', 'md-kod/zna'), ('um', 'Умения', 'md-kod/um'),
             ('lis', 'Листы', 'md-kod/lis'),
             ('standarty', 'Стандарты', 'standarty')]
-REG = {'ter': 'Термины', 'rol': 'Роли', 'res': 'Ресурсы'}
-GLOSS = ('ter', 'rol')   # реестры-словари: у каждого своя собранная страница
+REG = {'ter': 'Термины', 'rol': 'Роли', 'zad': 'Группы задач', 'res': 'Ресурсы'}
+GLOSS = ('ter', 'rol', 'zad')   # реестры-словари: у каждого своя собранная страница
+ROLE_FIELDS = (('pomogayut', 'помогают'), ('soglasuyut', 'согласуют'), ('uznayut', 'узнают о результате'))   # роли в группе задач
+INFO = (('kontur', 'Контур'), ('listy', 'Листы'), ('nazvaniya', 'Как ещё называют'), ('stolbets', 'Столбец регламента'),
+        ('shagi', 'Шаги'), ('istochnik', 'Источник'), ('pochemu', 'Почему выделили'), ('dogadka', 'Догадка, не подтверждено'))
 STATUSES = ('готово', 'проверить', 'заглушка')
 FORMS = (None, 'kratko', 'polno', 'tekst')
 STUB = '*Часть ещё не написана.*'
@@ -182,6 +185,11 @@ def check(parts, reg, fulls):
                 soft.append(f'{where}: ссылка на файл вместо упоминания [[…]] — {link}')
         if p['status'] != 'готово' and f'`{p["name"]}`' not in plan:
             errors.append(f'{where}: статус «{p["status"]}», но части нет в inst/PLAN.md')
+    for key, z in reg.get('zad', {}).items():   # у группы задач — только роли из реестра
+        for field, roles in [('rol', [z.get('rol')])] + [(f, z.get(f) or []) for f, _ in ROLE_FIELDS]:
+            for r in roles:
+                if r not in reg['rol']:
+                    errors.append(f'zad.{key}: в {field} нет такой роли — {r}')
     for name, f in fulls.items():
         for n in [f.get('chast')] + (f.get('vklyuchit') or []):
             if n not in parts:
@@ -324,14 +332,35 @@ def build_dist(parts, reg, out):
             kind, key = name.split('.', 1)
             if kind in GLOSS and p not in where.setdefault((kind, key), []):
                 where[(kind, key)].append(p)
+    zad = reg.get('zad', {})
+    ref = lambda kind, key: f'[{reg[kind][key]["title"]}]({kind}.md#{key})'
     for kind in GLOSS:
         lines = [f'# {REG[kind]}\n']
-        for key, t in sorted(reg[kind].items(), key=lambda kv: kv[1]['title'].lower()):
+        items = reg[kind].items() if kind != 'ter' else sorted(reg[kind].items(), key=lambda kv: kv[1]['title'].lower())
+        for key, t in items:   # роли и группы задач — в порядке файла: он сгруппирован по контурам
             mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
-            lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
-            if kind == 'rol' and where.get((kind, key)):
-                lines.append('\n'.join(f'- [{p["title"]}](../{p["sec"]}/{p["slug"]}/index.md)'
-                                       for p in sorted(where[(kind, key)], key=lambda p: (p['sec'], p['slug']))) + '\n')
+            if kind == 'ter':
+                lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
+            else:   # у роли и группы — подробности, поэтому свой заголовок
+                lines.append(f'## <a id="{key}"></a>{t["title"]}\n\n{t["polno"]}{mark}\n')
+            info = []
+            if kind == 'zad':
+                info.append(f'- **Исполняет:** {ref("rol", t["rol"])}')
+                info += [f'- **{label.capitalize()}:** ' + ', '.join(ref('rol', r) for r in t[f]) for f, label in ROLE_FIELDS if t.get(f)]
+            for f, label in INFO:
+                v = t.get(f)
+                if v:
+                    info.append(f'- **{label}:** ' + ('; '.join(map(str, v)) if isinstance(v, list) else str(v)))
+            if kind == 'rol':
+                own = [k for k, z in zad.items() if z.get('rol') == key]
+                part = [k for k, z in zad.items() if any(key in (z.get(f) or []) for f, _ in ROLE_FIELDS)]
+                info += [f'- **Группы задач:** ' + ', '.join(ref('zad', k) for k in own)] if own else []
+                info += [f'- **Участвует в группах:** ' + ', '.join(ref('zad', k) for k in part)] if part else []
+            if kind != 'ter' and where.get((kind, key)):
+                info.append('- **Где упоминается:** ' + ', '.join(f'[{p["title"]}](../{p["sec"]}/{p["slug"]}/index.md)'
+                                       for p in sorted(where[(kind, key)], key=lambda p: (p['sec'], p['slug']))))
+            if info:
+                lines.append('\n'.join(info) + '\n')
         open(f'{out}/reg/{kind}.md', 'w', encoding='utf-8').write('\n'.join(lines))
     lines = ['# Инструкции\n', 'Собрано из `inst/src` скриптом `skripty/sobrat.py`. Руками здесь не править.\n']
     for sec, title, _ in SECTIONS:
