@@ -26,7 +26,7 @@ nuzhno:
 | `inst/src/md-kod/um/` | умения | да |
 | `inst/src/md-kod/lis/` | листы таблиц, по одной части на лист | да |
 | `inst/src/md-kod/pro/` | процессы: `reglament.yaml` — как записано (руками не править), `protsess.yaml` — кто что делает | да, кроме `reglament.yaml` |
-| `inst/src/md-kod/reg/` | реестр: `ter.yaml` — термины, `rol.yaml` — должности, `oby.yaml` — обязанности, `mes.yaml` — места работы, `res.yaml` — рабочие ссылки | да |
+| `inst/src/md-kod/reg/` | реестр: `ter.yaml` — термины, `rol.yaml` — должности, `oby.yaml` — обязанности, `mes.yaml` — места работы, `art.yaml` — что передаётся, `res.yaml` — рабочие ссылки | да |
 | `inst/src/standarty/` | формат, шаблон, правила, эта памятка | да |
 | `full.yaml` в папке инструкции | что включить в её полный документ | да |
 | `inst/src/full/` | описания сводных полных документов | да |

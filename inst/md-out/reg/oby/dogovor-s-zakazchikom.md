@@ -12,6 +12,7 @@
 ## Откуда задача и кому результат
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_dogovor_s_zakazchikom("Ведущий договор с<br/>заказчиком")
   style o_dogovor_s_zakazchikom stroke-width:3px
@@ -46,5 +47,9 @@ flowchart LR
 | [Процесс. Контрактация](../../pro/r02-kontraktatsiya/index.md) | 14 | Информирование M, о том, что надо подписать договор через ЭДО | делает |
 | [Процесс. Контрактация](../../pro/r02-kontraktatsiya/index.md) | 15 | Подписание договора через ЭДО | ставит задачу |
 | [Процесс. Контрактация](../../pro/r02-kontraktatsiya/index.md) | 16 | Направление скан копии подписанного договора заказчику. | делает |
+
+**Получает:** [Заключение по проекту договора](../../reg/art.md#zaklyuchenie-dogovor), [Заключение по ТЗ](../../reg/art.md#zaklyuchenie-tz), [Подписанный договор с заказчиком](../../reg/art.md#dogovor-podpisannyy)
+
+**Отдаёт:** [Подзадача «Оформить договор»](../../reg/art.md#podzadacha-dogovor), [Проект договора заказчика](../../reg/art.md#proekt-dogovora), [Подзадача на проверку ТЗ](../../reg/art.md#podzadacha-tz), [Просьба подписать договор через ЭДО](../../reg/art.md#poruchenie-podpisat), [Оригинал договора для заказчика](../../reg/art.md#original-dogovora)
 
 **Где работает:** [Почта](../../reg/mes.md#pochta), [Диск: «Рабочие документы» → «Контрактация», «Договор»](../../reg/mes.md#disk-kontraktatsiya), [Лист «0-Паспорт проекта»](../../reg/mes.md#lis-0-pasport), [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta)

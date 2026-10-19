@@ -12,6 +12,7 @@
 ## Откуда задача и кому результат
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_registratsiya_vhodyashchih("Регистрирующий входящие")
   style o_registratsiya_vhodyashchih stroke-width:3px
@@ -30,5 +31,9 @@ flowchart LR
 | [Процесс. Устранение несоответствий](../../pro/r10-nesootvetstviya/index.md) | 19 | Размещение в папке Проекта документа о несоответствии | делает |
 | [Процесс. Устранение несоответствий](../../pro/r10-nesootvetstviya/index.md) | 20 | Передача документа о несоответствии менеджеру проекта с постановкой задачи | делает |
 | [Процесс. Устранение несоответствий](../../pro/r10-nesootvetstviya/index.md) | 21 | Принятие решения по устранению несоответствий | ставит задачу |
+
+**Получает:** [Документ о несоответствии](../../reg/art.md#dokument-nesootv)
+
+**Отдаёт:** [Задача «Принятие решения по устранению несоответствий»](../../reg/art.md#zadacha-nesootv), [Документ о несоответствии](../../reg/art.md#dokument-nesootv)
 
 **Где работает:** [Журнал регистрации входящих](../../reg/mes.md#zhurnal-vhodyashchih), [Диск: документы исполнения](../../reg/mes.md#disk-ispolnenie), [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha)

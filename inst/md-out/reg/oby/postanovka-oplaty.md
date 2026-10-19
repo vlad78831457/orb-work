@@ -11,6 +11,7 @@
 ## Откуда задача и кому результат
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_postanovka_oplaty("Ставящий задачу на оплату")
   style o_postanovka_oplaty stroke-width:3px
@@ -28,5 +29,7 @@ flowchart LR
 | [Процесс. Закупка товара](../../pro/r04-zakupka-tovara/index.md) | 18 | Информирование в задаче K о том, что размещены новые Счета и договора | делает |
 | [Процесс. Закупка товара](../../pro/r04-zakupka-tovara/index.md) | 19 | Проверка готовых к оплате счетов и договоров | ставит задачу |
 | [Процесс. Закупка товара](../../pro/r04-zakupka-tovara/index.md) | 20 | Создание заказа покупателя и поставщикам в 1с | ставит задачу |
+
+**Отдаёт:** [Задача «Оплатить счета»](../../reg/art.md#zadacha-oplatit), [Счета и договоры «готов к оплате»](../../reg/art.md#scheta-v-oplatu)
 
 **Где работает:** [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha)

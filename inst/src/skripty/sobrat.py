@@ -4,7 +4,7 @@
 Часть — папка inst/src/md-kod/<раздел>/<часть>/ (разделы: tio, zna, um, lis, pro) (стандарты — inst/src/standarty/<часть>/) с файлом index.md
 и шапкой YAML: title, kratko, polno, status, tags, nuzhno. Имя части — <раздел>.<часть>: zna.tab-nmts.
 Реестр — inst/src/md-kod/reg/: ter.yaml (термины), rol.yaml (должности), oby.yaml (обязанности), mes.yaml (места работы),
-res.yaml (рабочие ссылки). Процессы (раздел pro) — данные шагов и схемы: см. protsessy.py.
+art.yaml (что передаётся), res.yaml (рабочие ссылки). Процессы (раздел pro) — данные шагов и схемы: см. protsessy.py.
 
 Упоминание в тексте меняет вид по месту:
   [[zna.tab-nmts]] внутри предложения        короткое имя ссылкой
@@ -38,8 +38,8 @@ INST = os.path.dirname(SRC)
 SECTIONS = [('tio', 'Инструкции', 'md-kod/tio'), ('zna', 'Знания', 'md-kod/zna'), ('um', 'Умения', 'md-kod/um'),
             ('lis', 'Листы', 'md-kod/lis'), ('pro', 'Процессы', 'md-kod/pro'),
             ('standarty', 'Стандарты', 'standarty')]
-REG = {'ter': 'Термины', 'rol': 'Должности', 'oby': 'Обязанности', 'mes': 'Места работы', 'res': 'Ресурсы'}
-GLOSS = ('ter', 'rol', 'oby', 'mes')   # реестры-словари: у каждого своя собранная страница
+REG = {'ter': 'Термины', 'rol': 'Должности', 'oby': 'Обязанности', 'mes': 'Места работы', 'art': 'Что передаётся', 'res': 'Ресурсы'}
+GLOSS = ('ter', 'rol', 'oby', 'mes', 'art')   # реестры-словари: у каждого своя собранная страница
 CARDS = ('rol', 'oby')                 # у должности и обязанности — ещё и своя карточка reg/<вид>/<ключ>.md
 INFO = (('kontur', 'Контур'), ('nazvaniya', 'Как ещё называют'), ('kolonka', 'Столбец регламента'),
         ('istochnik', 'Источник'), ('pochemu', 'Почему выделили'), ('dogadka', 'Догадка, не подтверждено'))
@@ -345,6 +345,7 @@ def build_dist(parts, reg, out):
                 where[(kind, key)].append(p)
     by_oby, by_rol, places = protsessy.index(parts, reg)
     _, flows = protsessy.handoffs(protsessy.procs(parts), reg)
+    art_flows = protsessy.art_flow(parts, reg)
 
     def info(t, kind, key, root):
         lines = []
@@ -366,6 +367,11 @@ def build_dist(parts, reg, out):
                 lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
             elif kind in CARDS:
                 lines.append(f'- <a id="{key}"></a>[{t["title"]}]({kind}/{key}.md) — {t["polno"]}{mark}')
+            elif kind == 'art':   # предмет передачи: кто отдаёт и кому
+                where_ = f' Лежит: [{reg["mes"][t["gde"]]["title"]}](mes.md#{t["gde"]}).' if t.get('gde') else ''
+                guess = f' *Догадка: {t["dogadka"]}*' if t.get('dogadka') else ''
+                lines.append(f'## <a id="{key}"></a>{t["title"]}\n\nВид: {t.get("vid", "—")}.{where_}{guess}\n\n'
+                             + protsessy.art_info(key, reg, art_flows))
             else:   # место работы: кто там работает
                 used = ', '.join(f'[{reg["oby"][o]["title"]}](oby/{o}.md)' for o in places.get(key, []))
                 chast = f' Описание: [{parts[t["chast"]]["title"]}](../{t["chast"].replace(".", "/")}/index.md).' if t.get('chast') else ''

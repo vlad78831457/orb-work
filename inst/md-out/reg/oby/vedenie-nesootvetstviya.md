@@ -10,6 +10,7 @@
 ## Откуда задача и кому результат
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_vedenie_nesootvetstviya("Ведущий устранение<br/>несоответствия")
   style o_vedenie_nesootvetstviya stroke-width:3px
@@ -32,5 +33,9 @@ flowchart LR
 | [Процесс. Устранение несоответствий](../../pro/r10-nesootvetstviya/index.md) | 26 | Подготовка предложений по ответу и согласование с заинтересованными сторонами | согласуют |
 | [Процесс. Устранение несоответствий](../../pro/r10-nesootvetstviya/index.md) | 28 | Сбор объяснений по возникновению несоответствий и сбор предложений по предотвращению/снижению рисков возникновения подобных несоответствий | делает |
 | [Процесс. Устранение несоответствий](../../pro/r10-nesootvetstviya/index.md) | 29 | Закрытие процесса Устранение несоответствий | делает |
+
+**Получает:** [Задача «Принятие решения по устранению несоответствий»](../../reg/art.md#zadacha-nesootv), [Документ о несоответствии](../../reg/art.md#dokument-nesootv), [Ответ на документ о несоответствии](../../reg/art.md#otvet-nesootv)
+
+**Отдаёт:** [Решение по устранению несоответствия](../../reg/art.md#reshenie-nesootv), [Поручение подготовить ответ на несоответствие](../../reg/art.md#poruchenie-otvet), [Объяснения и предложения по предотвращению](../../reg/art.md#obyasneniya)
 
 **Где работает:** [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha)

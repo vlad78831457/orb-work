@@ -12,18 +12,24 @@
 Вертикальная дорожка — должность, которую мы предполагаем; заметка — шаг в её дорожке; стрелка — работа переходит к другой должности (ставит задачу или делает следующий шаг).
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 sequenceDiagram
   participant r_prodazhi as Менеджер по продажам
   participant r_proekt as Менеджер проекта
   participant r_zakupka as Закупщик
+  rect rgb(255, 255, 255)
   Note over r_prodazhi: 0. Вход в процесс #quot;Передача в<br/>Закупки#quot;
-  r_prodazhi->>r_proekt: 1. Постановка задачи на Передачу в<br/>закупки
+  r_prodazhi->>r_proekt: Решение передать в закупки
+  Note over r_proekt: 1. Постановка задачи на Передачу в<br/>закупки
   Note over r_proekt: 2. Дополнить шаблоны подзадач
   Note over r_proekt: 3. Выполнить подзадачу #quot; Заполнить<br/>лист 5-0#quot;
   Note over r_proekt: 4. Выполнить подзадачу #quot;Проверить<br/>комплектность передачи проекта в<br/>закупку#quot;
   Note over r_proekt: 5. Выполнить подзадачу #quot;Поставить<br/>задачу на закупку#quot;
-  r_proekt->>r_zakupka: 6. Выполнить подзадачу #quot;Принять<br/>задачу на закупку#quot;
-  r_zakupka->>r_proekt: 7. Возобновление Закупок по<br/>проекту (в случае невыполнения<br/>поставок контрагентами, необхо…
+  r_proekt->>r_zakupka: Задача «Закупка»
+  Note over r_zakupka: 6. Выполнить подзадачу #quot;Принять<br/>задачу на закупку#quot;
+  r_zakupka-->>r_proekt: дальше
+  Note over r_proekt: 7. Возобновление Закупок по<br/>проекту (в случае невыполнения<br/>поставок контрагентами, необхо…
+  end
 ```
 
 ## Как в регламенте
@@ -31,6 +37,7 @@ sequenceDiagram
 Дорожки — столбцы регламента с основным исполнителем; шаги — по порядку. Пунктир — шаг без исполнителя.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph c_H["H Менеджер"]
     s_pz_0["0. Вход в процесс<br/>#quot;Передача в Закупки#quot;"]
@@ -69,6 +76,7 @@ flowchart TB
 Дорожки — должности, которые мы предполагаем; узлы — обязанности. Сплошная стрелка — ставит задачу или передаёт результат, пунктир — следит или согласует; стрелка без подписи — дальше по порядку.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph r_prodazhi["Менеджер по продажам"]
     o_reshenie_peredachi("Решающий передать проект в<br/>закупки")
@@ -82,7 +90,7 @@ flowchart TB
   subgraph r_zakupka["Закупщик"]
     o_prinyatie_zakupki("Принимающий задачу на<br/>закупку")
   end
-  o_postanovka_zakupki -->|ставит| o_prinyatie_zakupki
+  o_postanovka_zakupki -->|"ставит"| o_prinyatie_zakupki
   o_reshenie_peredachi --> o_peredacha_v_zakupku
   o_peredacha_v_zakupku --> o_list_5_0
   o_list_5_0 --> o_proverka_komplektnosti
@@ -91,20 +99,21 @@ flowchart TB
 
 ## Шаги и обязанности
 
-| № | Шаг | Делает | Ставит → принимает | Согласуют, помогают, узнают | Где |
-|---|---|---|---|---|---|
-| 0 | Вход в процесс "Передача в Закупки" | [Решающий передать проект в закупки](../../reg/oby/reshenie-peredachi.md) | — → — |  | [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
-| 1 | Постановка задачи на Передачу в закупки | [Передающий проект в закупку](../../reg/oby/peredacha-v-zakupku.md) | — → — |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 2 | Дополнить шаблоны подзадач | [Передающий проект в закупку](../../reg/oby/peredacha-v-zakupku.md) | — → — |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 3 | Выполнить подзадачу " Заполнить лист 5-0" | [Фиксирующий задание на закупку (лист 5-0)](../../reg/oby/list-5-0.md) | — → — | помогают: [Технический эксперт (ТС)](../../reg/rol/tekh.md) | [Лист «5-0 Передача в закупку»](../../reg/mes.md#lis-5-0), [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 4 | Выполнить подзадачу "Проверить комплектность передачи проекта в закупку" | [Проверяющий комплектность передачи в закупку](../../reg/oby/proverka-komplektnosti.md) | — → — |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Лист «5-0 Передача в закупку»](../../reg/mes.md#lis-5-0) |
-| 5 | Выполнить подзадачу "Поставить задачу на закупку" | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) | — → [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
-| 6 | Выполнить подзадачу "Принять задачу на закупку" | [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) → — |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 7 | Возобновление Закупок по проекту (в случае невыполнения поставок контрагентами, необходимости дозакупить что-либо и т.д.)<br/>*Возобновление закупки при недопоставке — тот же, кто ставит задачу.* | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) | — → [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
+| № | Шаг | Делает | Ставит → принимает | Передаёт | Согласуют, помогают, узнают | Где |
+|---|---|---|---|---|---|---|
+| 0 | Вход в процесс "Передача в Закупки" | [Решающий передать проект в закупки](../../reg/oby/reshenie-peredachi.md) | — → — | [Решение передать в закупки](../../reg/art.md#reshenie-peredat) |  | [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
+| 1 | Постановка задачи на Передачу в закупки | [Передающий проект в закупку](../../reg/oby/peredacha-v-zakupku.md) | — → — | [Задача «Передача в закупку»](../../reg/art.md#zadacha-peredacha) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 2 | Дополнить шаблоны подзадач | [Передающий проект в закупку](../../reg/oby/peredacha-v-zakupku.md) | — → — |  |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 3 | Выполнить подзадачу " Заполнить лист 5-0" | [Фиксирующий задание на закупку (лист 5-0)](../../reg/oby/list-5-0.md) | — → — | [Задание на закупку (лист 5-0)](../../reg/art.md#list-5-0) | помогают: [Технический эксперт (ТС)](../../reg/rol/tekh.md) | [Лист «5-0 Передача в закупку»](../../reg/mes.md#lis-5-0), [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 4 | Выполнить подзадачу "Проверить комплектность передачи проекта в закупку" | [Проверяющий комплектность передачи в закупку](../../reg/oby/proverka-komplektnosti.md) | — → — |  |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Лист «5-0 Передача в закупку»](../../reg/mes.md#lis-5-0) |
+| 5 | Выполнить подзадачу "Поставить задачу на закупку" | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) | — → [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) | [Задача «Закупка»](../../reg/art.md#zadacha-zakupka) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
+| 6 | Выполнить подзадачу "Принять задачу на закупку" | [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) → — |  |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 7 | Возобновление Закупок по проекту (в случае невыполнения поставок контрагентами, необходимости дозакупить что-либо и т.д.)<br/>*Возобновление закупки при недопоставке — тот же, кто ставит задачу.* | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) | — → [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) | [Задача «Закупка»](../../reg/art.md#zadacha-zakupka) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
 
 ## Где работают
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_reshenie_peredachi("Решающий передать проект в<br/>закупки")
   o_peredacha_v_zakupku("Передающий проект в<br/>закупку")
@@ -135,6 +144,7 @@ flowchart LR
 **Статус проекта**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 stateDiagram-v2
   direction LR
   state "Заключаем договор" as st0

@@ -12,22 +12,30 @@
 Вертикальная дорожка — должность, которую мы предполагаем; заметка — шаг в её дорожке; стрелка — работа переходит к другой должности (ставит задачу или делает следующий шаг).
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 sequenceDiagram
   participant r_proekt as Менеджер проекта
   participant r_khranitel as Хранитель учёта и документов
   participant r_logist as Логист
   participant r_vladelets as Владелец процесса
   participant r_none as не знаем кто
+  rect rgb(255, 255, 255)
   Note over r_proekt: 30. Отслеживание сроков приемки по<br/>проекту и принятие мер (например<br/>отправка письма о том…
-  r_proekt->>r_khranitel: 31. Отслеживание сроков оплаты по<br/>проекту,
+  r_proekt-->>r_khranitel: дальше
+  Note over r_khranitel: 31. Отслеживание сроков оплаты по<br/>проекту,
   Note over r_khranitel: 32. Отслеживание и учет оплат от<br/>заказчиков и поступлений (типа<br/>денег от поставщиков и ст…
   Note over r_khranitel: 33. Занесение информации о<br/>платежах в систему
   Note over r_khranitel: 34. Написание претензии о неуплате
-  r_khranitel->>r_logist: 35. Отправка претензии Заказчику о<br/>неуплате
-  r_logist->>r_proekt: 36. Выяснение вопросов по<br/>претензии (когда заплатят деньги)
+  r_khranitel->>r_logist: Претензия о неуплате
+  Note over r_logist: 35. Отправка претензии Заказчику о<br/>неуплате
+  r_logist->>r_proekt: Претензия о неуплате
+  Note over r_proekt: 36. Выяснение вопросов по<br/>претензии (когда заплатят деньги)
   Note over r_proekt: 37. Инициирование Судебного Иска
-  r_proekt->>r_vladelets: 38. Планирование судебно исковой<br/>работы.
-  r_vladelets->>r_none: 39. Судебно-исковая работа
+  r_proekt->>r_vladelets: Решение инициировать иск
+  Note over r_vladelets: 38. Планирование судебно исковой<br/>работы.
+  r_vladelets->>r_none: Назначение ответственного
+  Note over r_none: 39. Судебно-исковая работа
+  end
 ```
 
 ## Как в регламенте
@@ -35,6 +43,7 @@ sequenceDiagram
 Дорожки — столбцы регламента с основным исполнителем; шаги — по порядку. Пунктир — шаг без исполнителя.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph c_H["H Менеджер"]
     s_kz_30["30. Отслеживание сроков<br/>приемки по проекту и<br/>принятие мер (например о…"]
@@ -89,6 +98,7 @@ flowchart TB
 Дорожки — должности, которые мы предполагаем; узлы — обязанности. Сплошная стрелка — ставит задачу или передаёт результат, пунктир — следит или согласует; стрелка без подписи — дальше по порядку.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph r_proekt["Менеджер проекта"]
     o_dozhim_zakazchika("Добивающийся приёмки и<br/>оплаты от заказчика")
@@ -107,11 +117,11 @@ flowchart TB
   subgraph r_none["не знаем кто"]
     o_sud("Ведущий судебно-исковую<br/>работу")
   end
-  o_naznachenie_otvetstvennyh -->|ставит| o_sud
-  o_oplaty_zakazchika -->|передаёт| o_pretenziya_neuplata
-  o_pretenziya_neuplata -->|передаёт| o_otpravka_pretenzii
-  o_dozhim_zakazchika -.->|согласует| o_pretenziya_neuplata
-  o_isk -->|передаёт| o_naznachenie_otvetstvennyh
+  o_naznachenie_otvetstvennyh -->|"ставит"| o_sud
+  o_oplaty_zakazchika -->|"передаёт"| o_pretenziya_neuplata
+  o_pretenziya_neuplata -->|"Претензия о неуплате"| o_otpravka_pretenzii
+  o_dozhim_zakazchika -.->|"согласует"| o_pretenziya_neuplata
+  o_isk -->|"Решение инициировать иск"| o_naznachenie_otvetstvennyh
   o_dozhim_zakazchika --> o_oplaty_zakazchika
   o_otpravka_pretenzii --> o_dozhim_zakazchika
   o_dozhim_zakazchika --> o_isk
@@ -119,22 +129,23 @@ flowchart TB
 
 ## Шаги и обязанности
 
-| № | Шаг | Делает | Ставит → принимает | Согласуют, помогают, узнают | Где |
-|---|---|---|---|---|---|
-| 30 | Отслеживание сроков приемки по проекту и принятие мер (например отправка письма о том, что считаем, что замечаний нет.)<br/>*Регламент: «нет инструмента, прописать инструмент».* | [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) | — → — | помогают: [Логист](../../reg/rol/logist.md) |  |
-| 31 | Отслеживание сроков оплаты по проекту, | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) |  |  |
-| 32 | Отслеживание и учет оплат от заказчиков и поступлений (типа денег от поставщиков и страховых) по проекту | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → — |  | [1С](../../reg/mes.md#1s) |
-| 33 | Занесение информации о платежах в систему<br/>*Регламент: «что тут писать?» — в какую систему, не сказано.* | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → — |  |  |
-| 34 | Написание претензии о неуплате | [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) | — → [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) | согласуют: [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) |  |
-| 35 | Отправка претензии Заказчику о неуплате | [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) | — → — |  | [Почта](../../reg/mes.md#pochta), [Транспортная компания](../../reg/mes.md#transportnaya-kompaniya) |
-| 36 | Выяснение вопросов по претензии (когда заплатят деньги) | [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) | — → — | помогают: [Логист](../../reg/rol/logist.md) |  |
-| 37 | Инициирование Судебного Иска | [Инициирующий судебный иск](../../reg/oby/isk.md) | — → [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) |  |  |
-| 38 | Планирование судебно исковой работы. | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) | — → [Ведущий судебно-исковую работу](../../reg/oby/sud.md) |  |  |
-| 39 | Судебно-исковая работа | [Ведущий судебно-исковую работу](../../reg/oby/sud.md) | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) → — |  |  |
+| № | Шаг | Делает | Ставит → принимает | Передаёт | Согласуют, помогают, узнают | Где |
+|---|---|---|---|---|---|---|
+| 30 | Отслеживание сроков приемки по проекту и принятие мер (например отправка письма о том, что считаем, что замечаний нет.)<br/>*Регламент: «нет инструмента, прописать инструмент».* | [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) | — → — |  | помогают: [Логист](../../reg/rol/logist.md) |  |
+| 31 | Отслеживание сроков оплаты по проекту, | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) |  |  |  |
+| 32 | Отслеживание и учет оплат от заказчиков и поступлений (типа денег от поставщиков и страховых) по проекту | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → — |  |  | [1С](../../reg/mes.md#1s) |
+| 33 | Занесение информации о платежах в систему<br/>*Регламент: «что тут писать?» — в какую систему, не сказано.* | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) | — → — |  |  |  |
+| 34 | Написание претензии о неуплате | [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) | — → [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) | [Претензия о неуплате](../../reg/art.md#pretenziya-neuplata) | согласуют: [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) |  |
+| 35 | Отправка претензии Заказчику о неуплате | [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) | — → — | [Претензия о неуплате](../../reg/art.md#pretenziya-neuplata) |  | [Почта](../../reg/mes.md#pochta), [Транспортная компания](../../reg/mes.md#transportnaya-kompaniya) |
+| 36 | Выяснение вопросов по претензии (когда заплатят деньги) | [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) | — → — |  | помогают: [Логист](../../reg/rol/logist.md) |  |
+| 37 | Инициирование Судебного Иска | [Инициирующий судебный иск](../../reg/oby/isk.md) | — → [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) | [Решение инициировать иск](../../reg/art.md#isk) |  |  |
+| 38 | Планирование судебно исковой работы. | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) | — → [Ведущий судебно-исковую работу](../../reg/oby/sud.md) | [Назначение ответственного](../../reg/art.md#naznachenie) |  |  |
+| 39 | Судебно-исковая работа | [Ведущий судебно-исковую работу](../../reg/oby/sud.md) | [Назначающий ответственных](../../reg/oby/naznachenie-otvetstvennyh.md) → — |  |  |  |
 
 ## Где работают
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_oplaty_zakazchika("Отслеживающий оплаты<br/>заказчика")
   o_otpravka_pretenzii("Отправляющий претензию<br/>заказчику")

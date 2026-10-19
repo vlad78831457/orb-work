@@ -12,6 +12,7 @@
 ## Откуда задача и кому результат
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_prinyatie_zakupki("Принимающий задачу на<br/>закупку")
   style o_prinyatie_zakupki stroke-width:3px
@@ -27,5 +28,7 @@ flowchart LR
 | [Процесс. Передача в закупки](../../pro/r03-peredacha-v-zakupki/index.md) | 6 | Выполнить подзадачу "Принять задачу на закупку" | делает |
 | [Процесс. Передача в закупки](../../pro/r03-peredacha-v-zakupki/index.md) | 7 | Возобновление Закупок по проекту (в случае невыполнения поставок контрагентами, необходимости дозакупить что-либо и т.д.) | принимает результат |
 | [Процесс. Закупка товара](../../pro/r04-zakupka-tovara/index.md) | 0 | Вход в процесс- Поставлена задача на закупку по проекту. №Проекта -Закзачик-предмет: Закупить товары" (или принятие этой задачи?!) | делает |
+
+**Получает:** [Задача «Закупка»](../../reg/art.md#zadacha-zakupka)
 
 **Где работает:** [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha)

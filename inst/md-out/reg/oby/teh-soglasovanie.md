@@ -11,6 +11,7 @@
 ## Откуда задача и кому результат
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_teh_soglasovanie("Согласующий техническую<br/>часть")
   style o_teh_soglasovanie stroke-width:3px
@@ -32,5 +33,9 @@ flowchart LR
 | [Процесс. Поступление: контроль поставки, доплаты, доставка, приёмка](../../pro/r06-postuplenie/index.md) | 25 | Составление и направление мотивированного отказа | согласуют |
 | [Процесс. Подготовка к отгрузке](../../pro/r07-podgotovka-k-otgruzke/index.md) | 6 | Проверка комплектности отгружаемого товара( в том числе документации) и соответствие отгрузочным документам | согласуют |
 | [Процесс. Подготовка к отгрузке](../../pro/r07-podgotovka-k-otgruzke/index.md) | 7 | Составление ведомости передаваемых технических документов на отгружаемый товар | согласуют |
+
+**Получает:** [Подзадача ТС на проверку предложений](../../reg/art.md#podzadacha-ts)
+
+**Отдаёт:** [Заключение ТС по предложениям](../../reg/art.md#zaklyuchenie-ts)
 
 **Где работает:** [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha)

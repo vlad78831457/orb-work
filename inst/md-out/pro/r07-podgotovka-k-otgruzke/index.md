@@ -12,20 +12,25 @@
 Вертикальная дорожка — должность, которую мы предполагаем; заметка — шаг в её дорожке; стрелка — работа переходит к другой должности (ставит задачу или делает следующий шаг).
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 sequenceDiagram
   participant r_logist as Логист
   participant r_khranitel as Хранитель учёта и документов
+  rect rgb(255, 255, 255)
   Note over r_logist: 0. Инициирование отгрузок
   Note over r_logist: 1. Подготовка к отгрузке:
   Note over r_logist: 1.1. Разработка плана отгрузок
   Note over r_logist: 1.2. Разработка ведомости отгрузки<br/>и постановка задачи на<br/>формирования пакета документов…
   Note over r_logist: 2. Передача данных K о<br/>необходимости изготовления<br/>отгрузочных документов
-  r_logist->>r_khranitel: 3. Изготовление Отгрузочных<br/>документов и внесение в таблицу<br/>оплат сведений об этих докуме…
-  r_khranitel->>r_logist: 4. Физическое получение<br/>отгрузочных документов
+  r_logist->>r_khranitel: Ведомость отгрузки и запрос<br/>отгрузочных документов
+  Note over r_khranitel: 3. Изготовление Отгрузочных<br/>документов и внесение в таблицу<br/>оплат сведений об этих докуме…
+  r_khranitel->>r_logist: Отгрузочные документы
+  Note over r_logist: 4. Физическое получение<br/>отгрузочных документов
   Note over r_logist: 5. Сохранение в папку скан копий<br/>договоров и отгрузочных документов<br/>в момент их получения
   Note over r_logist: 6. Проверка комплектности<br/>отгружаемого товара( в том числе<br/>документации) и соответствие о…
   Note over r_logist: 7. Составление ведомости<br/>передаваемых технических<br/>документов на отгружаемый товар
   Note over r_logist: 8. Комплектация товара<br/>(укомплектование партии<br/>согласноУПД)
+  end
 ```
 
 ## Как в регламенте
@@ -33,6 +38,7 @@ sequenceDiagram
 Дорожки — столбцы регламента с основным исполнителем; шаги — по порядку. Пунктир — шаг без исполнителя.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph c_K["столбец K"]
     s_po_3["3. Изготовление<br/>Отгрузочных документов и<br/>внесение в таблицу оплат<br/>све…"]
@@ -82,6 +88,7 @@ flowchart TB
 Дорожки — должности, которые мы предполагаем; узлы — обязанности. Сплошная стрелка — ставит задачу или передаёт результат, пунктир — следит или согласует; стрелка без подписи — дальше по порядку.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph r_logist["Логист"]
     o_plan_otgruzok("Планирующий отгрузки")
@@ -96,9 +103,9 @@ flowchart TB
   subgraph r_tekh["Технический эксперт"]
     o_teh_soglasovanie("Согласующий техническую<br/>часть")
   end
-  o_zapros_otgruzochnyh -->|ставит| o_otgruzochnye_dokumenty
-  o_plan_otgruzok -->|передаёт| o_otgruzochnye_dokumenty
-  o_teh_soglasovanie -.->|согласует| o_komplektnost_otgruzki
+  o_zapros_otgruzochnyh -->|"ставит"| o_otgruzochnye_dokumenty
+  o_plan_otgruzok -->|"Ведомость отгрузки и<br/>запрос отгрузочных<br/>документов"| o_otgruzochnye_dokumenty
+  o_teh_soglasovanie -.->|"согласует"| o_komplektnost_otgruzki
   o_plan_otgruzok --> o_zapros_otgruzochnyh
   o_otgruzochnye_dokumenty --> o_dokumenty_otgruzki
   o_dokumenty_otgruzki --> o_komplektnost_otgruzki
@@ -107,23 +114,24 @@ flowchart TB
 
 ## Шаги и обязанности
 
-| № | Шаг | Делает | Ставит → принимает | Согласуют, помогают, узнают | Где |
-|---|---|---|---|---|---|
-| 0 | Инициирование отгрузок | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → — |  |  |
-| 1 | Подготовка к отгрузке: | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → — |  |  |
-| 1.1 | Разработка плана отгрузок | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → — |  |  |
-| 1.2 | Разработка ведомости отгрузки и постановка задачи на формирования пакета документов для нее. | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → [Изготавливающий отгрузочные документы](../../reg/oby/otgruzochnye-dokumenty.md) |  |  |
-| 2 | Передача данных K о необходимости изготовления отгрузочных документов | [Запрашивающий отгрузочные документы](../../reg/oby/zapros-otgruzochnyh.md) | — → [Изготавливающий отгрузочные документы](../../reg/oby/otgruzochnye-dokumenty.md) |  |  |
-| 3 | Изготовление Отгрузочных документов и внесение в таблицу оплат сведений об этих документах | [Изготавливающий отгрузочные документы](../../reg/oby/otgruzochnye-dokumenty.md) | [Запрашивающий отгрузочные документы](../../reg/oby/zapros-otgruzochnyh.md) → — |  | [1С](../../reg/mes.md#1s), [Внешняя таблица оплат](../../reg/mes.md#tablitsa-oplat) |
-| 4 | Физическое получение отгрузочных документов | [Хранящий отгрузочные документы](../../reg/oby/dokumenty-otgruzki.md) | — → — |  |  |
-| 5 | Сохранение в папку скан копий договоров и отгрузочных документов в момент их получения | [Хранящий отгрузочные документы](../../reg/oby/dokumenty-otgruzki.md) | — → — |  | [Диск: документы исполнения](../../reg/mes.md#disk-ispolnenie) |
-| 6 | Проверка комплектности отгружаемого товара( в том числе документации) и соответствие отгрузочным документам | [Проверяющий комплектность отгрузки](../../reg/oby/komplektnost-otgruzki.md) | — → — | согласуют: [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md); узнают о результате: [Менеджер проекта](../../reg/rol/proekt.md) | [Склад, приёмка](../../reg/mes.md#sklad) |
-| 7 | Составление ведомости передаваемых технических документов на отгружаемый товар | [Проверяющий комплектность отгрузки](../../reg/oby/komplektnost-otgruzki.md) | — → — | согласуют: [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md); узнают о результате: [Менеджер проекта](../../reg/rol/proekt.md) |  |
-| 8 | Комплектация товара (укомплектование партии согласноУПД) | [Комплектующий партию](../../reg/oby/komplektatsiya.md) | — → — |  | [Склад, приёмка](../../reg/mes.md#sklad) |
+| № | Шаг | Делает | Ставит → принимает | Передаёт | Согласуют, помогают, узнают | Где |
+|---|---|---|---|---|---|---|
+| 0 | Инициирование отгрузок | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → — |  |  |  |
+| 1 | Подготовка к отгрузке: | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → — |  |  |  |
+| 1.1 | Разработка плана отгрузок | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → — |  |  |  |
+| 1.2 | Разработка ведомости отгрузки и постановка задачи на формирования пакета документов для нее. | [Планирующий отгрузки](../../reg/oby/plan-otgruzok.md) | — → [Изготавливающий отгрузочные документы](../../reg/oby/otgruzochnye-dokumenty.md) | [Ведомость отгрузки и запрос отгрузочных документов](../../reg/art.md#zapros-otgruzochnyh) |  |  |
+| 2 | Передача данных K о необходимости изготовления отгрузочных документов | [Запрашивающий отгрузочные документы](../../reg/oby/zapros-otgruzochnyh.md) | — → [Изготавливающий отгрузочные документы](../../reg/oby/otgruzochnye-dokumenty.md) | [Ведомость отгрузки и запрос отгрузочных документов](../../reg/art.md#zapros-otgruzochnyh) |  |  |
+| 3 | Изготовление Отгрузочных документов и внесение в таблицу оплат сведений об этих документах | [Изготавливающий отгрузочные документы](../../reg/oby/otgruzochnye-dokumenty.md) | [Запрашивающий отгрузочные документы](../../reg/oby/zapros-otgruzochnyh.md) → — | [Отгрузочные документы](../../reg/art.md#otgruzochnye) |  | [1С](../../reg/mes.md#1s), [Внешняя таблица оплат](../../reg/mes.md#tablitsa-oplat) |
+| 4 | Физическое получение отгрузочных документов | [Хранящий отгрузочные документы](../../reg/oby/dokumenty-otgruzki.md) | — → — |  |  |  |
+| 5 | Сохранение в папку скан копий договоров и отгрузочных документов в момент их получения | [Хранящий отгрузочные документы](../../reg/oby/dokumenty-otgruzki.md) | — → — |  |  | [Диск: документы исполнения](../../reg/mes.md#disk-ispolnenie) |
+| 6 | Проверка комплектности отгружаемого товара( в том числе документации) и соответствие отгрузочным документам | [Проверяющий комплектность отгрузки](../../reg/oby/komplektnost-otgruzki.md) | — → — |  | согласуют: [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md); узнают о результате: [Менеджер проекта](../../reg/rol/proekt.md) | [Склад, приёмка](../../reg/mes.md#sklad) |
+| 7 | Составление ведомости передаваемых технических документов на отгружаемый товар | [Проверяющий комплектность отгрузки](../../reg/oby/komplektnost-otgruzki.md) | — → — |  | согласуют: [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md); узнают о результате: [Менеджер проекта](../../reg/rol/proekt.md) |  |
+| 8 | Комплектация товара (укомплектование партии согласноУПД) | [Комплектующий партию](../../reg/oby/komplektatsiya.md) | — → — |  |  | [Склад, приёмка](../../reg/mes.md#sklad) |
 
 ## Где работают
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_otgruzochnye_dokumenty("Изготавливающий<br/>отгрузочные документы")
   o_dokumenty_otgruzki("Хранящий отгрузочные<br/>документы")

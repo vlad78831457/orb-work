@@ -1,39 +1,40 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
 # результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
-# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+# mesto — места работы (reg/mes.yaml); peredaet — что шаг отдаёт дальше (reg/art.yaml); status — {объект: новый статус};
+# dogadka — что не подтверждено.
 kontur: "4"
 dalee: [r07-podgotovka-k-otgruzke]
 shagi:
-  ps-1: {delaet: format-priemki, uznayut: [rol.tekh, rol.zakupka, rol.logist]}
+  ps-1: {delaet: format-priemki, uznayut: [rol.tekh, rol.zakupka, rol.logist], peredaet: [format-priemki]}
   ps-2: {delaet: kontrol-postavki, mesto: [tablitsa-logista]}
-  ps-3: {delaet: kontrol-postavki, mesto: [pochta, tablitsa-logista], status: {tovar: Ждем товары}}
-  ps-4: {delaet: otpravka-dogovorov-postavshchikam, mesto: [pochta, tablitsa-logista], status: {tovar: Ждем}}
-  ps-5: {delaet: plan-sroki}
-  ps-6: {delaet: kontrol-postavki, mesto: [tablitsa-logista], status: {tovar: Проблема}}
-  ps-7: {delaet: eskalatsiya, prinimaet: [reshenie-problem]}
-  ps-8: {delaet: reshenie-problem, stavit: [eskalatsiya], uznayut: [rol.zakupka]}
-  ps-9: {delaet: pretenzii-postavshchikam, pomogayut: [rol.khranitel], mesto: [pochta]}
+  ps-3: {delaet: kontrol-postavki, mesto: [pochta, tablitsa-logista], status: {tovar: Ждем товары}, peredaet: [statusy-postavki]}
+  ps-4: {delaet: otpravka-dogovorov-postavshchikam, mesto: [pochta, tablitsa-logista], status: {tovar: Ждем}, peredaet: [dogovory-postavshchikam]}
+  ps-5: {delaet: plan-sroki, peredaet: [plan-sroki]}
+  ps-6: {delaet: kontrol-postavki, mesto: [tablitsa-logista], status: {tovar: Проблема}, peredaet: [prosrochka]}
+  ps-7: {delaet: eskalatsiya, prinimaet: [reshenie-problem], peredaet: [eskalatsiya]}
+  ps-8: {delaet: reshenie-problem, stavit: [eskalatsiya], uznayut: [rol.zakupka], peredaet: [reshenie-problema]}
+  ps-9: {delaet: pretenzii-postavshchikam, pomogayut: [rol.khranitel], mesto: [pochta], peredaet: [pretenziya-postavshchiku]}
   ps-10: {delaet: gotovnost-otgruzki, soglasuyut: [teh-gotovnost, soglasovanie-otkloneniy], uznayut: [rol.logist, rol.vladelets]}
-  ps-11: {delaet: tehdokumentatsiya, soglasuyut: [teh-soglasovanie], mesto: [pochta, disk-ispolnenie]}
-  ps-12: {delaet: gotovnost-otgruzki, uznayut: [rol.logist], prinimaet: [zapros-doplaty]}
+  ps-11: {delaet: tehdokumentatsiya, soglasuyut: [teh-soglasovanie], mesto: [pochta, disk-ispolnenie], peredaet: [tehdokumenty]}
+  ps-12: {delaet: gotovnost-otgruzki, uznayut: [rol.logist], prinimaet: [zapros-doplaty], peredaet: [gotovnost]}
   ps-x1: {delaet: zapros-doplaty, dogadka: "Подраздел «Доплаты» — у него в регламенте отмечен исполнитель АС."}
-  ps-13: {delaet: zapros-doplaty, prinimaet: [peredacha-na-oplatu]}
-  ps-14: {delaet: peredacha-na-oplatu, prinimaet: [oplata]}
-  ps-15: {delaet: oplata, stavit: [peredacha-na-oplatu]}
-  ps-16: {delaet: tablitsa-oplat, mesto: [tablitsa-oplat, disk-zakupki]}
+  ps-13: {delaet: zapros-doplaty, prinimaet: [peredacha-na-oplatu], peredaet: [zapros-doplaty]}
+  ps-14: {delaet: peredacha-na-oplatu, prinimaet: [oplata], peredaet: [scheta-na-oplatu]}
+  ps-15: {delaet: oplata, stavit: [peredacha-na-oplatu], peredaet: [platezhki]}
+  ps-16: {delaet: tablitsa-oplat, mesto: [tablitsa-oplat, disk-zakupki], peredaet: [oplaty-v-tablitse]}
   ps-x2: {delaet: sposob-dostavki, dogadka: "Подраздел «Организация доставки» — у него в регламенте отмечен исполнитель АС."}
   ps-17: {delaet: sposob-dostavki, soglasuyut: [soglasovanie-otkloneniy], pomogayut: [rol.zakupka], dogadka: "Регламент: согласуют менеджер (при необходимости) и закупщик."}
   ps-18: {delaet: dostavka, mesto: [transportnaya-kompaniya]}
   ps-18b: {delaet: dostavka, mesto: [transportnaya-kompaniya]}
-  ps-19: {delaet: transportnye-dokumenty, uznayut: [rol.khranitel]}
-  ps-19b: {delaet: transportnye-dokumenty, uznayut: [rol.khranitel]}
-  ps-20: {delaet: upd-postavshchika, mesto: [bitriks-zadacha, disk-ispolnenie]}
-  ps-21: {delaet: priemka-kolichestvo, uznayut: [rol.proekt, rol.tekh, rol.zakupka], mesto: [sklad, disk-ispolnenie]}
-  ps-22: {delaet: priemka-kolichestvo, uznayut: [rol.proekt, rol.tekh, rol.zakupka], mesto: [sklad]}
-  ps-23: {delaet: priemka-kachestvo, uznayut: [rol.proekt, rol.zakupka, rol.logist], mesto: [sklad]}
-  ps-24: {delaet: reshenie-priemka, uznayut: [rol.tekh, rol.zakupka, rol.logist]}
-  ps-25: {delaet: motivirovannyy-otkaz, soglasuyut: [soglasovanie-otkloneniy, teh-soglasovanie], mesto: [pochta]}
-  ps-26: {delaet: prihodnye-dokumenty, mesto: [disk-ispolnenie]}
+  ps-19: {delaet: transportnye-dokumenty, uznayut: [rol.khranitel], peredaet: [transportnye]}
+  ps-19b: {delaet: transportnye-dokumenty, uznayut: [rol.khranitel], peredaet: [transportnye]}
+  ps-20: {delaet: upd-postavshchika, mesto: [bitriks-zadacha, disk-ispolnenie], peredaet: [upd]}
+  ps-21: {delaet: priemka-kolichestvo, uznayut: [rol.proekt, rol.tekh, rol.zakupka], mesto: [sklad, disk-ispolnenie], peredaet: [fotootchet]}
+  ps-22: {delaet: priemka-kolichestvo, uznayut: [rol.proekt, rol.tekh, rol.zakupka], mesto: [sklad], peredaet: [tovar, fotootchet]}
+  ps-23: {delaet: priemka-kachestvo, uznayut: [rol.proekt, rol.zakupka, rol.logist], mesto: [sklad], peredaet: [zaklyuchenie-kachestvo]}
+  ps-24: {delaet: reshenie-priemka, uznayut: [rol.tekh, rol.zakupka, rol.logist], peredaet: [reshenie-priemka]}
+  ps-25: {delaet: motivirovannyy-otkaz, soglasuyut: [soglasovanie-otkloneniy, teh-soglasovanie], mesto: [pochta], peredaet: [motiv-otkaz]}
+  ps-26: {delaet: prihodnye-dokumenty, mesto: [disk-ispolnenie], peredaet: [prihodnye]}
   ps-27: {delaet: uchet-1s, mesto: [1s]}
   ps-28: {delaet: hranenie, mesto: [sklad]}

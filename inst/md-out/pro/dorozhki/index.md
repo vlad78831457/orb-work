@@ -11,6 +11,7 @@
 Вертикальная дорожка — должность (по нашей догадке, кто выполняет обязанность шага). Цветной блок — процесс; в дорожке — обязанности, которые должность там выполняет; стрелка — работа переходит к другой должности. Подробно, шаг за шагом, — на странице каждого процесса.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 sequenceDiagram
   participant r_prodazhi as Менеджер по продажам
   participant r_proekt as Менеджер проекта
@@ -28,159 +29,159 @@ sequenceDiagram
   rect rgb(253, 246, 227)
   Note over r_prodazhi,r_none: Процесс. Контрактация
   Note over r_prodazhi: Ведущий договор с заказчиком<br/>Ведущий раздел «Контрактация» паспорта<br/>Ведущий папку проекта
-  r_prodazhi->>r_khranitel: передаёт
+  r_prodazhi->>r_khranitel: Подзадача «Оформить договор», Проект<br/>договора заказчика
   Note over r_khranitel: Проверяющий проект договора
-  r_khranitel->>r_prodazhi: передаёт
+  r_khranitel->>r_prodazhi: Заключение по проекту договора
   Note over r_prodazhi: Ведущий договор с заказчиком
-  r_prodazhi->>r_tekh: передаёт
+  r_prodazhi->>r_tekh: Подзадача на проверку ТЗ
   Note over r_tekh: Проверяющий ТЗ договора
-  r_tekh->>r_prodazhi: передаёт
+  r_tekh->>r_prodazhi: Заключение по ТЗ
   Note over r_prodazhi: Ведущий договор с заказчиком
-  r_prodazhi->>r_podpisant: передаёт
+  r_prodazhi->>r_podpisant: Просьба подписать договор через ЭДО
   Note over r_podpisant: Подписывающий договор
-  r_podpisant->>r_prodazhi: передаёт
+  r_podpisant->>r_prodazhi: Подписанный договор с заказчиком
   Note over r_prodazhi: Ведущий договор с заказчиком
-  r_prodazhi->>r_logist: передаёт
+  r_prodazhi->>r_logist: Оригинал договора для заказчика
   Note over r_logist: Отправляющий оригиналы документов
-  r_logist->>r_prodazhi: передаёт
+  r_logist-->>r_prodazhi: дальше
   Note over r_prodazhi: Передающий договор в учёт<br/>Закрывающий контрактацию
   end
-  rect rgb(232, 240, 254)
+  rect rgb(253, 246, 227)
   Note over r_prodazhi,r_none: Процесс. Передача в закупки
   Note over r_prodazhi: Решающий передать проект в закупки
-  r_prodazhi->>r_proekt: передаёт
+  r_prodazhi->>r_proekt: Решение передать в закупки
   Note over r_proekt: Передающий проект в закупку<br/>Фиксирующий задание на закупку (лист 5-0)<br/>Проверяющий комплектность передачи в закупку<br/>и ещё 1
-  r_proekt->>r_zakupka: передаёт
+  r_proekt->>r_zakupka: Задача «Закупка»
   Note over r_zakupka: Принимающий задачу на закупку
-  r_zakupka->>r_proekt: передаёт
+  r_zakupka-->>r_proekt: дальше
   Note over r_proekt: Ставящий задачу на закупку
   end
   rect rgb(253, 246, 227)
   Note over r_prodazhi,r_none: Процесс. Закупка товара
-  r_proekt->>r_zakupka: передаёт
+  r_proekt->>r_zakupka: Задача «Закупка»
   Note over r_zakupka: Принимающий задачу на закупку<br/>Ведущий папку закупки<br/>Рассылающий повторные запросы
-  r_zakupka->>r_proekt: передаёт
+  r_zakupka->>r_proekt: Предложения поставщиков (листы 5-1, 5-2)
   Note over r_proekt: Отслеживающий выбор поставщиков
-  r_proekt->>r_zakupka: передаёт
+  r_proekt->>r_zakupka: Решения по выбору поставщиков (лист 5-3)
   Note over r_zakupka: Готовящий выбор поставщика<br/>Проверяющий контрагента<br/>Ставящий задачи на техническое согласование
-  r_zakupka->>r_tekh: передаёт
+  r_zakupka->>r_tekh: Подзадача ТС на проверку предложений
   Note over r_tekh: Согласующий техническую часть
-  r_tekh->>r_proekt: передаёт
+  r_tekh->>r_proekt: Заключение ТС по предложениям
   Note over r_proekt: Решающий о сделке с поставщиком
-  r_proekt->>r_zakupka: передаёт
+  r_proekt->>r_zakupka: Решение о сделке с поставщиком
   Note over r_zakupka: Готовящий договор поставки<br/>Добывающий счета и договоры<br/>Ведущий лист оформления сделок<br/>и ещё 4
-  r_zakupka->>r_khranitel: передаёт
+  r_zakupka->>r_khranitel: Задача «Оплатить счета», Счета и<br/>договоры «готов к оплате»
   Note over r_khranitel: Проверяющий счета перед оплатой<br/>Ведущий учёт в 1С<br/>Передающий счета на оплату
-  r_khranitel->>r_podpisant: передаёт
+  r_khranitel->>r_podpisant: Проверенные счета на оплату
   Note over r_podpisant: Оплачивающий счета
-  r_podpisant->>r_khranitel: передаёт
+  r_podpisant->>r_khranitel: Платёжные поручения
   Note over r_khranitel: Раскладывающий оплаченное<br/>Ведущий таблицу оплат
-  r_khranitel->>r_zakupka: передаёт
+  r_khranitel->>r_zakupka: Сведения об оплатах (таблица оплат)
   Note over r_zakupka: Закрывающий закупку
   end
   rect rgb(232, 240, 254)
   Note over r_prodazhi,r_none: Процесс. Планирование и контроль исполнения
-  r_zakupka->>r_proekt: передаёт
+  r_zakupka->>r_proekt: Закрытая задача «Закупка» — логисту
   Note over r_proekt: Составляющий план исполнения<br/>Управляющий изменениями
-  r_proekt->>r_none: передаёт
+  r_proekt->>r_none: План исполнения и контрольные точки
   Note over r_none: Проводящий отчётность
   end
   rect rgb(253, 246, 227)
   Note over r_prodazhi,r_none: Процесс. Поступление: контроль поставки, доплаты, доставка, приёмка
-  r_none->>r_proekt: передаёт
+  r_none->>r_proekt: План исполнения и контрольные точки
   Note over r_proekt: Назначающий формат приёмки
-  r_proekt->>r_logist: передаёт
+  r_proekt->>r_logist: Формат приёмки
   Note over r_logist: Отслеживающий поставку
-  r_logist->>r_zakupka: передаёт
+  r_logist->>r_zakupka: Статусы поставки (таблица логиста)
   Note over r_zakupka: Отправляющий поставщикам наши подписанные договоры<br/>Определяющий плановые сроки поставки
-  r_zakupka->>r_logist: передаёт
+  r_zakupka->>r_logist: Плановые сроки поставки
   Note over r_logist: Отслеживающий поставку
-  r_logist->>r_zakupka: передаёт
+  r_logist->>r_zakupka: Сведения о просрочке поставки
   Note over r_zakupka: Эскалирующий задержки поставки
-  r_zakupka->>r_proekt: передаёт
+  r_zakupka->>r_proekt: Эскалация задержки
   Note over r_proekt: Решающий по проблемам поставки
-  r_proekt->>r_zakupka: передаёт
+  r_proekt->>r_zakupka: Решение по проблеме поставки
   Note over r_zakupka: Готовящий претензии поставщикам<br/>Проверяющий готовность к отгрузке<br/>Собирающий техническую документацию
-  r_zakupka->>r_logist: передаёт
+  r_zakupka->>r_logist: Подтверждённая готовность к отгрузке
   Note over r_logist: Сообщающий о доплате
-  r_logist->>r_khranitel: передаёт
+  r_logist->>r_khranitel: Сведения о необходимости доплаты
   Note over r_khranitel: Передающий счета на оплату
-  r_khranitel->>r_podpisant: передаёт
+  r_khranitel->>r_podpisant: Проверенные счета на оплату
   Note over r_podpisant: Оплачивающий счета
-  r_podpisant->>r_khranitel: передаёт
+  r_podpisant->>r_khranitel: Платёжные поручения
   Note over r_khranitel: Ведущий таблицу оплат
-  r_khranitel->>r_logist: передаёт
+  r_khranitel->>r_logist: Сведения об оплатах (таблица оплат)
   Note over r_logist: Выбирающий способ доставки<br/>Организующий доставку<br/>Собирающий транспортные документы
-  r_logist->>r_zakupka: передаёт
+  r_logist->>r_zakupka: Транспортные документы и отчёт по<br/>расходам
   Note over r_zakupka: Предъявляющий к приёмке УПД поставщика
-  r_zakupka->>r_logist: передаёт
+  r_zakupka->>r_logist: УПД или ТОРГ-12 поставщика
   Note over r_logist: Принимающий товар по количеству
-  r_logist->>r_tekh: передаёт
+  r_logist->>r_tekh: Товар, Фотоотчёт о товаре
   Note over r_tekh: Принимающий товар по качеству
-  r_tekh->>r_proekt: передаёт
+  r_tekh->>r_proekt: Заключение о качестве товара
   Note over r_proekt: Решающий о приёмке
-  r_proekt->>r_zakupka: передаёт
+  r_proekt->>r_zakupka: Решение о приёмке или отказе
   Note over r_zakupka: Направляющий мотивированный отказ
-  r_zakupka->>r_logist: передаёт
+  r_zakupka->>r_logist: Мотивированный отказ поставщику
   Note over r_logist: Учитывающий приходные документы
-  r_logist->>r_khranitel: передаёт
+  r_logist->>r_khranitel: Приходные документы (сканы)
   Note over r_khranitel: Ведущий учёт в 1С
-  r_khranitel->>r_logist: передаёт
+  r_khranitel-->>r_logist: дальше
   Note over r_logist: Хранящий товар
   end
   rect rgb(232, 240, 254)
   Note over r_prodazhi,r_none: Процесс. Подготовка к отгрузке
   Note over r_logist: Планирующий отгрузки<br/>Запрашивающий отгрузочные документы
-  r_logist->>r_khranitel: передаёт
+  r_logist->>r_khranitel: Ведомость отгрузки и запрос отгрузочных<br/>документов
   Note over r_khranitel: Изготавливающий отгрузочные документы
-  r_khranitel->>r_logist: передаёт
+  r_khranitel->>r_logist: Отгрузочные документы
   Note over r_logist: Хранящий отгрузочные документы<br/>Проверяющий комплектность отгрузки<br/>Комплектующий партию
   end
   rect rgb(253, 246, 227)
   Note over r_prodazhi,r_none: Процесс. Отгрузка
   Note over r_logist: Отгружающий заказчику<br/>Отслеживающий приёмку заказчиком<br/>Хранящий отгрузочные документы
-  r_logist->>r_proekt: передаёт
+  r_logist->>r_proekt: Подписанные заказчиком отгрузочные<br/>документы
   Note over r_proekt: Отслеживающий исполнение договора<br/>Добивающийся приёмки и оплаты от заказчика
   end
-  rect rgb(232, 240, 254)
+  rect rgb(253, 246, 227)
   Note over r_prodazhi,r_none: Процесс. Оформление экспорта
-  r_proekt->>r_vladelets: передаёт
+  r_proekt->>r_vladelets: Подписанные заказчиком отгрузочные<br/>документы
   Note over r_vladelets: Назначающий ответственных
-  r_vladelets->>r_none: передаёт
+  r_vladelets->>r_none: Назначение ответственного
   Note over r_none: Оформляющий экспорт
   end
   rect rgb(253, 246, 227)
   Note over r_prodazhi,r_none: Процесс. Устранение несоответствий
-  r_none->>r_proekt: передаёт
+  r_none->>r_proekt: Назначение ответственного
   Note over r_proekt: Ответственный за почтовый ящик
-  r_proekt->>r_khranitel: передаёт
+  r_proekt->>r_khranitel: Документ о несоответствии
   Note over r_khranitel: Регистрирующий входящие
-  r_khranitel->>r_proekt: передаёт
+  r_khranitel->>r_proekt: Задача «Принятие решения по устранению<br/>несоответствий», Документ о не…
   Note over r_proekt: Ведущий устранение несоответствия
-  r_proekt->>r_none: передаёт
+  r_proekt->>r_none: Решение по устранению несоответствия
   Note over r_none: Ставящий товарам статус «Несоответствие»
-  r_none->>r_proekt: передаёт
+  r_none->>r_proekt: Задача «Принятие решения по устранению<br/>несоответствий», Документ о не…
   Note over r_proekt: Ведущий устранение несоответствия
-  r_proekt->>r_tekh: передаёт
+  r_proekt->>r_tekh: Поручение подготовить ответ на<br/>несоответствие
   Note over r_tekh: Готовящий ответ на несоответствие
-  r_tekh->>r_proekt: передаёт
+  r_tekh->>r_proekt: Ответ на документ о несоответствии
   Note over r_proekt: Ведущий устранение несоответствия
-  end
-  rect rgb(232, 240, 254)
-  Note over r_prodazhi,r_none: Процесс. Контроль исполнения заказчиком
-  Note over r_proekt: Добивающийся приёмки и оплаты от заказчика
-  r_proekt->>r_khranitel: передаёт
-  Note over r_khranitel: Отслеживающий оплаты заказчика<br/>Пишущий претензию о неуплате
-  r_khranitel->>r_logist: передаёт
-  Note over r_logist: Отправляющий претензию заказчику
-  r_logist->>r_proekt: передаёт
-  Note over r_proekt: Добивающийся приёмки и оплаты от заказчика<br/>Инициирующий судебный иск
-  r_proekt->>r_vladelets: передаёт
-  Note over r_vladelets: Назначающий ответственных
-  r_vladelets->>r_none: передаёт
-  Note over r_none: Ведущий судебно-исковую работу
   end
   rect rgb(253, 246, 227)
+  Note over r_prodazhi,r_none: Процесс. Контроль исполнения заказчиком
+  Note over r_proekt: Добивающийся приёмки и оплаты от заказчика
+  r_proekt-->>r_khranitel: дальше
+  Note over r_khranitel: Отслеживающий оплаты заказчика<br/>Пишущий претензию о неуплате
+  r_khranitel->>r_logist: Претензия о неуплате
+  Note over r_logist: Отправляющий претензию заказчику
+  r_logist->>r_proekt: Претензия о неуплате
+  Note over r_proekt: Добивающийся приёмки и оплаты от заказчика<br/>Инициирующий судебный иск
+  r_proekt->>r_vladelets: Решение инициировать иск
+  Note over r_vladelets: Назначающий ответственных
+  r_vladelets->>r_none: Назначение ответственного
+  Note over r_none: Ведущий судебно-исковую работу
+  end
+  rect rgb(232, 240, 254)
   Note over r_prodazhi,r_none: Процесс. Закрытие проекта
   Note over r_none: Закрывающий проект
   end
@@ -191,6 +192,7 @@ sequenceDiagram
 Стрелка — сколько раз работа переходит от одной должности к другой: ставит задачу, передаёт результат или делает следующий шаг. На схеме — от 2 передач, толстая — 5 и больше; все — в таблице.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   r_prodazhi(["Менеджер по продажам"])
   r_khranitel(["Хранитель учёта и<br/>документов"])

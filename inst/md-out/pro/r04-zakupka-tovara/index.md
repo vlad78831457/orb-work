@@ -12,24 +12,32 @@
 Вертикальная дорожка — должность, которую мы предполагаем; заметка — шаг в её дорожке; стрелка — работа переходит к другой должности (ставит задачу или делает следующий шаг).
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 sequenceDiagram
   participant r_zakupka as Закупщик
   participant r_proekt as Менеджер проекта
   participant r_tekh as Технический эксперт
   participant r_khranitel as Хранитель учёта и документов
   participant r_podpisant as Подписант и плательщик
-  r_proekt->>r_zakupka: 0. Вход в процесс- Поставлена<br/>задача на закупку по проекту.<br/>№Проекта -Закзачик-предмет: З…
+  rect rgb(255, 255, 255)
+  r_proekt->>r_zakupka: Задача «Закупка»
+  Note over r_zakupka: 0. Вход в процесс- Поставлена<br/>задача на закупку по проекту.<br/>№Проекта -Закзачик-предмет: З…
   Note over r_zakupka: 1. Создание в папке #quot;...Рабочие<br/>документы#quot; подпапки #quot;Закупки#quot;
   Note over r_zakupka: 2. Создание в папке #quot;... Закупки#quot;<br/>подпапок #quot;Счета#quot;, #quot;Договоры#quot; и #quot;В<br/>оплату#quot;
   Note over r_zakupka: 3. Повторная рассылка и заполнение<br/>внешней таблицы
-  r_zakupka->>r_proekt: 4. Отслеживание комментариев по<br/>итогу общения с выбранными<br/>поставщиками на листе #quot;5 Закуп…
+  r_zakupka->>r_proekt: Предложения поставщиков (листы<br/>5-1, 5-2)
+  Note over r_proekt: 4. Отслеживание комментариев по<br/>итогу общения с выбранными<br/>поставщиками на листе #quot;5 Закуп…
   Note over r_proekt: 5. Отслеживания результатов<br/>повторной рассылки на листе #quot;3-3<br/>Выбор поставщиков#quot; В случае…
-  r_proekt->>r_zakupka: 6. Определение предложений с<br/>лучшими условиями и подготовка<br/>предложения по Окончательному…
+  r_proekt->>r_zakupka: Решения по выбору поставщиков<br/>(лист 5-3)
+  Note over r_zakupka: 6. Определение предложений с<br/>лучшими условиями и подготовка<br/>предложения по Окончательному…
   Note over r_zakupka: 7. Проверка выбранных поставщиков<br/>на добросовестность
   Note over r_zakupka: 8. Постановка задачи на проверку<br/>выбранных предложений ТС
-  r_zakupka->>r_tekh: 9. Рассмотрение предложений<br/>поставщиков в технической части
-  r_tekh->>r_proekt: 10. Решение о заключении сделки с<br/>выбранным поставщиком
-  r_proekt->>r_zakupka: 11. Подготовка договора поставки с<br/>поставщиком
+  r_zakupka->>r_tekh: Подзадача ТС на проверку<br/>предложений
+  Note over r_tekh: 9. Рассмотрение предложений<br/>поставщиков в технической части
+  r_tekh->>r_proekt: Заключение ТС по предложениям
+  Note over r_proekt: 10. Решение о заключении сделки с<br/>выбранным поставщиком
+  r_proekt->>r_zakupka: Решение о сделке с поставщиком
+  Note over r_zakupka: 11. Подготовка договора поставки с<br/>поставщиком
   Note over r_zakupka: 12. Получение подписанных<br/>договоров или оформленных по нашим<br/>требованиям счетов от выбран…
   Note over r_zakupka: 13. Ведение Листа 5 (Таблица<br/>закупки внешняя) ( 5-4 в будущем)
   Note over r_zakupka: 14. Постановка Задачи на<br/>согласование счетов/договоров в<br/>технической части
@@ -37,13 +45,18 @@ sequenceDiagram
   Note over r_zakupka: 16. Размещение в папке #quot;в оплату#quot;<br/>согласованных с ТС счетов и<br/>договоров для оплаты
   Note over r_zakupka: 17. Постановка Задачи K на<br/>проверку и оплату счетов и<br/>договоров, созданию в 1с Заказа<br/>пок…
   Note over r_zakupka: 18. Информирование в задаче K о<br/>том, что размещены новые Счета и<br/>договора
-  r_zakupka->>r_khranitel: 19. Проверка готовых к оплате<br/>счетов и договоров
-  r_zakupka->>r_khranitel: 20. Создание заказа покупателя и<br/>поставщикам в 1с
+  r_zakupka->>r_khranitel: Задача «Оплатить счета», Счета и<br/>договоры «готов к оплате»
+  Note over r_khranitel: 19. Проверка готовых к оплате<br/>счетов и договоров
+  Note over r_khranitel: 20. Создание заказа покупателя и<br/>поставщикам в 1с
   Note over r_khranitel: 21. Передача полученных счетов M<br/>на оплату
-  r_khranitel->>r_podpisant: 22. Оплата полученных счетов и<br/>передача платежных поручений K
-  r_podpisant->>r_khranitel: 23. Создание в папке #quot;.... В<br/>оплату#quot; подпапки #quot;Оплачено#quot; и<br/>перемещение в нее всех оплачен…
+  r_khranitel->>r_podpisant: Проверенные счета на оплату
+  Note over r_podpisant: 22. Оплата полученных счетов и<br/>передача платежных поручений K
+  r_podpisant->>r_khranitel: Платёжные поручения
+  Note over r_khranitel: 23. Создание в папке #quot;.... В<br/>оплату#quot; подпапки #quot;Оплачено#quot; и<br/>перемещение в нее всех оплачен…
   Note over r_khranitel: 24. Внесение в Таблицу Оплат<br/>сведений о произведенных оплатах<br/>по проекту
-  r_khranitel->>r_zakupka: 25. Закрытие этапа Закупки
+  r_khranitel->>r_zakupka: Сведения об оплатах (таблица<br/>оплат)
+  Note over r_zakupka: 25. Закрытие этапа Закупки
+  end
 ```
 
 ## Как в регламенте
@@ -51,6 +64,7 @@ sequenceDiagram
 Дорожки — столбцы регламента с основным исполнителем; шаги — по порядку. Пунктир — шаг без исполнителя.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph c_H["H Менеджер"]
     s_zk_4["4. Отслеживание<br/>комментариев по итогу<br/>общения с выбранными<br/>поставщика…"]
@@ -151,6 +165,7 @@ flowchart TB
 Дорожки — должности, которые мы предполагаем; узлы — обязанности. Сплошная стрелка — ставит задачу или передаёт результат, пунктир — следит или согласует; стрелка без подписи — дальше по порядку.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart TB
   subgraph r_zakupka["Закупщик"]
     o_prinyatie_zakupki("Принимающий задачу на<br/>закупку")
@@ -192,20 +207,20 @@ flowchart TB
   subgraph r_logist["Логист"]
     o_kontrol_postavki("Отслеживающий поставку")
   end
-  o_postanovka_zakupki -->|ставит| o_prinyatie_zakupki
-  o_postanovka_teh_soglasovaniya -->|ставит| o_teh_soglasovanie
-  o_postanovka_oplaty -->|ставит| o_proverka_schetov
-  o_postanovka_oplaty -->|ставит| o_uchet_1s
-  o_peredacha_na_oplatu -->|ставит| o_oplata
-  o_kontrol_vybora -.->|следит| o_vybor_postavshchika
-  o_teh_soglasovanie -->|передаёт| o_postanovka_teh_soglasovaniya
-  o_soglasovanie_finansirovaniya -.->|согласует| o_reshenie_sdelka
-  o_teh_soglasovanie -.->|согласует| o_soglasovanie_dokumentov
-  o_soglasovanie_otkloneniy -.->|согласует| o_soglasovanie_dokumentov
-  o_soglasovanie_finansirovaniya -.->|согласует| o_soglasovanie_dokumentov
-  o_oplata -->|передаёт| o_arhiv_oplat
-  o_tablitsa_oplat -->|передаёт| o_zakrytie_zakupki
-  o_zakrytie_zakupki -->|передаёт| o_kontrol_postavki
+  o_postanovka_zakupki -->|"ставит"| o_prinyatie_zakupki
+  o_postanovka_teh_soglasovaniya -->|"ставит"| o_teh_soglasovanie
+  o_postanovka_oplaty -->|"ставит"| o_proverka_schetov
+  o_postanovka_oplaty -->|"ставит"| o_uchet_1s
+  o_peredacha_na_oplatu -->|"ставит"| o_oplata
+  o_kontrol_vybora -.->|"следит"| o_vybor_postavshchika
+  o_teh_soglasovanie -->|"Заключение ТС по<br/>предложениям"| o_postanovka_teh_soglasovaniya
+  o_soglasovanie_finansirovaniya -.->|"согласует"| o_reshenie_sdelka
+  o_teh_soglasovanie -.->|"согласует"| o_soglasovanie_dokumentov
+  o_soglasovanie_otkloneniy -.->|"согласует"| o_soglasovanie_dokumentov
+  o_soglasovanie_finansirovaniya -.->|"согласует"| o_soglasovanie_dokumentov
+  o_oplata -->|"Платёжные поручения"| o_arhiv_oplat
+  o_tablitsa_oplat -->|"Сведения об оплатах<br/>(таблица оплат)"| o_zakrytie_zakupki
+  o_zakrytie_zakupki -->|"Закрытая задача<br/>«Закупка» — логисту"| o_kontrol_postavki
   o_prinyatie_zakupki --> o_papka_zakupki
   o_papka_zakupki --> o_povtornaya_rassylka
   o_povtornaya_rassylka --> o_kontrol_vybora
@@ -226,38 +241,39 @@ flowchart TB
 
 ## Шаги и обязанности
 
-| № | Шаг | Делает | Ставит → принимает | Согласуют, помогают, узнают | Где |
-|---|---|---|---|---|---|
-| 0 | Вход в процесс- Поставлена задача на закупку по проекту. №Проекта -Закзачик-предмет: Закупить товары" (или принятие этой задачи?!) | [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) → — |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 1 | Создание в папке "...Рабочие документы" подпапки "Закупки" | [Ведущий папку закупки](../../reg/oby/papka-zakupki.md) | — → — |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
-| 2 | Создание в папке "... Закупки" подпапок "Счета", "Договоры" и "В оплату" | [Ведущий папку закупки](../../reg/oby/papka-zakupki.md) | — → — |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
-| 3 | Повторная рассылка и заполнение внешней таблицы | [Рассылающий повторные запросы](../../reg/oby/povtornaya-rassylka.md) | — → — |  | [Лист «5-2 Запросы КП Закупки»](../../reg/mes.md#lis-5-2), [Лист «5-1 Сбор КП Закупки»](../../reg/mes.md#lis-5-1), [Почта](../../reg/mes.md#pochta) |
-| 4 | Отслеживание комментариев по итогу общения с выбранными поставщиками на листе "5 Закупка товара". | [Отслеживающий выбор поставщиков](../../reg/oby/kontrol-vybora.md) | — → — | отслеживает: [Готовящий выбор поставщика](../../reg/oby/vybor-postavshchika.md) | [Лист «5-3 Выбор поставщиков Закупки»](../../reg/mes.md#lis-5-3) |
-| 5 | Отслеживания результатов повторной рассылки на листе "3-3 Выбор поставщиков" В случае необходимости замены поставщиков, принятие решения по такой замене. | [Отслеживающий выбор поставщиков](../../reg/oby/kontrol-vybora.md) | — → — |  | [Лист «5-3 Выбор поставщиков Закупки»](../../reg/mes.md#lis-5-3) |
-| 6 | Определение предложений с лучшими условиями и подготовка предложения по Окончательному выбору поставщика. | [Готовящий выбор поставщика](../../reg/oby/vybor-postavshchika.md) | — → — |  | [Лист «5-3 Выбор поставщиков Закупки»](../../reg/mes.md#lis-5-3), [Почта](../../reg/mes.md#pochta) |
-| 7 | Проверка выбранных поставщиков на добросовестность | [Проверяющий контрагента](../../reg/oby/proverka-kontragenta.md) | — → — |  | [Таблица проверки контрагентов](../../reg/mes.md#tablitsa-kontragentov), [Лист «Отзывы о поставщиках»](../../reg/mes.md#lis-otzyvy) |
-| 8 | Постановка задачи на проверку выбранных предложений ТС | [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) | — → [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 9 | Рассмотрение предложений поставщиков в технической части<br/>*Регламент: «как эти заключения отражаются в таблице, если не попадают на 3-2?».* | [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md) | [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) → [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 10 | Решение о заключении сделки с выбранным поставщиком | [Решающий о сделке с поставщиком](../../reg/oby/reshenie-sdelka.md) | — → — | согласуют: [Согласующий финансирование сделки](../../reg/oby/soglasovanie-finansirovaniya.md) |  |
-| 11 | Подготовка договора поставки с поставщиком | [Готовящий договор поставки](../../reg/oby/dogovor-postavki.md) | — → — | помогают: [Хранитель учёта и документов (столбец K)](../../reg/rol/khranitel.md) | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
-| 12 | Получение подписанных договоров или оформленных по нашим требованиям счетов от выбранных Поставщиков | [Добывающий счета и договоры](../../reg/oby/poluchenie-schetov.md) | — → — |  | [Почта](../../reg/mes.md#pochta), [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
-| 13 | Ведение Листа 5 (Таблица закупки внешняя) ( 5-4 в будущем) | [Ведущий лист оформления сделок](../../reg/oby/vedenie-sdelok.md) | — → — |  | [Лист «5-5 Оформление сделок»](../../reg/mes.md#lis-5-5) |
-| 14 | Постановка Задачи на согласование счетов/договоров в технической части | [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) | — → [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 15 | Рассмотрение и согласование счетов и договоров и других документов в технической части (в том числе путем подготовки ТЗ для договора с поставщиком) | [Проводящий согласование документов сделки](../../reg/oby/soglasovanie-dokumentov.md) | — → — | согласуют: [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md), [Согласующий сделку и отклонения](../../reg/oby/soglasovanie-otkloneniy.md), [Согласующий финансирование сделки](../../reg/oby/soglasovanie-finansirovaniya.md) | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
-| 16 | Размещение в папке "в оплату" согласованных с ТС счетов и договоров для оплаты | [Передающий согласованное в оплату](../../reg/oby/v-oplatu.md) | — → — |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki), [Лист «5-5 Оформление сделок»](../../reg/mes.md#lis-5-5) |
-| 17 | Постановка Задачи K на проверку и оплату счетов и договоров, созданию в 1с Заказа покупателя и заказов поставщикам | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) | — → [Проверяющий счета перед оплатой](../../reg/oby/proverka-schetov.md) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 18 | Информирование в задаче K о том, что размещены новые Счета и договора | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) | — → — | узнают о результате: [Менеджер проекта](../../reg/rol/proekt.md) | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
-| 19 | Проверка готовых к оплате счетов и договоров | [Проверяющий счета перед оплатой](../../reg/oby/proverka-schetov.md) | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) → — |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
-| 20 | Создание заказа покупателя и поставщикам в 1с | [Ведущий учёт в 1С](../../reg/oby/uchet-1s.md) | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) → — |  | [1С](../../reg/mes.md#1s) |
-| 21 | Передача полученных счетов M на оплату | [Передающий счета на оплату](../../reg/oby/peredacha-na-oplatu.md) | — → [Оплачивающий счета](../../reg/oby/oplata.md) |  |  |
-| 22 | Оплата полученных счетов и передача платежных поручений K | [Оплачивающий счета](../../reg/oby/oplata.md) | [Передающий счета на оплату](../../reg/oby/peredacha-na-oplatu.md) → [Раскладывающий оплаченное](../../reg/oby/arhiv-oplat.md) |  |  |
-| 23 | Создание в папке ".... В оплату" подпапки "Оплачено" и перемещение в нее всех оплаченных счетов и договоров. Создание папки "Платежные поручения" и перемещение в нее всех Платежных поручений по оплаченным счетам и договорам | [Раскладывающий оплаченное](../../reg/oby/arhiv-oplat.md) | — → — |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
-| 24 | Внесение в Таблицу Оплат сведений о произведенных оплатах по проекту<br/>*Директор: задачу по оплате у K принимает сотрудник контура 2.* | [Ведущий таблицу оплат](../../reg/oby/tablitsa-oplat.md) | — → [Закрывающий закупку](../../reg/oby/zakrytie-zakupki.md) |  | [Внешняя таблица оплат](../../reg/mes.md#tablitsa-oplat), [Лист «6 Оплаты»](../../reg/mes.md#lis-6-oplaty) |
-| 25 | Закрытие этапа Закупки<br/>*Директор: задачу по закупке у сотрудника контура 2 принимает логист.* | [Закрывающий закупку](../../reg/oby/zakrytie-zakupki.md) | — → [Отслеживающий поставку](../../reg/oby/kontrol-postavki.md) | помогают: [Менеджер проекта](../../reg/rol/proekt.md) | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
+| № | Шаг | Делает | Ставит → принимает | Передаёт | Согласуют, помогают, узнают | Где |
+|---|---|---|---|---|---|---|
+| 0 | Вход в процесс- Поставлена задача на закупку по проекту. №Проекта -Закзачик-предмет: Закупить товары" (или принятие этой задачи?!) | [Принимающий задачу на закупку](../../reg/oby/prinyatie-zakupki.md) | [Ставящий задачу на закупку](../../reg/oby/postanovka-zakupki.md) → — |  |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 1 | Создание в папке "...Рабочие документы" подпапки "Закупки" | [Ведущий папку закупки](../../reg/oby/papka-zakupki.md) | — → — |  |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
+| 2 | Создание в папке "... Закупки" подпапок "Счета", "Договоры" и "В оплату" | [Ведущий папку закупки](../../reg/oby/papka-zakupki.md) | — → — |  |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
+| 3 | Повторная рассылка и заполнение внешней таблицы | [Рассылающий повторные запросы](../../reg/oby/povtornaya-rassylka.md) | — → — | [Предложения поставщиков (листы 5-1, 5-2)](../../reg/art.md#predlozheniya-5-1) |  | [Лист «5-2 Запросы КП Закупки»](../../reg/mes.md#lis-5-2), [Лист «5-1 Сбор КП Закупки»](../../reg/mes.md#lis-5-1), [Почта](../../reg/mes.md#pochta) |
+| 4 | Отслеживание комментариев по итогу общения с выбранными поставщиками на листе "5 Закупка товара". | [Отслеживающий выбор поставщиков](../../reg/oby/kontrol-vybora.md) | — → — |  | отслеживает: [Готовящий выбор поставщика](../../reg/oby/vybor-postavshchika.md) | [Лист «5-3 Выбор поставщиков Закупки»](../../reg/mes.md#lis-5-3) |
+| 5 | Отслеживания результатов повторной рассылки на листе "3-3 Выбор поставщиков" В случае необходимости замены поставщиков, принятие решения по такой замене. | [Отслеживающий выбор поставщиков](../../reg/oby/kontrol-vybora.md) | — → — | [Решения по выбору поставщиков (лист 5-3)](../../reg/art.md#vybor-5-3) |  | [Лист «5-3 Выбор поставщиков Закупки»](../../reg/mes.md#lis-5-3) |
+| 6 | Определение предложений с лучшими условиями и подготовка предложения по Окончательному выбору поставщика. | [Готовящий выбор поставщика](../../reg/oby/vybor-postavshchika.md) | — → — |  |  | [Лист «5-3 Выбор поставщиков Закупки»](../../reg/mes.md#lis-5-3), [Почта](../../reg/mes.md#pochta) |
+| 7 | Проверка выбранных поставщиков на добросовестность | [Проверяющий контрагента](../../reg/oby/proverka-kontragenta.md) | — → — |  |  | [Таблица проверки контрагентов](../../reg/mes.md#tablitsa-kontragentov), [Лист «Отзывы о поставщиках»](../../reg/mes.md#lis-otzyvy) |
+| 8 | Постановка задачи на проверку выбранных предложений ТС | [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) | — → [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md) | [Подзадача ТС на проверку предложений](../../reg/art.md#podzadacha-ts) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 9 | Рассмотрение предложений поставщиков в технической части<br/>*Регламент: «как эти заключения отражаются в таблице, если не попадают на 3-2?».* | [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md) | [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) → [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) | [Заключение ТС по предложениям](../../reg/art.md#zaklyuchenie-ts) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 10 | Решение о заключении сделки с выбранным поставщиком | [Решающий о сделке с поставщиком](../../reg/oby/reshenie-sdelka.md) | — → — | [Решение о сделке с поставщиком](../../reg/art.md#reshenie-sdelka) | согласуют: [Согласующий финансирование сделки](../../reg/oby/soglasovanie-finansirovaniya.md) |  |
+| 11 | Подготовка договора поставки с поставщиком | [Готовящий договор поставки](../../reg/oby/dogovor-postavki.md) | — → — |  | помогают: [Хранитель учёта и документов (столбец K)](../../reg/rol/khranitel.md) | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
+| 12 | Получение подписанных договоров или оформленных по нашим требованиям счетов от выбранных Поставщиков | [Добывающий счета и договоры](../../reg/oby/poluchenie-schetov.md) | — → — | [Счета и договоры поставщиков](../../reg/art.md#scheta-dogovory) |  | [Почта](../../reg/mes.md#pochta), [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
+| 13 | Ведение Листа 5 (Таблица закупки внешняя) ( 5-4 в будущем) | [Ведущий лист оформления сделок](../../reg/oby/vedenie-sdelok.md) | — → — |  |  | [Лист «5-5 Оформление сделок»](../../reg/mes.md#lis-5-5) |
+| 14 | Постановка Задачи на согласование счетов/договоров в технической части | [Ставящий задачи на техническое согласование](../../reg/oby/postanovka-teh-soglasovaniya.md) | — → [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md) |  |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 15 | Рассмотрение и согласование счетов и договоров и других документов в технической части (в том числе путем подготовки ТЗ для договора с поставщиком) | [Проводящий согласование документов сделки](../../reg/oby/soglasovanie-dokumentov.md) | — → — |  | согласуют: [Согласующий техническую часть](../../reg/oby/teh-soglasovanie.md), [Согласующий сделку и отклонения](../../reg/oby/soglasovanie-otkloneniy.md), [Согласующий финансирование сделки](../../reg/oby/soglasovanie-finansirovaniya.md) | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
+| 16 | Размещение в папке "в оплату" согласованных с ТС счетов и договоров для оплаты | [Передающий согласованное в оплату](../../reg/oby/v-oplatu.md) | — → — | [Счета и договоры «готов к оплате»](../../reg/art.md#scheta-v-oplatu) |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki), [Лист «5-5 Оформление сделок»](../../reg/mes.md#lis-5-5) |
+| 17 | Постановка Задачи K на проверку и оплату счетов и договоров, созданию в 1с Заказа покупателя и заказов поставщикам | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) | — → [Проверяющий счета перед оплатой](../../reg/oby/proverka-schetov.md) | [Задача «Оплатить счета»](../../reg/art.md#zadacha-oplatit) |  | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 18 | Информирование в задаче K о том, что размещены новые Счета и договора | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) | — → — | [Задача «Оплатить счета»](../../reg/art.md#zadacha-oplatit), [Счета и договоры «готов к оплате»](../../reg/art.md#scheta-v-oplatu) | узнают о результате: [Менеджер проекта](../../reg/rol/proekt.md) | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha) |
+| 19 | Проверка готовых к оплате счетов и договоров | [Проверяющий счета перед оплатой](../../reg/oby/proverka-schetov.md) | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) → — |  |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
+| 20 | Создание заказа покупателя и поставщикам в 1с | [Ведущий учёт в 1С](../../reg/oby/uchet-1s.md) | [Ставящий задачу на оплату](../../reg/oby/postanovka-oplaty.md) → — |  |  | [1С](../../reg/mes.md#1s) |
+| 21 | Передача полученных счетов M на оплату | [Передающий счета на оплату](../../reg/oby/peredacha-na-oplatu.md) | — → [Оплачивающий счета](../../reg/oby/oplata.md) | [Проверенные счета на оплату](../../reg/art.md#scheta-na-oplatu) |  |  |
+| 22 | Оплата полученных счетов и передача платежных поручений K | [Оплачивающий счета](../../reg/oby/oplata.md) | [Передающий счета на оплату](../../reg/oby/peredacha-na-oplatu.md) → [Раскладывающий оплаченное](../../reg/oby/arhiv-oplat.md) | [Платёжные поручения](../../reg/art.md#platezhki) |  |  |
+| 23 | Создание в папке ".... В оплату" подпапки "Оплачено" и перемещение в нее всех оплаченных счетов и договоров. Создание папки "Платежные поручения" и перемещение в нее всех Платежных поручений по оплаченным счетам и договорам | [Раскладывающий оплаченное](../../reg/oby/arhiv-oplat.md) | — → — |  |  | [Диск: «Рабочие документы» → «Закупки»](../../reg/mes.md#disk-zakupki) |
+| 24 | Внесение в Таблицу Оплат сведений о произведенных оплатах по проекту<br/>*Директор: задачу по оплате у K принимает сотрудник контура 2.* | [Ведущий таблицу оплат](../../reg/oby/tablitsa-oplat.md) | — → [Закрывающий закупку](../../reg/oby/zakrytie-zakupki.md) | [Сведения об оплатах (таблица оплат)](../../reg/art.md#oplaty-v-tablitse) |  | [Внешняя таблица оплат](../../reg/mes.md#tablitsa-oplat), [Лист «6 Оплаты»](../../reg/mes.md#lis-6-oplaty) |
+| 25 | Закрытие этапа Закупки<br/>*Директор: задачу по закупке у сотрудника контура 2 принимает логист.* | [Закрывающий закупку](../../reg/oby/zakrytie-zakupki.md) | — → [Отслеживающий поставку](../../reg/oby/kontrol-postavki.md) | [Закрытая задача «Закупка» — логисту](../../reg/art.md#zadacha-zakupka-zakryta) | помогают: [Менеджер проекта](../../reg/rol/proekt.md) | [Битрикс24: задачи по шаблонам](../../reg/mes.md#bitriks-zadacha), [Битрикс24: статус проекта](../../reg/mes.md#bitriks-status-proekta) |
 
 ## Где работают
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   o_prinyatie_zakupki("Принимающий задачу на<br/>закупку")
   o_papka_zakupki("Ведущий папку закупки")
@@ -339,6 +355,7 @@ flowchart LR
 **Статус проекта**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 stateDiagram-v2
   direction LR
   state "Исполнение: Закупаем товары" as st0
@@ -350,6 +367,7 @@ stateDiagram-v2
 **Статус сделки**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 stateDiagram-v2
   direction LR
   state "Готово к оплате" as st0

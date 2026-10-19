@@ -28,6 +28,7 @@
 ## Карта процессов
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   subgraph k_0["контур 0"]
     p_r01_peredacha_v_kontraktatsiyu["Процесс. Передача в<br/>контрактацию"]
@@ -80,6 +81,7 @@ flowchart LR
 **Статус проекта**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 stateDiagram-v2
   direction LR
   state "Заключаем договор" as st0
@@ -100,6 +102,7 @@ stateDiagram-v2
 **Статус сделки**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 stateDiagram-v2
   direction LR
   state "Готово к оплате" as st0
@@ -111,6 +114,7 @@ stateDiagram-v2
 **Статус товара**
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 stateDiagram-v2
   direction LR
   state "Ждем товары" as st0
@@ -152,3 +156,7 @@ stateDiagram-v2
 | [Ответственный за почтовый ящик](../../reg/oby/otvetstvennyy-za-yashchik.md) | предполагаем несколько должностей — нарушает «один ответственный» |
 | [Ставящий товарам статус «Несоответствие»](../../reg/oby/status-nesootvetstvie.md) | не знаем, какая должность выполняет |
 | [Закрывающий проект](../../reg/oby/zakrytie-proekta.md) | не знаем, какая должность выполняет |
+| [Процесс. Контрактация](../../pro/r02-kontraktatsiya/index.md), шаг 18 | работа переходит от «Логист» к «Менеджер по продажам», но что передаётся — не записано |
+| [Процесс. Передача в закупки](../../pro/r03-peredacha-v-zakupki/index.md), шаг 7 | работа переходит от «Закупщик» к «Менеджер проекта», но что передаётся — не записано |
+| [Процесс. Поступление: контроль поставки, доплаты, доставка, приёмка](../../pro/r06-postuplenie/index.md), шаг 28 | работа переходит от «Хранитель учёта и документов» к «Логист», но что передаётся — не записано |
+| [Процесс. Контроль исполнения заказчиком](../../pro/r11-kontrol-zakazchika/index.md), шаг 31 | работа переходит от «Менеджер проекта» к «Хранитель учёта и документов», но что передаётся — не записано |
