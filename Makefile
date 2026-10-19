@@ -1,5 +1,5 @@
 # orb-work. Проверка и сборка идут прямо на стенде: нужны sh, git, python3 и PyYAML.
-.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament
+.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament reglament-xlsx
 
 SOBRAT := python3 inst/src/skripty/sobrat.py
 DATE ?= $(shell date +%F)
@@ -33,3 +33,6 @@ mermaid-setup: ## поставить mermaid-cli в .tools/ (нужны nodejs �
 
 reglament: ## пересобрать pro/*/reglament.yaml из регламента: make reglament X=raw/…/Распределение задач….xlsx
 	taskset -c 0 python3 inst/src/skripty/import_reglament.py "$(X)"
+
+reglament-xlsx: ## книга регламента для Google Таблиц из репозитория: make reglament-xlsx [OUT=raw/…/….xlsx] (нужен python3-openpyxl)
+	taskset -c 0 python3 inst/src/skripty/reglament_xlsx.py --out "$(or $(OUT),raw/$(shell date +%F)-reglament/Регламент — обязанности и шаги $(shell date +%F).xlsx)"

@@ -35,6 +35,11 @@ if [ -n "$reglament" ]; then
   python3 inst/src/skripty/import_reglament.py "$reglament" --check > "$tmp/regl" 2>&1 || { tail -n 2 "$tmp/regl"; err "pro/*/reglament.yaml не совпадает с регламентом — make reglament X=…"; }
 fi
 
+# Книга регламента (xlsx) выгружается и читается без потерь — если на стенде есть openpyxl.
+if python3 -c 'import openpyxl' 2>/dev/null; then
+  python3 inst/src/skripty/reglament_xlsx.py --check > "$tmp/xlsx" 2>&1 || { tail -n 5 "$tmp/xlsx"; err "книга регламента: выгрузка и чтение расходятся"; }
+fi
+
 sh tools/secrets.sh . || err "секреты в файлах"
 
 [ "$fail" -eq 0 ] && echo "orb-work: ok"
