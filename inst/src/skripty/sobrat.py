@@ -31,6 +31,7 @@ import sys
 import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import listy  # noqa: E402
 import protsessy  # noqa: E402
 
 SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -117,6 +118,8 @@ def load():
     for p in parts.values():
         if p['sec'] == 'pro' and p['slug'] not in ('obzor', 'dorozhki'):
             protsessy.attach(p, errors)
+        if p['sec'] == 'lis':
+            listy.attach(p)
     reg = {}
     for kind in REG:
         path = f'{SRC}/md-kod/reg/{kind}.yaml'
@@ -194,6 +197,9 @@ def check(parts, reg, fulls):
             errors.append(f'{where}: статус «{p["status"]}», но части нет в inst/PLAN.md')
     e, notes = protsessy.check(parts, reg)
     errors += e
+    e, lis_notes = listy.check(parts, listy.registry(SRC))
+    errors += e
+    warnings += lis_notes
     if notes:
         warnings.append(f'процессы: расхождений и вопросов — {len(notes)}, список в inst/md-out/pro/obzor/index.md')
     for name, f in fulls.items():
@@ -328,6 +334,15 @@ def build_dist(parts, reg, out):
         shutil.rmtree(f'{out}/{d}', ignore_errors=True)
     b = Dist(parts, reg, out)
     _, notes = protsessy.check(parts, reg)
+    by_oby, by_rol, places = protsessy.index(parts, reg)
+    reg_list = listy.registry(SRC)
+    links = listy.sheet_links(parts, reg_list)
+    on_sheet = {}   # часть листа → обязанности, у которых место — этот лист
+    for m, obys in places.items():
+        ch = reg['mes'].get(m, {}).get('chast')
+        if ch:
+            on_sheet.setdefault(ch, [])
+            on_sheet[ch] += [o for o in obys if o not in on_sheet[ch]]
     for p in parts.values():
         dst = f'{out}/{p["sec"]}/{p["slug"]}'
         os.makedirs(dst, exist_ok=True)
@@ -335,6 +350,10 @@ def build_dist(parts, reg, out):
         if p['sec'] == 'pro':   # схемы и таблицы процесса собираются из данных шагов
             text += (protsessy.render_obzor(parts, reg, notes) if p['slug'] == 'obzor' else
                      protsessy.render_dorozhki(parts, reg) if p['slug'] == 'dorozhki' else protsessy.render_process(p, reg, parts))
+        if p['sec'] == 'lis' and p.get('struktura'):   # устройство листа — из struktura.yaml
+            text += listy.render_sheet(p, parts, reg, reg_list, links, on_sheet)
+        if p['sec'] == 'lis' and p['slug'] in listy.OVERVIEW.values():
+            text += listy.render_tab(p, parts, reg_list, links)
         open(f'{dst}/index.md', 'w', encoding='utf-8').write(text)
     os.makedirs(f'{out}/reg', exist_ok=True)
     where = {}   # (реестр, ключ) → части, где запись упомянута: у должности так видно её инструкции
@@ -343,7 +362,6 @@ def build_dist(parts, reg, out):
             kind, key = name.split('.', 1)
             if kind in GLOSS and p not in where.setdefault((kind, key), []):
                 where[(kind, key)].append(p)
-    by_oby, by_rol, places = protsessy.index(parts, reg)
     _, flows = protsessy.handoffs(protsessy.procs(parts), reg)
     art_flows = protsessy.art_flow(parts, reg)
 
