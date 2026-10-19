@@ -1,0 +1,23 @@
+# Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
+# Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
+# результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
+# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+kontur: "0"
+dalee: [r03-peredacha-v-zakupki]
+shagi:
+  kt-5: {delaet: dogovor-s-zakazchikom, mesto: [pochta]}
+  kt-6: {delaet: pasport-kontraktatsiya, mesto: [lis-0-pasport]}
+  kt-7: {delaet: papka-proekta, mesto: [disk-kontraktatsiya]}
+  kt-8: {delaet: dogovor-s-zakazchikom, mesto: [pochta, disk-kontraktatsiya, lis-0-pasport]}
+  kt-9: {delaet: dogovor-s-zakazchikom, mesto: [bitriks-zadacha], prinimaet: [proverka-dogovora], dogadka: "Задача ставится K, в части ТЗ — ТС; подзадача «Оформить договор» внутри «Заключить договор»."}
+  kt-10: {delaet: proverka-dogovora, stavit: [dogovor-s-zakazchikom], prinimaet: [dogovor-s-zakazchikom], pomogayut: [rol.prodazhi]}
+  kt-11: {delaet: dogovor-s-zakazchikom, mesto: [bitriks-zadacha], prinimaet: [proverka-tz], dogadka: "В регламенте у шага нет основного исполнителя — только соисполнитель H."}
+  kt-12: {delaet: proverka-tz, stavit: [dogovor-s-zakazchikom], prinimaet: [dogovor-s-zakazchikom], mesto: [bitriks-zadacha]}
+  kt-13: {delaet: dogovor-s-zakazchikom, mesto: [pochta]}
+  kt-14: {delaet: dogovor-s-zakazchikom, prinimaet: [podpisanie]}
+  kt-15: {delaet: podpisanie, stavit: [dogovor-s-zakazchikom], mesto: [edo]}
+  kt-16: {delaet: dogovor-s-zakazchikom, mesto: [pochta, bitriks-status-proekta], status: {proekt: Договор заключен}}
+  kt-17: {delaet: otpravka-originalov, mesto: [transportnaya-kompaniya]}
+  kt-18: {delaet: peredacha-v-uchet, mesto: [bitriks-zadacha], prinimaet: [uchet-1s]}
+  kt-19: {delaet: zakrytie-kontraktatsii, mesto: [bitriks-status-proekta, bitriks-zadacha], status: {proekt: Договор заключен}}
+  kt-20: {delaet: zakrytie-kontraktatsii, prinimaet: [priemka-etapov], mesto: [bitriks-zadacha]}

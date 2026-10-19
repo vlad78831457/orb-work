@@ -1,0 +1,13 @@
+# Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
+# Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
+# результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
+# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+kontur: "4"
+dalee: [r11-kontrol-zakazchika]
+shagi:
+  og-9: {delaet: otgruzka, otslezhivaet: [kontrol-ispolneniya], mesto: [transportnaya-kompaniya]}
+  og-10: {delaet: otgruzka, otslezhivaet: [kontrol-ispolneniya]}
+  og-11: {delaet: kontrol-priemki-zakazchikom, otslezhivaet: [kontrol-ispolneniya]}
+  og-12: {delaet: dokumenty-otgruzki, otslezhivaet: [kontrol-ispolneniya], mesto: [disk-ispolnenie]}
+  og-13: {delaet: kontrol-ispolneniya, otslezhivaet: [otgruzka, kontrol-priemki-zakazchikom], mesto: [lis-7-ispolnenie]}
+  og-14: {delaet: dozhim-zakazchika, pomogayut: [rol.logist]}

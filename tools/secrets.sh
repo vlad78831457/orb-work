@@ -10,8 +10,8 @@ fi
 
 dir=${1:?каталог}
 found=0
-bad=$(find "$dir" -not -path '*/.git/*' \( -name '.env' -o -name '.env.*' -o -name '*.pem' -o -name '*.key' -o -name 'id_rsa*' -o -name 'id_ed25519*' -o -name 'id_ecdsa*' \) ! -name '.env.example')
+bad=$(find "$dir" -not -path '*/.git/*' -not -path '*/.tools/*' \( -name '.env' -o -name '.env.*' -o -name '*.pem' -o -name '*.key' -o -name 'id_rsa*' -o -name 'id_ed25519*' -o -name 'id_ecdsa*' \) ! -name '.env.example')
 if [ -n "$bad" ]; then echo "файлы с секретами:"; echo "$bad" | sed 's/^/  /'; found=1; fi
-hits=$(find "$dir" -type f -not -path '*/.git/*' -not -name secrets.sh -print0 | xargs -0 -r grep -lE "$PATTERN")
+hits=$(find "$dir" -type f -not -path '*/.git/*' -not -path '*/.tools/*' -not -name secrets.sh -print0 | xargs -0 -r grep -lE "$PATTERN")
 if [ -n "$hits" ]; then echo "строки, похожие на ключи, в файлах:"; echo "$hits" | sed 's/^/  /'; found=1; fi
 exit $found

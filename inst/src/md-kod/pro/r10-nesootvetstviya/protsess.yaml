@@ -1,0 +1,21 @@
+# Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
+# Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
+# результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
+# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+kontur: "4"
+dalee: []
+shagi:
+  ns-16: {delaet: otvetstvennyy-za-yashchik, mesto: [pochta], dogadka: "Вход в процесс — у шага нет исполнителя; по смыслу документ получает ответственный за ящик."}
+  ns-17: {delaet: otvetstvennyy-za-yashchik, prinimaet: [registratsiya-vhodyashchih], mesto: [pochta]}
+  ns-18: {delaet: registratsiya-vhodyashchih, mesto: [zhurnal-vhodyashchih]}
+  ns-19: {delaet: registratsiya-vhodyashchih, mesto: [disk-ispolnenie]}
+  ns-20: {delaet: registratsiya-vhodyashchih, prinimaet: [vedenie-nesootvetstviya], mesto: [bitriks-zadacha]}
+  ns-21: {delaet: vedenie-nesootvetstviya, stavit: [registratsiya-vhodyashchih], mesto: [bitriks-zadacha]}
+  ns-22: {delaet: status-nesootvetstvie, status: {tovar: НЕСООТВЕТСТВИЕ}}
+  ns-23: {delaet: vedenie-nesootvetstviya}
+  ns-24: {delaet: vedenie-nesootvetstviya, prinimaet: [otvet-nesootvetstvie]}
+  ns-25: {delaet: vedenie-nesootvetstviya, pomogayut: [rol.tekh, rol.zakupka, rol.khranitel, rol.logist]}
+  ns-26: {delaet: otvet-nesootvetstvie, stavit: [vedenie-nesootvetstviya], soglasuyut: [vedenie-nesootvetstviya], pomogayut: [rol.zakupka, rol.logist], dogadka: "Регламент: согласуют менеджер, закупщик и логист."}
+  ns-27: {delaet: otvet-nesootvetstvie, uznayut: [rol.proekt, rol.logist], mesto: [pochta]}
+  ns-28: {delaet: vedenie-nesootvetstviya, pomogayut: [rol.tekh, rol.zakupka, rol.khranitel, rol.logist]}
+  ns-29: {delaet: vedenie-nesootvetstviya, pomogayut: [rol.logist]}

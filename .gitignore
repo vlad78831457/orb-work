@@ -7,3 +7,7 @@
 # raw — сырое и рабочие данные: только на стенде, в Git — одно описание
 raw/*
 !raw/README.md
+
+# инструменты стенда (mermaid-cli, браузер для него) — make mermaid-setup
+.tools/
+__pycache__/
