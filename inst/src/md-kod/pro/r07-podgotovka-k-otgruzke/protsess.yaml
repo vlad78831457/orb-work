@@ -1,16 +1,17 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
 # результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
-# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+# mesto — места работы (reg/mes.yaml); peredaet — что шаг отдаёт дальше (reg/art.yaml); status — {объект: новый статус};
+# dogadka — что не подтверждено.
 kontur: "4"
 dalee: [r08-otgruzka]
 shagi:
   po-0: {delaet: plan-otgruzok}
   po-1: {delaet: plan-otgruzok}
   po-1-1: {delaet: plan-otgruzok}
-  po-1-2: {delaet: plan-otgruzok, prinimaet: [otgruzochnye-dokumenty]}
-  po-2: {delaet: zapros-otgruzochnyh, prinimaet: [otgruzochnye-dokumenty]}
-  po-3: {delaet: otgruzochnye-dokumenty, stavit: [zapros-otgruzochnyh], mesto: [1s, tablitsa-oplat]}
+  po-1-2: {delaet: plan-otgruzok, prinimaet: [otgruzochnye-dokumenty], peredaet: [zapros-otgruzochnyh]}
+  po-2: {delaet: zapros-otgruzochnyh, prinimaet: [otgruzochnye-dokumenty], peredaet: [zapros-otgruzochnyh]}
+  po-3: {delaet: otgruzochnye-dokumenty, stavit: [zapros-otgruzochnyh], mesto: [1s, tablitsa-oplat], peredaet: [otgruzochnye]}
   po-4: {delaet: dokumenty-otgruzki}
   po-5: {delaet: dokumenty-otgruzki, mesto: [disk-ispolnenie]}
   po-6: {delaet: komplektnost-otgruzki, soglasuyut: [teh-soglasovanie], uznayut: [rol.proekt], mesto: [sklad]}

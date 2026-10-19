@@ -1,15 +1,16 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
 # результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
-# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+# mesto — места работы (reg/mes.yaml); peredaet — что шаг отдаёт дальше (reg/art.yaml); status — {объект: новый статус};
+# dogadka — что не подтверждено.
 kontur: "2"
 dalee: [r04-zakupka-tovara]
 shagi:
-  pz-0: {delaet: reshenie-peredachi, mesto: [bitriks-status-proekta], status: {proekt: Заключаем договор}}
-  pz-1: {delaet: peredacha-v-zakupku, mesto: [bitriks-zadacha]}
+  pz-0: {delaet: reshenie-peredachi, mesto: [bitriks-status-proekta], status: {proekt: Заключаем договор}, peredaet: [reshenie-peredat]}
+  pz-1: {delaet: peredacha-v-zakupku, mesto: [bitriks-zadacha], peredaet: [zadacha-peredacha]}
   pz-2: {delaet: peredacha-v-zakupku, mesto: [bitriks-zadacha]}
-  pz-3: {delaet: list-5-0, pomogayut: [rol.tekh], mesto: [lis-5-0, bitriks-zadacha]}
+  pz-3: {delaet: list-5-0, pomogayut: [rol.tekh], mesto: [lis-5-0, bitriks-zadacha], peredaet: [list-5-0]}
   pz-4: {delaet: proverka-komplektnosti, mesto: [bitriks-zadacha, lis-5-0]}
-  pz-5: {delaet: postanovka-zakupki, prinimaet: [prinyatie-zakupki], mesto: [bitriks-zadacha, bitriks-status-proekta], status: {proekt: Передано в Закупки}}
+  pz-5: {delaet: postanovka-zakupki, prinimaet: [prinyatie-zakupki], mesto: [bitriks-zadacha, bitriks-status-proekta], status: {proekt: Передано в Закупки}, peredaet: [zadacha-zakupka]}
   pz-6: {delaet: prinyatie-zakupki, stavit: [postanovka-zakupki], mesto: [bitriks-zadacha]}
-  pz-7: {delaet: postanovka-zakupki, prinimaet: [prinyatie-zakupki], mesto: [bitriks-zadacha, bitriks-status-proekta], status: {proekt: Передано в Закупки}, dogadka: "Возобновление закупки при недопоставке — тот же, кто ставит задачу."}
+  pz-7: {delaet: postanovka-zakupki, prinimaet: [prinyatie-zakupki], mesto: [bitriks-zadacha, bitriks-status-proekta], status: {proekt: Передано в Закупки}, dogadka: "Возобновление закупки при недопоставке — тот же, кто ставит задачу.", peredaet: [zadacha-zakupka]}

@@ -1,33 +1,34 @@
 # Толкование шагов регламента (reglament.yaml рядом — как записано). Руками.
 # Шаг: delaet — обязанность-исполнитель (ровно одна, reg/oby.yaml); stavit — кто ставит задачу; prinimaet — кто принимает
 # результат; otslezhivaet, soglasuyut — обязанности (списки); pomogayut, uznayut — должности «rol.ключ» (списки).
-# mesto — места работы (reg/mes.yaml); status — {объект: новый статус}; dogadka — что не подтверждено.
+# mesto — места работы (reg/mes.yaml); peredaet — что шаг отдаёт дальше (reg/art.yaml); status — {объект: новый статус};
+# dogadka — что не подтверждено.
 kontur: "2"
 dalee: [r06-postuplenie]
 shagi:
   zk-0: {delaet: prinyatie-zakupki, stavit: [postanovka-zakupki], mesto: [bitriks-zadacha]}
   zk-1: {delaet: papka-zakupki, mesto: [disk-zakupki]}
   zk-2: {delaet: papka-zakupki, mesto: [disk-zakupki, bitriks-status-proekta], status: {proekt: "Исполнение: Закупаем товары"}}
-  zk-3: {delaet: povtornaya-rassylka, mesto: [lis-5-2, lis-5-1, pochta]}
+  zk-3: {delaet: povtornaya-rassylka, mesto: [lis-5-2, lis-5-1, pochta], peredaet: [predlozheniya-5-1]}
   zk-4: {delaet: kontrol-vybora, otslezhivaet: [vybor-postavshchika], mesto: [lis-5-3]}
-  zk-5: {delaet: kontrol-vybora, mesto: [lis-5-3]}
+  zk-5: {delaet: kontrol-vybora, mesto: [lis-5-3], peredaet: [vybor-5-3]}
   zk-6: {delaet: vybor-postavshchika, mesto: [lis-5-3, pochta]}
   zk-7: {delaet: proverka-kontragenta, mesto: [tablitsa-kontragentov, lis-otzyvy]}
-  zk-8: {delaet: postanovka-teh-soglasovaniya, prinimaet: [teh-soglasovanie], mesto: [bitriks-zadacha]}
-  zk-9: {delaet: teh-soglasovanie, stavit: [postanovka-teh-soglasovaniya], prinimaet: [postanovka-teh-soglasovaniya], mesto: [bitriks-zadacha], dogadka: "Регламент: «как эти заключения отражаются в таблице, если не попадают на 3-2?»."}
-  zk-10: {delaet: reshenie-sdelka, soglasuyut: [soglasovanie-finansirovaniya]}
+  zk-8: {delaet: postanovka-teh-soglasovaniya, prinimaet: [teh-soglasovanie], mesto: [bitriks-zadacha], peredaet: [podzadacha-ts]}
+  zk-9: {delaet: teh-soglasovanie, stavit: [postanovka-teh-soglasovaniya], prinimaet: [postanovka-teh-soglasovaniya], mesto: [bitriks-zadacha], dogadka: "Регламент: «как эти заключения отражаются в таблице, если не попадают на 3-2?».", peredaet: [zaklyuchenie-ts]}
+  zk-10: {delaet: reshenie-sdelka, soglasuyut: [soglasovanie-finansirovaniya], peredaet: [reshenie-sdelka]}
   zk-11: {delaet: dogovor-postavki, pomogayut: [rol.khranitel], mesto: [disk-zakupki]}
-  zk-12: {delaet: poluchenie-schetov, mesto: [pochta, disk-zakupki]}
+  zk-12: {delaet: poluchenie-schetov, mesto: [pochta, disk-zakupki], peredaet: [scheta-dogovory]}
   zk-13: {delaet: vedenie-sdelok, mesto: [lis-5-5]}
   zk-14: {delaet: postanovka-teh-soglasovaniya, prinimaet: [teh-soglasovanie], mesto: [bitriks-zadacha]}
   zk-15: {delaet: soglasovanie-dokumentov, soglasuyut: [teh-soglasovanie, soglasovanie-otkloneniy, soglasovanie-finansirovaniya], mesto: [bitriks-zadacha, disk-zakupki]}
-  zk-16: {delaet: v-oplatu, mesto: [disk-zakupki, lis-5-5], status: {sdelka: Готово к оплате}}
-  zk-17: {delaet: postanovka-oplaty, prinimaet: [proverka-schetov], mesto: [bitriks-zadacha]}
-  zk-18: {delaet: postanovka-oplaty, uznayut: [rol.proekt], mesto: [bitriks-zadacha]}
+  zk-16: {delaet: v-oplatu, mesto: [disk-zakupki, lis-5-5], status: {sdelka: Готово к оплате}, peredaet: [scheta-v-oplatu]}
+  zk-17: {delaet: postanovka-oplaty, prinimaet: [proverka-schetov], mesto: [bitriks-zadacha], peredaet: [zadacha-oplatit]}
+  zk-18: {delaet: postanovka-oplaty, uznayut: [rol.proekt], mesto: [bitriks-zadacha], peredaet: [zadacha-oplatit, scheta-v-oplatu]}
   zk-19: {delaet: proverka-schetov, stavit: [postanovka-oplaty], mesto: [disk-zakupki]}
   zk-20: {delaet: uchet-1s, stavit: [postanovka-oplaty], mesto: [1s]}
-  zk-21: {delaet: peredacha-na-oplatu, prinimaet: [oplata]}
-  zk-22: {delaet: oplata, stavit: [peredacha-na-oplatu], prinimaet: [arhiv-oplat], status: {sdelka: Оплачено}}
+  zk-21: {delaet: peredacha-na-oplatu, prinimaet: [oplata], peredaet: [scheta-na-oplatu]}
+  zk-22: {delaet: oplata, stavit: [peredacha-na-oplatu], prinimaet: [arhiv-oplat], status: {sdelka: Оплачено}, peredaet: [platezhki]}
   zk-23: {delaet: arhiv-oplat, mesto: [disk-zakupki]}
-  zk-24: {delaet: tablitsa-oplat, prinimaet: [zakrytie-zakupki], mesto: [tablitsa-oplat, lis-6-oplaty], dogadka: "Директор: задачу по оплате у K принимает сотрудник контура 2."}
-  zk-25: {delaet: zakrytie-zakupki, pomogayut: [rol.proekt], prinimaet: [kontrol-postavki], mesto: [bitriks-zadacha, bitriks-status-proekta], status: {proekt: Исполняем договор}, dogadka: "Директор: задачу по закупке у сотрудника контура 2 принимает логист."}
+  zk-24: {delaet: tablitsa-oplat, prinimaet: [zakrytie-zakupki], mesto: [tablitsa-oplat, lis-6-oplaty], dogadka: "Директор: задачу по оплате у K принимает сотрудник контура 2.", peredaet: [oplaty-v-tablitse]}
+  zk-25: {delaet: zakrytie-zakupki, pomogayut: [rol.proekt], prinimaet: [kontrol-postavki], mesto: [bitriks-zadacha, bitriks-status-proekta], status: {proekt: Исполняем договор}, dogadka: "Директор: задачу по закупке у сотрудника контура 2 принимает логист.", peredaet: [zadacha-zakupka-zakryta]}

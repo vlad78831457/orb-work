@@ -1,0 +1,70 @@
+# Что передаётся: предметы передачи между шагами — задачи, документы, данные, товар, деньги, сообщения.
+# Упоминание в тексте: [[art.scheta-v-oplatu]]. У шага в pro/*/protsess.yaml поле peredaet — что шаг отдаёт дальше.
+# Поля: title; vid — задача | документ | данные | товар | деньги | сообщение; gde — место (reg/mes.yaml); dogadka.
+# Составлено агентом по текстам регламента «Распределение задач» — проверить.
+
+# --- контрактация ---
+zadacha-kontraktatsiya: {title: "Задача «Заключить договор»", vid: задача, gde: bitriks-zadacha}
+podzadacha-dogovor: {title: "Подзадача «Оформить договор»", vid: задача, gde: bitriks-zadacha}
+proekt-dogovora: {title: "Проект договора заказчика", vid: документ, gde: disk-kontraktatsiya}
+zaklyuchenie-dogovor: {title: "Заключение по проекту договора", vid: сообщение, gde: bitriks-zadacha}
+podzadacha-tz: {title: "Подзадача на проверку ТЗ", vid: задача, gde: bitriks-zadacha}
+zaklyuchenie-tz: {title: "Заключение по ТЗ", vid: документ, gde: bitriks-zadacha}
+poruchenie-podpisat: {title: "Просьба подписать договор через ЭДО", vid: сообщение}
+dogovor-podpisannyy: {title: "Подписанный договор с заказчиком", vid: документ, gde: edo}
+original-dogovora: {title: "Оригинал договора для заказчика", vid: документ, gde: transportnaya-kompaniya, dogadka: "Кто передаёт оригинал логисту — в регламенте не сказано."}
+podzadacha-uchet: {title: "Подзадача «внести договор в 1С и таблицы»", vid: задача, gde: bitriks-zadacha}
+
+# --- передача в закупки и закупка ---
+reshenie-peredat: {title: "Решение передать в закупки", vid: сообщение, gde: bitriks-status-proekta}
+zadacha-peredacha: {title: "Задача «Передача в закупку»", vid: задача, gde: bitriks-zadacha}
+list-5-0: {title: "Задание на закупку (лист 5-0)", vid: данные, gde: lis-5-0}
+zadacha-zakupka: {title: "Задача «Закупка»", vid: задача, gde: bitriks-zadacha}
+predlozheniya-5-1: {title: "Предложения поставщиков (листы 5-1, 5-2)", vid: данные, gde: lis-5-1}
+vybor-5-3: {title: "Решения по выбору поставщиков (лист 5-3)", vid: данные, gde: lis-5-3}
+podzadacha-ts: {title: "Подзадача ТС на проверку предложений", vid: задача, gde: bitriks-zadacha}
+zaklyuchenie-ts: {title: "Заключение ТС по предложениям", vid: сообщение, gde: bitriks-zadacha, dogadka: "Регламент спрашивает, как заключения отражаются в таблице."}
+reshenie-sdelka: {title: "Решение о сделке с поставщиком", vid: сообщение}
+scheta-dogovory: {title: "Счета и договоры поставщиков", vid: документ, gde: disk-zakupki}
+scheta-v-oplatu: {title: "Счета и договоры «готов к оплате»", vid: документ, gde: disk-zakupki}
+zadacha-oplatit: {title: "Задача «Оплатить счета»", vid: задача, gde: bitriks-zadacha}
+scheta-na-oplatu: {title: "Проверенные счета на оплату", vid: документ}
+platezhki: {title: "Платёжные поручения", vid: деньги, gde: disk-zakupki}
+oplaty-v-tablitse: {title: "Сведения об оплатах (таблица оплат)", vid: данные, gde: tablitsa-oplat}
+zadacha-zakupka-zakryta: {title: "Закрытая задача «Закупка» — логисту", vid: задача, gde: bitriks-zadacha, dogadka: "Директор (раунд 2, №8): логист принимает задачу по закупке у сотрудника контура 2."}
+
+# --- исполнение: поставка, приёмка, отгрузка ---
+plan-ispolneniya: {title: "План исполнения и контрольные точки", vid: документ}
+format-priemki: {title: "Формат приёмки", vid: сообщение, dogadka: "Регламент: «надо понять, где это будем фиксировать»."}
+plan-sroki: {title: "Плановые сроки поставки", vid: данные, gde: tablitsa-logista}
+statusy-postavki: {title: "Статусы поставки (таблица логиста)", vid: данные, gde: tablitsa-logista}
+dogovory-postavshchikam: {title: "Подписанные нами договоры поставки", vid: документ, gde: pochta}
+prosrochka: {title: "Сведения о просрочке поставки", vid: данные, gde: tablitsa-logista}
+eskalatsiya: {title: "Эскалация задержки", vid: сообщение}
+reshenie-problema: {title: "Решение по проблеме поставки", vid: сообщение}
+pretenziya-postavshchiku: {title: "Претензия поставщику", vid: документ, gde: pochta}
+gotovnost: {title: "Подтверждённая готовность к отгрузке", vid: сообщение}
+zapros-doplaty: {title: "Сведения о необходимости доплаты", vid: сообщение}
+tehdokumenty: {title: "Техническая документация на товар", vid: документ, gde: disk-ispolnenie}
+transportnye: {title: "Транспортные документы и отчёт по расходам", vid: документ}
+upd: {title: "УПД или ТОРГ-12 поставщика", vid: документ, gde: disk-ispolnenie}
+fotootchet: {title: "Фотоотчёт о товаре", vid: документ, gde: disk-ispolnenie}
+tovar: {title: "Товар", vid: товар, gde: sklad}
+zaklyuchenie-kachestvo: {title: "Заключение о качестве товара", vid: сообщение}
+reshenie-priemka: {title: "Решение о приёмке или отказе", vid: сообщение}
+motiv-otkaz: {title: "Мотивированный отказ поставщику", vid: документ, gde: pochta}
+prihodnye: {title: "Приходные документы (сканы)", vid: документ, gde: disk-ispolnenie}
+zapros-otgruzochnyh: {title: "Ведомость отгрузки и запрос отгрузочных документов", vid: сообщение}
+otgruzochnye: {title: "Отгрузочные документы", vid: документ, gde: 1s}
+otgruzochnye-podpisannye: {title: "Подписанные заказчиком отгрузочные документы", vid: документ, gde: disk-ispolnenie}
+
+# --- назначения, несоответствия, заказчик ---
+naznachenie: {title: "Назначение ответственного", vid: сообщение}
+dokument-nesootv: {title: "Документ о несоответствии", vid: документ, gde: pochta}
+zadacha-nesootv: {title: "Задача «Принятие решения по устранению несоответствий»", vid: задача, gde: bitriks-zadacha}
+reshenie-nesootv: {title: "Решение по устранению несоответствия", vid: сообщение, gde: bitriks-zadacha}
+poruchenie-otvet: {title: "Поручение подготовить ответ на несоответствие", vid: задача}
+otvet-nesootv: {title: "Ответ на документ о несоответствии", vid: документ, gde: pochta}
+obyasneniya: {title: "Объяснения и предложения по предотвращению", vid: документ}
+pretenziya-neuplata: {title: "Претензия о неуплате", vid: документ}
+isk: {title: "Решение инициировать иск", vid: сообщение}
