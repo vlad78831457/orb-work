@@ -1,0 +1,49 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 0-Паспорт проекта
+diapazon: A1:K112
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 44
+znacheniy: 299
+spiskov: 11
+uslovnyh: 2
+obedineno: 4
+beryot:
+  3-3 Выбор поставщиков: 3
+  4-1 Расчет рентабельности КП: 2
+  1-1 Сбор КП: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+  formula: =A47+1
+  formula_v_stroke: 50
+  formul: 31
+- bukva: B
+  zagolovok: Название
+- bukva: C
+  zagolovok: Значение
+  formula: ='4-1 Расчет рентабельности КП'!B36
+  formula_v_stroke: 58
+  formul: 5
+  spisok: '"Нет,Мы экспортируем,Заказчик экспортирует"'
+- bukva: D
+  zagolovok: Проверка
+  formula: =IF(IFERROR(C18/1,0)=0,"Должно быть или число или точная дата, Ошибка","ok")
+  formula_v_stroke: 18
+  formul: 8
+- bukva: E
+  zagolovok: Источник информации
+- bukva: F
+  zagolovok: Рекомендации
+- bukva: G
+  zagolovok: Индификатор поля
+- bukva: H
+  zagolovok: HeaderLast
+- bukva: I
+  spisok: '"Нет,Да"'
+- bukva: K
+  spisok: '''0-Паспорт проекта''!$K$3:$K$9'

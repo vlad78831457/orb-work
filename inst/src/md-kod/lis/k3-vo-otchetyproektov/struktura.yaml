@@ -1,0 +1,85 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: ОтчетыПроектов
+diapazon: A1:Z20
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 17
+znacheniy: 2
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 1
+  7-2 Номенклатуры: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  formula: ={"Актуально";TEXT( NOW(),"DD.MM.YYYY HH:mm:ss")}
+  formula_v_stroke: 2
+  formul: 2
+- bukva: C
+  formula: '=Let(
+
+    doErr, LAMBDA (txt_ar, TEXTJOIN(CHAR(10),TRUE, Map( Unique(split( TEXTJOIN(CHAR(10),TRUE,txt_ar), CHAR(10),0,TRUE ),TRUE) , LAMBDA(e," - "&e)) ) ),
+
+    doRez, LAMBDA(n,err, IF( IFERROR( err,)="", ,n&":"&CHAR(10)&err ) ),
+
+    rez, TEXTJOIN,"ОшибкиИсполнениеВнешние")'
+  formula_v_stroke: 9
+  formul: 3
+- bukva: D
+  formula: '=LET(
+
+    head , "Рабочий Лист"&CHAR(10)&"Ожидаемая дата готовности последнего товара",
+
+    tz_a , "Берем максимальную дату из поля ''Ожидаемая дата готовности'' из таблицы логиста для товаров со статусами отличными от",
+
+    tz_b , "''Д,"Рабочий Лист
+
+    Ожидаемая дата готовности последнего товара")'
+  formula_v_stroke: 9
+  formul: 2
+- bukva: E
+  formula: "={\"Рабочий Лист\"&CHAR(10)&\"Даты доставок товара заказчику\";\"Рабочий Лист\"&CHAR(10)&\"Даты доставок товара заказчику\";\n LET( theТermTxt_ar , sort( '7-2 Номенклатуры'!AM11:AM20),TEXTJOIN( CHAR(10),TRUE, UNIQUE( Map( IFERROR( FILTER(theТermTxt_ar,\"Рабочий Лист\nДаты доставок товара заказчику\")"
+  formula_v_stroke: 9
+  formul: 3
+- bukva: F
+  formula: '={"Рабочий Лист"&CHAR(10)&"Сводка по доставке Товаров";"Рабочий Лист"&CHAR(10)&"Сводка по доставке Товаров";
+
+    LAMBDA(тб,tz,
+
+    IF (ISNA(тб),"Нет данных по доставке товаров на "& ''ОтчетыПроектов''!$A$3 ,
+
+    TEXTJOIN(CHAR(10),TRUE,Query({
+
+    {INDEX(тб,2,2),","Рабочий Лист
+
+    Сводка по доставке Товаров")'
+  formula_v_stroke: 9
+  formul: 3
+- bukva: G
+  formula: '=LET(
+
+    head , "Рабочий Лист"&CHAR(10)&"Дата доставки Заказчику последнего товара",
+
+    tz , "Если для всех товаров есть ''Дата доставки Заказчику'' то Максимальная из ''Дата доставки Заказчику'' иначе пусто ",
+
+    theTov_ar , ''7-2 Номен,"Рабочий Лист
+
+    Дата доставки Заказчику последнего товара")'
+  formula_v_stroke: 9
+  formul: 2
+- bukva: H
+  formula: '=LET(
+
+    head , "Рабочий Лист"&CHAR(10)&"Дата поступления к нам на склад последнего товара",
+
+    tz , "Если для всех товаров есть ''Дата доставки Заказчику'' то Максимальная из ''Дата доставки Заказчику'' иначе пусто ",
+
+    theTov_ar , ''7,"Рабочий Лист
+
+    Дата поступления к нам на склад последнего товара")'
+  formula_v_stroke: 9
+  formul: 2

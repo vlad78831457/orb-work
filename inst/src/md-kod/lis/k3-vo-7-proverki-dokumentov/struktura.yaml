@@ -1,0 +1,570 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 7 Проверки Документов
+diapazon: A1:CP333
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 45
+znacheniy: 500
+spiskov: 0
+uslovnyh: 1
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 51
+  7 Договора: 18
+  Технический лист: 2
+  6 Оплаты Внешняя: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: Строка
+  formula: ={"Строка";ROW(A2:A333)}
+  formula_v_stroke: 1
+  formul: 1
+- bukva: B
+  zagolovok: Проверки
+  formula: ={"Итого По Документам";BYROW(U11:AZ16,LAMBDA(тт,TEXTJOIN(CHAR(10),TRUE,тт)))}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: C
+  zagolovok: Цвета
+  formula: ={"Итого По Цветам";BYROW(BD11:CP16,LAMBDA(тт,TEXTJOIN(";",FALSE,тт)))}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: O
+  formula: ={"Это Договор?";'7 Проверки Документов'!$O$3;IF(('7 Исполнение Внешние'!$H$12:$H$15&'7 Исполнение Внешние'!$J$12:$J$15)="",'7 Проверки Документов'!$O$4,'7 Проверки Документов'!$O$3)}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: P
+  formula: '={"Есть посредники?";
+
+    IF(SUM( {1;IF((''7 Исполнение Внешние''!$H$12:$H$15&''7 Исполнение Внешние''!$J$12:$J$15)="",0,1)} )>1,TRUE,FALSE)
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: Q
+  formula: ={"Кол-во номенклатур";COUNTUNIQUE('6 Оплаты Внешняя'!$J$11:$J333)}
+  formula_v_stroke: 10
+  formul: 2
+- bukva: U
+  zagolovok: A
+- bukva: V
+  zagolovok: B
+- bukva: W
+  zagolovok: C
+- bukva: X
+  zagolovok: D
+  formula: ="После заполнения, "&TEXTJOIN(", ",TRUE,BYROW({AD18;AE18;AF18},LAMBDA(k,"'"&k&"'")))&" будет добавлена новая строка, если данное сообщение не пропадет в течение 30 минут, то надо писать в тех поддержку."
+  formula_v_stroke: 8
+  formul: 1
+- bukva: Y
+  zagolovok: E
+- bukva: Z
+  zagolovok: F
+  formula: '={ "Проверки Дат";
+
+    IF(''7 Проверки Документов''!$O$11:$O$15=''7 Проверки Документов''!$O$4,,
+
+    IF(''7 Исполнение Внешние''!$F$11:$F$15="","Дата " & ''7 Исполнение Внешние''!$E$11:$E$15 &" - "& ''7 Проверки Документов''!$Z$3, IF( ISDATE_STRICT(''7 Исполнение Внешние''!$F$11:$F$15),,"Дата " & ''7 Исполнение Внешние''!$E$11:$E$15 &" - "& ''7 Проверки Документов''!$Z$4))
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AA
+  zagolovok: G
+- bukva: AB
+  zagolovok: H
+- bukva: AC
+  zagolovok: I
+- bukva: AD
+  zagolovok: J
+- bukva: AE
+  zagolovok: K
+- bukva: AF
+  zagolovok: L
+  formula: =TEXTJOIN("",TRUE,IF('7 Проверки Документов'!$O$19:$O333='7 Проверки Документов'!$O$4,,IF(ISBLANK('7 Исполнение Внешние'!$K$19:$K333),"-",)))=""
+  formula_v_stroke: 9
+  formul: 3
+- bukva: AG
+  zagolovok: M
+- bukva: AH
+  zagolovok: N
+  formula: '={"Проверка Валюта договора";
+
+    IF(''7 Проверки Документов''!$O$11:$O$15=''7 Проверки Документов''!$O$4,,
+
+    IF( ''7 Исполнение Внешние''!$N$11:$N$15="", ''7 Исполнение Внешние''!$M$11:$M$15& " - "&"Укажите Валюту" ,))}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AI
+  zagolovok: O
+- bukva: AJ
+  zagolovok: P
+  formula: "={\"Проверка Ориентировочная сумма договора в рублях\";\nIF('7 Проверки Документов'!$O$11:$O$15='7 Проверки Документов'!$O$4,,\nIF(\n (0+( '7 Исполнение Внешние'!$N$11:$N$15<>\"\")+ ('7 Исполнение Внешние'!$N$11:$N$15<>\"руб.\") )=2\n ,IF('7 Исполнение Внешние'!$P$11:$P$15<>\"\",,'7 Исполнение Внешние'!$O$11:$O$15& \" - \"&\"Укажите сумму в рублях\")\n ,\n))}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AK
+  zagolovok: Q
+- bukva: AL
+  zagolovok: R
+  formula: ='7 Исполнение Внешние'!$Q$11
+  formula_v_stroke: 3
+  formul: 2
+- bukva: AM
+  zagolovok: S
+- bukva: AN
+  zagolovok: T
+- bukva: AO
+  zagolovok: U
+- bukva: AP
+  zagolovok: V
+- bukva: AQ
+  zagolovok: W
+- bukva: AR
+  zagolovok: X
+  formula: '={ "Проверки Дат";
+
+    IF(''7 Проверки Документов''!$O$11:$O$15=''7 Проверки Документов''!$O$4,,
+
+    IF(''7 Исполнение Внешние''!$X$11:$X$15="",''7 Исполнение Внешние''!$W$11:$W$15 &" - "& ''7 Проверки Документов''!$AR$3, IF( ISDATE_STRICT(''7 Исполнение Внешние''!$X$11:$X$15),,''7 Исполнение Внешние''!$W$11:$W$15 &" - "& ''7 Проверки Документов''!$AR$4))
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AS
+  zagolovok: Y
+- bukva: AT
+  zagolovok: Z
+  formula: '={ "Проверки Дат";
+
+    IF(''7 Проверки Документов''!$O$11:$O$15=''7 Проверки Документов''!$O$4,,
+
+    IF(''7 Исполнение Внешние''!$Z$11:$Z$15="",''7 Исполнение Внешние''!$Y$11:$Y$15 &" - "& ''7 Проверки Документов''!$AT$3, IF( ISDATE_STRICT(''7 Исполнение Внешние''!$Z$11:$Z$15),,''7 Исполнение Внешние''!$Y$11:$Y$15 &" - "& ''7 Проверки Документов''!$AT$4))
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AU
+  formula: '={"Проверки ИНН " &''7 Договора''!E10;
+
+    IF(''7 Договора''!E11:E15<>"", IF( IF(''7 Договора''!F11:F15<>"",''7 Договора''!F11:F15, IFERROR(VLOOKUP(''7 Договора''!E11:E15,''Технический лист''!$D$1:$E333,2,FALSE),))<>"",,"Нет ИНН "&''7 Договора''!E10 & " лист ''7 Договора''"),)
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AW
+  formula: '={"Проверки ИНН " &''7 Договора''!G10;
+
+    IF(''7 Договора''!G11:G15<>"", IF( IF(''7 Договора''!H11:H15<>"",''7 Договора''!H11:H15, IFERROR(VLOOKUP(''7 Договора''!G11:G15,''Технический лист''!$D$1:$E333,2,FALSE),))<>"",,"Нет ИНН "&''7 Договора''!G10 & " лист ''7 Договора''"),)
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: AY
+  formula: '={"Проверки " &''7 Договора''!M10;
+
+    IF(TRUE, IF( ''7 Договора''!M11<>"" ,,"Нет ''"&''7 Договора''!M10 & "'', заполнитье на листе ''7 Исполнение Внешние'' столбец AM"),)
+
+    ;IF(''7 Договора''!K12:K15<>"", IF( ''7 Договора''!M12:M15<>"" ,,"Нет ''"&''7 Договора''!M10 & "'', заполнитье на листе ''7 Исполнение Внешние'' столбец AM"),)
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BD
+  zagolovok: A
+  formula: '={''7 Исполнение Внешние''!$A$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!$U$11:$U$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BE
+  zagolovok: B
+  formula: '={''7 Исполнение Внешние''!B$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!V$11:V$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BF
+  zagolovok: C
+  formula: '={''7 Исполнение Внешние''!C$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!W$11:W$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BG
+  zagolovok: D
+  formula: '={''7 Исполнение Внешние''!D$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!X$11:X$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BH
+  zagolovok: E
+  formula: '={''7 Исполнение Внешние''!E$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!Y$11:Y$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BI
+  zagolovok: F
+  formula: '={''7 Исполнение Внешние''!F$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!Z$11:Z$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BJ
+  zagolovok: G
+  formula: '={''7 Исполнение Внешние''!G$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AA$11:AA$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BK
+  zagolovok: H
+  formula: '={''7 Исполнение Внешние''!H$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AB$11:AB$17 & ''7 Проверки Документов''!AU$11:AU$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BL
+  zagolovok: I
+  formula: '={''7 Исполнение Внешние''!I$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AC$11:AC$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BM
+  zagolovok: J
+  formula: '={''7 Исполнение Внешние''!J$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AD$11:AD$17 & ''7 Проверки Документов''!AW$11:AW$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BN
+  zagolovok: K
+  formula: '={''7 Исполнение Внешние''!K$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AE$11:AE$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BO
+  zagolovok: L
+  formula: '={''7 Исполнение Внешние''!L$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AY$11:AY$17&''7 Проверки Документов''!AF$11:AF$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BP
+  zagolovok: M
+- bukva: BQ
+  zagolovok: N
+  formula: '={''7 Исполнение Внешние''!M$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AH$11:AH$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BR
+  zagolovok: O
+- bukva: BS
+  zagolovok: P
+  formula: '={''7 Исполнение Внешние''!O$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AJ$11:AJ$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BT
+  zagolovok: Q
+- bukva: BU
+  zagolovok: R
+  formula: '={''7 Исполнение Внешние''!Q$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AL$11:AL$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BV
+  zagolovok: S
+  formula: '={''7 Исполнение Внешние''!S$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AM$11:AM$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BW
+  zagolovok: T
+  formula: '={''7 Исполнение Внешние''!T$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AN$11:AN$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BX
+  zagolovok: U
+  formula: '={''7 Исполнение Внешние''!U$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AO$11:AO$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BY
+  zagolovok: V
+  formula: '={''7 Исполнение Внешние''!V$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AP$11:AP$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: BZ
+  zagolovok: W
+  formula: '={''7 Исполнение Внешние''!W$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AQ$11:AQ$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CA
+  zagolovok: X
+  formula: '={''7 Исполнение Внешние''!X$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AR$11:AR$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CB
+  zagolovok: Y
+  formula: '={''7 Исполнение Внешние''!Y$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AS$11:AS$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CC
+  zagolovok: Z
+  formula: '={''7 Исполнение Внешние''!Z$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AT$11:AT$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: CD
+  zagolovok: A
+- bukva: CE
+  zagolovok: B
+- bukva: CF
+  zagolovok: C
+- bukva: CG
+  zagolovok: D
+- bukva: CH
+  zagolovok: E
+- bukva: CI
+  zagolovok: F
+- bukva: CJ
+  zagolovok: G
+- bukva: CK
+  zagolovok: H
+- bukva: CL
+  zagolovok: I
+- bukva: CM
+  zagolovok: J
+- bukva: CN
+  zagolovok: K
+- bukva: CO
+  zagolovok: L
+- bukva: CP
+  zagolovok: M
+  formula: '={''7 Исполнение Внешние''!AL$11;
+
+    ifs(
+
+    ''7 Проверки Документов''!AY$11:AY$17="",''7 Проверки Документов''!$BC$1,
+
+    TRUE,''7 Проверки Документов''!$BC$5
+
+    )
+
+    }'
+  formula_v_stroke: 10
+  formul: 1

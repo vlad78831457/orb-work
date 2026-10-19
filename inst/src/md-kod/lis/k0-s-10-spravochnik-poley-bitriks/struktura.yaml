@@ -1,0 +1,50 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Справочник полей Битрикс
+diapazon: A1:J141
+zakrepleno: A11
+karkas: true
+stroka_zagolovkov: 10
+formul: 2
+znacheniy: 552
+spiskov: 3
+uslovnyh: 0
+obedineno: 0
+beryot:
+  0-Паспорт проекта: 2
+importrange: 0
+stolbtsy:
+- bukva: C
+  zagolovok: id_mapping
+  vid: formulaColl
+  formula: "=Let(\nhead, \"id_mapping\",\ndomen_v , \"mapping\",\nis_ar, MAP(D11:D141,F11:F141,G11:G141,H11:H141, LAMBDA(a,b,c,d, AND(a<>\"\",b<>\"\",c<>\"\",d<>\"\" ))),\ntxt_ar , Map(#REF!,LAMBDA(txt, LEFT( m_norm(txt),40))),\ndomen_ar, Map(D11:D141,LAMBDA(a,domen_v&\".\"&a)),\nenty_id , Map(F11:F141,G11:G141,LAMBDA(a,b,a &\".\"&b)),\nmet_Insp2, LAMBDA(A_ar, B_ar, fn, MAP(A_ar, B_ar, is_ar, LAMBDA(a_v, b_v, is, IF(is, fn(a_v, b_v), )))),\nrez_ar, met_Insp2(domen_ar, enty_id , LAMBDA(a,b, a&\"/\"&b) ),\n { head ; rez_ar }\n)"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: D
+  zagolovok: Тип поля
+  klyuch: type
+  vid: enumeration
+  var_name: money
+  var_value: datetime
+  skryt: boolean
+  primechanie: raw
+  spisok: '''S-10 Справочник полей Битрикс''!$D$3:$D$9'
+- bukva: E
+  zagolovok: Название
+  klyuch: fild_name
+  var_name: ufCrm31_1782134329446
+  spisok: '''0-Паспорт проекта''!$B$11:$B141'
+- bukva: F
+  zagolovok: Индификатор поля
+  klyuch: fild_id
+  var_name: Наличие цен
+  formula: ={"Индификатор поля" ;Map(E11:E141,LAMBDA(a,(IF(a<>"",IFERROR(VLOOKUP(a,{'0-Паспорт проекта'!$B$11:$B141,'0-Паспорт проекта'!$G$11:$G141},2,FALSE),),)))) }
+  formula_v_stroke: 10
+  formul: 1
+  spisok: '''0-Паспорт проекта''!$G$11:$G141'
+- bukva: G
+  zagolovok: Код Битрикс
+  klyuch: valie_id
+- bukva: H
+  zagolovok: Значение
+  klyuch: value

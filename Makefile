@@ -1,5 +1,5 @@
 # orb-work. Проверка и сборка идут прямо на стенде: нужны sh, git, python3 и PyYAML.
-.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament reglament-xlsx
+.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament reglament-xlsx listy
 
 SOBRAT := python3 inst/src/skripty/sobrat.py
 DATE ?= $(shell date +%F)
@@ -36,3 +36,8 @@ reglament: ## пересобрать pro/*/reglament.yaml из регламен�
 
 reglament-xlsx: ## книга регламента для Google Таблиц из репозитория: make reglament-xlsx [OUT=raw/…/….xlsx] (нужен python3-openpyxl)
 	taskset -c 0 python3 inst/src/skripty/reglament_xlsx.py --out "$(or $(OUT),raw/$(shell date +%F)-reglament/Регламент — обязанности и шаги $(shell date +%F).xlsx)"
+
+LISTY_P ?= $(shell find raw -name '*Чистая таблица*.xlsx' 2>/dev/null | sort | tail -n 1)
+LISTY_O ?= $(shell find raw -name '*ТАБЛИЦА ОПЛАТ*.xlsx' 2>/dev/null | sort | tail -n 1)
+listy: ## устройство листов обеих таблиц → lis/*/struktura.yaml и заготовки (make listy [LISTY_P=… LISTY_O=…])
+	taskset -c 0 python3 inst/src/skripty/import_listy.py --zagotovki proekta="$(LISTY_P)" oplat="$(LISTY_O)"

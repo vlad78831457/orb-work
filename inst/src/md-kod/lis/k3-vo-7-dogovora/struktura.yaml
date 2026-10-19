@@ -1,0 +1,488 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 7 Договора
+diapazon: A1:BA15
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 209
+znacheniy: 11
+spiskov: 2
+uslovnyh: 4
+obedineno: 0
+beryot:
+  7-2 Договора: 34
+  7 Исполнение Внешние: 32
+  6 Оплаты Внешняя: 4
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: Ошибки
+  formula: ={A1;'7 Исполнение Внешние'!$X$11:$X15}
+  formula_v_stroke: 10
+  formul: 3
+- bukva: B
+  zagolovok: ID_Документа
+  formula: ={"ID_Документа";'7 Исполнение Внешние'!$AJ$11:$AJ15}
+  formula_v_stroke: 10
+  formul: 10
+- bukva: C
+  zagolovok: №
+  formula: '={C1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!C$4) }'
+  formula_v_stroke: 10
+  formul: 6
+- bukva: D
+  zagolovok: Проект №
+  formula: ={"Проект №";IF(E11:E15<>"",'7 Исполнение Внешние'!$B$3,) }
+  formula_v_stroke: 10
+  formul: 3
+- bukva: E
+  zagolovok: Юр. лицо Продавец
+  formula: '={E1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    E$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    E$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: F
+  zagolovok: ИНН Продавца
+  formula: ="ИНН Продавца"
+  formula_v_stroke: 10
+  formul: 3
+- bukva: G
+  zagolovok: Юр. лицо Покупатель
+  formula: '={G1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    G$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    G$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: H
+  zagolovok: ИНН Покупателя
+  formula: ="ИНН Покупателя"
+  formula_v_stroke: 10
+  formul: 3
+- bukva: I
+  zagolovok: Номер Договора
+  formula: '={I1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    I$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    I$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: J
+  zagolovok: Дата договора от
+  formula: '={J1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    J$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    J$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: K
+  zagolovok: Сумма договора
+  formula: '={K1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    K$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    K$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: L
+  zagolovok: Валюта договора
+  formula: '={L1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    L$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    L$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: M
+  zagolovok: НДС Договора
+  formula: ={M1;'7 Исполнение Внешние'!$AM$11:$AM$15}
+  formula_v_stroke: 10
+  formul: 5
+  spisok: '''Технический лист''!$C$2:$C$10'
+- bukva: N
+  zagolovok: Ориентировочная сумма договора в рублях
+  formula: '={N1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    N$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    N$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: O
+  zagolovok: Коэф
+  formula: "={O$1;\nLAMBDA(doFind,theData,theName,\n Dofind(theData,theName))\n(LAMBDA(theData,theName, IFERROR( INDEX(theData,2, MATCH( theName, INDEX( theData,1,0) ,0)),)),'7 Исполнение Внешние'!$A$11:$AA$12,O$4)}"
+  formula_v_stroke: 10
+  formul: 3
+- bukva: P
+  zagolovok: Дата подписи продавцом
+  formula: '={P1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    P$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    P$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: Q
+  zagolovok: Дата подписи Покупателем
+  formula: '={Q1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    Q$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    Q$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: R
+  zagolovok: Вид подписания договора
+  formula: '={R1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    R$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    R$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+  spisok: '''Технический лист''!$B$2:$B$10'
+- bukva: S
+  zagolovok: Договора о закупке
+  formula: ={S1;'7 Исполнение Внешние'!$AH$11:$AH15}
+  formula_v_stroke: 10
+  formul: 3
+- bukva: T
+  zagolovok: Частичная оплата за товар
+  formula: '={T1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    T$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    T$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: U
+  zagolovok: Частичная поставка товара
+  formula: '={U1;
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$11:$AA$11,
+
+    U$4);
+
+    LAMBDA(doFind,theData,theName, BYROW(theData,LAMBDA(td,Dofind(td,theName))))(LAMBDA(theData,theName, IFERROR( INDEX(theData,1, MATCH(theName,theData,0)+1),)),''7 Исполнение Внешние''!$A$12:$AA$15,
+
+    U$5)
+
+    }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: V
+  zagolovok: Срок поставки
+  formula: '={V1;LAMBDA(theStr,IFERROR(HLOOKUP(theStr,''6 Оплаты Внешняя''!$A$5:BA$6,2,FALSE),""))(V$4);
+
+    IF($B12:$B15<>"",10,)}'
+  formula_v_stroke: 10
+  formul: 4
+- bukva: W
+  zagolovok: Срок доставки
+  formula: '={W1;LAMBDA(theStr,IFERROR(HLOOKUP(theStr,''6 Оплаты Внешняя''!$A$5:BA$6,2,FALSE),""))(W$4);
+
+    IF($B12:$B15<>"",10,)}'
+  formula_v_stroke: 10
+  formul: 4
+- bukva: X
+  zagolovok: Срок приемки
+  formula: '={X1;LAMBDA(theStr,IFERROR(HLOOKUP(theStr,''6 Оплаты Внешняя''!$A$5:BA$6,2,FALSE),""))(X$4);
+
+    IF($B12:$B15<>"",10,)}'
+  formula_v_stroke: 10
+  formul: 4
+- bukva: Y
+  zagolovok: Срок оплаты
+  formula: '={Y1;LAMBDA(theStr,IFERROR(HLOOKUP(theStr,''6 Оплаты Внешняя''!$A$5:BA$6,2,FALSE),""))(Y$4);
+
+    IF($B12:$B15<>"",10,)}'
+  formula_v_stroke: 10
+  formul: 4
+- bukva: Z
+  zagolovok: Сумма отгруженных товаров
+  formula: ="Сумма отгруженных товаров"
+  formula_v_stroke: 10
+  formul: 3
+- bukva: AA
+  zagolovok: Сумма полученых оплат
+  formula: ="Сумма полученых оплат"
+  formula_v_stroke: 10
+  formul: 3
+- bukva: AB
+  zagolovok: Комментарий Текстовое
+  formula: '={AB1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AB$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AC
+  zagolovok: Скан Версия
+  formula: '={AC1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AC$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AD
+  zagolovok: Скан с двумя печатями в папке
+  formula: '={AD1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AD$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AE
+  zagolovok: Бумажная версия продавца с двумя печатями
+  formula: '={AE1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AE$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AF
+  zagolovok: Бумажная версия покупателя с двумя печатями
+  formula: '={AF1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AF$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AG
+  zagolovok: Требуется ли Партнерская Договор
+  formula: '={AG1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AG$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AH
+  zagolovok: Папка
+  formula: '={AH1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AH$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AI
+  zagolovok: Автоматическая Проверка
+  formula: '={AI1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AI$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AJ
+  zagolovok: Комментарий логиста
+  formula: '={AJ1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AJ$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AK
+  zagolovok: Статус проекта
+  formula: '={AK1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AK$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AL
+  zagolovok: Результат проверки
+  formula: '={AL1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AL$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AM
+  zagolovok: Дата исправления ошибки
+  formula: '={AM1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AM$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AN
+  zagolovok: Актуален ли договор
+  formula: '={AN1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AN$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AO
+  zagolovok: ID
+  formula: '={AO1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AO$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AP
+  zagolovok: № Договора о закупке
+  formula: '={AP1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AP$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AQ
+  zagolovok: ТипДоговора
+  formula: '={AQ1;LAMBDA(doFindValue, doFindCol, theData,theColNames,theKeys,theNameKey,theColName, doFindValue( theKeys, {INDEX(theData,,doFindCol(theColNames,theNameKey)) , INDEX(theData,,doFindCol(theColNames,theColName))} ))(
+
+    LAMBDA(theKeyS, theData, BYROW(theKeys, LAMBDA(tk, IF(tk<>"", IFERROR(VLOOKUP(tk,theData,2,FALSE),),))) ),
+
+    LAMBDA(theData,theName, MATCH(theName,theData,0)), ''7-2 Договора''!$A$1:BA$20, ''7-2 Договора''!$A$9:BA$9,''7 Договора''!$B$11:$B15,"ID",
+
+    ''7 Договора''!AQ$4) }'
+  formula_v_stroke: 10
+  formul: 5
+- bukva: AR
+  zagolovok: Сводка Документа
+  formula: "={AR1; Let(\nproj,'7 Исполнение Внешние'!B3,\nfr_ar, '7 Договора'!E11:E15,\nto_ar, '7 Договора'!G11:G15,\nis_ar, Map(fr_ar,Lambda(fr, fr<>\"\")),\nmet_Insp1, LAMBDA(A_ar, fn, MAP(A_ar, is_ar, LAMBDA(a_v, is, IF(is, fn(a_v), )))),\nmet_Insp2, LAMBDA(A_ar, B_ar, fn, MAP(A_ar, B_ar, is_ar, LAMBDA(a_v, b_v, is, IF(is, fn(a_v, b_v), )))),\n tzA, \"- Проект №: 1290 Хайверк -> ЗиО Подольск\",\ndo_a, LAMBDA(fr,to, TEXTJOIN(\" \",FALSE,\"Проект №:\", proj ,fr,\"->\",to,)),\nrv_a, met_Insp2(fr_ar , to_ar ,do_a),\n tzb, \"- № 143/859-24 от 21.10.2024 на сумму 9 295 692 р, подписанк\",\nnom_ar, '7 Договора'!I11:I15,\nat_ar, '7 Договора'!J11:J15,\nsum_ar, '7 Договора'!K11:K15,\nval_ar, '7 Договора'!L11:L15,\nsigf_ar, '7 Договора'!P11:P15,\nsigt_ar, '7 Договора'!Q11:Q15,\ndo_b, LAMBDA( nom_v,at_v,sum_v,val_v,sigf_v,sigt_v, TEXTJOIN(\" \",FALSE,\"№\",nom_v, \"от\", at_v ,\"на сумму\",sum_v ,val_v,\",\",\"подписан\", IF(AND( sigf_v<>\"\",sigt_v<>\"\"),\"Да\",\"Нет\"),)),\nrv_b, met_Insp1(Map(nom_ar,at_ar,sum_ar,val_ar,sigf_ar,sigt_ar,do_b),LAMBDA(v,v)),\n tzc, \"- Вид подписания договора - Скан по электронке + Бумага.\",\nsign_type_ar, '7 Договора'!R11:R15, \ndo_c, LAMBDA( sign_type_v, TEXTJOIN(\" \",FALSE,\"Вид подписания договора - \",sign_type_v)),\nrv_c, met_Insp1(sign_type_ar, do_c),\n tzd, \"- Скан в папке\",\nscan_ar, '7 Договора'!AD11:AD15, \ndo_d, LAMBDA( v, TEXTJOIN(\" \",FALSE, IF(v=TRUE,\"Скан в папке\",\"Скана нет\"))),\nrv_D, met_Insp1(scan_ar, do_d),\np_fr_ar, '7 Договора'!AE11:AE15, \n tze, \"- Бумажная версия продавца с двумя печатями - У Продавца  …"
+  formula_v_stroke: 10
+  formul: 4
+- bukva: AS
+  zagolovok: Оплаты Документа
+  formula: '={AS1; Let(
+
+    proj, ''7 Исполнение Внешние''!B3,
+
+    fr_ar, ''7 Договора''!E11:E15,
+
+    to_ar, ''7 Договора''!G11:G15,
+
+    is_ar, Map(fr_ar,Lambda(fr, fr<>"")),
+
+    met_Insp1, LAMBDA(A_ar, fn, MAP(A_ar, is_ar, LAMBDA(a_v, is, IF(is, fn(a_v), )))),
+
+    met_Insp,"Оплаты Документа")'
+  formula_v_stroke: 10
+  formul: 4

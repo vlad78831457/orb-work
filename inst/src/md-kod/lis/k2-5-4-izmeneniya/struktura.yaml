@@ -1,0 +1,67 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 5-4 Изменения в товарах
+diapazon: A1:AB112
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 8
+znacheniy: 14
+spiskov: 3
+uslovnyh: 0
+obedineno: 0
+beryot:
+  5-0 Передача в закупку: 5
+  1-0 Товары: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: ID_Изменения
+  formula: "={{\"ID_Изменения\",\"№ Изменения\"} ;LAMBDA(_arr_rs,_rf, BYROW(_arr_rs, LAMBDA(r , \nLAmbda(id, { IF(id<>0, \"ID_Z\"&id, ) , IF(id<>0, \"\"&id , ) } ) ( IF(r<>\"\", RIGHT(\"000\" & ROW(r)-_rf+1,3),0) ) )\n) )('5-4 Изменения в товарах'!$G$11:$G$60, ROW( '5-4 Изменения в товарах'!$G$11))\n}"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: B
+  zagolovok: № Изменения
+  spisok: '''5-4 Изменения в товарах''!$B$11:$B$60'
+- bukva: C
+  zagolovok: Исключить по причине
+- bukva: D
+  zagolovok: Что проверить
+  spisok: '''5-4 Изменения в товарах''!$D$2:$D$8'
+- bukva: E
+  zagolovok: ID_Товара
+  formula: ={"ID_Товара";BYROW('5-4 Изменения в товарах'!F11:F60,lambda(_n,IF(_n<>"",IFERROR(VLOOKUP(_n,{'1-0 Товары'!D:D,'1-0 Товары'!C:C},2,FALSE),),)))}
+  formula_v_stroke: 10
+  formul: 2
+- bukva: F
+  zagolovok: №
+  formula: ='5-0 Передача в закупку'!D10
+  formula_v_stroke: 10
+  formul: 2
+  spisok: '''1-0 Товары''!$D$11:$D112'
+- bukva: G
+  zagolovok: Номенклатура
+  formula: ='5-0 Передача в закупку'!E10:O10
+  formula_v_stroke: 10
+  formul: 2
+- bukva: H
+  zagolovok: Название товара по договору
+- bukva: I
+  zagolovok: Изготовитель товара по договору
+- bukva: J
+  zagolovok: Характеристики
+- bukva: K
+  zagolovok: Состав поставляемой с продукцией технической документации
+- bukva: L
+  zagolovok: Ед. Изм
+- bukva: M
+  zagolovok: Кол-во
+- bukva: N
+  zagolovok: НМЦ
+- bukva: O
+  zagolovok: Срок поставки по договору
+- bukva: P
+  zagolovok: Нац режим 1875
+- bukva: Q
+  zagolovok: Код ОКПД 2

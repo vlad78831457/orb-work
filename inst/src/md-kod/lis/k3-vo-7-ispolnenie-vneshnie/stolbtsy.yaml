@@ -1,0 +1,37 @@
+# Столбцы листа «7 Исполнение Внешние»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: AF
+  bukva: AF
+  zagolovok: Проверки
+  chto: ''
+  kak: ''
+- id: AG
+  bukva: AG
+  zagolovok: Цвета
+  chto: ''
+  kak: ''
+- id: AH
+  bukva: AH
+  zagolovok: № строки с Договором о закупке
+  chto: ''
+  kak: ''
+- id: AI
+  bukva: AI
+  zagolovok: № Договора
+  chto: ''
+  kak: ''
+- id: AJ
+  bukva: AJ
+  zagolovok: ID Договора
+  chto: ''
+  kak: ''
+- id: AK
+  bukva: AK
+  zagolovok: Сводка Документа
+  chto: ''
+  kak: ''
+- id: AM
+  bukva: AM
+  zagolovok: НДС Договора
+  chto: ''
+  kak: ''

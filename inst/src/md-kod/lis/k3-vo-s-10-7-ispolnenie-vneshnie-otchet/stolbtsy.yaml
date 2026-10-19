@@ -1,0 +1,12 @@
+# Столбцы листа «S-10 7 Исполнение Внешние (отчет)»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: v05
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: '#N/A'
+  chto: ''
+  kak: ''

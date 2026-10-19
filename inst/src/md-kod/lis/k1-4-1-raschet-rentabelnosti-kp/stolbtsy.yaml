@@ -1,0 +1,52 @@
+# Столбцы листа «4-1 Расчет рентабельности КП»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: '#VALUE!'
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: '#VALUE!'
+  chto: ''
+  kak: ''
+- id: AB
+  bukva: AB
+  zagolovok: День №
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: Поступления за день, ₽
+  chto: ''
+  kak: ''
+- id: AD
+  bukva: AD
+  zagolovok: Платежи за день, ₽
+  chto: ''
+  kak: ''
+- id: AE
+  bukva: AE
+  zagolovok: 'XIRR-поток: Нетто за день (пост.−плат.), ₽'
+  chto: ''
+  kak: ''
+- id: AF
+  bukva: AF
+  zagolovok: Остаток нарастающим, ₽
+  chto: ''
+  kak: ''
+- id: AG
+  bukva: AG
+  zagolovok: 'XIRR-дата: базовая дата (AJ28) + номер дня (столбец R)'
+  chto: ''
+  kak: ''
+- id: AL
+  bukva: AL
+  zagolovok: Неделя (день оплаты)
+  chto: ''
+  kak: ''
+- id: AM
+  bukva: AM
+  zagolovok: Остаток к оплате, ₽
+  chto: ''
+  kak: ''

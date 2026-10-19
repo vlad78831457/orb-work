@@ -1,0 +1,87 @@
+# Столбцы листа «4-1 Расчет рентабельности КП в1»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: 'Параметры проекта которые надо заполнить:'
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: 'Параметры которые рассчитываются автоматически:'
+  chto: ''
+  kak: ''
+- id: I
+  bukva: I
+  zagolovok: Переменные проекта
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: 'Конкуренты:'
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: цены
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: Рейтинг
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Ед
+  chto: ''
+  kak: ''
+- id: R
+  bukva: R
+  zagolovok: Кол
+  chto: ''
+  kak: ''
+- id: S
+  bukva: S
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: T
+  bukva: T
+  zagolovok: Сумма
+  chto: ''
+  kak: ''
+- id: U
+  bukva: U
+  zagolovok: Срок поставки
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: Число
+  chto: ''
+  kak: ''
+- id: W
+  bukva: W
+  zagolovok: Тип
+  chto: ''
+  kak: ''
+- id: X
+  bukva: X
+  zagolovok: Срок в днях
+  chto: ''
+  kak: ''
+- id: AA
+  bukva: AA
+  zagolovok: Расчет прибыли
+  chto: ''
+  kak: ''

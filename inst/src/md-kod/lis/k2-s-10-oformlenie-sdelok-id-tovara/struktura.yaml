@@ -1,0 +1,67 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Оформление сделок ID_Товар
+diapazon: A1:J310
+karkas: true
+stroka_zagolovkov: 10
+formul: 306
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  5-1 Сбор КП Закупки: 5
+  5-3 Выбор поставщиков Закупки: 3
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err
+  vid: formulaColl
+  skryt: Скрыть
+- bukva: B
+  klyuch: РазличиеМужду
+  vid: formulaColl
+  skryt: Скрыть
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaCell
+  formula: '={''5-3 Выбор поставщиков Закупки''!C10;
+
+    FILTER(''5-3 Выбор поставщиков Закупки''!C11:C310,''5-3 Выбор поставщиков Закупки''!A11:A310="Да")
+
+    }'
+  formula_v_stroke: 10
+  formul: 301
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!D10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!E10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: F
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  formula: ='5-1 Сбор КП Закупки'!F10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: G
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  formula: ='5-1 Сбор КП Закупки'!G10
+  formula_v_stroke: 10
+  formul: 1
+- bukva: H
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  vid: formulaCell
+  formula: ='5-1 Сбор КП Закупки'!H10
+  formula_v_stroke: 10
+  formul: 1

@@ -1,0 +1,42 @@
+# Столбцы листа «0-Паспорт проекта»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Название
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Значение
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Проверка
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Источник информации
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Рекомендации
+  chto: ''
+  kak: ''
+- id: G
+  bukva: G
+  zagolovok: Индификатор поля
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: HeaderLast
+  chto: ''
+  kak: ''

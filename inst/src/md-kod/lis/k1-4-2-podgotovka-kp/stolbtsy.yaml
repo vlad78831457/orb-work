@@ -1,0 +1,177 @@
+# Столбцы листа «4-2 Подготовка КП»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: F
+  bukva: F
+  zagolovok: Итого
+  chto: ''
+  kak: ''
+- id: H
+  bukva: H
+  zagolovok: нмц
+  chto: ''
+  kak: ''
+- id: J
+  bukva: J
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: L
+  bukva: L
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: M
+  bukva: M
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: N
+  bukva: N
+  zagolovok: Цена С НДС
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Сумма С НДС
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Цена без НДС
+  chto: ''
+  kak: ''
+- id: Q
+  bukva: Q
+  zagolovok: Сумма без НДС
+  chto: ''
+  kak: ''
+- id: V
+  bukva: V
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: W
+  bukva: W
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: X
+  bukva: X
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: Y
+  bukva: Y
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: Z
+  bukva: Z
+  zagolovok: Цена за единицу без НДС, руб.
+  chto: ''
+  kak: ''
+- id: AA
+  bukva: AA
+  zagolovok: Сумма без НДС, руб.
+  chto: ''
+  kak: ''
+- id: AB
+  bukva: AB
+  zagolovok: НДС 22%, руб
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: Итого с НДС 22%, руб
+  chto: ''
+  kak: ''
+- id: AH
+  bukva: AH
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: AI
+  bukva: AI
+  zagolovok: Наименование
+  chto: ''
+  kak: ''
+- id: AJ
+  bukva: AJ
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: AK
+  bukva: AK
+  zagolovok: Ед. Измер.
+  chto: ''
+  kak: ''
+- id: AL
+  bukva: AL
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: AM
+  bukva: AM
+  zagolovok: Сумма
+  chto: ''
+  kak: ''
+- id: AN
+  bukva: AN
+  zagolovok: Цена С НДС
+  chto: ''
+  kak: ''
+- id: AO
+  bukva: AO
+  zagolovok: Сумма С НДС
+  chto: ''
+  kak: ''
+- id: AT
+  bukva: AT
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: AU
+  bukva: AU
+  zagolovok: Сумма
+  chto: ''
+  kak: ''
+- id: AV
+  bukva: AV
+  zagolovok: Цена
+  chto: ''
+  kak: ''
+- id: AW
+  bukva: AW
+  zagolovok: Сумма
+  chto: ''
+  kak: ''

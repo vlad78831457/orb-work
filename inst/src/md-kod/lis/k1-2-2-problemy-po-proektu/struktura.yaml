@@ -1,0 +1,67 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 2-2 Проблемы по проекту
+diapazon: A1:Y103
+zakrepleno: A2
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 0
+znacheniy: 0
+spiskov: 2
+uslovnyh: 3
+obedineno: 0
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: № Проблемы
+- bukva: B
+  zagolovok: №
+- bukva: C
+  zagolovok: Дата проблемы
+- bukva: D
+  zagolovok: "Товар к которому относится проблема \n(не обязательно)"
+- bukva: E
+  zagolovok: "Еmail к которому относится проблема \n(не обязательно)"
+- bukva: F
+  zagolovok: Суть проблемы
+- bukva: G
+  zagolovok: С проблемой ознакомлен Менеджер
+  spisok: '"Ознакомлен"'
+- bukva: H
+  zagolovok: С проблемой ознакомлен Эксперт
+  spisok: '"Ознакомлен"'
+- bukva: I
+  zagolovok: Предлагаемое решение
+- bukva: J
+  zagolovok: Комментарий Менеджера
+- bukva: K
+  zagolovok: Комментарий Эксперта
+- bukva: L
+  zagolovok: Текущая стадия вопроса из Битрикс
+- bukva: M
+  zagolovok: Ссылка на вопрос или проблему в Битрикс
+- bukva: N
+  zagolovok: С решением ознакомлен специалист по расчету
+  spisok: '"Да"'
+- bukva: O
+  zagolovok: С решением ознакомлен Эксперт
+  spisok: '"Да"'
+- bukva: P
+  zagolovok: Дата ознакомления с ответом
+- bukva: Q
+  zagolovok: Дата добавления проблемы
+- bukva: R
+  zagolovok: Дата добавления решения
+- bukva: S
+  zagolovok: Добавлено Автоматический
+- bukva: T
+  zagolovok: Дата ознакомления Менеджера с проблемой
+- bukva: U
+  zagolovok: Дата ознакомления Эксперта с проблемой
+- bukva: V
+  zagolovok: Дата ознакомления Эксперта с решением
+- bukva: X
+  zagolovok: key
+- bukva: Y
+  zagolovok: last

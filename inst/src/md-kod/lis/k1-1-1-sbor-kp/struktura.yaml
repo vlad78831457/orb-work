@@ -1,0 +1,161 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 1-1 Сбор КП
+diapazon: A1:JI310
+zakrepleno: T2
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 3012
+znacheniy: 1212
+spiskov: 1
+uslovnyh: 12
+obedineno: 0
+beryot:
+  1-2 Запросы по товарным группам: 5
+  4-1 Расчет рентабельности КП: 3
+  0-Паспорт проекта: 1
+importrange: 0
+stolbtsy:
+- bukva: B
+  formula: ='4-1 Расчет рентабельности КП'!AJ43
+  formula_v_stroke: 2
+  formul: 3
+- bukva: C
+  zagolovok: №
+- bukva: D
+  zagolovok: Номенклатура
+- bukva: E
+  zagolovok: Характеристики
+- bukva: F
+  zagolovok: Ед. Изм
+- bukva: G
+  zagolovok: Кол-во
+- bukva: H
+  zagolovok: Цена
+- bukva: I
+  zagolovok: Итого
+- bukva: J
+  zagolovok: Предложений
+- bukva: K
+  zagolovok: НМЦ
+  formula: =SUMPRODUCT(G2:G301,K2:K301)
+  formula_v_stroke: 302
+  formul: 2
+- bukva: L
+  zagolovok: Нац режим 1875
+  spisok: '''Настройки писем''!$AO$2:$AO$20'
+- bukva: M
+  zagolovok: Код ОКПД 2
+- bukva: N
+  zagolovok: Срок поставки по договору
+- bukva: O
+  zagolovok: Группа
+  formula: ={"Группа";LAMBDA(theNames,theData,BYROW(theNames,LAMBDA(tn,IFERROR(VLOOKUP(tn,theData,2,0),))))(C2:C301,{'1-2 Запросы по товарным группам'!D:D,'1-2 Запросы по товарным группам'!O:O})}
+  formula_v_stroke: 1
+  formul: 1
+- bukva: P
+  zagolovok: Доля ответов
+  formula: "={{\"Доля ответов\",\"Предложение\",\"Писем\"};let(\n_t_em_map , let(\n _t_gr, '1-2 Запросы по товарным группам'!$O11:$O312,\n _t_nm, '1-2 Запросы по товарным группам'!$P11:$P312,\n _t_em, '1-2 Запросы по товарным группам'!$AA11:JI$312,\n do_sm, LAMBDA,\"Доля ответов\")"
+  formula_v_stroke: 1
+  formul: 1
+- bukva: Q
+  zagolovok: Предложение
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 1
+  formul: 2
+- bukva: R
+  zagolovok: Писем
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 1
+  formul: 2
+- bukva: S
+  zagolovok: свободные
+- bukva: T
+  zagolovok: свободные
+- bukva: U
+  zagolovok: свободные
+- bukva: V
+  zagolovok: свободные
+- bukva: W
+  zagolovok: свободные
+- bukva: X
+  zagolovok: свободные
+- bukva: Y
+  zagolovok: свободные
+- bukva: Z
+  zagolovok: Цены Начало
+- bukva: AA
+  formula: "=LAMBDA(vls,pr,fc, BYCOL(vls,LAMBDA(cl,\n ifs(\n MOD( COLUMN(cl)-COLUMN(fc),3)=0,IF((COUNTA(cl)-COUNT(IF(cl=\"\",,cl*1) )) =0,LAMBDA(ss,IF(ss<>0,ss,) )(SUMPRODUCT(cl,pr)),\"Ошибка: Цена должна быть числом\"),\n MOD( COLUMN(cl)-COLUMN(fc),3)=1,IF(SUM(cl)>0,\"Ошибка: Срок должен быть текстом или пусто\",),\n MOD( COLUMN(cl)-COLUMN(fc),3)=2,IF(SUM(cl)>0,\"Ошибка: Модель должена быть текстом или пусто\",),\n TRUE,\n )\n)))\n(\nAA2:HS301,\nG2:G301,\nAA2\n)"
+  formula_v_stroke: 302
+  formul: 1
+- bukva: HS
+  zagolovok: Цены Конец
+- bukva: HT
+  zagolovok: 1 цена
+  formula: =IFERROR(SMALL($R2:$HS2,VALUE(LEFT(HT$1,1))),"")
+  formula_v_stroke: 2
+  formul: 300
+- bukva: HU
+  zagolovok: поставщик
+  formula: =IFERROR(OFFSET($AA$1,0,MATCH(HT2,$AA2:$HS2,0)),"")
+  formula_v_stroke: 2
+  formul: 300
+- bukva: HV
+  zagolovok: 2 цена
+  formula: =IFERROR(SMALL($AA2:$HS2,VALUE(LEFT(HV$1,1))),"")
+  formula_v_stroke: 2
+  formul: 300
+- bukva: HW
+  zagolovok: поставщик
+  formula: =IFERROR(OFFSET($A$1,0,MATCH(HV2,$AA2:$HS2,0)),"")
+  formula_v_stroke: 2
+  formul: 300
+- bukva: HX
+  zagolovok: 3 цена
+  formula: =IFERROR(SMALL($AA2:$HS2,VALUE(LEFT(HX$1,1))),"")
+  formula_v_stroke: 2
+  formul: 300
+- bukva: HY
+  zagolovok: поставщик
+  formula: =IFERROR(OFFSET($AA$1,0,MATCH(HX2,$AA2:$HS2,0)),"")
+  formula_v_stroke: 2
+  formul: 300
+- bukva: ID
+  zagolovok: Комментарий
+  formula: "=\n IFERROR( \n TEXTJOIN(\"|||\",FALSE , \n ARRAY_CONSTRAIN( SORT( ARRAYFORMULA(Split(TRANSPOSE \n (Split(TEXTJOIN(\"|||\",TRUE,'1-1 Сбор КП'!$IF2:$IL2),\"|||\",FALSE,FALSE)\n ),\"|\",FALSE,FALSE)),3,FALSE ),100,2)\n )\n ,)"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: IE
+  zagolovok: Лучшие цены
+  formula: '=LAMBDA(cc,тело,комент, комЭкс, порядок,показ,
+
+    BYROW(тело,
+
+    LAMBDA(r,
+
+    TEXTJOIN("|||",FALSE,ARRAY_CONSTRAIN( Query( TRANSPOSE( {
+
+    {ARRAYFORMULA( FILTER( ADDRESS(ROW(r), COLUMN(r) ), MOD(COLUMN(r)-cc,3)=0))};
+
+    {ARRAYFORMULA( FILTER( ADDRESS(1, COLUMN(r) ), MO,"#N/A")'
+  formula_v_stroke: 2
+  formul: 300
+- bukva: IF
+  zagolovok: CommentBlokStart
+- bukva: IL
+  zagolovok: CommentBlokEnd
+- bukva: IQ
+  zagolovok: КомментарийЭксперта
+  formula: "=\n IFERROR( \n TEXTJOIN(\"|||\",TRUE , \n BYROW(\n ARRAY_CONSTRAIN( SORT( ARRAYFORMULA(\n Split( TRANSPOSE (\n Split(TEXTJOIN(\"|||\", TRUE, '1-1 Сбор КП'!$IS2:$JF2) ,\"|||\",FALSE,FALSE)\n ),\"\U0001F4CE\",FALSE,FALSE,\"\")"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: IR
+  zagolovok: ТопЭксперта
+  formula: "=\nLAMBDA(cc,тело,комент,комЭкс,BYROW(тело,LAMBDA(r,\nTEXTJOIN(\"|||\",FALSE, ARRAY_CONSTRAIN( Query( TRANSPOSE( \n{\n{ ARRAYFORMULA( FILTER( ADDRESS(ROW(r), COLUMN(r) ), MOD(COLUMN(r)-cc,3)=0)) };\n{ ARRAYFORMULA( FILTER( ADDRESS(1, COLUMN(r) ), MOD(COL,\"#N/A\")"
+  formula_v_stroke: 2
+  formul: 300
+- bukva: IS
+  zagolovok: CommentExpertBlokStart
+- bukva: JF
+  zagolovok: CommentExpertBlokEnd

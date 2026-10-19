@@ -1,0 +1,197 @@
+# Столбцы листа «6 Оплаты Внешняя»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Описание
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Значение
+  chto: ''
+  kak: ''
+- id: K
+  bukva: K
+  zagolovok: Нет таблицы Проекта
+  chto: ''
+  kak: ''
+- id: AN
+  bukva: AN
+  zagolovok: Юр лицо поставщика
+  chto: ''
+  kak: ''
+- id: AO
+  bukva: AO
+  zagolovok: № счета
+  chto: ''
+  kak: ''
+- id: AP
+  bukva: AP
+  zagolovok: Плательщик
+  chto: ''
+  kak: ''
+- id: AQ
+  bukva: AQ
+  zagolovok: Статус оплаты
+  chto: ''
+  kak: ''
+- id: AR
+  bukva: AR
+  zagolovok: Дата оплаты
+  chto: ''
+  kak: ''
+- id: AS
+  bukva: AS
+  zagolovok: Реально оплаченная сумма
+  chto: ''
+  kak: ''
+- id: AT
+  bukva: AT
+  zagolovok: '% оплаты'
+  chto: ''
+  kak: ''
+- id: AU
+  bukva: AU
+  zagolovok: Верная сумма
+  chto: ''
+  kak: ''
+- id: AV
+  bukva: AV
+  zagolovok: Проверка
+  chto: ''
+  kak: ''
+- id: AX
+  bukva: AX
+  zagolovok: ссылка на папку со счетами
+  chto: ''
+  kak: ''
+- id: BB
+  bukva: BB
+  zagolovok: № проекта
+  chto: ''
+  kak: ''
+- id: BC
+  bukva: BC
+  zagolovok: Дата
+  chto: ''
+  kak: ''
+- id: BD
+  bukva: BD
+  zagolovok: Тип
+  chto: ''
+  kak: ''
+- id: BE
+  bukva: BE
+  zagolovok: Плательщик
+  chto: ''
+  kak: ''
+- id: BF
+  bukva: BF
+  zagolovok: ИНН Плательщика
+  chto: ''
+  kak: ''
+- id: BG
+  bukva: BG
+  zagolovok: Кому
+  chto: ''
+  kak: ''
+- id: BH
+  bukva: BH
+  zagolovok: ИНН Поставщика
+  chto: ''
+  kak: ''
+- id: BI
+  bukva: BI
+  zagolovok: Сумма
+  chto: ''
+  kak: ''
+- id: BJ
+  bukva: BJ
+  zagolovok: НДС
+  chto: ''
+  kak: ''
+- id: BK
+  bukva: BK
+  zagolovok: Вид оплаты
+  chto: ''
+  kak: ''
+- id: BL
+  bukva: BL
+  zagolovok: № счета
+  chto: ''
+  kak: ''
+- id: BM
+  bukva: BM
+  zagolovok: Назначение платежа
+  chto: ''
+  kak: ''
+- id: BN
+  bukva: BN
+  zagolovok: Проверка
+  chto: ''
+  kak: ''
+- id: BQ
+  bukva: BQ
+  zagolovok: Вид оплаты
+  chto: ''
+  kak: ''
+- id: BR
+  bukva: BR
+  zagolovok: ID
+  chto: ''
+  kak: ''
+- id: BS
+  bukva: BS
+  zagolovok: Дата
+  chto: ''
+  kak: ''
+- id: BT
+  bukva: BT
+  zagolovok: Выбытие
+  chto: ''
+  kak: ''
+- id: BU
+  bukva: BU
+  zagolovok: Поступление
+  chto: ''
+  kak: ''
+- id: BV
+  bukva: BV
+  zagolovok: Проект
+  chto: ''
+  kak: ''
+- id: BW
+  bukva: BW
+  zagolovok: Контрагент
+  chto: ''
+  kak: ''
+- id: BX
+  bukva: BX
+  zagolovok: Назначение платежа
+  chto: ''
+  kak: ''
+- id: BY
+  bukva: BY
+  zagolovok: Статья
+  chto: ''
+  kak: ''
+- id: BZ
+  bukva: BZ
+  zagolovok: Кто внес запись
+  chto: ''
+  kak: ''
+- id: CA
+  bukva: CA
+  zagolovok: Касса
+  chto: ''
+  kak: ''
+- id: CB
+  bukva: CB
+  zagolovok: НДС
+  chto: ''
+  kak: ''

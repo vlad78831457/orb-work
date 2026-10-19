@@ -1,0 +1,351 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 5-1 Сбор КП Закупки
+diapazon: A1:CZ319
+zakrepleno: J11
+karkas: true
+stroka_zagolovkov: 10
+formul: 3407
+znacheniy: 398
+spiskov: 1
+uslovnyh: 14
+obedineno: 0
+beryot:
+  5-0 Товары: 2408
+  5-2 Запросы КП Закупки: 3
+  1-1 Сбор КП: 1
+  0-Паспорт проекта: 1
+  5-0 Передача в закупку: 1
+importrange: 0
+stolbtsy:
+- bukva: A
+  klyuch: err
+  vid: formulaColl
+  formula: ='1-1 Сбор КП'!A1:B9
+  formula_v_stroke: 10
+  formul: 1
+- bukva: B
+  klyuch: err2
+  vid: formulaFree
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaCell
+  formula: ='5-0 Товары'!C10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaCell
+  var_name: Доллар
+  var_value: 90,00
+  formula: ='5-0 Товары'!D11
+  formula_v_stroke: 11
+  formul: 301
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaCell
+  skryt: Сгрупировать
+  formula: ='5-0 Товары'!E11
+  formula_v_stroke: 11
+  formul: 300
+- bukva: F
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+- bukva: G
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  skryt: Сгрупировать
+- bukva: H
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  vid: formulaCell
+  skryt: Сгрупировать
+  formula: ='5-0 Товары'!F11
+  formula_v_stroke: 11
+  formul: 300
+- bukva: I
+  zagolovok: Состав поставляемой с продукцией технической документации
+  klyuch: СоставТехническойДокументации
+  skryt: Сгрупировать
+- bukva: J
+  zagolovok: Ед. Изм
+  klyuch: ЕдИзм
+  vid: formulaCell
+  formula: ='5-0 Товары'!G11
+  formula_v_stroke: 11
+  formul: 300
+- bukva: K
+  zagolovok: Кол-во
+  klyuch: Количевство
+  vid: formulaCell
+  formula: ='5-0 Товары'!H11
+  formula_v_stroke: 11
+  formul: 300
+- bukva: L
+  zagolovok: Цена
+  klyuch: Цена
+  vid: formulaCell
+  skryt: Сгрупировать
+  formula: ="Цена"
+  formula_v_stroke: 10
+  formul: 302
+- bukva: M
+  zagolovok: Итого
+  klyuch: Итого
+  vid: formulaColl
+  var_name: Итого
+  var_value: '36591.34'
+  skryt: Сгрупировать
+  formula: ={"Итого";LAMBDA(theData,{theData;SUM(theData)})( IF(D11:D310="",,K11:K310*L11:L310) )}
+  formula_v_stroke: 10
+  formul: 3
+- bukva: N
+  zagolovok: Предложений
+  klyuch: Предложений
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: '={"Предложений";LAMBDA(doCommet,doFind,doSum,theMalo,theIds,theData,doCommet(theMalo,doFind(theIds,doSum(theData))))(
+
+    LAMBDA(theMalo,theV,ByRow(theV,LAMBDA(tv, ifs(tv="",,tv<=theMalo,"Мало "&tv,TRUE,tv)))),
+
+    LAMBDA(theIds,theSum,BYROW(theIds,LAMBDA(ti,"Предложений")'
+  formula_v_stroke: 10
+  formul: 301
+- bukva: O
+  zagolovok: НМЦ
+  klyuch: НМЦ
+  vid: formulaColl
+  skryt: Сгрупировать
+  formula: ='5-0 Товары'!I10
+  formula_v_stroke: 10
+  formul: 303
+- bukva: P
+  zagolovok: Срок поставки по договору
+  klyuch: СрокПоставкиПоДоговору
+  formula: ='5-0 Товары'!N10
+  formula_v_stroke: 10
+  formul: 301
+- bukva: Q
+  zagolovok: Запросить
+  klyuch: Запросить
+  spisok: '''Настройки писем''!$AL$1:$AL$8'
+- bukva: R
+  zagolovok: Группа
+  klyuch: Группа
+  vid: formulaColl
+  formula: ={"Группа";IFERROR( VLOOKUP(C11:C310,{ '5-0 Товары'!C11:C319,IF('5-0 Товары'!M11:M319<>"","5-1 "&'5-0 Товары'!M11:M319, IF('5-0 Товары'!L11:L319<>"", "1-1 "&'5-0 Товары'!L11:L319,))},2,0),)}
+  formula_v_stroke: 10
+  formul: 1
+- bukva: S
+  zagolovok: Доля ответов
+  klyuch: свободные_01
+  skryt: СкрытьСгрупировать
+  formula: "={{\"Доля ответов\",\"Предложение\",\"Писем\"};let(\n_t_em_map , let(\n _t_gr, '5-2 Запросы КП Закупки'!$N11:$N312,\n _t_nm, '5-2 Запросы КП Закупки'!$O11:$O312,\n _t_em, '5-2 Запросы КП Закупки'!$AB11:CZ$312,\n do_sm, LAMBDA(em_mp, BYROW(em_mp,LAMBDA(,\"Доля ответов\")"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: T
+  zagolovok: Предложение
+  klyuch: свободные_02
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 7
+- bukva: U
+  zagolovok: Писем
+  klyuch: свободные_03
+  skryt: СкрытьСгрупировать
+  formula: ="COMPUTED_VALUE"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: V
+  zagolovok: свободные
+  klyuch: свободные_04
+  skryt: СкрытьСгрупировать
+- bukva: W
+  zagolovok: свободные
+  klyuch: свободные_05
+  skryt: СкрытьСгрупировать
+- bukva: X
+  zagolovok: свободные
+  klyuch: свободные_06
+  skryt: СкрытьСгрупировать
+- bukva: Y
+  zagolovok: РазличиеМужду
+  klyuch: РазличиеМужду
+  vid: formulaColl
+  skryt: СкрытьСгрупировать
+  formula: "={\"РазличиеМужду\";LAMBDA(doCompFild,doCon,doCompare,theICol,theIRow,theName,theD1,theD2,\nbyRow(theIRow,LAMBDA(theIR, IF( OR(doCon(INDEX(theD1,theIR,))=\"\",doCompare(doCon,INDEX(theD1,theIR,),INDEX(theD2,theIR,))),\ndoCompFild(theICol,theName,INDEX(theD1,theIR,),INDEX(theD2,theIR,))\n,))) \n)(\nLAMBDA(theICol,theName,theR1,theR2, TEXTJOIN(\" \",TRUE,BYCOL(theICol,LAMBDA(theIC, IF( INDEX(theR1,,theIC)<>INDEX(theR2,,theIC),\"'\"&INDEX(theName,,theIC)&\"'\",) ))) ),\nLAMBDA(theD,TEXTJOIN(\"\",TRUE,theD)),\nLaMbda(doCon, theD1,theD2, doCon(theD1)<>doCon(theD2) ),\nLAMBDA(theM,BYCOL(theM,LAMBDA(tm,COLUMN(tM)+1-COLUMN(theM))))('5-1 Сбор КП Закупки'!$F$10:$I$10),\nLAMBDA(theM,BYrow(theM,LAMBDA(tm,ROW(tM)+1-ROW(theM))))('5-1 Сбор КП Закупки'!$F$11:$F$310),\n'5-1 Сбор КП Закупки'!$F$10:$I$10,'5-0 Передача в закупку'!$F$11:$I$310, '5-1 Сбор КП Закупки'!$F$11:$I$310\n)}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: Z
+  zagolovok: Цены Начало
+  klyuch: ЦеныНачало
+  vid: formulaCell
+  skryt: СкрытьСгрупировать
+  formula: ="Цены Начало"
+  formula_v_stroke: 10
+  formul: 303
+- bukva: AA
+  zagolovok: '[почта]'
+  klyuch: AA.цена
+- bukva: AB
+  klyuch: AA.срок
+- bukva: AC
+  klyuch: AA.модель
+- bukva: AD
+  zagolovok: '[почта]'
+  klyuch: AD.цена
+- bukva: AE
+  klyuch: AD.срок
+- bukva: AF
+  klyuch: AD.модель
+- bukva: AG
+  zagolovok: '[почта]'
+  klyuch: AG.цена
+- bukva: AH
+  klyuch: AG.срок
+- bukva: AI
+  klyuch: AG.модель
+- bukva: AJ
+  zagolovok: '[почта]'
+  klyuch: AJ.цена
+- bukva: AK
+  klyuch: AJ.срок
+- bukva: AL
+  klyuch: AJ.модель
+- bukva: AM
+  zagolovok: '[почта]'
+  klyuch: AM.цена
+- bukva: AN
+  klyuch: AM.срок
+- bukva: AO
+  klyuch: AM.модель
+- bukva: AP
+  zagolovok: '[почта]'
+  klyuch: AP.цена
+- bukva: AQ
+  klyuch: AP.срок
+- bukva: AR
+  klyuch: AP.модель
+- bukva: AS
+  klyuch: AS.цена
+- bukva: AT
+  klyuch: AS.срок
+- bukva: AU
+  klyuch: AS.модель
+- bukva: AV
+  klyuch: AV.цена
+- bukva: AW
+  klyuch: AV.срок
+- bukva: AX
+  klyuch: AV.модель
+- bukva: AY
+  klyuch: AY.цена
+- bukva: AZ
+  klyuch: AY.срок
+- bukva: BA
+  klyuch: AY.модель
+- bukva: BB
+  klyuch: BB.цена
+- bukva: BC
+  klyuch: BB.срок
+- bukva: BD
+  klyuch: BB.модель
+- bukva: BE
+  klyuch: BE.цена
+- bukva: BF
+  klyuch: BE.срок
+- bukva: BG
+  klyuch: BE.модель
+- bukva: BH
+  klyuch: BH.цена
+- bukva: BI
+  klyuch: BH.срок
+- bukva: BJ
+  klyuch: BH.модель
+- bukva: BK
+  klyuch: BK.цена
+- bukva: BL
+  klyuch: BK.срок
+- bukva: BM
+  klyuch: BK.модель
+- bukva: BN
+  klyuch: BN.цена
+- bukva: BO
+  klyuch: BN.срок
+- bukva: BP
+  klyuch: BN.модель
+- bukva: BQ
+  klyuch: BQ.цена
+- bukva: BR
+  klyuch: BQ.срок
+- bukva: BS
+  klyuch: BQ.модель
+- bukva: BT
+  klyuch: BT.цена
+- bukva: BU
+  klyuch: BT.срок
+- bukva: BV
+  klyuch: BT.модель
+- bukva: BW
+  klyuch: BW.цена
+- bukva: BX
+  klyuch: BW.срок
+- bukva: BY
+  klyuch: BW.модель
+- bukva: BZ
+  klyuch: BZ.цена
+- bukva: CA
+  klyuch: BZ.срок
+- bukva: CB
+  klyuch: BZ.модель
+- bukva: CC
+  klyuch: CC.цена
+- bukva: CD
+  klyuch: CC.срок
+- bukva: CE
+  klyuch: CC.модель
+- bukva: CF
+  klyuch: CF.цена
+- bukva: CG
+  klyuch: CF.срок
+- bukva: CH
+  klyuch: CF.модель
+- bukva: CI
+  klyuch: CI.цена
+- bukva: CJ
+  klyuch: CI.срок
+- bukva: CK
+  klyuch: CI.модель
+- bukva: CL
+  klyuch: CL.цена
+- bukva: CM
+  klyuch: CL.срок
+- bukva: CN
+  klyuch: CL.модель
+- bukva: CO
+  klyuch: CO.цена
+- bukva: CP
+  klyuch: CO.срок
+- bukva: CQ
+  klyuch: CO.модель
+- bukva: CR
+  klyuch: CR.цена
+- bukva: CS
+  klyuch: CR.срок
+- bukva: CT
+  klyuch: CR.модель
+- bukva: CU
+  klyuch: CU.цена
+- bukva: CV
+  klyuch: CU.срок
+- bukva: CW
+  klyuch: CU.модель
+- bukva: CX
+  klyuch: CX.цена
+- bukva: CY
+  klyuch: CX.срок
+- bukva: CZ
+  klyuch: CX.модель

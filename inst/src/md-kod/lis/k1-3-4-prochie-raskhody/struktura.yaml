@@ -1,0 +1,77 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 3-4 Прочие расходы
+diapazon: A1:X228
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 208
+znacheniy: 92
+spiskov: 0
+uslovnyh: 0
+obedineno: 1
+beryot:
+  1-1 Сбор КП: 176
+importrange: 0
+stolbtsy:
+- bukva: A
+  formula: =A3+1
+  formula_v_stroke: 4
+  formul: 47
+- bukva: B
+  formula: ='1-1 Сбор КП'!D2
+  formula_v_stroke: 40
+  formul: 28
+- bukva: C
+  formula: ='1-1 Сбор КП'!E2
+  formula_v_stroke: 40
+  formul: 28
+- bukva: D
+  zagolovok: ПЛАН
+  formula: ='1-1 Сбор КП'!F2
+  formula_v_stroke: 40
+  formul: 29
+- bukva: E
+  formula: =350*U6
+  formula_v_stroke: 8
+  formul: 49
+- bukva: F
+  zagolovok: ФАКТ(анализ)
+- bukva: G
+  formula: =SUM(G40)
+  formula_v_stroke: 38
+  formul: 16
+- bukva: I
+  zagolovok: Переводы ПЛАН
+- bukva: L
+  formula: =J3
+  formula_v_stroke: 2
+  formul: 3
+- bukva: N
+  formula: =L4*N5
+  formula_v_stroke: 6
+  formul: 1
+- bukva: O
+  formula: =O5*L4
+  formula_v_stroke: 6
+  formul: 1
+- bukva: P
+  formula: =P5*L2
+  formula_v_stroke: 6
+  formul: 1
+- bukva: Q
+  formula: =Q5*L2
+  formula_v_stroke: 6
+  formul: 1
+- bukva: R
+  formula: =R5*L4
+  formula_v_stroke: 6
+  formul: 1
+- bukva: S
+  formula: =S5*L4
+  formula_v_stroke: 6
+  formul: 1
+- bukva: U
+  formula: =SUM(N6:S6)
+  formula_v_stroke: 6
+  formul: 1

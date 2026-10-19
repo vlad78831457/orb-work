@@ -1,0 +1,94 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 3-1 Расчет стоимости доставки
+diapazon: A1:AE329
+zakrepleno: A9
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 8
+formul: 3040
+znacheniy: 75
+spiskov: 1
+uslovnyh: 1
+obedineno: 3
+beryot:
+  3-3 Выбор поставщиков: 1500
+  1-1 Сбор КП: 3
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: №
+  formula: ='1-1 Сбор КП'!C1
+  formula_v_stroke: 8
+  formul: 302
+- bukva: B
+  zagolovok: Номенклатура
+  formula: ='1-1 Сбор КП'!D1
+  formula_v_stroke: 8
+  formul: 301
+- bukva: C
+  zagolovok: Ед
+  formula: ='3-3 Выбор поставщиков'!C2
+  formula_v_stroke: 9
+  formul: 300
+- bukva: D
+  zagolovok: Кол
+  formula: ='3-3 Выбор поставщиков'!D2
+  formula_v_stroke: 9
+  formul: 300
+- bukva: E
+  zagolovok: Поставщик
+  formula: ='3-3 Выбор поставщиков'!K2
+  formula_v_stroke: 9
+  formul: 300
+- bukva: F
+  zagolovok: Место отправки
+- bukva: G
+  zagolovok: Склад комплектации (СК)
+- bukva: H
+  zagolovok: Место доставки
+- bukva: I
+  zagolovok: Кол-во мест
+  formula: =D9
+  formula_v_stroke: 9
+  formul: 301
+- bukva: J
+  zagolovok: Вес одного места
+- bukva: K
+  zagolovok: Вес всего
+  formula: =J9*I9
+  formula_v_stroke: 9
+  formul: 307
+- bukva: L
+  zagolovok: Длина, м
+- bukva: M
+  zagolovok: Высота,м
+- bukva: N
+  zagolovok: Ширина,м
+- bukva: O
+  zagolovok: Объем одного места
+  formula: =L9*M9*N9
+  formula_v_stroke: 9
+  formul: 305
+- bukva: P
+  zagolovok: Объем всего
+  formula: =O9*I9
+  formula_v_stroke: 9
+  formul: 307
+- bukva: Q
+  zagolovok: Решение по способу доставки
+  spisok: '"Через СК,Напрямую"'
+- bukva: R
+  zagolovok: Стоимость доставки до СК
+  formula: =SUM(R9:R308)
+  formula_v_stroke: 309
+  formul: 3
+- bukva: S
+  zagolovok: Стоимость доставки со СК до Заказчика
+- bukva: T
+  zagolovok: Стоимость доставки напрямую
+- bukva: U
+  zagolovok: Общая стоимость доставки (R+S+T)
+  formula: =R9+S9+T9
+  formula_v_stroke: 9
+  formul: 308

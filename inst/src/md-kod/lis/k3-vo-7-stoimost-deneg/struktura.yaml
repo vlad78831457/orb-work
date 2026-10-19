@@ -1,0 +1,39 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 7 Стоимость Денег
+diapazon: A1:N1001
+zakrepleno: A11
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 10
+formul: 25
+znacheniy: 2856
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Договора: 4
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: Дата От
+- bukva: B
+  zagolovok: Ставка День
+- bukva: D
+  zagolovok: theStr
+- bukva: E
+  zagolovok: Дата
+- bukva: F
+  zagolovok: Выбытие
+- bukva: G
+  zagolovok: Поступление
+- bukva: H
+  zagolovok: Чистый поток за день
+- bukva: I
+  zagolovok: Остаток
+- bukva: J
+  zagolovok: Ставка за пользование деньгами
+- bukva: K
+  zagolovok: Стоимость финансирования
+- bukva: L
+  zagolovok: Итого Стоимость финансирования

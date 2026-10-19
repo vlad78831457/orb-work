@@ -1,0 +1,77 @@
+# Столбцы листа «5-0 Товары»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: B
+  bukva: B
+  zagolovok: Исключить по причине
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: ID_Товара
+  chto: ''
+  kak: ''
+- id: Номер
+  bukva: D
+  zagolovok: №
+  chto: ''
+  kak: ''
+- id: Номенклатура
+  bukva: E
+  zagolovok: Номенклатура
+  chto: ''
+  kak: ''
+- id: Характеристики
+  bukva: F
+  zagolovok: Характеристики
+  chto: ''
+  kak: ''
+- id: ЕдИзм
+  bukva: G
+  zagolovok: Ед. Изм
+  chto: ''
+  kak: ''
+- id: Количевство
+  bukva: H
+  zagolovok: Кол-во
+  chto: ''
+  kak: ''
+- id: НМЦ
+  bukva: I
+  zagolovok: НМЦ
+  chto: ''
+  kak: ''
+- id: НазваниеТовараПоДоговору
+  bukva: J
+  zagolovok: Название товара по договору
+  chto: ''
+  kak: ''
+- id: ИзготовительТовараПоДоговору
+  bukva: K
+  zagolovok: Изготовитель товара по договору
+  chto: ''
+  kak: ''
+- id: Группа_1_2
+  bukva: L
+  zagolovok: Группа
+  chto: ''
+  kak: ''
+- id: Группа_5_2
+  bukva: M
+  zagolovok: Группа
+  chto: ''
+  kak: ''
+- id: СрокПоставкиПоДоговору
+  bukva: N
+  zagolovok: Срок поставки по договору
+  chto: ''
+  kak: ''
+- id: O
+  bukva: O
+  zagolovok: Нац режим 1875
+  chto: ''
+  kak: ''
+- id: P
+  bukva: P
+  zagolovok: Код ОКПД 2
+  chto: ''
+  kak: ''

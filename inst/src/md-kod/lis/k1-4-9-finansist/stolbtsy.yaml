@@ -1,0 +1,27 @@
+# Столбцы листа «4-9 Финансист»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: Статья
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: Проект
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Отчет
+  chto: ''
+  kak: ''
+- id: D
+  bukva: D
+  zagolovok: Организация
+  chto: ''
+  kak: ''
+- id: E
+  bukva: E
+  zagolovok: '#N/A'
+  chto: ''
+  kak: ''

@@ -1,0 +1,117 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 5-0 Товары
+diapazon: A1:Z310
+zakrepleno: A11
+karkas: true
+stroka_zagolovkov: 10
+formul: 9
+znacheniy: 629
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  5-0 Передача в закупку: 35
+  5-4 Изменения в товарах: 16
+  5-1 Сбор КП Закупки: 4
+  5-2 Запросы КП Закупки: 2
+  1-1 Сбор КП: 1
+importrange: 0
+stolbtsy:
+- bukva: B
+  zagolovok: Исключить по причине
+  formula: "= {\n'5-4 Изменения в товарах'!$C10;\nLet(\n_do_row, LAMBDA(_id,_ds, IFERROR( VLOOKUP( _id, _ds, 2, FALSE) ,)),\n_ids, '5-0 Товары'!$C$11:$C310, \n_ids_org, '5-0 Передача в закупку'!$C$1:$C310,\n_ids_izm, '5-4 Изменения в товарах'!$E1:$E310 ,\n_ds_org,\n'5-0 Передача в закупку'!$A$1:$A310,\n_ds_izm, '5-4 Изменения в товарах'!$C1:$C310 ,\n_map_org, map(_ids_org,LAMBDA(_id,{ _id , ROW(_id)})),\n_map_izm, map(_ids_izm,LAMBDA(_id,{ _id , ROW(_id)})),\n_rez, MAP(_ids, LAMBDA(_id, LAMBDA(izm,org, IF(izm<>\"\",INDEX(_ds_izm,izm,),IF(org<>\"\",INDEX(_ds_org,org),)) ) ( _do_row(_id,_map_izm), _do_row(_id,_map_org)) ) ) ,\n_rez\n)\n}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: C
+  zagolovok: ID_Товара
+  vid: formulaColl
+  formula: '={"ID_Товара";let(
+
+    _t_org, ''5-0 Передача в закупку''!$C$11:$C310,
+
+    _t_izm, ''5-4 Изменения в товарах''!$E$11:$E$60 ,
+
+    _t_dop, ''5-4 Изменения в товарах''!$E$62:$E310,
+
+    IFERROR( Sort(UNIQUE({ _t_org; _t_izm; _t_dop })),)
+
+    )}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: D
+  zagolovok: №
+  klyuch: Номер
+  vid: formulaColl
+  formula: "= {\n{'5-0 Передача в закупку'!$D$10\n,'5-0 Передача в закупку'!$E$10\n,'5-0 Передача в закупку'!$H$10\n,'5-0 Передача в закупку'!$J$10\n,'5-0 Передача в закупку'!$K$10\n,'5-0 Передача в закупку'!$L$10};\nLet(\n_do_row, LAMBDA(_id,_ds, IFERROR( VLOOKUP( _id, _ds, 2, FALSE) ,)),\n_ids, '5-0 Товары'!$C$11:$C310, \n_ids_org, '5-0 Передача в закупку'!$C$1:$C310,\n_ids_izm, '5-4 Изменения в товарах'!$E1:$E310 ,\n_ds_org,\n{'5-0 Передача в закупку'!$D$1:$D310\n,'5-0 Передача в закупку'!$E$1:$E310\n,'5-0 Передача в закупку'!$H$1:$H310\n,'5-0 Передача в закупку'!$J$1:$J310\n,'5-0 Передача в закупку'!$K$1:$K310\n,'5-0 Передача в закупку'!$L$1:$L310},\n_ds_izm, {'5-4 Изменения в товарах'!$F1:$F310,'5-4 Изменения в товарах'!$G1:$G310,'5-4 Изменения в товарах'!$J1:$J310,'5-4 Изменения в товарах'!$L1:$L310,'5-4 Изменения в товарах'!$M1:$M310,'5-4 Изменения в товарах'!$N1:$N310 } ,\n_map_org, map(_ids_org,LAMBDA(_id,{ _id , ROW(_id)})),\n_map_izm, map(_ids_izm,LAMBDA(_id,{ _id , ROW(_id)})),\n_rez, MAP(_ids, LAMBDA(_id, LAMBDA(izm,org, IF(izm<>\"\",INDEX(_ds_izm,izm,),IF(org<>\"\",INDEX(_ds_org,org),)) ) ( _do_row(_id,_map_izm), _do_row(_id,_map_org)) ) ) ,\n_rez\n)\n}"
+  formula_v_stroke: 10
+  formul: 2
+- bukva: E
+  zagolovok: Номенклатура
+  klyuch: Номенклатура
+  vid: formulaFree
+- bukva: F
+  zagolovok: Характеристики
+  klyuch: Характеристики
+  vid: formulaFree
+- bukva: G
+  zagolovok: Ед. Изм
+  klyuch: ЕдИзм
+  vid: formulaFree
+- bukva: H
+  zagolovok: Кол-во
+  klyuch: Количевство
+  vid: formulaFree
+- bukva: I
+  zagolovok: НМЦ
+  klyuch: НМЦ
+  vid: formulaFree
+- bukva: J
+  zagolovok: Название товара по договору
+  klyuch: НазваниеТовараПоДоговору
+  vid: formulaColl
+  formula: =IF('5-0 Товары'!$E$10:$E310<>"",IFERROR(VLOOKUP('5-0 Товары'!$E$10:$E310,{'5-1 Сбор КП Закупки'!$E$10:$E310,'5-1 Сбор КП Закупки'!$F10:$F310},2,FALSE) ,),)
+  formula_v_stroke: 10
+  formul: 1
+- bukva: K
+  zagolovok: Изготовитель товара по договору
+  klyuch: ИзготовительТовараПоДоговору
+  vid: formulaColl
+  formula: =IF('5-0 Товары'!$E$10:$E310<>"",IFERROR(VLOOKUP('5-0 Товары'!$E$10:$E310,{'5-1 Сбор КП Закупки'!$E$10:$E310,'5-1 Сбор КП Закупки'!$G$10:$G310},2,FALSE) ,),)
+  formula_v_stroke: 10
+  formul: 1
+- bukva: L
+  zagolovok: Группа
+  klyuch: Группа_1_2
+  vid: formulaColl
+  formula: "=BYROW({ \n{'1-1 Сбор КП'!O1};\n{LAMBDA( doFindRow, doFilter, theWordStart, theCStart, theWordEnd, theCEnd, theDataWord, theData, \n doFilter(doFindRow(theDataWord,theWordStart,theCStart),doFindRow(theDataWord,theWordEnd,theCEnd),theData)\n)( \n LAMBDA(theWord,\"Группа\")"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: M
+  zagolovok: Группа
+  klyuch: Группа_5_2
+  vid: formulaColl
+  formula: '={"Группа";LAMBDA(doFind,theIds,theData, doFind(theIds,theData)
+
+    )(
+
+    LAMBDA(theIds,theData, BYROW(theIds,LAMBDA(ti,IF(ti<>"", IFERROR(VLOOKUP(ti,theData,2,0),),)))),
+
+    ''5-0 Товары''!C11:C310,
+
+    {''5-2 Запросы КП Закупки''!C11:C310,''5-2 Запросы КП Закупки''!N11:N310}
+
+    )}'
+  formula_v_stroke: 10
+  formul: 1
+- bukva: N
+  zagolovok: Срок поставки по договору
+  klyuch: СрокПоставкиПоДоговору
+  vid: formulaColl
+  formula: "={ \n{'5-0 Передача в закупку'!$M$10\n,'5-0 Передача в закупку'!$N$10\n,'5-0 Передача в закупку'!$O$10};\nLet(\n_do_row, LAMBDA(_id,_ds, IFERROR( VLOOKUP( _id, _ds, 2, FALSE) ,)),\n_ids, '5-0 Товары'!$C$11:$C310, \n_ids_org, '5-0 Передача в закупку'!$C$1:$C310,\n_ids_izm, '5-4 Изменения в товарах'!$E1:$E310 ,\n_ds_org, {'5-0 Передача в закупку'!$M$1:$M310 ,'5-0 Передача в закупку'!$N$1:$N310 ,'5-0 Передача в закупку'!$O$1:$O310}, \n_ds_izm, {'5-4 Изменения в товарах'!$O1:$O310 , '5-4 Изменения в товарах'!$P1:$P310,'5-4 Изменения в товарах'!$Q1:$Q310 },\n_map_org, map(_ids_org,LAMBDA(_id,{ _id , ROW(_id)})),\n_map_izm, map(_ids_izm,LAMBDA(_id,{ _id , ROW(_id)})),\n_rez, MAP(_ids, LAMBDA(_id, LAMBDA(izm,org, IF(izm<>\"\",INDEX(_ds_izm,izm,),IF(org<>\"\",INDEX(_ds_org,org),)) ) ( _do_row(_id,_map_izm), _do_row(_id,_map_org)) ) ) ,\n_rez\n)\n}"
+  formula_v_stroke: 10
+  formul: 1
+- bukva: O
+  zagolovok: Нац режим 1875
+- bukva: P
+  zagolovok: Код ОКПД 2

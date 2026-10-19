@@ -1,0 +1,296 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: 7-2 Номенклатуры
+diapazon: A1:CI22
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 105
+znacheniy: 61
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  formula: ="Проект"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: B
+  formula: ="№"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: C
+  formula: ="Номенклатура"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: D
+  formula: ="Название товара по договору"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: E
+  formula: ="ЕдИзм"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: F
+  formula: ="Кол-во"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: G
+  formula: ="Цена"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: H
+  formula: ="Итого"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: I
+  formula: ="Срок поставки"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: J
+  formula: ="Поставщик"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: K
+  formula: ="Статус счета"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: L
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: M
+  formula: ="Ожидаемая дата готовности"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: N
+  formula: ="Поставка заказчику по договору до"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: O
+  formula: ="Комментарий"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: P
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: Q
+  formula: ="Текущий статус"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: R
+  formula: ="Название компании поставщика"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: S
+  formula: ="№ счета"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: T
+  formula: ="Оплата от"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: U
+  formula: ="Контактное лицо поставщика"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: V
+  formula: ="Условия поставки"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: W
+  formula: ="Транспортная компания"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: X
+  formula: ="№ документа о покупке"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: Y
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: Z
+  formula: ="Скан с печатью в папке"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AA
+  formula: ="Состояние полученного товара"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AB
+  formula: ="Заказчик"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AC
+  formula: ="Название проекта"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AD
+  formula: ="Адрес доставки"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AE
+  formula: ="Контакты покупателя"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AF
+  formula: ="Способ связи"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AG
+  formula: ="Частичная оплата за товар"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AH
+  formula: ="Частичная поставка товара"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AI
+  formula: ="Посредник"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AJ
+  formula: ="Отгрузка от"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AK
+  formula: ="Состав поставляемой с продукцией технической документации"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AL
+  formula: ="№ отгрузочных документов"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AM
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: AN
+  formula: ="Срок приемки по договору"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AO
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: AP
+  formula: ="Номер машины"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AQ
+  formula: ="Фио водителя"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AR
+  formula: ="Пропуск"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AS
+  formula: ="Процент оплаты"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AT
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: AU
+  formula: ="Статус доплаты"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AV
+  formula: ="Папка проекта"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AW
+  formula: ="Проверка обязательного заполнения полей"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AX
+  formula: ="Результат проверки"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: AY
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: AZ
+  formula: ="Окончание по дог-ру"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: BA
+  formula: ="Поставка заказчику по договору до"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: BB
+  formula: ="key"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: BC
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: BD
+  formula: ="mem"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: BE
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: BF
+  formula: ="Комментарий [сотрудник контура 2]"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: BG
+  formula: ="date"
+  formula_v_stroke: 8
+  formul: 2
+- bukva: BH
+  formula: ="Проверка обязательного заполнения полей"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: BJ
+  formula: ="last"
+  formula_v_stroke: 9
+  formul: 1
+- bukva: CA
+  formula: ="Ош."
+  formula_v_stroke: 9
+  formul: 2
+- bukva: CB
+  formula: ="0. Товар доставлен"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: CC
+  formula: ="1. Поставлен в срок"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: CD
+  formula: ="2. Просрочен на"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: CE
+  formula: ="3. Просрочки поставки не ожиадем"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: CF
+  formula: ="4. Ожидаем просрочку поставки"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: CG
+  formula: ="№🔗Номенклатура"
+  formula_v_stroke: 9
+  formul: 2
+- bukva: CH
+  formula: ="Итого для Заказчика"
+  formula_v_stroke: 9
+  formul: 14
+- bukva: CI
+  formula: ={"5.ЗакупкаТоварИсполняется";"5.ЗакупкаТоварИсполняетсяЕстьСтатусЗакупки";IF( '7-2 Номенклатуры'!C11:C22<>"",IF( '7-2 Номенклатуры'!Q11:Q22<>"",1,0 ),)}
+  formula_v_stroke: 9
+  formul: 1

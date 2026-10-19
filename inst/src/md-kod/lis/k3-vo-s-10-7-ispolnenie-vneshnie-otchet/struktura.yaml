@@ -1,0 +1,56 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Шаблон для _ ТАБЛИЦА ОПЛАТ ВНЕШНЯЯ _ ДатаСоздания.xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 7 Исполнение Внешние (отче
+diapazon: A1:AK333
+karkas: false
+zagolovki_ugadany: true
+stroka_zagolovkov: 1
+formul: 1
+znacheniy: 166
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+beryot:
+  7 Исполнение Внешние: 4
+  7 Договора: 2
+importrange: 0
+stolbtsy:
+- bukva: A
+  zagolovok: v05
+  formula: '={
+
+    ''7 Исполнение Внешние''!A1:J1000
+
+    ,
+
+    {''7 Исполнение Внешние''!K1:K10;
+
+    Let(
+
+    head_ar,''7 Договора''!A10:AA10 ,
+
+    find_v, "НДС Договора" ,
+
+    body_arr, ''7 Договора''!A11:AA15 ,
+
+    col, MATCH(find_v,head_ar,0) ,
+
+    ret_ar,INDEX(body_arr,,col) ,
+
+    ret_ar
+
+    );
+
+    ''7 Исполнение Внешние''!K16:K1000
+
+    }
+
+    ,
+
+    ''7 Исполнение Внешние''!L1:AK1000
+
+    }'
+  formula_v_stroke: 1
+  formul: 1
+- bukva: M
+  zagolovok: '#N/A'

@@ -1,0 +1,107 @@
+# Столбцы листа «S-10 ОтчетыПроектов»: что это (chto) и как заполняется (kak). Руками.
+# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+- id: A
+  bukva: A
+  zagolovok: Актуально вер:002
+  chto: ''
+  kak: ''
+- id: B
+  bukva: B
+  zagolovok: 19.10.2026 15:43:00
+  chto: ''
+  kak: ''
+- id: C
+  bukva: C
+  zagolovok: Лист 4-1
+  chto: ''
+  kak: ''
+- id: AB
+  bukva: AB
+  zagolovok: 1-1 Сбор КП
+  chto: ''
+  kak: ''
+- id: AC
+  bukva: AC
+  zagolovok: 3-2 Экспертиза предложений
+  chto: ''
+  kak: ''
+- id: AD
+  bukva: AD
+  zagolovok: 5-5 Оформление сделок
+  chto: ''
+  kak: ''
+- id: AM
+  bukva: AM
+  zagolovok: 6 Оплаты
+  chto: ''
+  kak: ''
+- id: AN
+  bukva: AN
+  zagolovok: 7 Исполнение П
+  chto: ''
+  kak: ''
+- id: BE
+  bukva: BE
+  zagolovok: 7 Исполнение З
+  chto: ''
+  kak: ''
+- id: BW
+  bukva: BW
+  zagolovok: 7 Исполнение
+  chto: ''
+  kak: ''
+- id: BX
+  bukva: BX
+  zagolovok: 6 Оплаты
+  chto: ''
+  kak: ''
+- id: BY
+  bukva: BY
+  zagolovok: 7 Стоимость Денег
+  chto: ''
+  kak: ''
+- id: BZ
+  bukva: BZ
+  zagolovok: Настройки писем
+  chto: ''
+  kak: ''
+- id: CB
+  bukva: CB
+  zagolovok: Экспорт в битрикс
+  chto: ''
+  kak: ''
+- id: CC
+  bukva: CC
+  zagolovok: 0-Паспорт проекта
+  chto: ''
+  kak: ''
+- id: ES
+  bukva: ES
+  zagolovok: 6 Оплаты
+  chto: ''
+  kak: ''
+- id: GJ
+  bukva: GJ
+  zagolovok: 4-1 Расчет рентабельности
+  chto: ''
+  kak: ''
+- id: IM
+  bukva: IM
+  zagolovok: Рабочий Лист
+  chto: ''
+  kak: ''
+- id: IU
+  bukva: IU
+  zagolovok: Ошибки
+  chto: ''
+  kak: ''
+- id: IZ
+  bukva: IZ
+  zagolovok: Запросы и предложения Сбор
+  chto: ''
+  kak: ''
+- id: JM
+  bukva: JM
+  zagolovok: Запросы и предложения Закупка
+  chto: ''
+  kak: ''

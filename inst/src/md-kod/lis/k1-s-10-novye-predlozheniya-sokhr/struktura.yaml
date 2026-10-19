@@ -1,0 +1,132 @@
+# Сгенерировано: inst/src/skripty/import_listy.py из «Копия Чистая таблица новая .xlsx». Руками не править — описание листа в index.md
+# и stolbtsy.yaml рядом. Только устройство: служебные строки, заголовки, вид и списки столбцов, формулы, ссылки.
+list: S-10 Новые предложения (сохр)
+diapazon: A1:AN1000
+karkas: true
+stroka_zagolovkov: 10
+formul: 0
+znacheniy: 0
+spiskov: 0
+uslovnyh: 0
+obedineno: 0
+importrange: 0
+stolbtsy:
+- bukva: C
+  zagolovok: Таблица
+  vid: formulaColl
+- bukva: D
+  zagolovok: Лист^Предложение^Товар
+  klyuch: Лист_Предложение_Товар
+  var_name: ВписанНаЛисте
+  var_value: 1-1 Сбор КП
+- bukva: E
+  zagolovok: Лист
+  klyuch: Лист
+  var_value: And ( Col2='1-1 Сбор КП' )
+- bukva: F
+  zagolovok: Предложение
+  klyuch: Предложение
+  var_name: ДатаЗавершенияЭкспертизы
+- bukva: G
+  zagolovok: Постовшик
+  klyuch: Постовшик
+  var_name: Есть изменения
+  var_value: '0'
+- bukva: H
+  zagolovok: Товар
+  klyuch: Товар
+  var_name: Добавлено новое предложение
+  var_value: '0'
+- bukva: I
+  zagolovok: Цена
+  klyuch: Цена
+  var_name: изменения в топ 1
+  var_value: '0'
+- bukva: J
+  klyuch: столбец_10
+  var_name: изменения в топ 3
+  var_value: '0'
+- bukva: K
+  zagolovok: Лист^Предложение^Товар
+  klyuch: столбец_11
+  var_name: изменения в топ 7
+  var_value: '0'
+- bukva: L
+  zagolovok: Лист
+  klyuch: столбец_12
+  var_name: изменения в топ 14
+  var_value: '0'
+- bukva: M
+  zagolovok: Предложение
+  klyuch: столбец_13
+  var_name: ДатаСохранения
+- bukva: N
+  zagolovok: Постовшик
+  klyuch: столбец_14
+- bukva: O
+  zagolovok: Товар
+  klyuch: столбец_15
+- bukva: P
+  zagolovok: Цена
+  klyuch: столбец_16
+- bukva: Q
+  klyuch: столбец_17
+- bukva: R
+  zagolovok: Лист^Предложение^Товар
+  klyuch: столбец_18
+- bukva: S
+  zagolovok: Лист
+  klyuch: столбец_19
+- bukva: T
+  zagolovok: Предложение
+  klyuch: столбец_20
+- bukva: U
+  zagolovok: Постовшик
+  klyuch: столбец_21
+- bukva: V
+  zagolovok: Товар
+  klyuch: столбец_22
+- bukva: W
+  zagolovok: Цена
+  klyuch: столбец_23
+- bukva: X
+  klyuch: столбец_24
+- bukva: Y
+  zagolovok: Лист^Предложение^Товар
+  klyuch: столбец_25
+- bukva: Z
+  zagolovok: Лист
+  klyuch: столбец_26
+- bukva: AA
+  zagolovok: Предложение
+  klyuch: столбец_27
+- bukva: AB
+  zagolovok: Постовшик
+  klyuch: столбец_28
+- bukva: AC
+  zagolovok: Товар
+  klyuch: столбец_29
+- bukva: AD
+  zagolovok: Цена
+  klyuch: столбец_30
+- bukva: AE
+  klyuch: столбец_31
+- bukva: AF
+  zagolovok: №
+  klyuch: столбец_32
+- bukva: AG
+  zagolovok: Поставщик
+  klyuch: столбец_33
+- bukva: AH
+  zagolovok: Товар
+  klyuch: столбец_34
+- bukva: AI
+  zagolovok: Цена
+  klyuch: столбец_35
+- bukva: AJ
+  klyuch: столбец_36
+- bukva: AK
+  klyuch: столбец_37
+- bukva: AL
+  zagolovok: Новые предложения
+  klyuch: столбец_38

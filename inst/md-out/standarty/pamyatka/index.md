@@ -15,7 +15,7 @@
 | `inst/src/md-kod/tio/` | инструкции | да |
 | `inst/src/md-kod/zna/` | знания | да |
 | `inst/src/md-kod/um/` | умения | да |
-| `inst/src/md-kod/lis/` | листы таблиц, по одной части на лист | да |
+| `inst/src/md-kod/lis/` | листы таблиц, по одной части на лист: `index.md`, `stolbtsy.yaml` (руками), `struktura.yaml` (из таблицы); реестр `listy.yaml` | да, кроме `struktura.yaml` |
 | `inst/src/md-kod/pro/` | процессы: `reglament.yaml` — как записано (руками не править), `protsess.yaml` — кто что делает | да, кроме `reglament.yaml` |
 | `inst/src/md-kod/reg/` | реестр: `ter.yaml` — термины, `rol.yaml` — должности, `oby.yaml` — обязанности, `mes.yaml` — места работы, `art.yaml` — что передаётся, `res.yaml` — рабочие ссылки | да |
 | `inst/src/standarty/` | формат, шаблон, правила, эта памятка | да |
@@ -40,6 +40,7 @@
 | `make reglament X=raw/…/….xlsx` | пересобрать шаги процессов из регламента «Распределение задач» |
 | `make mermaid` | проверить схемы Mermaid настоящим mermaid-cli (по желанию; ставится `make mermaid-setup`) |
 | `make reglament-xlsx` | книга регламента для Google Таблиц — в `raw/` (шаги и справочники) |
+| `make listy` | устройство листов из таблиц в `raw/` → `lis/*/struktura.yaml`, заготовки новых листов |
 
 Проверка и сборка идут без Docker, за секунды. Нужны `python3` и PyYAML. Docker нужен только для `make docx`.
 

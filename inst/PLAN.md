@@ -78,6 +78,90 @@
 | `pro.r11-kontrol-zakazchika` | Контроль исполнения заказчиком |
 | `pro.r12-zakrytie-proekta` | Закрытие проекта |
 
+## Листы — заготовки (2026-10-19)
+
+Устройство каждого листа собрано из таблиц (`make listy`); описание — заполнять в `index.md` и `stolbtsy.yaml` части. Заполнили — статус «проверить», проверил директор — «готово», строку убрать.
+
+**Таблица проекта**
+
+| Часть | Лист | Контур |
+|---|---|---|
+| `lis.k0-list49` | Лист49 | 0 |
+| `lis.k0-0-pasport-proekta` | 0-Паспорт проекта | 0 |
+| `lis.k0-0-1-dannye-iz-ii` | 0-1 Данные из ИИ | 0 |
+| `lis.k1-1-1-sbor-kp` | 1-1 Сбор КП | 1 |
+| `lis.k1-1-0-tovary` | 1-0 Товары | 1 |
+| `lis.k1-1-4-1875-okpd2` | 1-4 1875 ОКПД2 | 1 |
+| `lis.k1-1-2-zaprosy-po-tovarnym-gruppam` | 1-2 Запросы по товарным группам | 1 |
+| `lis.k1-1-2-zaprosy-kp-povtornaya-rassylka` | 1-2 Запросы КП повторная рассылка | 1 |
+| `lis.k1-1-2-zaprosy-kp-tretya-rassylka` | 1-2 Запросы КП третья рассылка | 1 |
+| `lis.k1-2-1-voprosy-ot-postavshchikov` | 2-1 Вопросы от Поставщиков | 1 |
+| `lis.k1-2-2-problemy-po-proektu` | 2-2 Проблемы по проекту | 1 |
+| `lis.k1-3-1-raschet-stoimosti-dostavki` | 3-1 Расчет стоимости доставки | 1 |
+| `lis.k1-3-2-ekspertiza-predlozheniy` | 3-2 Экспертиза предложений | 1 |
+| `lis.k1-3-3-vybor-postavshchikov` | 3-3 Выбор поставщиков | 1 |
+| `lis.k1-3-4-prochie-raskhody` | 3-4 Прочие расходы | 1 |
+| `lis.k1-3-5-eksportnaya-ekspertiza` | 3-5 Экспортная экспертиза | 1 |
+| `lis.k1-4-1-raschet-rentabelnosti-kp-v1` | 4-1 Расчет рентабельности КП в1 | 1 |
+| `lis.k1-4-2-podgotovka-kp` | 4-2 Подготовка КП | 1 |
+| `lis.k1-4-1-raschet-rentabelnosti-kp` | 4-1 Расчет рентабельности КП | 1 |
+| `lis.k1-s-10-otchetrentabelnosti` | S-10 ОтчетРентабельности | 1 |
+| `lis.k1-4-3-podgotovka-tkp` | 4-3 Подготовка ТКП | 1 |
+| `lis.k1-4-9-finansist` | 4-9 Финансист | 1 |
+| `lis.k1-otzyvy-o-postavshchikakh` | Отзывы о поставщиках | 1 |
+| `lis.k1-tovary` | Товары | 1 |
+| `lis.k2-s-10-oformlenie-sdelok-id-tovara` | S-10 Оформление сделок ID_Товара | 2 |
+| `lis.k2-s-10-oformlenie-sdelok-vyborka` | S-10 Оформление сделок Выборка | 2 |
+| `lis.k2-s-10-dlya-vneshney-oplaty` | S-10 Для Внешней Оплаты | 2 |
+| `lis.k3-7-ispolnenie` | 7 Исполнение | 3 |
+| `lis.k3-7-dogovora` | 7 Договора | 3 |
+| `lis.k3-7-stoimost-deneg` | 7 Стоимость Денег | 3 |
+| `lis.k3-7-2-dokumentatsiya-ispolnenie` | 7-2 Документация исполнение | 3 |
+| `lis.k3-7-2-oplaty` | 7-2 Оплаты | 3 |
+| `lis.k0-tekhnicheskiy` | Технический | 0 |
+| `lis.k0-spravochniki` | Справочники | 0 |
+| `lis.k0-nastroyki-pisem` | Настройки писем | 0 |
+| `lis.k0-s-10-eksport-v-bitriks` | S-10 Экспорт в Битрикс | 0 |
+| `lis.k0-s-10-spravochnik-poley-bitriks` | S-10 Справочник полей Битрикс | 0 |
+| `lis.k0-s-10-otchetyproektov` | S-10 ОтчетыПроектов | 0 |
+| `lis.k0-s-10-otchetyproektovvneshniy` | S-10 ОтчетыПроектовВнешний | 0 |
+| `lis.k2-s-10-oformlenie-sdelok-kommentarii` | S-10 Оформление сделок Комментарии | 2 |
+| `lis.k2-s-10-kommentarii` | S-10 Комментарии | 2 |
+| `lis.k2-s-10-predlozheniya` | S-10 Предложения | 2 |
+| `lis.k2-s-10-top-5-3` | S-10 Топ 5-3 | 2 |
+| `lis.k0-s-10-finansist-sbor-dannykh` | S-10 Финансист сбор данных | 0 |
+| `lis.k0-s-10-triggery` | S-10 Триггеры | 0 |
+| `lis.k1-s-10-novye-predlozheniya` | S-10 Новые предложения | 1 |
+| `lis.k1-s-10-konveyer-zaprosov-kp` | S-10 Конвейер Запросов КП | 1 |
+| `lis.k1-s-10-novye-predlozheniya-sokhr` | S-10 Новые предложения (сохр) | 1 |
+
+**Внешняя таблица оплат**
+
+| Часть | Лист | Контур |
+|---|---|---|
+| `lis.k3-vo-6-oplaty-vneshnyaya` | 6 Оплаты Внешняя | 3 |
+| `lis.k3-vo-7-ispolnenie-vneshnie` | 7 Исполнение Внешние | 3 |
+| `lis.k3-vo-7-dogovora` | 7 Договора | 3 |
+| `lis.k3-vo-7-stoimost-deneg` | 7 Стоимость Денег | 3 |
+| `lis.k3-vo-7-2-nomenklatury` | 7-2 Номенклатуры | 3 |
+| `lis.k4-vo-7-2-kassa` | 7-2 Касса | 4 |
+| `lis.k4-vo-s-10-inn` | S-10 ИНН | 4 |
+| `lis.k3-vo-s-10-proverki-oplaty-vneshnyaya` | S-10 Проверки Оплаты Внешняя | 3 |
+| `lis.k3-vo-s-10-realno-oplachennaya-summa` | S-10 Реально оплаченная сумма | 3 |
+| `lis.k3-vo-s-10-oplaty-otchet` | S-10 Оплаты Отчет | 3 |
+| `lis.k3-vo-s-10-7-ispolnenie-vneshnie-otchet` | S-10 7 Исполнение Внешние (отчет) | 3 |
+| `lis.k3-vo-7-2-upd` | 7-2 УПД | 3 |
+| `lis.k3-vo-7-2-dogovora` | 7-2 Договора | 3 |
+| `lis.k3-vo-7-2-oplaty` | 7-2 Оплаты | 3 |
+| `lis.k3-vo-7-proverki-dokumentov` | 7 Проверки Документов | 3 |
+| `lis.k3-vo-otchetyproektov` | ОтчетыПроектов | 3 |
+| `lis.k3-vo-7-proverki` | 7 Проверки | 3 |
+| `lis.k3-vo-svodnaya-prochee` | Сводная Прочее | 3 |
+| `lis.k3-vo-svodnaya-po-nomenklature` | Сводная по Номенклатуре | 3 |
+| `lis.k3-vo-svodnaya-po-upd` | Сводная по УПД | 3 |
+| `lis.k3-vo-svodnaya-po-dogovoram` | Сводная по Договорам | 3 |
+| `lis.k3-vo-tekhnicheskiy-list` | Технический лист | 3 |
+
 ## Написать (заглушки)
 
 | Часть | Название | Что нужно |
