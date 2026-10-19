@@ -127,6 +127,9 @@ def spec_reglament():
             'узел обязанности; дорожка — должность из «Предполагаем»', width=24, valid=rng(O, 'D')),
         col('Принимает', 'Принимает результат', 'Обязанность, которой передаётся результат шага.', 'Из списка; несколько — по строке на каждую.',
             'стрелка «передаёт»', width=24, many=True, valid=rng(O, 'D')),
+        col('Передаёт', 'Передаёт (что)', 'Что шаг отдаёт дальше: задача, счёт, лист, документ, товар.',
+            'Из списка (лист «Что передаётся»); несколько — по строке.', 'подпись стрелки на дорожках', width=24, many=True,
+            valid=rng('Что передаётся', 'D')),
         col('Отслеживает', 'Отслеживает', 'Обязанность, которая следит за шагом.', 'Из списка; несколько — по строке.', 'пунктир «следит»',
             width=20, many=True, valid=rng(O, 'D')),
         col('Согласуют', 'Согласуют', 'Обязанности, с которыми шаг согласуют.', 'Из списка; несколько — по строке.', 'пунктир «согласует»',
@@ -205,6 +208,19 @@ def spec_dict(kind):
                 vval='; '.join(vids), valid='"' + ','.join(vids) + '"'),
             col('Часть', 'Часть с описанием', 'Часть инструкций, где место описано (например lis.tab-proekta).', 'Ключ части.', 'ссылка', width=22, layer='spr'),
         ]
+    if kind == 'Что передаётся':
+        vids = ['задача', 'документ', 'данные', 'товар', 'деньги', 'сообщение']
+        return common + [
+            col('Шагов', 'Шагов', 'Сколько строк «Регламента» передают предмет.', 'Не заполнять: формула.', '—', width=7,
+                layer='svc', kind='formulaCell'),
+            col('Ключ', 'Ключ', 'Постоянный ключ (латиница).', '', '—', width=22, layer='id', ident=True),
+            col('Название', 'Название', 'Что передаётся.', 'Уникальное.', 'подпись стрелки на дорожках', width=40, layer='id', ident=True),
+            col('Вид', 'Вид', 'Вид предмета.', 'Из списка.', '—', width=10, layer='spr', vname='Виды предметов',
+                vval='; '.join(vids), valid='"' + ','.join(vids) + '"'),
+            col('Где', 'Где лежит', 'Место, где предмет хранится или виден.', 'Из списка (лист «Места»).', 'страница «Что передаётся»',
+                width=30, layer='spr', valid=rng('Места', 'D')),
+            col('Догадка', 'Догадка', 'Что не подтверждено.', '', '—', width=40, layer='spr'),
+        ]
     if kind == 'Процессы':
         return common + [
             col('Шагов', 'Шагов', 'Сколько шагов в процессе (лист «Регламент»).', 'Не заполнять: формула.', '—', width=7,
@@ -263,6 +279,7 @@ def rows_reglament(procs, reg):
             lists = {
                 'Ставит': [oby[v]['title'] for v in protsessy.as_list(t.get('stavit'))],
                 'Принимает': [oby[v]['title'] for v in protsessy.as_list(t.get('prinimaet'))],
+                'Передаёт': [reg['art'][v]['title'] for v in protsessy.as_list(t.get('peredaet'))],
                 'Отслеживает': [oby[v]['title'] for v in protsessy.as_list(t.get('otslezhivaet'))],
                 'Согласуют': [oby[v]['title'] for v in protsessy.as_list(t.get('soglasuyut'))],
                 'Помогают': [rol[v[4:]]['title'] for v in protsessy.as_list(t.get('pomogayut'))],
@@ -306,6 +323,10 @@ def rows_dict(kind, reg, procs, papki, parts):
                      'Догадка': r.get('dogadka', ''), 'Статус': r.get('status', '')}
             lists = {'Столбец': protsessy.as_list(r.get('kolonka')), 'НазываютТакже': protsessy.as_list(r.get('nazvaniya'))}
             out += [(k, x) for x in multi(first, lists, ('Ключ', 'Название'))]
+    elif kind == 'Что передаётся':
+        for k, a in reg['art'].items():
+            out.append((k, {'Ключ': k, 'Название': a['title'], 'Вид': a.get('vid', ''),
+                            'Где': reg['mes'][a['gde']]['title'] if a.get('gde') else '', 'Догадка': a.get('dogadka', '')}))
     elif kind == 'Места':
         for k, m in reg['mes'].items():
             out.append((k, {'Ключ': k, 'Название': m['title'], 'Описание': m.get('polno', ''), 'Вид': m.get('vid', ''),
@@ -343,7 +364,7 @@ def formulas(kind, spec, r):
         orig = f'${L["ОригСтрока"]}{r}'
         f['Оригинал'] = f'=IF({orig}="","",IF({url}="","стр. "&{orig},HYPERLINK({url}&"&range=A"&{orig},"стр. "&{orig})))'
         checks = [f'IF(AND({first},${L["Делает"]}{r}=""),"нет «Делает»; ","")']
-        for key, sheet in (('Ставит', 'Обязанности'), ('Делает', 'Обязанности'), ('Принимает', 'Обязанности'),
+        for key, sheet in (('Ставит', 'Обязанности'), ('Делает', 'Обязанности'), ('Принимает', 'Обязанности'), ('Передаёт', 'Что передаётся'),
                            ('Отслеживает', 'Обязанности'), ('Согласуют', 'Обязанности'), ('Помогают', 'Должности'),
                            ('Узнают', 'Должности'), ('Место', 'Места'), ('СтатусПосле', 'Статусы')):
             letter = 'E' if sheet == 'Статусы' else 'D'
@@ -366,6 +387,10 @@ def formulas(kind, spec, r):
         name = f'${L["Название"]}{r}'
         f['Шагов'] = f"=IF({name}=\"\",\"\",COUNTIF({rng('Регламент', reg_letter('Место'))},{name}))"
         f['err'] = ''
+    elif kind == 'Что передаётся':
+        name = f'${L["Название"]}{r}'
+        f['Шагов'] = f"=IF({name}=\"\",\"\",COUNTIF({rng('Регламент', reg_letter('Передаёт'))},{name}))"
+        f['err'] = f'=IF(AND(${L["Где"]}{r}<>"",COUNTIF({rng("Места", "D")},${L["Где"]}{r})=0),"места нет","")'
     elif kind == 'Процессы':
         name = f'${L["Название"]}{r}'
         f['Шагов'] = (f"=IF({name}=\"\",\"\",COUNTIFS({rng('Регламент', reg_letter('Процесс'))},{name},"
@@ -542,7 +567,7 @@ def readme(ws, procs, reg):
 
 def export(path):
     parts, reg, procs, papki = repo()
-    for kind in ('oby', 'rol', 'mes'):   # названия — то, что выбирают в списках: должны быть уникальны
+    for kind in ('oby', 'rol', 'mes', 'art'):   # названия — то, что выбирают в списках: должны быть уникальны
         titles = [v['title'] for v in reg[kind].values()]
         dup = {t for t in titles if titles.count(t) > 1}
         if dup:
@@ -551,7 +576,7 @@ def export(path):
     readme(wb.active, procs, reg)
     wb.active.title = README
     sheets = [('Регламент', spec_reglament(), rows_reglament(procs, reg))]
-    sheets += [(k, spec_dict(k), rows_dict(k, reg, procs, papki, parts)) for k in ('Обязанности', 'Должности', 'Места', 'Процессы', 'Статусы', 'Папки')]
+    sheets += [(k, spec_dict(k), rows_dict(k, reg, procs, papki, parts)) for k in ('Обязанности', 'Должности', 'Места', 'Что передаётся', 'Процессы', 'Статусы', 'Папки')]
     for kind, spec, rows in sheets:
         ws = wb.create_sheet(kind)
         frame(ws, spec, kind)
@@ -605,10 +630,10 @@ def many(rows, k):
 def read_book(path):
     """Книга → те же данные, что в репозитории: процессы, толкование шагов, обязанности, должности, места."""
     wb = openpyxl.load_workbook(path)
-    data = {k: read_sheet(wb[k]) for k in ('Регламент', 'Обязанности', 'Должности', 'Места', 'Процессы', 'Папки')}
+    data = {k: read_sheet(wb[k]) for k in ('Регламент', 'Обязанности', 'Должности', 'Места', 'Что передаётся', 'Процессы', 'Папки')}
     by_title = {}
-    reg = {'oby': {}, 'rol': {}, 'mes': {}}
-    for sheet, kind in (('Должности', 'rol'), ('Места', 'mes'), ('Обязанности', 'oby')):
+    reg = {'oby': {}, 'rol': {}, 'mes': {}, 'art': {}}
+    for sheet, kind in (('Должности', 'rol'), ('Места', 'mes'), ('Обязанности', 'oby'), ('Что передаётся', 'art')):
         for key, rows in groups(data[sheet], 'Ключ'):
             by_title[(kind, first(rows, 'Название'))] = key
     for key, rows in groups(data['Должности'], 'Ключ'):
@@ -619,6 +644,10 @@ def read_book(path):
     for key, rows in groups(data['Места'], 'Ключ'):
         reg['mes'][key] = clean({'title': first(rows, 'Название'), 'polno': first(rows, 'Описание'), 'vid': first(rows, 'Вид'),
                                  'chast': first(rows, 'Часть')})
+    for key, rows in groups(data['Что передаётся'], 'Ключ'):
+        g = first(rows, 'Где')
+        reg['art'][key] = clean({'title': first(rows, 'Название'), 'vid': first(rows, 'Вид'),
+                                 'gde': by_title[('mes', g)] if g else '', 'dogadka': first(rows, 'Догадка')})
     for key, rows in groups(data['Обязанности'], 'Ключ'):
         reg['oby'][key] = clean({'title': first(rows, 'Название'), 'polno': first(rows, 'ЗаЧтоОтвечает'),
                                  'predpolagaem': [by_title[('rol', t)] for t in many(rows, 'Предполагаем')],
@@ -646,6 +675,7 @@ def read_book(path):
         ro = lambda k: ['rol.' + by_title[('rol', t)] for t in many(rows, k)]
         st = {inv[r['ОбъектСтатуса']]: r['СтатусПосле'] for r in rows if r.get('ОбъектСтатуса')}
         p['tolk'][sid] = clean({'delaet': by_title[('oby', first(rows, 'Делает'))], 'stavit': ob('Ставит'), 'prinimaet': ob('Принимает'),
+                                'peredaet': [by_title[('art', t)] for t in many(rows, 'Передаёт')],
                                 'otslezhivaet': ob('Отслеживает'), 'soglasuyut': ob('Согласуют'), 'pomogayut': ro('Помогают'),
                                 'uznayut': ro('Узнают'), 'mesto': [by_title[('mes', t)] for t in many(rows, 'Место')],
                                 'status': st, 'dogadka': first(rows, 'Догадка')})
@@ -672,11 +702,13 @@ def norm_repo(reg, procs, papki):
     out_reg = {}
     fields = {'rol': ('title', 'polno', 'kontur', 'kolonka', 'nazvaniya', 'istochnik', 'pochemu', 'dogadka', 'status'),
               'mes': ('title', 'polno', 'vid', 'chast'),
+              'art': ('title', 'vid', 'gde', 'dogadka'),
               'oby': ('title', 'polno', 'predpolagaem', 'kontur', 'gde', 'istochnik', 'pochemu', 'dogadka', 'status')}
     for kind, keys in fields.items():
         out_reg[kind] = {}
         for k, v in reg[kind].items():
-            d = {f: (protsessy.as_list(v.get(f)) if f in ('kolonka', 'nazvaniya', 'istochnik', 'predpolagaem', 'gde')
+            lists = ('kolonka', 'nazvaniya', 'istochnik', 'predpolagaem', 'gde') if kind != 'art' else ()   # у предмета gde — одно место
+            d = {f: (protsessy.as_list(v.get(f)) if f in lists
                      else str(v.get(f, '')) if v.get(f) is not None else '') for f in keys}
             out_reg[kind][k] = clean(d, keep=('predpolagaem',) if kind == 'oby' else ())
     out_procs = {}

@@ -104,6 +104,7 @@ def index(parts, reg):
 
 def check(parts, reg):
     errors, notes = [], []   # notes — расхождения и вопросы: на отдельную страницу, не в консоль
+    prepare(parts, reg)
     oby, rol, mes = reg.get('oby', {}), reg.get('rol', {}), reg.get('mes', {})
     for p in procs(parts):
         ids = [s['id'] for s in p['shagi']]
@@ -133,6 +134,9 @@ def check(parts, reg):
             for m in as_list(t.get('mesto')):
                 if m not in mes:
                     errors.append(f'{where}: в mesto нет такого места — {m}')
+            for a in as_list(t.get('peredaet')):
+                if a not in reg.get('art', {}):
+                    errors.append(f'{where}: в peredaet нет такого предмета — {a}')
             ex = executors(s)
             assumed = as_list(oby[d].get('predpolagaem'))
             cols = {c for r in assumed if r in rol for c in as_list(rol[r].get('kolonka'))}
@@ -164,6 +168,20 @@ def check(parts, reg):
             notes.append((None, k, 'предполагаем несколько должностей — нарушает «один ответственный»'))
         if k not in used and not o.get('gde'):
             notes.append((None, k, 'не участвует ни в одном шаге и места работы не заданы'))
+    if not errors:   # переходы к другой должности без предмета передачи — вопрос
+        for p in procs(parts):
+            for i, s in enumerate(p['shagi']):
+                src, r = handoff(p, i, reg)
+                if src and not incoming(p, i, reg):
+                    notes.append((p, s, f'работа переходит от «{pos_title(reg, src)}» к «{pos_title(reg, r)}», '
+                                        'но что передаётся — не записано'))
+        given = {a for p in procs(parts) for t in p['tolk'].values() for a in as_list(t.get('peredaet'))}
+        for a in reg.get('art', {}):
+            if a not in given:
+                notes.append((None, a, 'предмет передачи не используется ни в одном шаге'))
+    for k, a in reg.get('art', {}).items():
+        if a.get('gde') and a['gde'] not in mes:
+            errors.append(f'art.{k}: в gde нет такого места — {a["gde"]}')
     for k, m in mes.items():
         if m.get('chast') and m['chast'] not in parts:
             errors.append(f'mes.{k}: в chast нет такой части — {m["chast"]}')
@@ -240,7 +258,8 @@ def diagram_oby(p, reg):
                 order.append(v) if v not in order else None
         for v in as_list(t.get('prinimaet')):
             if not v.startswith('rol.'):
-                edges.append((d, v, 'передаёт', '-->'))
+                what = art_names(reg, as_list(t.get('peredaet')))
+                edges.append((d, v, label(what, 24, 50) if what else 'передаёт', '-->'))
                 order.append(v) if v not in order else None
         for r, word in (('otslezhivaet', 'следит'), ('soglasuyut', 'согласует')):
             for v in as_list(t.get(r)):
@@ -265,7 +284,7 @@ def diagram_oby(p, reg):
     for a, b, word, arrow in sorted(edges, key=lambda e: e[2] != 'ставит'):
         if (a, b, arrow) not in seen:
             seen.add((a, b, arrow))
-            out.append(f'  {nid("o", a)} {arrow}|{word}| {nid("o", b)}')
+            out.append(f'  {nid("o", a)} {arrow}|"{word}"| {nid("o", b)}')   # в кавычках: скобки в подписи ломают схему
     out += [f'  {nid("o", a)} --> {nid("o", b)}' for a, b in seq]
     return fence(out)
 
@@ -362,7 +381,7 @@ def raci(p):
 
 
 def steps_table(p, reg):
-    out = ['| № | Шаг | Делает | Ставит → принимает | Согласуют, помогают, узнают | Где |', '|---|---|---|---|---|---|']
+    out = ['| № | Шаг | Делает | Ставит → принимает | Передаёт | Согласуют, помогают, узнают | Где |', '|---|---|---|---|---|---|---|']
     for s in p['shagi']:
         t = p['tolk'][s['id']]
         flow = ', '.join(link_ref(reg, v) for v in as_list(t.get('stavit'))) or '—'
@@ -371,7 +390,8 @@ def steps_table(p, reg):
                          for r, word in RELS[2:] if t.get(r))
         where = ', '.join(link_mes(reg, m) for m in as_list(t.get('mesto')))
         note = f'<br/>*{cell(t["dogadka"])}*' if t.get('dogadka') else ''
-        out.append(f'| {s["nomer"] or "—"} | {cell(s["title"])}{note} | {link_oby(reg, t["delaet"])} | {flow} | {side} | {where} |')
+        arts = ', '.join(f'[{reg["art"][a]["title"]}]({ROOT}reg/art.md#{a})' for a in as_list(t.get('peredaet')))
+        out.append(f'| {s["nomer"] or "—"} | {cell(s["title"])}{note} | {link_oby(reg, t["delaet"])} | {flow} | {arts} | {side} | {where} |')
     return '\n'.join(out) + '\n'
 
 
@@ -469,6 +489,13 @@ def card_oby(k, reg, by_oby):
         word = dict(RELS, delaet='делает')
         out += ['## Шаги\n', '| Процесс | № | Шаг | Здесь |', '|---|---|---|---|']
         out += [f'| {link_proc(p)} | {s["nomer"] or "—"} | {cell(s["title"])} | {word[rel]} |' for p, s, rel in rows]
+        gives = list(dict.fromkeys(a for p, s, rel in rows if rel == 'delaet' for a in as_list(p['tolk'][s['id']].get('peredaet'))))
+        gets = list(dict.fromkeys(a for p, s, rel in rows if rel == 'delaet' for a in incoming(p, p['shagi'].index(s), reg)))
+        link_art = lambda a: f'[{reg["art"][a]["title"]}]({ROOT}reg/art.md#{a})'
+        if gets:
+            out += ['', '**Получает:** ' + ', '.join(link_art(a) for a in gets)]
+        if gives:
+            out += ['', '**Отдаёт:** ' + ', '.join(link_art(a) for a in gives)]
         places = list(dict.fromkeys(m for p, s, rel in rows if rel == 'delaet' for m in as_list(p['tolk'][s['id']].get('mesto'))))
         places += [m for m in as_list(o.get('gde')) if m not in places]
         if places:
@@ -523,6 +550,48 @@ def pos_title(reg, r):
     return short_rol(reg['rol'], r) if r != '-' else 'не знаем кто'
 
 
+def handoff(p, i, reg):
+    """Переход работы перед шагом i: (откуда — должность, куда — должность) или (None, должность)."""
+    t = p['tolk'][p['shagi'][i]['id']]
+    r = pos_of(reg, doer(t))
+    prev = pos_of(reg, doer(p['tolk'][p['shagi'][i - 1]['id']])) if i else None
+    if prev == r:   # та же должность продолжает — перехода нет, даже если задачу когда-то поставил другой
+        return (None, r)
+    src = next((pos_of(reg, v) for v in as_list(t.get('stavit')) if pos_of(reg, v) != r), prev)
+    return (src, r) if src and src != r else (None, r)
+
+
+def incoming(p, i, reg):
+    """Что приходит к шагу i при переходе: peredaet последнего шага должности-источника в отрезке перед i."""
+    src, _ = handoff(p, i, reg)
+    if not src:
+        return []
+    for j in range(i - 1, -1, -1):
+        t = p['tolk'][p['shagi'][j]['id']]
+        if pos_of(reg, doer(t)) != src:
+            break
+        if t.get('peredaet'):
+            return as_list(t['peredaet'])
+    return reg.get('_recv', {}).get(doer(p['tolk'][p['shagi'][i]['id']]), [])   # пришло из другого процесса
+
+
+def prepare(parts, reg):
+    """Что каждая обязанность получает от шагов, где она — «принимает результат» (нужно для переходов между процессами)."""
+    recv = {}
+    for p in procs(parts):
+        for t in p['tolk'].values():
+            for v in as_list(t.get('prinimaet')):
+                for a in as_list(t.get('peredaet')):
+                    recv.setdefault(v, [])
+                    if a not in recv[v]:
+                        recv[v].append(a)
+    reg['_recv'] = recv
+
+
+def art_names(reg, keys):
+    return ', '.join(reg['art'][a]['title'] for a in keys)
+
+
 def seq_text(text, width=30, limit=80):
     """Подпись в диаграмме последовательности: «;» и «#» — служебные, заменяются кодами."""
     return label(str(text).replace(';', '\x00'), width, limit).replace('\x00', '#59;')   # коды #quot; не ломаем
@@ -537,20 +606,17 @@ def pid(r):
 
 
 def seq_process(p, reg):
-    """Дорожки процесса: должность — вертикальная дорожка; шаг — заметка в её дорожке, переход к другой должности — стрелка."""
-    steps = [(s, pos_of(reg, doer(p['tolk'][s['id']]))) for s in p['shagi']]
-    roles = list(dict.fromkeys(r for _, r in steps))
+    """Дорожки процесса: должность — вертикальная дорожка; шаг — заметка в её дорожке; стрелка — переход работы
+    к другой должности с тем, что передаётся (пунктир «дальше» — что передаётся, не записано)."""
+    roles = list(dict.fromkeys(pos_of(reg, doer(p['tolk'][s['id']])) for s in p['shagi']))
     out = ['sequenceDiagram'] + participants(roles, reg)
-    prev = None
-    for s, r in steps:
-        t = p['tolk'][s['id']]
-        src = next((pos_of(reg, v) for v in as_list(t.get('stavit')) if pos_of(reg, v) != r), prev)
-        text = seq_text(step_name(s), 34, 90)
-        if src and src != r:
-            out.append(f'  {pid(src)}->>{pid(r)}: {text}')
-        else:
-            out.append(f'  Note over {pid(r)}: {text}')
-        prev = r
+    for i, s in enumerate(p['shagi']):
+        src, r = handoff(p, i, reg)
+        if src:
+            arts = incoming(p, i, reg)
+            out.append(f'  {pid(src)}->>{pid(r)}: {seq_text(art_names(reg, arts), 34, 90)}' if arts else
+                       f'  {pid(src)}-->>{pid(r)}: дальше')
+        out.append(f'  Note over {pid(r)}: {seq_text(step_name(s), 34, 90)}')
     return fence(out)
 
 
@@ -559,21 +625,24 @@ def seq_project(plist, reg):
     roles = [r for r in list(reg['rol']) + ['-'] if any(pos_of(reg, doer(p['tolk'][s['id']])) == r for p in plist for s in p['shagi'])]
     out = ['sequenceDiagram'] + participants(roles, reg)
     colors = ('rgb(232, 240, 254)', 'rgb(253, 246, 227)')
-    prev = None
+    prev, last_out = None, []
     for i, p in enumerate(plist):
-        segs = []
-        for s in p['shagi']:
+        segs = []   # (должность, обязанности, что пришло в отрезок)
+        for i, s in enumerate(p['shagi']):
             r, d = pos_of(reg, doer(p['tolk'][s['id']])), doer(p['tolk'][s['id']])
             if segs and segs[-1][0] == r:
                 segs[-1][1].append(d)
             else:
-                segs.append((r, [d]))
+                segs.append((r, [d], incoming(p, i, reg) if i else last_out))
+        last_out = next((as_list(p['tolk'][s['id']]['peredaet']) for s in reversed(p['shagi']) if p['tolk'][s['id']].get('peredaet')), [])
         out += [f'  rect {colors[i % 2]}', f'  Note over {pid(roles[0])},{pid(roles[-1])}: {seq_text(p["title"], 200, 120)}']
-        for r, ds in segs:
+        for r, ds, segs_arts in segs:
             names = list(dict.fromkeys(reg['oby'][d]['title'] for d in ds))
             text = '<br/>'.join(seq_text(n, 200, 60) for n in names[:3]) + (f'<br/>и ещё {len(names) - 3}' if len(names) > 3 else '')
             if prev and prev != r:
-                out.append(f'  {pid(prev)}->>{pid(r)}: передаёт')
+                arts = segs_arts
+                out.append(f'  {pid(prev)}->>{pid(r)}: {seq_text(art_names(reg, arts), 40, 70)}' if arts else
+                           f'  {pid(prev)}-->>{pid(r)}: дальше')
             out.append(f'  Note over {pid(r)}: {text}')
             prev = r
         out.append('  end')
@@ -648,3 +717,27 @@ def render_dorozhki(parts, reg):
              'Шаги, которые делает должность, по процессам. Должность — первая из «предполагаем» у обязанности шага.\n',
              matrix(plist, reg)]
     return '\n'.join(lines)
+
+
+def art_flow(parts, reg):
+    """Предмет → [(процесс, шаг, кто отдаёт — обязанность, кому — обязанность следующего шага или принимающая)]."""
+    out = {}
+    for p in procs(parts):
+        for i, s in enumerate(p['shagi']):
+            t = p['tolk'][s['id']]
+            nxt = doer(p['tolk'][p['shagi'][i + 1]['id']]) if i + 1 < len(p['shagi']) else None
+            to = [v for v in as_list(t.get('prinimaet'))] or ([nxt] if nxt else [])
+            for a in as_list(t.get('peredaet')):
+                out.setdefault(a, []).append((p, s, doer(t), to))
+    return out
+
+
+def art_info(a, reg, flows):
+    rows = flows.get(a, [])
+    if not rows:
+        return ''
+    lines = ['| Процесс | № | Кто отдаёт | Кому |', '|---|---|---|---|']
+    up = lambda x: x.replace(ROOT, '../')
+    lines += [f'| {up(link_proc(p))} | {s["nomer"] or "—"} | {up(link_oby(reg, d))} | '
+              + ', '.join(up(link_oby(reg, v)) for v in to) + ' |' for p, s, d, to in rows]
+    return '\n'.join(lines) + '\n'
