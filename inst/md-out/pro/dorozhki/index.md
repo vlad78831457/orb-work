@@ -11,6 +11,7 @@
 Вертикальная дорожка — должность (по нашей догадке, кто выполняет обязанность шага). Цветной блок — процесс; в дорожке — обязанности, которые должность там выполняет; стрелка — работа переходит к другой должности. Подробно, шаг за шагом, — на странице каждого процесса.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 sequenceDiagram
   participant r_prodazhi as Менеджер по продажам
   participant r_proekt as Менеджер проекта
@@ -191,6 +192,7 @@ sequenceDiagram
 Стрелка — сколько раз работа переходит от одной должности к другой: ставит задачу, передаёт результат или делает следующий шаг. На схеме — от 2 передач, толстая — 5 и больше; все — в таблице.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", "primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", "lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", "edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", "noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", "actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", "labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%
 flowchart LR
   r_prodazhi(["Менеджер по продажам"])
   r_khranitel(["Хранитель учёта и<br/>документов"])

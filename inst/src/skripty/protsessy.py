@@ -210,8 +210,18 @@ def nid(prefix, key):
     return prefix + '_' + re.sub(r'[^A-Za-z0-9]', '_', key)
 
 
+# Своя тема для всех схем: тёмные стрелки и подписи, крупнее шрифт — одинаково читается в светлой и тёмной теме GitHub.
+THEME = ('%%{init: {"theme": "base", "themeVariables": {"fontSize": "16px", '
+         '"primaryColor": "#e8f0fe", "primaryTextColor": "#111827", "primaryBorderColor": "#4b5563", '
+         '"lineColor": "#2563eb", "textColor": "#111827", "clusterBkg": "#fffbe6", "clusterBorder": "#9ca3af", '
+         '"edgeLabelBackground": "#ffffff", "signalColor": "#2563eb", "signalTextColor": "#1d4ed8", '
+         '"noteBkgColor": "#fff3b0", "noteTextColor": "#111827", "noteBorderColor": "#a16207", '
+         '"actorBkg": "#e8f0fe", "actorTextColor": "#111827", "actorBorder": "#4b5563", "actorLineColor": "#9ca3af", '
+         '"labelBoxBkgColor": "#e8f0fe", "labelTextColor": "#111827"}}}%%')
+
+
 def fence(lines):
-    return '```mermaid\n' + '\n'.join(lines) + '\n```\n'
+    return '```mermaid\n' + THEME + '\n' + '\n'.join(lines) + '\n```\n'
 
 
 def step_name(s):
@@ -609,7 +619,7 @@ def seq_process(p, reg):
     """Дорожки процесса: должность — вертикальная дорожка; шаг — заметка в её дорожке; стрелка — переход работы
     к другой должности с тем, что передаётся (пунктир «дальше» — что передаётся, не записано)."""
     roles = list(dict.fromkeys(pos_of(reg, doer(p['tolk'][s['id']])) for s in p['shagi']))
-    out = ['sequenceDiagram'] + participants(roles, reg)
+    out = ['sequenceDiagram'] + participants(roles, reg) + ['  rect rgb(255, 255, 255)']   # светлая подложка: видно в любой теме
     for i, s in enumerate(p['shagi']):
         src, r = handoff(p, i, reg)
         if src:
@@ -617,7 +627,7 @@ def seq_process(p, reg):
             out.append(f'  {pid(src)}->>{pid(r)}: {seq_text(art_names(reg, arts), 34, 90)}' if arts else
                        f'  {pid(src)}-->>{pid(r)}: дальше')
         out.append(f'  Note over {pid(r)}: {seq_text(step_name(s), 34, 90)}')
-    return fence(out)
+    return fence(out + ['  end'])
 
 
 def seq_project(plist, reg):
