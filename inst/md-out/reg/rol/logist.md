@@ -122,6 +122,30 @@ flowchart LR
 | [Процесс. Устранение несоответствий](../../pro/r10-nesootvetstviya/index.md) | 17 | Передача документа о несоответствии на регистрацию Координатору | [Ответственный за почтовый ящик](../../reg/oby/otvetstvennyy-za-yashchik.md) |
 | [Процесс. Контроль исполнения заказчиком](../../pro/r11-kontrol-zakazchika/index.md) | 35 | Отправка претензии Заказчику о неуплате | [Отправляющий претензию заказчику](../../reg/oby/otpravka-pretenzii.md) |
 
+## С кем работает
+
+Сколько раз работа переходит от должности к должности (ставит задачу, передаёт результат, следующий шаг) — по всем процессам.
+
+```mermaid
+flowchart LR
+  r_prodazhi(["Менеджер по продажам"])
+  r_logist(["Логист"])
+  r_zakupka(["Закупщик"])
+  r_proekt(["Менеджер проекта"])
+  r_khranitel(["Хранитель учёта и<br/>документов"])
+  r_tekh(["Технический эксперт"])
+  style r_logist stroke-width:3px
+  r_logist ==>|7| r_khranitel
+  r_zakupka ==>|6| r_logist
+  r_khranitel ==>|5| r_logist
+  r_logist -->|3| r_zakupka
+  r_logist -->|2| r_proekt
+  r_prodazhi -->|1| r_logist
+  r_logist -->|1| r_prodazhi
+  r_proekt -->|1| r_logist
+  r_logist -->|1| r_tekh
+```
+
 ## Где должность названа прямо
 
 | Процесс | № | Шаг | Как |

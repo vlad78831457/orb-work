@@ -115,7 +115,7 @@ def load():
                 'status': head['status'], 'requires': head.get('nuzhno') or [],
                 'body': body or f'# {head["title"]}\n\n{STUB}'}
     for p in parts.values():
-        if p['sec'] == 'pro' and p['slug'] != 'obzor':
+        if p['sec'] == 'pro' and p['slug'] not in ('obzor', 'dorozhki'):
             protsessy.attach(p, errors)
     reg = {}
     for kind in REG:
@@ -333,7 +333,8 @@ def build_dist(parts, reg, out):
         os.makedirs(dst, exist_ok=True)
         text = note(p) + map_lines(b.text(p), lambda ln: outside_inline(ln, strip_ids)) + '\n'
         if p['sec'] == 'pro':   # схемы и таблицы процесса собираются из данных шагов
-            text += protsessy.render_obzor(parts, reg, notes) if p['slug'] == 'obzor' else protsessy.render_process(p, reg, parts)
+            text += (protsessy.render_obzor(parts, reg, notes) if p['slug'] == 'obzor' else
+                     protsessy.render_dorozhki(parts, reg) if p['slug'] == 'dorozhki' else protsessy.render_process(p, reg, parts))
         open(f'{dst}/index.md', 'w', encoding='utf-8').write(text)
     os.makedirs(f'{out}/reg', exist_ok=True)
     where = {}   # (реестр, ключ) → части, где запись упомянута: у должности так видно её инструкции
@@ -343,6 +344,7 @@ def build_dist(parts, reg, out):
             if kind in GLOSS and p not in where.setdefault((kind, key), []):
                 where[(kind, key)].append(p)
     by_oby, by_rol, places = protsessy.index(parts, reg)
+    _, flows = protsessy.handoffs(protsessy.procs(parts), reg)
 
     def info(t, kind, key, root):
         lines = []
@@ -375,7 +377,7 @@ def build_dist(parts, reg, out):
     for key, t in reg['rol'].items():
         os.makedirs(f'{out}/reg/rol', exist_ok=True)
         open(f'{out}/reg/rol/{key}.md', 'w', encoding='utf-8').write(
-            protsessy.card_rol(key, reg, by_oby, by_rol, info(t, 'rol', key, '../../')))
+            protsessy.card_rol(key, reg, by_oby, by_rol, info(t, 'rol', key, '../../'), flows))
     lines = ['# Инструкции\n', 'Собрано из `inst/src` скриптом `skripty/sobrat.py`. Руками здесь не править.\n']
     for sec, title, _ in SECTIONS:
         lines.append(f'## {title}\n')

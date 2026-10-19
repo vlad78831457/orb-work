@@ -117,6 +117,35 @@ flowchart LR
 | [Процесс. Контроль исполнения заказчиком](../../pro/r11-kontrol-zakazchika/index.md) | 36 | Выяснение вопросов по претензии (когда заплатят деньги) | [Добивающийся приёмки и оплаты от заказчика](../../reg/oby/dozhim-zakazchika.md) |
 | [Процесс. Контроль исполнения заказчиком](../../pro/r11-kontrol-zakazchika/index.md) | 37 | Инициирование Судебного Иска | [Инициирующий судебный иск](../../reg/oby/isk.md) |
 
+## С кем работает
+
+Сколько раз работа переходит от должности к должности (ставит задачу, передаёт результат, следующий шаг) — по всем процессам.
+
+```mermaid
+flowchart LR
+  r_prodazhi(["Менеджер по продажам"])
+  r_proekt(["Менеджер проекта"])
+  r_zakupka(["Закупщик"])
+  r_tekh(["Технический эксперт"])
+  r_none(["не знаем кто"])
+  r_logist(["Логист"])
+  r_khranitel(["Хранитель учёта и<br/>документов"])
+  r_vladelets(["Владелец процесса"])
+  style r_proekt stroke-width:3px
+  r_proekt ==>|9| r_zakupka
+  r_zakupka ==>|5| r_proekt
+  r_tekh -->|3| r_proekt
+  r_proekt -->|3| r_khranitel
+  r_khranitel -->|3| r_proekt
+  r_proekt -->|3| r_tekh
+  r_proekt -->|2| r_none
+  r_logist -->|2| r_proekt
+  r_proekt -->|2| r_vladelets
+  r_prodazhi -->|1| r_proekt
+  r_proekt -->|1| r_logist
+  r_none -->|1| r_proekt
+```
+
 ## Где должность названа прямо
 
 | Процесс | № | Шаг | Как |

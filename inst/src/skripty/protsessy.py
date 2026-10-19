@@ -377,7 +377,11 @@ def steps_table(p, reg):
 
 def render_process(p, reg, parts):
     """Собранная часть процесса: после текста части — схемы и таблицы."""
-    out = ['## Как в регламенте\n',
+    out = ['## Дорожки по должностям\n',
+           'Вертикальная дорожка — должность, которую мы предполагаем; заметка — шаг в её дорожке; стрелка — работа переходит '
+           'к другой должности (ставит задачу или делает следующий шаг).\n',
+           seq_process(p, reg),
+           '## Как в регламенте\n',
              'Дорожки — столбцы регламента с основным исполнителем; шаги — по порядку. Пунктир — шаг без исполнителя.\n',
              diagram_reglament(p), raci(p),
              '## По обязанностям\n',
@@ -474,7 +478,7 @@ def card_oby(k, reg, by_oby):
     return '\n'.join(out) + '\n'
 
 
-def card_rol(k, reg, by_oby, by_rol, info):
+def card_rol(k, reg, by_oby, by_rol, info, flows=None):
     r, oby = reg['rol'][k], reg['oby']
     mine = [o for o, v in oby.items() if k in as_list(v.get('predpolagaem'))]
     out = [f'# {r["title"]}\n', f'{r["polno"]}\n'] + info + ['']
@@ -497,9 +501,150 @@ def card_rol(k, reg, by_oby, by_rol, info):
             out += [f'| {link_proc(p)} | {s["nomer"] or "—"} | {cell(s["title"])} | {link_oby(reg, o)} |'
                     for p, s, o in sorted(rows, key=lambda x: (x[0]['slug'], x[0]['shagi'].index(x[1])))]
             out.append('')
+    if flows and any(k in e for e in flows):
+        out += ['## С кем работает\n', 'Сколько раз работа переходит от должности к должности (ставит задачу, передаёт результат, '
+                'следующий шаг) — по всем процессам.\n', graph_handoffs(flows, reg, center=k)]
     direct = by_rol.get(k, [])
     if direct:
         word = dict(RELS)
         out += ['## Где должность названа прямо\n', '| Процесс | № | Шаг | Как |', '|---|---|---|---|']
         out += [f'| {link_proc(p)} | {s["nomer"] or "—"} | {cell(s["title"])} | {word[rel]} |' for p, s, rel in direct]
     return '\n'.join(out) + '\n'
+
+
+# ---------- обзорные дорожки ----------
+
+def pos_of(reg, k):
+    """Должность обязанности для обзора: первая из «предполагаем»; не знаем — «-»."""
+    return (as_list(reg['oby'][k].get('predpolagaem')) or ['-'])[0]
+
+
+def pos_title(reg, r):
+    return short_rol(reg['rol'], r) if r != '-' else 'не знаем кто'
+
+
+def seq_text(text, width=30, limit=80):
+    """Подпись в диаграмме последовательности: «;» и «#» — служебные, заменяются кодами."""
+    return label(str(text).replace(';', '\x00'), width, limit).replace('\x00', '#59;')   # коды #quot; не ломаем
+
+
+def participants(roles, reg):
+    return [f'  participant {nid("r", r if r != "-" else "none")} as {pos_title(reg, r)}' for r in roles]
+
+
+def pid(r):
+    return nid('r', r if r != '-' else 'none')
+
+
+def seq_process(p, reg):
+    """Дорожки процесса: должность — вертикальная дорожка; шаг — заметка в её дорожке, переход к другой должности — стрелка."""
+    steps = [(s, pos_of(reg, doer(p['tolk'][s['id']]))) for s in p['shagi']]
+    roles = list(dict.fromkeys(r for _, r in steps))
+    out = ['sequenceDiagram'] + participants(roles, reg)
+    prev = None
+    for s, r in steps:
+        t = p['tolk'][s['id']]
+        src = next((pos_of(reg, v) for v in as_list(t.get('stavit')) if pos_of(reg, v) != r), prev)
+        text = seq_text(step_name(s), 34, 90)
+        if src and src != r:
+            out.append(f'  {pid(src)}->>{pid(r)}: {text}')
+        else:
+            out.append(f'  Note over {pid(r)}: {text}')
+        prev = r
+    return fence(out)
+
+
+def seq_project(plist, reg):
+    """Весь проект по дорожкам: блок на процесс; в блоке — отрезки работы должностей и переходы между ними."""
+    roles = [r for r in list(reg['rol']) + ['-'] if any(pos_of(reg, doer(p['tolk'][s['id']])) == r for p in plist for s in p['shagi'])]
+    out = ['sequenceDiagram'] + participants(roles, reg)
+    colors = ('rgb(232, 240, 254)', 'rgb(253, 246, 227)')
+    prev = None
+    for i, p in enumerate(plist):
+        segs = []
+        for s in p['shagi']:
+            r, d = pos_of(reg, doer(p['tolk'][s['id']])), doer(p['tolk'][s['id']])
+            if segs and segs[-1][0] == r:
+                segs[-1][1].append(d)
+            else:
+                segs.append((r, [d]))
+        out += [f'  rect {colors[i % 2]}', f'  Note over {pid(roles[0])},{pid(roles[-1])}: {seq_text(p["title"], 200, 120)}']
+        for r, ds in segs:
+            names = list(dict.fromkeys(reg['oby'][d]['title'] for d in ds))
+            text = '<br/>'.join(seq_text(n, 200, 60) for n in names[:3]) + (f'<br/>и ещё {len(names) - 3}' if len(names) > 3 else '')
+            if prev and prev != r:
+                out.append(f'  {pid(prev)}->>{pid(r)}: передаёт')
+            out.append(f'  Note over {pid(r)}: {text}')
+            prev = r
+        out.append('  end')
+    return fence(out)
+
+
+def handoffs(plist, reg):
+    """Кто кому передаёт работу: должности и число передач (ставит задачу, передаёт результат, следующий шаг)."""
+    n = {}
+    for p in plist:
+        prev = None
+        for s in p['shagi']:
+            t = p['tolk'][s['id']]
+            d = pos_of(reg, doer(t))
+            pairs = [(pos_of(reg, v), d) for v in as_list(t.get('stavit'))]
+            pairs += [(d, pos_of(reg, v)) for v in as_list(t.get('prinimaet'))]
+            if prev and prev != d:
+                pairs.append((prev, d))
+            for a, b in pairs:
+                if a != b:
+                    n[(a, b)] = n.get((a, b), 0) + 1
+            prev = d
+    return graph_handoffs(n, reg), n
+
+
+def graph_handoffs(n, reg, center=None, least=2):
+    """Должности и передачи между ними; на общей схеме — от least передач, у карточки — все связи должности center."""
+    edges = {e: k for e, k in n.items() if (center in e if center else k >= least)}
+    roles = list(dict.fromkeys(r for pair in edges for r in pair))
+    out = ['flowchart LR']
+    out += [f'  {pid(r)}(["{label(pos_title(reg, r))}"])' for r in roles]
+    if center:
+        out.append(f'  style {pid(center)} stroke-width:3px')
+    for (a, b), k in sorted(edges.items(), key=lambda kv: -kv[1]):
+        out.append(f'  {pid(a)} {"==>" if k >= 5 else "-->"}|{k}| {pid(b)}')
+    return fence(out)
+
+
+def matrix(plist, reg):
+    count = {}
+    for p in plist:
+        for s in p['shagi']:
+            r = pos_of(reg, doer(p['tolk'][s['id']]))
+            count[(r, p['slug'])] = count.get((r, p['slug']), 0) + 1
+    roles = [r for r in list(reg['rol']) + ['-'] if any(k[0] == r for k in count)]
+    head = '| Процесс | ' + ' | '.join(link_rol(reg, r).replace(reg['rol'][r]['title'], pos_title(reg, r)) if r != '-' else 'не знаем кто'
+                                       for r in roles) + ' |'
+    out = [head, '|---|' + '---|' * len(roles)]
+    for p in plist:
+        out.append(f'| {link_proc(p)} | ' + ' | '.join(str(count.get((r, p['slug']), '')) for r in roles) + ' |')
+    out.append('| **Всего** | ' + ' | '.join(f'**{sum(v for (x, _), v in count.items() if x == r)}**' for r in roles) + ' |')
+    return '\n'.join(out) + '\n'
+
+
+def render_dorozhki(parts, reg):
+    plist = procs(parts)
+    graph, n = handoffs(plist, reg)
+    top = sorted(n.items(), key=lambda kv: -kv[1])[:5]
+    rows = ['| От кого | Кому | Передач |', '|---|---|---|']
+    rows += [f'| {pos_title(reg, a)} | {pos_title(reg, b)} | {k} |' for (a, b), k in sorted(n.items(), key=lambda kv: -kv[1])]
+    lines = ['\n## Весь проект по дорожкам\n',
+             'Вертикальная дорожка — должность (по нашей догадке, кто выполняет обязанность шага). Цветной блок — процесс; '
+             'в дорожке — обязанности, которые должность там выполняет; стрелка — работа переходит к другой должности. '
+             'Подробно, шаг за шагом, — на странице каждого процесса.\n',
+             seq_project(plist, reg),
+             '## Кто кому передаёт работу\n',
+             'Стрелка — сколько раз работа переходит от одной должности к другой: ставит задачу, передаёт результат или делает '
+             'следующий шаг. На схеме — от 2 передач, толстая — 5 и больше; все — в таблице.\n', graph,
+             'Больше всего передач: ' + '; '.join(f'{pos_title(reg, a)} → {pos_title(reg, b)} — {k}' for (a, b), k in top) + '.\n',
+             '\n'.join(rows) + '\n',
+             '## Сколько шагов у кого\n',
+             'Шаги, которые делает должность, по процессам. Должность — первая из «предполагаем» у обязанности шага.\n',
+             matrix(plist, reg)]
+    return '\n'.join(lines)
