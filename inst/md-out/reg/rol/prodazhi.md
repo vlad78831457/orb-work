@@ -68,6 +68,32 @@ flowchart LR
 | [Процесс. Контрактация](../../pro/r02-kontraktatsiya/index.md) | 20 | Приемка этапа Контрактации | [Закрывающий контрактацию](../../reg/oby/zakrytie-kontraktatsii.md) |
 | [Процесс. Передача в закупки](../../pro/r03-peredacha-v-zakupki/index.md) | 0 | Вход в процесс "Передача в Закупки" | [Решающий передать проект в закупки](../../reg/oby/reshenie-peredachi.md) |
 
+## С кем работает
+
+Сколько раз работа переходит от должности к должности (ставит задачу, передаёт результат, следующий шаг) — по всем процессам.
+
+```mermaid
+flowchart LR
+  r_prodazhi(["Менеджер по продажам"])
+  r_khranitel(["Хранитель учёта и<br/>документов"])
+  r_tekh(["Технический эксперт"])
+  r_podpisant(["Подписант и плательщик"])
+  r_logist(["Логист"])
+  r_koordinator(["Координатор"])
+  r_proekt(["Менеджер проекта"])
+  style r_prodazhi stroke-width:3px
+  r_prodazhi -->|4| r_khranitel
+  r_prodazhi -->|3| r_tekh
+  r_prodazhi -->|3| r_podpisant
+  r_khranitel -->|2| r_prodazhi
+  r_tekh -->|2| r_prodazhi
+  r_podpisant -->|1| r_prodazhi
+  r_prodazhi -->|1| r_logist
+  r_logist -->|1| r_prodazhi
+  r_prodazhi -->|1| r_koordinator
+  r_prodazhi -->|1| r_proekt
+```
+
 ## Где должность названа прямо
 
 | Процесс | № | Шаг | Как |

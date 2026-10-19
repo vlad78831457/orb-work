@@ -72,6 +72,31 @@ flowchart LR
 | [Процесс. Контроль исполнения заказчиком](../../pro/r11-kontrol-zakazchika/index.md) | 33 | Занесение информации о платежах в систему | [Отслеживающий оплаты заказчика](../../reg/oby/oplaty-zakazchika.md) |
 | [Процесс. Контроль исполнения заказчиком](../../pro/r11-kontrol-zakazchika/index.md) | 34 | Написание претензии о неуплате | [Пишущий претензию о неуплате](../../reg/oby/pretenziya-neuplata.md) |
 
+## С кем работает
+
+Сколько раз работа переходит от должности к должности (ставит задачу, передаёт результат, следующий шаг) — по всем процессам.
+
+```mermaid
+flowchart LR
+  r_prodazhi(["Менеджер по продажам"])
+  r_khranitel(["Хранитель учёта и<br/>документов"])
+  r_zakupka(["Закупщик"])
+  r_podpisant(["Подписант и плательщик"])
+  r_logist(["Логист"])
+  r_proekt(["Менеджер проекта"])
+  style r_khranitel stroke-width:3px
+  r_logist ==>|7| r_khranitel
+  r_khranitel ==>|6| r_podpisant
+  r_khranitel ==>|5| r_logist
+  r_prodazhi -->|4| r_khranitel
+  r_zakupka -->|4| r_khranitel
+  r_podpisant -->|3| r_khranitel
+  r_proekt -->|3| r_khranitel
+  r_khranitel -->|3| r_proekt
+  r_khranitel -->|2| r_prodazhi
+  r_khranitel -->|2| r_zakupka
+```
+
 ## Где должность названа прямо
 
 | Процесс | № | Шаг | Как |
