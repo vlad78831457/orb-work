@@ -318,11 +318,20 @@ def build_dist(parts, reg, out):
         os.makedirs(dst, exist_ok=True)
         open(f'{dst}/index.md', 'w', encoding='utf-8').write(note(p) + map_lines(b.text(p), lambda ln: outside_inline(ln, strip_ids)) + '\n')
     os.makedirs(f'{out}/reg', exist_ok=True)
+    where = {}   # (реестр, ключ) → части, где запись упомянута: у роли так видно её инструкции
+    for p in parts.values():
+        for name, *_ in mentions(p['body']):
+            kind, key = name.split('.', 1)
+            if kind in GLOSS and p not in where.setdefault((kind, key), []):
+                where[(kind, key)].append(p)
     for kind in GLOSS:
         lines = [f'# {REG[kind]}\n']
         for key, t in sorted(reg[kind].items(), key=lambda kv: kv[1]['title'].lower()):
             mark = ' *(проверить)*' if t.get('status') == 'проверить' else ''
             lines.append(f'<a id="{key}"></a>**{t["title"]}** — {t["polno"]}{mark}\n')
+            if kind == 'rol' and where.get((kind, key)):
+                lines.append('\n'.join(f'- [{p["title"]}](../{p["sec"]}/{p["slug"]}/index.md)'
+                                       for p in sorted(where[(kind, key)], key=lambda p: (p['sec'], p['slug']))) + '\n')
         open(f'{out}/reg/{kind}.md', 'w', encoding='utf-8').write('\n'.join(lines))
     lines = ['# Инструкции\n', 'Собрано из `inst/src` скриптом `skripty/sobrat.py`. Руками здесь не править.\n']
     for sec, title, _ in SECTIONS:
