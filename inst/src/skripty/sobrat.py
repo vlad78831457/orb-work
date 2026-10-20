@@ -32,6 +32,7 @@ import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import listy  # noqa: E402
+import podpisi  # noqa: E402
 import protsessy  # noqa: E402
 
 SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -186,6 +187,8 @@ def check(parts, reg, fulls):
         for _, img in IMAGE.findall(text):
             if not re.match(r'[a-z]+:', img) and not os.path.isfile(f'{p["dir"]}/{img}'):
                 soft.append(f'{where}: нет снимка {img}')
+            elif not re.match(r'[a-z]+:', img):
+                errors.extend(f'{where}: подписи к {img}: {e}' for e in podpisi.check(f'{p["dir"]}/{img}'))
         own_ids = set(ANCHOR.findall(text))
         for _, link in LINK.findall(text):
             if link.startswith('#'):
@@ -301,7 +304,7 @@ class Dist(Builder):
     def image_path(self, owner, host, img):
         dst = f'{self.out}/{owner["sec"]}/{owner["slug"]}/{img}'
         os.makedirs(os.path.dirname(dst), exist_ok=True)
-        shutil.copyfile(f'{owner["dir"]}/{img}', dst)
+        podpisi.copy(f'{owner["dir"]}/{img}', dst)
         return img if owner is host else f'../../{owner["sec"]}/{owner["slug"]}/{img}'
 
 
@@ -325,7 +328,7 @@ class Full(Builder):
         sub = f'{owner["sec"]}-{owner["slug"]}/{img}'
         dst = f'{self.out}/{self.rel}/{sub}'
         os.makedirs(os.path.dirname(dst), exist_ok=True)
-        shutil.copyfile(f'{owner["dir"]}/{img}', dst)
+        podpisi.copy(f'{owner["dir"]}/{img}', dst)
         return f'{os.path.basename(self.rel)}/{sub}'
 
 
