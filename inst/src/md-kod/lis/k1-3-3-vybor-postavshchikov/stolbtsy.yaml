@@ -1,479 +1,197 @@
 # Столбцы листа «3-3 Выбор поставщиков»: что это (chto) и как заполняется (kak). Руками.
-# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+# id — служебное имя столбца (строка 2) или буква; id со * или ? — шаблон: одно описание на повторяющийся блок
+# (сравнивается со служебным именем и заголовком). bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+# Черновик 2026-10-20 по формулам, заголовкам и старым инструкциям 3.1.2–3.1.8; «(догадка)» — не подтверждено,
+# «⚠» — похоже на ошибку в таблице, проверить.
 - id: A
   bukva: A
   zagolovok: №
-  chto: ''
-  kak: ''
+  chto: № позиции
+  kak: 'формула: с листа 1-1'
 - id: B
   bukva: B
   zagolovok: Номенклатура
-  chto: ''
-  kak: ''
+  chto: номенклатура; по формуле этой ячейки лист находит строку товара на 1-1 (столбец DA)
+  kak: 'формула: с листа 1-1'
 - id: C
   bukva: C
   zagolovok: Ед
-  chto: ''
-  kak: ''
+  chto: единица измерения
+  kak: 'формула: с листа 1-1'
 - id: D
   bukva: D
   zagolovok: Кол
-  chto: ''
-  kak: ''
+  chto: количество
+  kak: 'формула: с листа 1-1'
 - id: E
   bukva: E
   zagolovok: Цена
-  chto: ''
-  kak: ''
+  chto: цена выбранного поставщика (столбец K) по листу 1-1
+  kak: 'формула: через служебные столбцы CT–CW'
 - id: F
   bukva: F
   zagolovok: Сумма
-  chto: ''
-  kak: ''
+  chto: количество × цена
+  kak: формула
 - id: G
   bukva: G
   zagolovok: Группа
-  chto: ''
-  kak: ''
+  chto: группа рассылки
+  kak: 'формула: с листа 1-1'
 - id: H
   bukva: H
   zagolovok: Срок поставки
-  chto: ''
-  kak: ''
+  chto: срок поставки у выбранного поставщика
+  kak: 'формула: с листа 1-1, из блока выбранного поставщика'
 - id: I
   bukva: I
   zagolovok: Срок поставки по договору
-  chto: ''
-  kak: ''
+  chto: срок поставки по договору
+  kak: 'формула: с листа 1-1'
 - id: J
   bukva: J
   zagolovok: Нац режим 1875
-  chto: ''
-  kak: ''
+  chto: нац. режим 1875
+  kak: 'формула: с листа 1-1'
 - id: K
   bukva: K
   zagolovok: Поставщик
-  chto: ''
-  kak: ''
+  chto: выбранный поставщик — самый дешёвый из подходящих под ТЗ (e-mail)
+  kak: руками (3.1.4, 3.1.7); каждый просмотренный — комментарий
 - id: L
   bukva: L
   zagolovok: Резервный поставщик
-  chto: ''
-  kak: ''
+  chto: резервный поставщик; над столбцом — сколько разных поставщиков выбрано
+  kak: руками; счётчик — формула
+- id: M
+  bukva: M
+  zagolovok: ''
+  chto: у скольких товаров выбранный поставщик — первый по цене (догадка, 3.1.4 п. 10)
+  kak: формула
 - id: N
   bukva: N
   zagolovok: НМЦ
-  chto: ''
-  kak: ''
+  chto: НМЦ за единицу
+  kak: 'формула: с листа 1-1'
 - id: O
   bukva: O
   zagolovok: Статус
-  chto: ''
-  kak: ''
+  chto: статус товара, например «Отдал в оплату» (3.1.7)
+  kak: руками
 - id: P
   bukva: P
   zagolovok: Предполагаемая дата оплаты
-  chto: ''
-  kak: ''
+  chto: предполагаемая дата оплаты
+  kak: руками (догадка)
 - id: Q
   bukva: Q
   zagolovok: Комментарий
-  chto: ''
-  kak: ''
+  chto: комментарий по выбору — коротко и понятно другому человеку (3.1.4)
+  kak: руками
 - id: R
   bukva: R
   zagolovok: Разница от миним
-  chto: ''
-  kak: ''
+  chto: насколько цена выбранного выше минимальной («1 цена»)
+  kak: формула
 - id: S
   bukva: S
   zagolovok: Итого разница
-  chto: ''
-  kak: ''
+  chto: то же на всё количество
+  kak: формула
 - id: T
   bukva: T
   zagolovok: Название товара в ТП
-  chto: ''
-  kak: ''
+  chto: название и изготовитель из предложения выбранного поставщика — для технического предложения
+  kak: 'формула: с листа 1-1'
 - id: Y
   bukva: Y
   zagolovok: 'Всего: 0 вопросов
 
     Всего: 0 проблем'
-  chto: ''
-  kak: ''
+  chto: вопросы и проблемы по товару (с листов 3-2 и 2-1, догадка); в заголовке — итог по проекту
+  kak: формула
 - id: Z
   bukva: Z
   zagolovok: БлокТопНачало
-  chto: ''
-  kak: ''
-- id: AA
-  bukva: AA
+  chto: начало блока топ-7
+  kak: 'не трогать: по метке формулы и скрипты находят начало или конец блока'
+- id: '* Формула'
+  bukva: AA…CQ (35)
   zagolovok: 1 Формула
-  chto: ''
-  kak: ''
-- id: AB
-  bukva: AB
+  chto: 'скрытые служебные: значение из списка «Лучшие цены» листа 1-1 (адрес ячейки или текст); видимое — в соседнем столбце'
+  kak: формула; не трогать
+- id: '? цена'
+  bukva: AB…CJ (7)
   zagolovok: 1 цена
-  chto: ''
-  kak: ''
-- id: AC
-  bukva: AC
-  zagolovok: 2 Формула
-  chto: ''
-  kak: ''
-- id: AD
-  bukva: AD
+  chto: 'место 1–7 по цене: цена'
+  kak: формула (из «Лучших цен» листа 1-1)
+- id: '? Поставщик'
+  bukva: AD…CL (7)
   zagolovok: 1 Поставщик
-  chto: ''
-  kak: ''
-- id: AE
-  bukva: AE
-  zagolovok: 3 Формула
-  chto: ''
-  kak: ''
-- id: AF
-  bukva: AF
+  chto: поставщик этого места (e-mail)
+  kak: формула
+- id: '? Комментарий'
+  bukva: AF…CN (7)
   zagolovok: 1 Комментарий
-  chto: ''
-  kak: ''
-- id: AG
-  bukva: AG
-  zagolovok: 4 Формула
-  chto: ''
-  kak: ''
-- id: AH
-  bukva: AH
+  chto: комментарий к предложению
+  kak: формула
+- id: '? срок'
+  bukva: AH…CP (7)
   zagolovok: 1 срок
-  chto: ''
-  kak: ''
-- id: AI
-  bukva: AI
-  zagolovok: 5 Формула
-  chto: ''
-  kak: ''
-- id: AJ
-  bukva: AJ
+  chto: срок поставки
+  kak: формула
+- id: '? Эксперт'
+  bukva: AJ…CR (7)
   zagolovok: 1 Эксперт
-  chto: ''
-  kak: ''
-- id: AK
-  bukva: AK
-  zagolovok: 6 Формула
-  chto: ''
-  kak: ''
-- id: AL
-  bukva: AL
-  zagolovok: 2 цена
-  chto: ''
-  kak: ''
-- id: AM
-  bukva: AM
-  zagolovok: 7 Формула
-  chto: ''
-  kak: ''
-- id: AN
-  bukva: AN
-  zagolovok: 2 Поставщик
-  chto: ''
-  kak: ''
-- id: AO
-  bukva: AO
-  zagolovok: 8 Формула
-  chto: ''
-  kak: ''
-- id: AP
-  bukva: AP
-  zagolovok: 2 Комментарий
-  chto: ''
-  kak: ''
-- id: AQ
-  bukva: AQ
-  zagolovok: 9 Формула
-  chto: ''
-  kak: ''
-- id: AR
-  bukva: AR
-  zagolovok: 2 срок
-  chto: ''
-  kak: ''
-- id: AS
-  bukva: AS
-  zagolovok: 10 Формула
-  chto: ''
-  kak: ''
-- id: AT
-  bukva: AT
-  zagolovok: 2 Эксперт
-  chto: ''
-  kak: ''
-- id: AU
-  bukva: AU
-  zagolovok: 11 Формула
-  chto: ''
-  kak: ''
-- id: AV
-  bukva: AV
-  zagolovok: 3 цена
-  chto: ''
-  kak: ''
-- id: AW
-  bukva: AW
-  zagolovok: 12 Формула
-  chto: ''
-  kak: ''
-- id: AX
-  bukva: AX
-  zagolovok: 3 Поставщик
-  chto: ''
-  kak: ''
-- id: AY
-  bukva: AY
-  zagolovok: 13 Формула
-  chto: ''
-  kak: ''
-- id: AZ
-  bukva: AZ
-  zagolovok: 3 Комментарий
-  chto: ''
-  kak: ''
-- id: BA
-  bukva: BA
-  zagolovok: 14 Формула
-  chto: ''
-  kak: ''
-- id: BB
-  bukva: BB
-  zagolovok: 3 срок
-  chto: ''
-  kak: ''
-- id: BC
-  bukva: BC
-  zagolovok: 15 Формула
-  chto: ''
-  kak: ''
-- id: BD
-  bukva: BD
-  zagolovok: 3 Эксперт
-  chto: ''
-  kak: ''
-- id: BE
-  bukva: BE
-  zagolovok: 16 Формула
-  chto: ''
-  kak: ''
-- id: BF
-  bukva: BF
-  zagolovok: 4 цена
-  chto: ''
-  kak: ''
-- id: BG
-  bukva: BG
-  zagolovok: 17 Формула
-  chto: ''
-  kak: ''
-- id: BH
-  bukva: BH
-  zagolovok: 4 Поставщик
-  chto: ''
-  kak: ''
-- id: BI
-  bukva: BI
-  zagolovok: 18 Формула
-  chto: ''
-  kak: ''
-- id: BJ
-  bukva: BJ
-  zagolovok: 4 Комментарий
-  chto: ''
-  kak: ''
-- id: BK
-  bukva: BK
-  zagolovok: 19 Формула
-  chto: ''
-  kak: ''
-- id: BL
-  bukva: BL
-  zagolovok: 4 срок
-  chto: ''
-  kak: ''
-- id: BM
-  bukva: BM
-  zagolovok: 20 Формула
-  chto: ''
-  kak: ''
-- id: BN
-  bukva: BN
-  zagolovok: 4 Эксперт
-  chto: ''
-  kak: ''
-- id: BO
-  bukva: BO
-  zagolovok: 21 Формула
-  chto: ''
-  kak: ''
-- id: BP
-  bukva: BP
-  zagolovok: 5 цена
-  chto: ''
-  kak: ''
-- id: BQ
-  bukva: BQ
-  zagolovok: 22 Формула
-  chto: ''
-  kak: ''
-- id: BR
-  bukva: BR
-  zagolovok: 5 Поставщик
-  chto: ''
-  kak: ''
-- id: BS
-  bukva: BS
-  zagolovok: 23 Формула
-  chto: ''
-  kak: ''
-- id: BT
-  bukva: BT
-  zagolovok: 5 Комментарий
-  chto: ''
-  kak: ''
-- id: BU
-  bukva: BU
-  zagolovok: 24 Формула
-  chto: ''
-  kak: ''
-- id: BV
-  bukva: BV
-  zagolovok: 5 срок
-  chto: ''
-  kak: ''
-- id: BW
-  bukva: BW
-  zagolovok: 25 Формула
-  chto: ''
-  kak: ''
-- id: BX
-  bukva: BX
-  zagolovok: 5 Эксперт
-  chto: ''
-  kak: ''
-- id: BY
-  bukva: BY
-  zagolovok: 26 Формула
-  chto: ''
-  kak: ''
-- id: BZ
-  bukva: BZ
-  zagolovok: 6 цена
-  chto: ''
-  kak: ''
-- id: CA
-  bukva: CA
-  zagolovok: 27 Формула
-  chto: ''
-  kak: ''
-- id: CB
-  bukva: CB
-  zagolovok: 6 Поставщик
-  chto: ''
-  kak: ''
-- id: CC
-  bukva: CC
-  zagolovok: 28 Формула
-  chto: ''
-  kak: ''
-- id: CD
-  bukva: CD
-  zagolovok: 6 Комментарий
-  chto: ''
-  kak: ''
-- id: CE
-  bukva: CE
-  zagolovok: 29 Формула
-  chto: ''
-  kak: ''
-- id: CF
-  bukva: CF
-  zagolovok: 6 срок
-  chto: ''
-  kak: ''
-- id: CG
-  bukva: CG
-  zagolovok: 30 Формула
-  chto: ''
-  kak: ''
-- id: CH
-  bukva: CH
-  zagolovok: 6 Эксперт
-  chto: ''
-  kak: ''
-- id: CI
-  bukva: CI
-  zagolovok: 31 Формула
-  chto: ''
-  kak: ''
-- id: CJ
-  bukva: CJ
-  zagolovok: 7 цена
-  chto: ''
-  kak: ''
-- id: CK
-  bukva: CK
-  zagolovok: 32 Формула
-  chto: ''
-  kak: ''
-- id: CL
-  bukva: CL
-  zagolovok: 7 Поставщик
-  chto: ''
-  kak: ''
-- id: CM
-  bukva: CM
-  zagolovok: 33 Формула
-  chto: ''
-  kak: ''
-- id: CN
-  bukva: CN
-  zagolovok: 7 Комментарий
-  chto: ''
-  kak: ''
-- id: CO
-  bukva: CO
-  zagolovok: 34 Формула
-  chto: ''
-  kak: ''
-- id: CP
-  bukva: CP
-  zagolovok: 7 срок
-  chto: ''
-  kak: ''
-- id: CQ
-  bukva: CQ
-  zagolovok: 35 Формула
-  chto: ''
-  kak: ''
-- id: CR
-  bukva: CR
-  zagolovok: 7 Эксперт
-  chto: ''
-  kak: ''
+  chto: оценка эксперта (лист 3-2, догадка)
+  kak: формула
 - id: CS
   bukva: CS
   zagolovok: БлокТопКонец
-  chto: ''
-  kak: ''
+  chto: конец блока топ-7
+  kak: 'не трогать: по метке формулы и скрипты находят начало или конец блока'
 - id: CT
   bukva: CT
   zagolovok: НЕТ
-  chto: ''
-  kak: ''
+  chto: служебный (в заголовке — ячейка K11 листа «Настройки писем»); смысл — проверить
+  kak: формула
+- id: CU
+  bukva: CU
+  zagolovok: ''
+  chto: 'служебный: цена по номеру столбца из CT'
+  kak: формула
+- id: CV
+  bukva: CV
+  zagolovok: ''
+  chto: 'служебный: в каком столбце листа 1-1 блок выбранного поставщика (K)'
+  kak: формула
+- id: CW
+  bukva: CW
+  zagolovok: ''
+  chto: 'служебный: цена выбранного поставщика'
+  kak: формула
+- id: CX
+  bukva: CX
+  zagolovok: ''
+  chto: сколько вопросов по товару без ответа (лист 2-1)
+  kak: формула
+- id: CY
+  bukva: CY
+  zagolovok: ''
+  chto: 'служебный: номенклатура из строки товара на 1-1'
+  kak: формула
+- id: CZ
+  bukva: CZ
+  zagolovok: ''
+  chto: 'служебный: «Лучшие цены» из строки товара на 1-1 (столбец IE)'
+  kak: формула
 - id: DA
   bukva: DA
   zagolovok: Лист1 Номер строки
-  chto: ''
-  kak: ''
+  chto: номер строки товара на листе 1-1 — из текста формулы столбца B
+  kak: формула
 - id: DB
   bukva: DB
   zagolovok: ТопЭксперта
-  chto: ''
-  kak: ''
+  chto: топ с учётом эксперта (догадка)
+  kak: в чистой таблице пусто — проверить

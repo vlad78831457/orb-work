@@ -1,522 +1,140 @@
 # Столбцы листа «5-1 Сбор КП Закупки»: что это (chto) и как заполняется (kak). Руками.
-# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+# id — служебное имя столбца (строка 2) или буква; id со * или ? — шаблон: одно описание на повторяющийся блок
+# (сравнивается со служебным именем и заголовком). bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+# Черновик 2026-10-20 по формулам, заголовкам и старым инструкциям 3.1.2–3.1.8; «(догадка)» — не подтверждено,
+# «⚠» — похоже на ошибку в таблице, проверить.
 - id: err
   bukva: A
   zagolovok: ''
-  chto: ''
-  kak: ''
+  chto: служебный блок A1:B9 — копия с листа 1-1; там курсы валют (B2 — доллар, B3 — евро, B4 — другая валюта, по 3.1.3)
+  kak: 'формула: с листа 1-1, A1:B9'
 - id: err2
   bukva: B
   zagolovok: ''
-  chto: ''
+  chto: служебный столбец каркаса
   kak: ''
 - id: C
   bukva: C
   zagolovok: ID_Товара
-  chto: ''
-  kak: ''
+  chto: ID_Товара
+  kak: 'формула: с листа 5-0 Товары'
 - id: Номер
   bukva: D
   zagolovok: №
-  chto: ''
-  kak: ''
+  chto: № позиции
+  kak: 'формула: с листа 5-0 Товары'
 - id: Номенклатура
   bukva: E
   zagolovok: Номенклатура
-  chto: ''
-  kak: ''
+  chto: название товара
+  kak: 'формула: с листа 5-0 Товары'
 - id: НазваниеТовараПоДоговору
   bukva: F
   zagolovok: Название товара по договору
-  chto: ''
-  kak: ''
+  chto: название товара как в договоре с заказчиком
+  kak: руками; расхождение с листом 5-0 Передача подсвечивается (столбец Y «РазличиеМужду»)
 - id: ИзготовительТовараПоДоговору
   bukva: G
   zagolovok: Изготовитель товара по договору
-  chto: ''
-  kak: ''
+  chto: изготовитель по договору
+  kak: руками; расхождение с 5-0 Передача подсвечивается
 - id: Характеристики
   bukva: H
   zagolovok: Характеристики
-  chto: ''
-  kak: ''
+  chto: характеристики
+  kak: 'формула: с листа 5-0 Товары'
 - id: СоставТехническойДокументации
   bukva: I
   zagolovok: Состав поставляемой с продукцией технической документации
-  chto: ''
-  kak: ''
+  chto: какие документы должны идти с товаром — по договору и ТЗ (3.1.7)
+  kak: руками; расхождение с 5-0 Передача подсвечивается
 - id: ЕдИзм
   bukva: J
   zagolovok: Ед. Изм
-  chto: ''
-  kak: ''
+  chto: единица измерения
+  kak: 'формула: с листа 5-0 Товары'
 - id: Количевство
   bukva: K
   zagolovok: Кол-во
-  chto: ''
-  kak: ''
+  chto: количество
+  kak: 'формула: с листа 5-0 Товары'
 - id: Цена
   bukva: L
   zagolovok: Цена
-  chto: ''
-  kak: ''
+  chto: 'цена за единицу (догадка: выбранная)'
+  kak: формула в каждой ячейке; в выгрузке видно только заголовок — проверить, откуда цена
 - id: Итого
   bukva: M
   zagolovok: Итого
-  chto: ''
-  kak: ''
+  chto: количество × цена; внизу — сумма
+  kak: формула
 - id: Предложений
   bukva: N
   zagolovok: Предложений
-  chto: ''
-  kak: ''
+  chto: сколько предложений по товару; «Мало N», если их меньше порога
+  kak: 'формула: по блокам предложений'
 - id: НМЦ
   bukva: O
   zagolovok: НМЦ
-  chto: ''
-  kak: ''
+  chto: НМЦ за единицу
+  kak: 'формула: с листа 5-0 Товары'
 - id: СрокПоставкиПоДоговору
   bukva: P
   zagolovok: Срок поставки по договору
-  chto: ''
-  kak: ''
+  chto: срок поставки по договору
+  kak: 'формула: с листа 5-0 Товары'
 - id: Запросить
   bukva: Q
   zagolovok: Запросить
-  chto: ''
-  kak: ''
+  chto: 'запрашивать ли товар в повторной рассылке (догадка: замена «Повторная рассылка — Да» из 3.1.7)'
+  kak: руками, из списка «Статусы запроса» (Настройки писем, столбец AL)
 - id: Группа
   bukva: R
   zagolovok: Группа
-  chto: ''
-  kak: ''
+  chto: 'группа: «5-1 …» — группа повторной рассылки (5-2), иначе «1-1 …» — группа контура 1'
+  kak: 'формула: с листа 5-0 Товары'
 - id: свободные_01
   bukva: S
   zagolovok: Доля ответов
-  chto: ''
-  kak: ''
+  chto: доля ответивших поставщиков, число предложений и писем по товару (заголовки «Доля ответов», «Предложение», «Писем»)
+  kak: формула на три столбца S–U — по адресам листа 5-2
 - id: свободные_02
   bukva: T
   zagolovok: Предложение
-  chto: ''
-  kak: ''
+  chto: число предложений (догадка)
+  kak: формула столбца S
 - id: свободные_03
   bukva: U
   zagolovok: Писем
-  chto: ''
-  kak: ''
-- id: свободные_04
-  bukva: V
+  chto: число писем (догадка)
+  kak: формула столбца S
+- id: свободные_0?
+  bukva: V…X (3)
   zagolovok: свободные
-  chto: ''
-  kak: ''
-- id: свободные_05
-  bukva: W
-  zagolovok: свободные
-  chto: ''
-  kak: ''
-- id: свободные_06
-  bukva: X
-  zagolovok: свободные
-  chto: ''
-  kak: ''
+  chto: запас под новые столбцы
+  kak: не заполнять
 - id: РазличиеМужду
   bukva: Y
   zagolovok: РазличиеМужду
-  chto: ''
-  kak: ''
+  chto: в каких полях (F–I) товар отличается от листа 5-0 Передача; результат показывает 5-0 Передача, столбец B
+  kak: формула; по замечанию директора считать бы на 5-0, а показывать здесь
 - id: ЦеныНачало
   bukva: Z
   zagolovok: Цены Начало
-  chto: ''
-  kak: ''
-- id: AA.цена
-  bukva: AA
+  chto: 'метка «Цены Начало»: отсюда вправо — блоки предложений'
+  kak: 'не трогать: по метке формулы и скрипты находят начало или конец блока'
+- id: '*.цена'
+  bukva: AA…CX (26)
   zagolovok: '[почта]'
-  chto: ''
-  kak: ''
-- id: AA.срок
-  bukva: AB
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AA.модель
-  bukva: AC
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AD.цена
-  bukva: AD
-  zagolovok: '[почта]'
-  chto: ''
-  kak: ''
-- id: AD.срок
-  bukva: AE
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AD.модель
-  bukva: AF
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AG.цена
-  bukva: AG
-  zagolovok: '[почта]'
-  chto: ''
-  kak: ''
-- id: AG.срок
-  bukva: AH
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AG.модель
-  bukva: AI
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AJ.цена
-  bukva: AJ
-  zagolovok: '[почта]'
-  chto: ''
-  kak: ''
-- id: AJ.срок
-  bukva: AK
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AJ.модель
-  bukva: AL
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AM.цена
-  bukva: AM
-  zagolovok: '[почта]'
-  chto: ''
-  kak: ''
-- id: AM.срок
-  bukva: AN
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AM.модель
-  bukva: AO
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AP.цена
-  bukva: AP
-  zagolovok: '[почта]'
-  chto: ''
-  kak: ''
-- id: AP.срок
-  bukva: AQ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AP.модель
-  bukva: AR
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AS.цена
-  bukva: AS
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AS.срок
-  bukva: AT
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AS.модель
-  bukva: AU
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AV.цена
-  bukva: AV
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AV.срок
-  bukva: AW
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AV.модель
-  bukva: AX
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AY.цена
-  bukva: AY
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AY.срок
-  bukva: AZ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: AY.модель
-  bukva: BA
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BB.цена
-  bukva: BB
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BB.срок
-  bukva: BC
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BB.модель
-  bukva: BD
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BE.цена
-  bukva: BE
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BE.срок
-  bukva: BF
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BE.модель
-  bukva: BG
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BH.цена
-  bukva: BH
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BH.срок
-  bukva: BI
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BH.модель
-  bukva: BJ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BK.цена
-  bukva: BK
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BK.срок
-  bukva: BL
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BK.модель
-  bukva: BM
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BN.цена
-  bukva: BN
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BN.срок
-  bukva: BO
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BN.модель
-  bukva: BP
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BQ.цена
-  bukva: BQ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BQ.срок
-  bukva: BR
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BQ.модель
-  bukva: BS
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BT.цена
-  bukva: BT
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BT.срок
-  bukva: BU
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BT.модель
-  bukva: BV
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BW.цена
-  bukva: BW
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BW.срок
-  bukva: BX
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BW.модель
-  bukva: BY
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BZ.цена
-  bukva: BZ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BZ.срок
-  bukva: CA
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: BZ.модель
-  bukva: CB
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CC.цена
-  bukva: CC
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CC.срок
-  bukva: CD
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CC.модель
-  bukva: CE
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CF.цена
-  bukva: CF
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CF.срок
-  bukva: CG
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CF.модель
-  bukva: CH
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CI.цена
-  bukva: CI
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CI.срок
-  bukva: CJ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CI.модель
-  bukva: CK
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CL.цена
-  bukva: CL
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CL.срок
-  bukva: CM
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CL.модель
-  bukva: CN
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CO.цена
-  bukva: CO
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CO.срок
-  bukva: CP
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CO.модель
-  bukva: CQ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CR.цена
-  bukva: CR
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CR.срок
-  bukva: CS
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CR.модель
-  bukva: CT
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CU.цена
-  bukva: CU
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CU.срок
-  bukva: CV
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CU.модель
-  bukva: CW
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CX.цена
-  bukva: CX
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CX.срок
-  bukva: CY
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: CX.модель
-  bukva: CZ
-  zagolovok: ''
-  chto: ''
-  kak: ''
+  chto: 'блок поставщика из 3 столбцов: в строке заголовков — e-mail поставщика, в строке товара — цена за единицу в рублях с НДС; аналог — столбец цены жёлтым'
+  kak: руками по письмам и счетам поставщиков, как на 1-1
+- id: '*.срок'
+  bukva: AB…CY (26)
+  zagolovok: ''
+  chto: 'срок поставки: число — календарные дни, «рд» — рабочие, «н» — недели, «м» — месяцы, «в наличии» (3.1.3)'
+  kak: руками
+- id: '*.модель'
+  bukva: AC…CZ (26)
+  zagolovok: ''
+  chto: 'предложенный товар: название и изготовитель'
+  kak: руками
