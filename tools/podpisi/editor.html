@@ -138,10 +138,10 @@ function draw() {
       el('rect', { x: m.x, y: m.y, width: m.w, height: m.h, fill: 'transparent', stroke: RED, 'stroke-width': lw, ...glow }, g);
       label(g, m.x, m.y + m.h + lw * 2, m.tekst, RED);
     } else if (m.vid === 'strelka') {
-      const a = Math.atan2(m.y2 - m.y1, m.x2 - m.x1), L = 14 * S();
-      el('line', { x1: m.x1, y1: m.y1, x2: m.x2, y2: m.y2, stroke: RED, 'stroke-width': lw, ...glow }, g);
-      el('polygon', { fill: RED, points: [[m.x2, m.y2], [m.x2 - L * Math.cos(a - .45), m.y2 - L * Math.sin(a - .45)],
-                                          [m.x2 - L * Math.cos(a + .45), m.y2 - L * Math.sin(a + .45)]].join(' ') }, g);
+      const a = Math.atan2(m.y2 - m.y1, m.x2 - m.x1), L = Math.max(18 * S(), lw * 5);
+      el('line', { x1: m.x1, y1: m.y1, x2: m.x2 - 0.7 * L * Math.cos(a), y2: m.y2 - 0.7 * L * Math.sin(a), stroke: RED, 'stroke-width': lw, ...glow }, g);
+      el('polygon', { fill: RED, points: [[m.x2, m.y2], [m.x2 - L * Math.cos(a - .35), m.y2 - L * Math.sin(a - .35)],
+                                          [m.x2 - L * Math.cos(a + .35), m.y2 - L * Math.sin(a + .35)]].join(' ') }, g);
       label(g, m.x1, m.y1, m.tekst, RED);
     } else if (m.vid === 'nomer') {
       const r = 14 * S();

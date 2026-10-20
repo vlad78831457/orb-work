@@ -62,7 +62,7 @@ def texts(data):
 
 def check(img_path):
     """Ошибки файла подписей: неизвестный вид, нет нужных координат."""
-    need = {'ramka': ('x', 'y', 'w', 'h'), 'strelka': ('x1', 'y1', 'x2', 'y2'), 'nomer': ('x', 'y', 'n'), 'tekst': ('x', 'y', 'tekst'),
+    need = {'ramka': ('x', 'y', 'w', 'h'), 'strelka': ('x1', 'y1', 'x2', 'y2'), 'nomer': ('x', 'y', 'n'), 'tekst': ('x', 'y'),   # пустой текст просто не рисуется
             'skryt': ('x', 'y', 'w', 'h')}
     errors = []
     for i, m in enumerate((load(img_path) or {}).get('metki', []), 1):
@@ -120,10 +120,10 @@ def render(src, data, dst):
             label(x, y + h + lw * 2, t, col)
         elif v == 'strelka':
             x1, y1, x2, y2 = (float(m[k]) for k in ('x1', 'y1', 'x2', 'y2'))
-            d.line((x1, y1, x2, y2), fill=col, width=lw)
-            a, L = math.atan2(y2 - y1, x2 - x1), 14 * s
-            d.polygon([(x2, y2), (x2 - L * math.cos(a - 0.45), y2 - L * math.sin(a - 0.45)),
-                       (x2 - L * math.cos(a + 0.45), y2 - L * math.sin(a + 0.45))], fill=col)
+            a, L = math.atan2(y2 - y1, x2 - x1), max(18 * s, lw * 5)   # острый носик: линия кончается внутри наконечника
+            d.line((x1, y1, x2 - 0.7 * L * math.cos(a), y2 - 0.7 * L * math.sin(a)), fill=col, width=lw)
+            d.polygon([(x2, y2), (x2 - L * math.cos(a - 0.35), y2 - L * math.sin(a - 0.35)),
+                       (x2 - L * math.cos(a + 0.35), y2 - L * math.sin(a + 0.35))], fill=col)
             label(x1, y1, t, col)
         elif v == 'nomer':
             x, y, r = float(m['x']), float(m['y']), 14 * s
