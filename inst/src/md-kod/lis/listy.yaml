@@ -8,6 +8,7 @@
   kontur: '0'
   dogadka: Листа нет в описании листов директора; контур не известен.
   chast: k0-list49
+  zachem: служебный, описывать не надо (ответ директора, раунд 5)
 - list: 0-Паспорт проекта
   tablitsa: proekta
   kontur: '0'
@@ -78,26 +79,32 @@
   tablitsa: proekta
   kontur: '1'
   chast: k1-3-4-prochie-raskhody
+  zachem: сведений нет
 - list: 3-5 Экспортная экспертиза
   tablitsa: proekta
   kontur: '1'
   chast: k1-3-5-eksportnaya-ekspertiza
+  zachem: сведений нет
 - list: 4-1 Расчет рентабельности КП в1
   tablitsa: proekta
   kontur: '1'
   chast: k1-4-1-raschet-rentabelnosti-kp-v1
+  zachem: сведений нет
 - list: 4-2 Подготовка КП
   tablitsa: proekta
   kontur: '1'
   chast: k1-4-2-podgotovka-kp
+  zachem: сведений нет
 - list: 4-1 Расчет рентабельности КП
   tablitsa: proekta
   kontur: '1'
   chast: k1-4-1-raschet-rentabelnosti-kp
+  zachem: сведений нет
 - list: S-10 ОтчетРентабельности
   tablitsa: proekta
   kontur: '1'
   chast: k1-s-10-otchetrentabelnosti
+  zachem: сведений нет
 - list: 4-3 Подготовка ТКП
   tablitsa: proekta
   kontur: '1'
@@ -134,6 +141,7 @@
   tablitsa: proekta
   kontur: '1'
   chast: k1-tovary
+  zachem: сведений нет
 - list: 5-2 Запросы КП Закупки
   tablitsa: proekta
   kontur: '2'
@@ -212,6 +220,7 @@
   kontur: '0'
   dogadka: Листа нет в описании листов директора; контур не известен.
   chast: k0-spravochniki
+  zachem: служебный — подписи ссылок на внешние справочники адресов — органы по сертификации и лаборатории, агенты ВЭД, транспортные компании, брокеры ВЭД; формулы и списки на лист не ссылаются
 - list: Настройки писем
   tablitsa: proekta
   kontur: '0'
@@ -393,3 +402,4 @@
   tablitsa: oplat
   kontur: '3'
   chast: k3-vo-tekhnicheskiy-list
+  zachem: сведений нет

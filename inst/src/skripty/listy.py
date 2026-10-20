@@ -4,6 +4,7 @@
 столбцов (chto — что это, kak — как заполняется); index.md — текст. Какой лист — какая часть: lis/listy.yaml.
 Страница листа — глубина 2 (lis/<часть>/index.md), отсюда ссылки «../…» и «../../…».
 """
+import fnmatch
 import os
 import re
 
@@ -37,6 +38,27 @@ def entry_of(p, reg_list):
     return next((e for e in reg_list if e['chast'] == p['slug']), None)
 
 
+def is_pattern(i):
+    return any(ch in str(i) for ch in '*?')
+
+
+def matches(pat, c):
+    return any(v and fnmatch.fnmatchcase(str(v), str(pat)) for v in (c.get('klyuch'), c.get('zagolovok')))
+
+
+def describe(cols, stolbtsy):
+    """Описание каждого столбца (буква → запись stolbtsy.yaml): точное по служебному имени или букве, иначе первый
+    шаблон (`*`, `?`) по служебному имени или заголовку — один на повторяющийся блок столбцов."""
+    exact = {str(d['id']): d for d in stolbtsy or [] if d.get('id') is not None and not is_pattern(d['id'])}
+    pats = [d for d in stolbtsy or [] if d.get('id') is not None and is_pattern(d['id'])]
+    out = {}
+    for c in cols:
+        d = exact.get(c['bukva']) or exact.get(str(c.get('klyuch'))) or next((d for d in pats if matches(d['id'], c)), None)
+        if d:
+            out[c['bukva']] = d
+    return out
+
+
 def check(parts, reg_list):
     errors, notes = [], []
     seen = set()
@@ -53,10 +75,14 @@ def check(parts, reg_list):
         if p['sec'] == 'lis' and p.get('struktura') and p['slug'] not in seen:
             errors.append(f'{p["name"]}: лист не записан в lis/listy.yaml')
         if p['sec'] == 'lis' and p.get('struktura'):
-            ids = {c.get('klyuch') for c in p['struktura'].get('stolbtsy', [])} | {c['bukva'] for c in p['struktura'].get('stolbtsy', [])}
+            cols = p['struktura'].get('stolbtsy', [])
+            ids = {str(c.get('klyuch')) for c in cols} | {c['bukva'] for c in cols}
             for c in p.get('stolbtsy') or []:
-                if c.get('id') not in ids:
-                    notes.append(f'{p["name"]}: в stolbtsy.yaml столбец «{c.get("id")}», которого нет в таблице')
+                i = c.get('id')
+                if is_pattern(i) and not any(matches(i, x) for x in cols):
+                    notes.append(f'{p["name"]}: в stolbtsy.yaml шаблон «{i}» не подходит ни к одному столбцу')
+                elif not is_pattern(i) and str(i) not in ids:
+                    notes.append(f'{p["name"]}: в stolbtsy.yaml столбец «{i}», которого нет в таблице')
     return errors, notes
 
 
@@ -104,7 +130,7 @@ def how_filled(c):
 def render_sheet(p, parts, reg, reg_list, links, places):
     st, e = p['struktura'], entry_of(p, reg_list)
     takes, given = links
-    desc = {c['id']: c for c in p.get('stolbtsy') or [] if c.get('id')}
+    desc = describe(st.get('stolbtsy', []), p.get('stolbtsy'))
     out = ['\n## Устройство (из таблицы)\n']
     facts = [f'**Таблица:** {TABLES[e["tablitsa"]]}, лист «{e["list"]}»; контур {e["kontur"]}']
     if e.get('analog'):
@@ -146,7 +172,7 @@ def render_sheet(p, parts, reg, reg_list, links, places):
                 '| Столбец | Заголовок | Служебное имя | Вид | Заполняется | Список | Что это | Как заполняют |',
                 '|---|---|---|---|---|---|---|---|']
         for c in cols:
-            d = desc.get(c.get('klyuch')) or desc.get(c['bukva']) or {}
+            d = desc.get(c['bukva'], {})
             hide = ' *(скрыт)*' if c.get('skryt_v_fayle') or 'Скрыть' in c.get('skryt', '') else ''
             spisok = c.get('spisok', '')
             out.append(f'| {c["bukva"]}{hide} | {protsessy.cell(c.get("zagolovok", ""))} | {protsessy.cell(c.get("klyuch", ""))} | '

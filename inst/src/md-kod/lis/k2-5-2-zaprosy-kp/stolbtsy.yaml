@@ -1,267 +1,100 @@
 # Столбцы листа «5-2 Запросы КП Закупки»: что это (chto) и как заполняется (kak). Руками.
-# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+# id — служебное имя столбца (строка 2) или буква; id со * или ? — шаблон: одно описание на повторяющийся блок
+# (сравнивается со служебным именем и заголовком). bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.
+# Черновик 2026-10-20 по формулам, заголовкам и старым инструкциям 3.1.2–3.1.8; «(догадка)» — не подтверждено,
+# «⚠» — похоже на ошибку в таблице, проверить.
 - id: err
   bukva: A
   zagolovok: ''
-  chto: ''
+  chto: служебный столбец каркаса
   kak: ''
 - id: err2
   bukva: B
   zagolovok: ''
-  chto: ''
+  chto: служебный столбец каркаса
   kak: ''
 - id: C
   bukva: C
   zagolovok: ID_Товара
-  chto: ''
-  kak: ''
+  chto: ID_Товара
+  kak: 'формула: по № с листа 5-1'
 - id: Номер
   bukva: D
   zagolovok: №
-  chto: ''
-  kak: ''
+  chto: № товара в группе повторной рассылки
+  kak: 'руками: из списка номеров листа 5-1 или вставкой значений'
 - id: Номенклатура
   bukva: E
   zagolovok: Номенклатура
-  chto: ''
-  kak: ''
+  chto: название товара
+  kak: 'формула: по № с листа 5-1'
 - id: НазваниеТовараПоДоговору
   bukva: F
   zagolovok: Название товара по договору
-  chto: ''
-  kak: ''
+  chto: название товара по договору
+  kak: 'формула: по № с листа 5-1'
 - id: ИзготовительТовараПоДоговору
   bukva: G
   zagolovok: Изготовитель товара по договору
-  chto: ''
-  kak: ''
+  chto: изготовитель по договору
+  kak: 'формула: по № с листа 5-1'
 - id: Характеристики
   bukva: H
   zagolovok: Характеристики
-  chto: ''
-  kak: ''
+  chto: характеристики
+  kak: 'формула: по № с листа 5-1'
 - id: СоставТехническойДокументации
   bukva: I
   zagolovok: Состав поставляемой с продукцией технической документации
-  chto: ''
-  kak: ''
+  chto: состав технической документации
+  kak: 'формула: по № с листа 5-1'
 - id: ЕдИзм
   bukva: J
   zagolovok: Ед. Изм
-  chto: ''
-  kak: ''
+  chto: единица измерения
+  kak: 'формула: по № с листа 5-1'
 - id: Количевство
   bukva: K
   zagolovok: Кол-во
-  chto: ''
-  kak: ''
+  chto: количество
+  kak: 'формула: по № с листа 5-1'
 - id: НазваниеТовраДляЗапроса
   bukva: L
   zagolovok: Название товара для запроса
-  chto: ''
-  kak: ''
+  chto: название товара, как оно уйдёт в письме поставщику
+  kak: формула в каждой ячейке (= номенклатура); для уточнений можно вписать своё (догадка)
 - id: Файлы
   bukva: M
   zagolovok: Файлы
-  chto: ''
-  kak: ''
+  chto: ссылки на файлы к товару; каждая с новой строки; без упоминания конечного заказчика
+  kak: руками (как на 1-2)
 - id: Группа
   bukva: N
   zagolovok: Группа
-  chto: ''
-  kak: ''
+  chto: номер группы товаров повторной рассылки; группы разделяют две и более пустые строки
+  kak: 'формула на два столбца: группа и строка в группе'
 - id: СтрокаВГруппе
   bukva: O
   zagolovok: Строка в группе
-  chto: ''
-  kak: ''
-- id: Ключ фразы 1
-  bukva: P
+  chto: 'номер строки в группе: первая — адреса, вторая — уникальные адреса'
+  kak: формула столбца «Группа»
+- id: Ключ фразы ?
+  bukva: P…R (3)
   zagolovok: Ключ фразы 1
-  chto: ''
-  kak: ''
-- id: Ключ фразы 2
-  bukva: Q
-  zagolovok: Ключ фразы 2
-  chto: ''
-  kak: ''
-- id: Ключ фразы 3
-  bukva: R
-  zagolovok: Ключ фразы 3
-  chto: ''
-  kak: ''
-- id: Свободно01
-  bukva: S
+  chto: ключевые фразы для поиска поставщиков; действуют на всю группу
+  kak: руками
+- id: Свободно0?
+  bukva: S…Z (8)
   zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Свободно02
-  bukva: T
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Свободно03
-  bukva: U
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Свободно04
-  bukva: V
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Свободно05
-  bukva: W
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Свободно06
-  bukva: X
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Свободно07
-  bukva: Y
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Свободно08
-  bukva: Z
-  zagolovok: ''
-  chto: ''
-  kak: ''
+  chto: запас под новые столбцы
+  kak: не заполнять
 - id: ПочтыНачало
   bukva: AA
   zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AB
-  bukva: AB
+  chto: 'метка: отсюда вправо — адреса поставщиков'
+  kak: 'не трогать: по метке формулы и скрипты находят начало или конец блока'
+- id: Почта.*
+  bukva: AB…BA (26)
   zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AC
-  bukva: AC
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AD
-  bukva: AD
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AE
-  bukva: AE
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AF
-  bukva: AF
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AG
-  bukva: AG
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AH
-  bukva: AH
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AI
-  bukva: AI
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AJ
-  bukva: AJ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AK
-  bukva: AK
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AL
-  bukva: AL
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AM
-  bukva: AM
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AN
-  bukva: AN
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AO
-  bukva: AO
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AP
-  bukva: AP
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AQ
-  bukva: AQ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AR
-  bukva: AR
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AS
-  bukva: AS
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AT
-  bukva: AT
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AU
-  bukva: AU
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AV
-  bukva: AV
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AW
-  bukva: AW
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AX
-  bukva: AX
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AY
-  bukva: AY
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.AZ
-  bukva: AZ
-  zagolovok: ''
-  chto: ''
-  kak: ''
-- id: Почта.BA
-  bukva: BA
-  zagolovok: ''
-  chto: ''
-  kak: ''
+  chto: адреса поставщиков группы; после отправки ячейка окрашивается, в заметке — кто, кому, когда
+  kak: 'руками: в первую строку группы, с AB вправо (как на 1-2)'
