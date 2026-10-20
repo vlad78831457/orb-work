@@ -1,5 +1,5 @@
 # orb-work. Проверка и сборка идут прямо на стенде: нужны sh, git, python3 и PyYAML.
-.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament reglament-xlsx listy
+.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament reglament-xlsx listy podpisi
 
 SOBRAT := python3 inst/src/skripty/sobrat.py
 DATE ?= $(shell date +%F)
@@ -23,6 +23,9 @@ full: ## собрать короткий и полный md: make full F=tio.skr
 docx: ## вручную: короткий и полный .docx с датой: make docx F=tio.skr-zapusk-triggerov → inst/docx/tio/
 	$(SOBRAT) --full $(F) --date $(DATE) --out inst/md-full-out
 	sh tools/docx.sh $(F) $(DATE)
+
+podpisi: ## редактор подписей на снимках: http://localhost:8765 (с ноутбука: ssh -L 8765:localhost:8765 ag12)
+	python3 tools/podpisi/server.py
 
 mermaid: ## проверить схемы Mermaid в inst/md-out настоящим mermaid-cli (по желанию; новые и изменённые)
 	taskset -c 0 python3 tools/mermaid.py
