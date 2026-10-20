@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Подписи на снимках</title>
+<style>
+  :root { --red: #c0001a; --bg: #f4f4f5; --line: #d4d4d8; --text: #18181b; --muted: #71717a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.4 system-ui, sans-serif; color: var(--text); background: var(--bg); display: grid;
+         grid-template-columns: 260px 1fr 300px; height: 100vh; }
+  aside, main, section { overflow: auto; }
+  aside { border-right: 1px solid var(--line); background: #fff; padding: 8px; }
+  section { border-left: 1px solid var(--line); background: #fff; padding: 8px; }
+  input[type=search] { width: 100%; padding: 6px; margin-bottom: 6px; }
+  .img { padding: 4px 6px; cursor: pointer; border-radius: 4px; word-break: break-all; font-size: 12px; }
+  .img:hover { background: #f4f4f5; } .img.on { background: #fee2e2; } .img .dot { color: var(--red); }
+  .bar { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 4px; padding: 6px; background: var(--bg);
+         border-bottom: 1px solid var(--line); }
+  button { border: 1px solid var(--line); background: #fff; padding: 5px 9px; border-radius: 4px; cursor: pointer; }
+  button.on { background: var(--red); color: #fff; border-color: var(--red); }
+  .state { margin-left: auto; color: var(--muted); align-self: center; }
+  .wrap { padding: 10px; } svg { max-width: 100%; height: auto; background: #fff; box-shadow: 0 0 0 1px var(--line); user-select: none; }
+  .m { border: 1px solid var(--line); border-radius: 4px; padding: 6px; margin-bottom: 6px; }
+  .m.on { border-color: var(--red); } .m b { color: var(--red); }
+  .m textarea { width: 100%; min-height: 44px; margin-top: 4px; font: inherit; }
+  .m input { width: 50px; }
+  .hint { color: var(--muted); font-size: 12px; }
+  #pal { display: inline-flex; gap: 3px; align-items: center; margin: 0 4px; }
+  .c { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); cursor: pointer; }
+  .c.on { box-shadow: 0 0 0 2px var(--text); }
+</style>
+</head>
+<body>
+<aside>
+  <input type="search" id="q" placeholder="Найти снимок">
+  <div id="list"></div>
+</aside>
+<main>
+  <div class="bar">
+    <button data-t="vybor" title="V">Выбор</button>
+    <button data-t="ramka" title="R">Рамка</button>
+    <button data-t="strelka" title="A">Стрелка</button>
+    <button data-t="nomer" title="N">Номер</button>
+    <button data-t="tekst" title="T">Текст</button>
+    <button data-t="skryt" title="B — размыть или закрасить кусок снимка">Скрыть</button>
+    <span id="pal"></span>
+    <button id="del" title="Delete">Удалить</button>
+    <button id="save" title="Ctrl+S">Сохранить</button>
+    <button id="prev">Как в сборке</button>
+    <span class="state" id="state">выберите снимок слева</span>
+  </div>
+  <div class="wrap"><svg id="svg"></svg></div>
+</main>
+<section>
+  <div class="hint">Рамка и стрелка — тянуть мышью (стрелка: от подписи к цели). Номер и текст — щелчок. Скрыть — тянуть
+    рамку, справа выбрать «размыть» или «закрасить» (цветом из кружков). Кружки — цвет новых меток и выбранной.
+    Выбор — щелчок по метке, тянуть — двигать. Тексты пишутся здесь; они же пойдут в «Текст на фото».</div>
+  <div id="marks"></div>
+</section>
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const COLORS = { krasnyj: '#c0001a', oranzhevyj: '#ea580c', zhyoltyj: '#facc15', zelyonyj: '#15803d', sinij: '#1d4ed8',
+                 fioletovyj: '#7e22ce', chyornyj: '#111111', belyj: '#ffffff', seryj: '#9ca3af' };
+let color = 'krasnyj';
+const col = (m) => COLORS[m.cvet || (m.vid === 'skryt' ? 'seryj' : 'krasnyj')] || COLORS.krasnyj;
+let cur = null, W = 0, H = 0, metki = [], sel = -1, tool = 'vybor', dirty = false, drag = null;
+const $ = (id) => document.getElementById(id);
+const svg = $('svg');
+
+async function loadList() {
+  const items = await (await fetch('api/list')).json();
+  const q = $('q').value.toLowerCase();
+  $('list').innerHTML = '';
+  for (const it of items.filter(x => x.p.toLowerCase().includes(q))) {
+    const d = document.createElement('div');
+    d.className = 'img' + (it.p === cur ? ' on' : '');
+    d.innerHTML = (it.est ? '<span class="dot">● </span>' : '') + it.p;
+    d.onclick = () => open(it.p);
+    $('list').append(d);
+  }
+}
+
+async function open(p) {
+  if (dirty && !confirm('Подписи не сохранены. Уйти без сохранения?')) return;
+  cur = p; sel = -1; dirty = false;
+  const img = new Image();
+  img.src = 'img?p=' + encodeURIComponent(p);
+  await img.decode();
+  W = img.naturalWidth; H = img.naturalHeight;
+  metki = ((await (await fetch('api/podpisi?p=' + encodeURIComponent(p))).json()).metki) || [];
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.setAttribute('width', W);
+  draw(); panel(); loadList(); state();
+}
+
+function state(t) { $('state').textContent = t || (cur ? cur + (dirty ? ' — не сохранено' : ' — сохранено') : ''); }
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  (parent || svg).append(e); return e;
+}
+const S = () => Math.max(1, Math.max(W, H) / 1000);
+
+function label(g, x, y, text, RED) {
+  if (!text) return;
+  const lines = String(text).split('\n'), fs = 18 * S();
+  const t = el('text', { x, y: y + fs, fill: RED, 'font-size': fs, 'font-family': 'DejaVu Sans, sans-serif' }, g);
+  lines.forEach((ln, i) => { const s = el('tspan', { x, dy: i ? fs * 1.2 : 0 }, t); s.textContent = ln; });
+  const b = t.getBBox(), pad = 4 * S();
+  const r = el('rect', { x: b.x - pad, y: b.y - pad, width: b.width + 2 * pad, height: b.height + 2 * pad,
+                         fill: '#fff', stroke: RED, 'stroke-width': 1.5 * S() }, g);
+  g.insertBefore(r, t);
+}
+
+function draw() {
+  svg.innerHTML = '';
+  if (!cur) return;
+  el('image', { href: 'img?p=' + encodeURIComponent(cur), x: 0, y: 0, width: W, height: H });
+  const lw = 3 * S();
+  const defs = el('defs', {});
+  el('feGaussianBlur', { stdDeviation: 8 * S() }, el('filter', { id: 'blur' }, defs));
+  const order = metki.map((m, i) => i).sort((a, b) => (metki[b].vid === 'skryt') - (metki[a].vid === 'skryt'));
+  order.forEach((i) => {
+    const m = metki[i], RED = col(m);
+    const g = el('g', { 'data-i': i, cursor: 'move', opacity: sel === -1 || sel === i ? 1 : 0.75 });
+    const glow = sel === i ? { filter: 'drop-shadow(0 0 3px #f59e0b)' } : {};
+    if (m.vid === 'skryt') {
+      if ((m.sposob || 'razmyt') === 'zalit') el('rect', { x: m.x, y: m.y, width: m.w, height: m.h, fill: RED }, g);
+      else {
+        const cp = el('clipPath', { id: 'cp' + i }, defs);
+        el('rect', { x: m.x, y: m.y, width: m.w, height: m.h }, cp);
+        el('image', { href: 'img?p=' + encodeURIComponent(cur), x: 0, y: 0, width: W, height: H, filter: 'url(#blur)', 'clip-path': `url(#cp${i})` }, g);
+      }
+      el('rect', { x: m.x, y: m.y, width: m.w, height: m.h, fill: 'transparent', stroke: sel === i ? '#f59e0b' : 'none',
+                   'stroke-dasharray': 6 * S(), 'stroke-width': 2 * S() }, g);
+    } else if (m.vid === 'ramka') {
+      el('rect', { x: m.x, y: m.y, width: m.w, height: m.h, fill: 'transparent', stroke: RED, 'stroke-width': lw, ...glow }, g);
+      label(g, m.x, m.y + m.h + lw * 2, m.tekst, RED);
+    } else if (m.vid === 'strelka') {
+      const a = Math.atan2(m.y2 - m.y1, m.x2 - m.x1), L = Math.max(18 * S(), lw * 5);
+      el('line', { x1: m.x1, y1: m.y1, x2: m.x2 - 0.7 * L * Math.cos(a), y2: m.y2 - 0.7 * L * Math.sin(a), stroke: RED, 'stroke-width': lw, ...glow }, g);
+      el('polygon', { fill: RED, points: [[m.x2, m.y2], [m.x2 - L * Math.cos(a - .35), m.y2 - L * Math.sin(a - .35)],
+                                          [m.x2 - L * Math.cos(a + .35), m.y2 - L * Math.sin(a + .35)]].join(' ') }, g);
+      label(g, m.x1, m.y1, m.tekst, RED);
+    } else if (m.vid === 'nomer') {
+      const r = 14 * S();
+      el('circle', { cx: m.x, cy: m.y, r, fill: RED, stroke: '#fff', 'stroke-width': lw / 2, ...glow }, g);
+      const t = el('text', { x: m.x, y: m.y, fill: ['zhyoltyj', 'belyj'].includes(m.cvet) ? '#111' : '#fff', 'font-size': 18 * S(), 'font-weight': 'bold', 'text-anchor': 'middle',
+                             'dominant-baseline': 'central', 'font-family': 'DejaVu Sans, sans-serif' }, g);
+      t.textContent = m.n;
+      label(g, m.x + r + 4 * S(), m.y - r, m.tekst, RED);
+    } else if (m.vid === 'tekst') {
+      label(g, m.x, m.y, m.tekst || 'текст', RED);
+    }
+  });
+}
+
+function panel() {
+  $('marks').innerHTML = '';
+  const names = { ramka: 'Рамка', strelka: 'Стрелка', nomer: 'Номер', tekst: 'Текст', skryt: 'Скрыть' };
+  metki.forEach((m, i) => {
+    const d = document.createElement('div');
+    d.className = 'm' + (sel === i ? ' on' : '');
+    d.innerHTML = `<b>${i + 1}. ${names[m.vid]}</b>` + (m.vid === 'nomer' ? ` № <input type="number" value="${m.n}">` : '') +
+                  (m.vid === 'skryt' ? ' <select><option value="razmyt">размыть</option><option value="zalit">закрасить</option></select>'
+                                     : '<textarea placeholder="текст подписи"></textarea>');
+    const ta = d.querySelector('textarea');
+    if (ta) { ta.value = m.tekst || ''; ta.oninput = () => { m.tekst = ta.value; changed(false); }; }
+    const sp = d.querySelector('select');
+    if (sp) { sp.value = m.sposob || 'razmyt'; sp.onchange = () => { m.sposob = sp.value; changed(false); }; }
+    const n = d.querySelector('input'); if (n) n.oninput = () => { m.n = +n.value; changed(false); };
+    d.onclick = (e) => { if (sel !== i) { sel = i; draw(); panel(); } };
+    $('marks').append(d);
+  });
+}
+
+function changed(full = true) { dirty = true; draw(); if (full) panel(); state(); }
+
+function pt(e) {
+  const p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+  const q = p.matrixTransform(svg.getScreenCTM().inverse());
+  return { x: Math.round(Math.max(0, Math.min(W, q.x))), y: Math.round(Math.max(0, Math.min(H, q.y))) };
+}
+
+svg.addEventListener('mousedown', (e) => {
+  if (!cur) return;
+  const p = pt(e), g = e.target.closest('g[data-i]');
+  if (tool === 'vybor') {
+    sel = g ? +g.dataset.i : -1;
+    if (g) drag = { kind: 'move', start: p, orig: { ...metki[sel] } };
+    draw(); panel(); return;
+  }
+  if (tool === 'nomer' || tool === 'tekst') {
+    const m = tool === 'nomer' ? { vid: 'nomer', x: p.x, y: p.y, n: 1 + Math.max(0, ...metki.filter(x => x.vid === 'nomer').map(x => +x.n || 0)) }
+                               : { vid: 'tekst', x: p.x, y: p.y, tekst: '' };
+    if (color !== 'krasnyj') m.cvet = color;
+    metki.push(m); sel = metki.length - 1; changed();
+    const tas = $('marks').querySelectorAll('textarea'); tas[tas.length - 1].focus();
+    return;
+  }
+  const m = tool === 'ramka' || tool === 'skryt' ? { vid: tool, x: p.x, y: p.y, w: 0, h: 0 } : { vid: 'strelka', x1: p.x, y1: p.y, x2: p.x, y2: p.y };
+  if (tool === 'skryt') m.sposob = 'razmyt';
+  if (color !== 'krasnyj' && tool !== 'skryt') m.cvet = color;
+  metki.push(m); sel = metki.length - 1; drag = { kind: 'new', start: p }; changed();
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (!drag) return;
+  const p = pt(e), m = metki[sel];
+  if (drag.kind === 'new') {
+    if (m.vid !== 'strelka') { m.x = Math.min(p.x, drag.start.x); m.y = Math.min(p.y, drag.start.y);
+                             m.w = Math.abs(p.x - drag.start.x); m.h = Math.abs(p.y - drag.start.y); }
+    else { m.x2 = p.x; m.y2 = p.y; }
+  } else {
+    const dx = p.x - drag.start.x, dy = p.y - drag.start.y, o = drag.orig;
+    if (m.vid === 'strelka') Object.assign(m, { x1: o.x1 + dx, y1: o.y1 + dy, x2: o.x2 + dx, y2: o.y2 + dy });
+    else Object.assign(m, { x: o.x + dx, y: o.y + dy });
+  }
+  dirty = true; draw(); state();
+});
+
+window.addEventListener('mouseup', () => {
+  if (drag && drag.kind === 'new') {
+    const m = metki[sel];
+    const tiny = m.vid !== 'strelka' ? m.w < 4 || m.h < 4 : Math.hypot(m.x2 - m.x1, m.y2 - m.y1) < 6;
+    if (tiny) { metki.splice(sel, 1); sel = -1; }
+    changed();
+    const ta = !tiny && $('marks').children[sel].querySelector('textarea'); if (ta) ta.focus();
+  }
+  drag = null;
+});
+
+function setTool(t) { tool = t; document.querySelectorAll('[data-t]').forEach(b => b.classList.toggle('on', b.dataset.t === t)); }
+document.querySelectorAll('[data-t]').forEach(b => b.onclick = () => setTool(b.dataset.t));
+setTool('vybor');
+
+function del() { if (sel >= 0) { metki.splice(sel, 1); sel = -1; changed(); } }
+async function save() {
+  if (!cur) return;
+  const r = await (await fetch('api/podpisi?p=' + encodeURIComponent(cur), { method: 'POST', body: JSON.stringify({ metki }) })).json();
+  dirty = false; state(r.oshibki && r.oshibki.length ? 'сохранено, но: ' + r.oshibki.join('; ') : null); loadList();
+}
+$('del').onclick = del;
+$('save').onclick = save;
+$('prev').onclick = () => cur && window.open('preview?p=' + encodeURIComponent(cur) + '&t=' + Date.now());
+$('q').oninput = loadList;
+
+window.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); return; }
+  if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+  const k = { v: 'vybor', r: 'ramka', a: 'strelka', n: 'nomer', t: 'tekst', b: 'skryt' }[e.key.toLowerCase()];
+  if (k) setTool(k);
+  if (e.key === 'Delete' || e.key === 'Backspace') del();
+  if (e.key === 'Escape') { sel = -1; draw(); panel(); }
+});
+window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+for (const [name, hex] of Object.entries(COLORS)) {
+  const b = document.createElement('span');
+  b.className = 'c' + (name === color ? ' on' : ''); b.style.background = hex; b.title = name;
+  b.onclick = () => {
+    color = name; document.querySelectorAll('.c').forEach(x => x.classList.toggle('on', x === b));
+    if (sel >= 0) { if (name === 'krasnyj' && metki[sel].vid !== 'skryt') delete metki[sel].cvet; else metki[sel].cvet = name; changed(); }
+  };
+  $('pal').append(b);
+}
+loadList();
+</script>
+</body>
+</html>
