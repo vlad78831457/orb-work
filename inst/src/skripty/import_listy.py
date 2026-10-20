@@ -268,7 +268,8 @@ def columns_skeleton(e, info):
         seen.add(cid)
         rows.append({'id': cid, 'bukva': c['bukva'], 'zagolovok': c.get('zagolovok', ''), 'chto': '', 'kak': ''})
     head = (f'# Столбцы листа «{e.get("title", e["list"])}»: что это (chto) и как заполняется (kak). Руками.\n'
-            '# id — служебное имя столбца (строка 2) или буква; bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.\n')
+            '# id — служебное имя столбца (строка 2) или буква; id со * или ? — шаблон: одно описание на повторяющийся блок\n'
+            '# (сравнивается со служебным именем и заголовком). bukva и zagolovok — для ориентира, сборщик берёт их из struktura.yaml.\n')
     return head + dump(rows)
 
 
