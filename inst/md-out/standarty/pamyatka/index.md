@@ -34,6 +34,9 @@
 |---|---|
 | `make inst` | собрать `inst/md-out` |
 | `make test` | проверить всё; должно кончиться словами `orb-work: ok` |
+| `make veb-zabrat IMYA=proekta` | забрать устройство таблицы из вебхука в `raw/veb/` (как поставить — `tools/veb/README.md`) |
+| `make gas-pull ID=… NAME=…` | скачать скрипты Apps Script копии в `raw/gas/NAME`; `gas-kopiya`, `gas-push`, `veb-push` — запись, только в копию |
+| `make agy-setup` | поставить Antigravity CLI в `.tools/agy` (заметка — `think/au-antigravity.md`) |
 | `make podpisi` | редактор подписей на снимках; с ноутбука: `ssh -L 8765:localhost:8765 ag12`, потом в браузере http://localhost:8765 |
 | `make full F=tio.skr-zapusk-triggerov` | собрать короткий и полный md инструкции в `inst/md-full-out/tio/` |
 | `make inst OUT=папка` | собрать в другую папку (версия, выгрузка) |
