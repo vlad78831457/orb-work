@@ -4,10 +4,14 @@ kratko: "запуск триггеров"
 polno: "Как владельцу таблицы один раз включить пять триггеров, не создав их дважды, и как проверить результат."
 status: готово
 nuzhno:
+  - tio.skr-zapusk-triggerov-express
   - zna.skr-plashka
   - tio.skr-avtorizatsiya
   - um.skr-proverit-triggery
 ---
+
+[[tio.skr-zapusk-triggerov-express]]
+
 
 # Запуск триггеров
 
