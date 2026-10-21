@@ -252,7 +252,7 @@ def render_tab(p, parts, reg_list, links):
     table = next(t for t, slug in OVERVIEW.items() if slug == p['slug'])
     rows = [e for e in reg_list if e['tablitsa'] == table]
     out = [f'\n## Листы по контурам\n',
-           'Зачем — со слов директора; устройство — из таблицы; у каждого листа своя страница-заготовка.\n']
+           'Зачем — со слов; устройство — из таблицы; у каждого листа своя страница-заготовка.\n']
     for k in dict.fromkeys(e['kontur'] for e in rows):
         out += [f'### Контур {k}\n', '| Лист | Зачем | Каркас | Столбцов | Формул | Описание |', '|---|---|---|---|---|---|']
         for e in [x for x in rows if x['kontur'] == k]:
