@@ -3,6 +3,8 @@
 
     python3 inst/src/skripty/import_listy.py proekta=ФАЙЛ.xlsx oplat=ФАЙЛ.xlsx [--check] [--zagotovki]
 
+Вместо xlsx можно дать JSON вебхука (tools/veb, `make veb-zabrat`): proekta=raw/veb/….json — устройство то же.
+
 proekta / oplat — какая это таблица (имена листов в двух таблицах совпадают: «7 Договора» есть в обеих).
 Какой лист — какая часть, задаёт реестр lis/listy.yaml (поле list — имя листа в выгрузке).
 Берётся только устройство: служебные строки и строка заголовков, вид и списки столбцов, формулы, ссылки на листы.
@@ -11,6 +13,7 @@ proekta / oplat — какая это таблица (имена листов в
 --zagotovki  кроме struktura.yaml, создаёт заготовки index.md и stolbtsy.yaml, если их ещё нет (существующее не трогает).
 """
 import html
+import json
 import os
 import re
 import sys
@@ -107,6 +110,10 @@ class Book:
 
     def sheet(self, name):
         """Устройство одного листа: словарь для struktura.yaml."""
+        return describe(name, self.model(name))
+
+    def model(self, name):
+        """Ячейки и свойства листа из xlsx — в том же виде, что отдаёт вебхук (tools/veb)."""
         x = self.z.read(self.sheets[name]).decode(errors='ignore')
         cells = {}   # (столбец, строка) → (значение, формула)
         for col, row, attrs, body in re.findall(r'<c r="([A-Z]+)(\d+)"([^>]*?)(?:/>|>(.*?)</c>)', x, re.S):
@@ -119,91 +126,125 @@ class Book:
             if 't="s"' in attrs and v:
                 val = self.strings[int(val)]
             cells[(col, int(row))] = (html.unescape(val), html.unescape(fm.group(1)) if fm else ('' if not shared else None))
-        get = lambda c, r: (cells.get((c, r)) or ('', ''))[0].strip()
         pane = re.search(r'<pane [^>]*topLeftCell="([A-Z]+)(\d+)"', x)
-        frame = get('C', 1) == 'header_first'
-        info = {'list': name}
-        dim = re.search(r'<dimension ref="([^"]+)"', x)   # Google размер не пишет — тогда по занятым ячейкам
-        last_c = max((col_index(c) for c, _ in cells), default=1)
-        last_r = max((r for _, r in cells), default=1)
-        info['diapazon'] = dim.group(1) if dim else f'A1:{col_letter(last_c)}{last_r}'
-        info['zakrepleno'] = f'{pane.group(1)}{pane.group(2)}' if pane else ''
-        info['karkas'] = frame
-        labels = {}
-        if frame:
-            for r in range(1, 41):
-                lab = get('C', r)
-                if lab in LABELS:
-                    labels[LABELS[lab]] = r
-                if lab == 'header_last':
-                    break
-            head = labels.get('primechanie', 9) + 1
-            labels['vid'] = labels.get('klyuch', 2) + 1
-        else:
-            head = int(pane.group(2)) - 1 if pane and int(pane.group(2)) > 1 else 1
-            info['zagolovki_ugadany'] = True
-        info['stroka_zagolovkov'] = head
+        dim = re.search(r'<dimension ref="([^"]+)"', x)
         hidden = set()
         for lo, hi in ((int(a), int(b)) for a, b in re.findall(r'<col [^>]*min="(\d+)"[^>]*max="(\d+)"[^>]*hidden="1"', x)):
             hidden.update(range(lo, min(hi, lo + 500) + 1))
-        dv = {}
+        dv = []
         for attrs, body in re.findall(r'<dataValidation ([^>]*)>(.*?)</dataValidation>', x, re.S):
             f1 = re.search(r'<formula1>(.*?)</formula1>', body, re.S)
             sq = re.search(r'sqref="([^"]+)"', attrs)
             if f1 and sq and 'type="list"' in attrs:
-                for part in sq.group(1).split():
-                    m = re.match(r'([A-Z]+)\d*(?::([A-Z]+)\d*)?', part)
-                    for n in range(col_index(m.group(1)), col_index(m.group(2) or m.group(1)) + 1):
-                        dv.setdefault(col_letter(n), clean(html.unescape(f1.group(1))))
-        formulas = {}   # столбец → (строка, формула) — из строки заголовков или первая ниже
-        counts, refs, values, external = {}, {}, 0, 0
-        for (c, r), (val, fx) in sorted(cells.items(), key=lambda kv: (col_index(kv[0][0]), kv[0][1])):
-            if fx != '':   # формула: текст или продолжение общей формулы (fx is None)
-                counts[c] = counts.get(c, 0) + 1
-                if fx:
-                    text = unwrap(fx)
-                    if c not in formulas and r >= head:   # формула столбца: в строке заголовков или первая ниже
-                        formulas[c] = (r, text)
-                    external += text.upper().count('IMPORTRANGE')
-                    for ref in QUOTED.findall(text) + PLAIN.findall(text):
-                        ref = ref.replace("''", "'")
-                        if ref != name and not re.fullmatch(r'[A-Z]{1,3}\d*', ref):
-                            refs[ref] = refs.get(ref, 0) + 1
-            elif r > head and val != '':
-                values += 1
-        info['formul'] = sum(counts.values())
-        info['znacheniy'] = values
-        info['spiskov'] = len(re.findall(r'<dataValidation ', x))
-        info['uslovnyh'] = len(re.findall(r'<conditionalFormatting ', x))
-        info['obedineno'] = len(re.findall(r'<mergeCell ', x))
-        info['beryot'] = dict(sorted(refs.items(), key=lambda kv: -kv[1]))
-        info['importrange'] = external
-        letters = {c for (c, r) in cells if r <= head and get(c, r)} | set(formulas) | set(dv)
-        if frame:
-            letters |= {c for (c, r) in cells if r == labels.get('klyuch') and get(c, r)}
-        cols = []
-        for c in sorted(letters, key=col_index):
-            e = {'bukva': c}
-            h = get(c, head)
-            if h:
-                e['zagolovok'] = clean(h)
-            for field in ('klyuch', 'vid', 'var_name', 'var_value', 'skryt', 'primechanie'):
-                r = labels.get(field)
-                if r and get(c, r) and not (c == 'C' and field != 'vid'):
-                    e[field] = clean(get(c, r))
-            if col_index(c) in hidden:
-                e['skryt_v_fayle'] = True
-            if c in formulas:
-                text = clean('=' + formulas[c][1])
-                e['formula'] = text if len(text) <= FORMULA_LIMIT else text[:FORMULA_LIMIT] + ' …'
-                e['formula_v_stroke'] = formulas[c][0]
-                e['formul'] = counts.get(c, 0)
-            if c in dv:
-                e['spisok'] = dv[c]
-            if len(e) > 1:
-                cols.append(e)
-        info['stolbtsy'] = cols
-        return {k: v for k, v in info.items() if v not in ('', {}, [], None) or k in ('karkas', 'formul', 'znacheniy')}
+                dv.append((sq.group(1), html.unescape(f1.group(1))))
+        return {'cells': cells, 'pane': (pane.group(1), int(pane.group(2))) if pane else None,
+                'dim': dim.group(1) if dim else None, 'hidden': hidden, 'dv': dv,
+                'n_dv': len(re.findall(r'<dataValidation ', x)), 'n_cond': len(re.findall(r'<conditionalFormatting ', x)),
+                'n_merge': len(re.findall(r'<mergeCell ', x))}
+
+
+class VebBook:
+    """Таблица из JSON вебхука (tools/veb/Code.gs, формат orb-veb-1) — те же model() и sheet(), что у Book."""
+
+    def __init__(self, path):
+        data = json.load(open(path, encoding='utf-8'))
+        if data.get('format') != 'orb-veb-1':
+            sys.exit(f'{path}: не JSON вебхука orb-veb-1')
+        self.sheets = {s['list'].strip(): s for s in data.get('listy', [])}
+
+    def sheet(self, name):
+        return describe(name, self.model(name))
+
+    def model(self, name):
+        s = self.sheets[name]
+        fr, fc = (s.get('zakrepleno') or [0, 0])[:2]
+        return {'cells': {(c, int(r)): (str(v), f) for c, r, v, f in s.get('yacheyki', [])},
+                'pane': (col_letter(fc + 1), fr + 1) if fr or fc else None, 'dim': None,
+                'hidden': set(s.get('skrytye', [])), 'dv': [tuple(x) for x in s.get('spiski', [])],
+                'n_dv': s.get('n_spiskov', 0), 'n_cond': s.get('uslovnyh', 0), 'n_merge': s.get('obedineno', 0)}
+
+
+def describe(name, m):
+    """Устройство листа по ячейкам (из xlsx или вебхука): словарь для struktura.yaml."""
+    cells, pane = m['cells'], m['pane']
+    get = lambda c, r: (cells.get((c, r)) or ('', ''))[0].strip()
+    frame = get('C', 1) == 'header_first'
+    info = {'list': name}
+    last_c = max((col_index(c) for c, _ in cells), default=1)
+    last_r = max((r for _, r in cells), default=1)
+    info['diapazon'] = m['dim'] or f'A1:{col_letter(last_c)}{last_r}'   # Google размер не пишет — тогда по занятым ячейкам
+    info['zakrepleno'] = f'{pane[0]}{pane[1]}' if pane else ''
+    info['karkas'] = frame
+    labels = {}
+    if frame:
+        for r in range(1, 41):
+            lab = get('C', r)
+            if lab in LABELS:
+                labels[LABELS[lab]] = r
+            if lab == 'header_last':
+                break
+        head = labels.get('primechanie', 9) + 1
+        labels['vid'] = labels.get('klyuch', 2) + 1
+    else:
+        head = pane[1] - 1 if pane and pane[1] > 1 else 1
+        info['zagolovki_ugadany'] = True
+    info['stroka_zagolovkov'] = head
+    hidden = m['hidden']
+    dv = {}
+    for sqref, f1 in m['dv']:
+        for part in sqref.split():
+            mm = re.match(r'([A-Z]+)\d*(?::([A-Z]+)\d*)?', part)
+            for n in range(col_index(mm.group(1)), col_index(mm.group(2) or mm.group(1)) + 1):
+                dv.setdefault(col_letter(n), clean(f1))
+    formulas = {}   # столбец → (строка, формула) — из строки заголовков или первая ниже
+    counts, refs, values, external = {}, {}, 0, 0
+    for (c, r), (val, fx) in sorted(cells.items(), key=lambda kv: (col_index(kv[0][0]), kv[0][1])):
+        if fx != '':   # формула: текст или продолжение общей формулы (fx is None)
+            counts[c] = counts.get(c, 0) + 1
+            if fx:
+                text = unwrap(fx)
+                if c not in formulas and r >= head:   # формула столбца: в строке заголовков или первая ниже
+                    formulas[c] = (r, text)
+                external += text.upper().count('IMPORTRANGE')
+                for ref in QUOTED.findall(text) + PLAIN.findall(text):
+                    ref = ref.replace("''", "'")
+                    if ref != name and not re.fullmatch(r'[A-Z]{1,3}\d*', ref):
+                        refs[ref] = refs.get(ref, 0) + 1
+        elif r > head and val != '':
+            values += 1
+    info['formul'] = sum(counts.values())
+    info['znacheniy'] = values
+    info['spiskov'] = m['n_dv']
+    info['uslovnyh'] = m['n_cond']
+    info['obedineno'] = m['n_merge']
+    info['beryot'] = dict(sorted(refs.items(), key=lambda kv: -kv[1]))
+    info['importrange'] = external
+    letters = {c for (c, r) in cells if r <= head and get(c, r)} | set(formulas) | set(dv)
+    if frame:
+        letters |= {c for (c, r) in cells if r == labels.get('klyuch') and get(c, r)}
+    cols = []
+    for c in sorted(letters, key=col_index):
+        e = {'bukva': c}
+        h = get(c, head)
+        if h:
+            e['zagolovok'] = clean(h)
+        for field in ('klyuch', 'vid', 'var_name', 'var_value', 'skryt', 'primechanie'):
+            r = labels.get(field)
+            if r and get(c, r) and not (c == 'C' and field != 'vid'):
+                e[field] = clean(get(c, r))
+        if col_index(c) in hidden:
+            e['skryt_v_fayle'] = True
+        if c in formulas:
+            text = clean('=' + formulas[c][1])
+            e['formula'] = text if len(text) <= FORMULA_LIMIT else text[:FORMULA_LIMIT] + ' …'
+            e['formula_v_stroke'] = formulas[c][0]
+            e['formul'] = counts.get(c, 0)
+        if c in dv:
+            e['spisok'] = dv[c]
+        if len(e) > 1:
+            cols.append(e)
+    info['stolbtsy'] = cols
+    return {k: v for k, v in info.items() if v not in ('', {}, [], None) or k in ('karkas', 'formul', 'znacheniy')}
 
 
 def dump(data):
@@ -281,7 +322,7 @@ def main():
     reg = yaml.safe_load(open(f'{LIS}/listy.yaml', encoding='utf-8'))
     stale = []
     for table, path in books.items():
-        book, made = Book(path), 0
+        book, made = (VebBook(path) if path.endswith('.json') else Book(path)), 0
         want = [e for e in reg if e['tablitsa'] == table]
         missing = [e['list'] for e in want if e['list'] not in book.sheets]
         extra = [n for n in book.sheets if n not in {e['list'] for e in want}]
