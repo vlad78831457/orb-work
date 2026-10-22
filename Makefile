@@ -1,5 +1,5 @@
 # orb-work. Проверка и сборка идут прямо на стенде: нужны sh, git, python3 и PyYAML.
-.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament reglament-xlsx listy podpisi
+.PHONY: help test test-docker inst full docx mermaid mermaid-setup reglament reglament-xlsx listy podpisi clasp-setup clasp-login gas-pull gas-kopiya gas-push veb-push veb-zabrat agy-setup
 
 SOBRAT := python3 inst/src/skripty/sobrat.py
 DATE ?= $(shell date +%F)
@@ -29,6 +29,30 @@ podpisi: ## редактор подписей на снимках: http://localh
 
 mermaid: ## проверить схемы Mermaid в inst/md-out настоящим mermaid-cli (по желанию; новые и изменённые)
 	taskset -c 0 python3 tools/mermaid.py
+
+clasp-setup: ## поставить clasp (Apps Script из командной строки) в .tools/clasp
+	mkdir -p .tools/clasp && taskset -c 0 npm --prefix .tools/clasp install --no-audit --no-fund @google/clasp@3.4.1
+
+clasp-login: ## вход в Google для clasp — делает директор сам
+	sh tools/gas.sh login
+
+gas-pull: ## скачать скрипты таблицы в raw/gas/NAME: make gas-pull ID=<scriptId> NAME=<имя>
+	sh tools/gas.sh pull "$(ID)" "$(NAME)"
+
+gas-kopiya: ## пометить raw/gas/NAME как копию для опытов (без этого push не пойдёт)
+	sh tools/gas.sh kopiya "$(NAME)"
+
+gas-push: ## записать raw/gas/NAME в копию: make gas-push NAME=<имя>
+	sh tools/gas.sh push "$(NAME)"
+
+veb-push: ## добавить вебхук tools/veb в копию raw/gas/NAME и записать: make veb-push NAME=<имя>
+	sh tools/gas.sh veb "$(NAME)"
+
+veb-zabrat: ## забрать JSON вебхука в raw/veb: make veb-zabrat IMYA=proekta [LIST="лист"]
+	IMYA="$(IMYA)" LIST="$(LIST)" python3 tools/veb/zabrat.py
+
+agy-setup: ## поставить Antigravity CLI (agy) в .tools/agy, со сверкой контрольной суммы
+	sh tools/agy-setup.sh
 
 mermaid-setup: ## поставить mermaid-cli в .tools/ (нужны nodejs и npm в системе)
 	mkdir -p .tools; [ -f .tools/package.json ] || echo '{"private":true}' > .tools/package.json

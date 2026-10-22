@@ -11,3 +11,7 @@ raw/*
 # инструменты стенда (mermaid-cli, браузер для него) — make mermaid-setup
 .tools/
 __pycache__/
+
+# clasp: вход директора и привязка к проектам Google — не в Git
+.clasprc.json
+.clasp.json
