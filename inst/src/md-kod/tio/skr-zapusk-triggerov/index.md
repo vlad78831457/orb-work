@@ -10,7 +10,7 @@ nuzhno:
   - um.skr-proverit-triggery
 ---
 
-[[tio.skr-zapusk-triggerov-express]]
+[[tio.skr-zapusk-triggerov-express:tekst]]
 
 
 # Запуск триггеров
