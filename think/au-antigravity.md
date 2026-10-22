@@ -39,3 +39,10 @@
 
 **Осторожно:** `agy` отправляет то, что ему дают, в Google. Рабочие данные компании ему не давать, пока директор
 не решит, что можно. Это то же правило, что «ничего не выносить наружу».
+
+## Почитать
+
+- [GitHub — google-antigravity/antigravity-cli](https://github.com/google-antigravity/antigravity-cli)
+- [Install Antigravity CLI on Linux, macOS, and Windows](https://computingforgeeks.com/install-antigravity-cli-linux-macos-windows/)
+- [How to Install Antigravity CLI (agy) on Linux](https://www.codeagentswarm.com/en/guides/antigravity-cli-on-linux)
+- [Getting Started with Antigravity CLI — DEV Community](https://dev.to/gde/getting-started-with-antigravity-cli-183g)
